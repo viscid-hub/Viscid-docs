@@ -1,0 +1,367 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Magnetic Topology &#8212; Viscid 0.99.7.dev0 documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Extracting Magnetopause Information" href="magnetopause.html" />
+    <link rel="prev" title="Streamlines" href="stream_and_interp.html" />
+<link rel="icon" href="../_static/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../_static/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon-precomposed" href="../_static/Vicon_128.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Viscid</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.99.7.dev0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+    <li class="dropdown">
+      <a role="button"
+         id="dLabelNavLinxToc"
+         data-toggle="dropdown"
+         data-target="#"
+         href="#">Tutorial <b class="caret"></b></a>
+      <ul class="dropdown-menu navlinktoc"
+          role="menu">
+          <li class="toctree-l1">
+            <a class="reference internal", href="../installation.html">Installation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="creating_fields.html">Creating Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="slicing.html">Slicing Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="plotting_scalars.html">Plotting Scalars</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="plotting_vectors.html">Plotting Vectors</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="mayavi.html">3D Plots (Mayavi)</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="openggcm.html">OpenGGCM Specific</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="ionosphere.html">Ionosphere</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="stream_and_interp.html">Streamline and Interpolation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="#">Magnetic Topology</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="magnetopause.html">Magnetopause</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="quasi_potential.html">Quasi Potential</a>
+          </li>
+      </ul>
+    </li>
+
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../changes.html">ChangeLog</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../philosophy.html">Philosophy</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tips_and_tricks.html">Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functions.html">Useful Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plot_options.html">Plot Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mpl_style_gallery.html">Matplotlib Style Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom_behavior.html">Custom Behavior (rc file)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev_guide.html">Developer’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extending_readers.html">Extending Readers</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/viscid.html">API</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Magnetic Topology</a><ul>
+<li><a class="reference internal" href="#x-point-location-and-separator-tracing">X-Point Location and Separator Tracing</a><ul>
+<li><a class="reference internal" href="#bisection-algorithm">Bisection algorithm</a></li>
+<li><a class="reference internal" href="#bit-or-algorithm">Bit-or algorithm</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="magnetic-topology">
+<h1>Magnetic Topology<a class="headerlink" href="#magnetic-topology" title="Permalink to this headline">¶</a></h1>
+<p>Magnetic topology can be determined by the end points of magnetic field lines. By default, the topology output from calc_streamlines is a bitmask of closed (1), open-north (2), open-south (4), and solar wind (8). Any value larger than 8 indicates something else happened with that field line, such as reaching maxit or max_length and ending without hitting a boundary. The topology output can be switched to the raw boundary bitmask by giving <code class="docutils literal notranslate"><span class="pre">topo_style='generic'</span></code> as an argument to calc_streamlines.</p>
+<p>For more info on streamlines, check out <a class="reference internal" href="../api/viscid.html#viscid.calc_streamlines" title="viscid.calc_streamlines"><code class="xref py py-func docutils literal notranslate"><span class="pre">viscid.calc_streamlines()</span></code></a> and subclasses of <a class="reference internal" href="../api/viscid.html#viscid.SeedGen" title="viscid.SeedGen"><code class="xref py py-class docutils literal notranslate"><span class="pre">viscid.SeedGen</span></code></a></p>
+<div class="section" id="x-point-location-and-separator-tracing">
+<h2>X-Point Location and Separator Tracing<a class="headerlink" href="#x-point-location-and-separator-tracing" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="bisection-algorithm">
+<h3>Bisection algorithm<a class="headerlink" href="#bisection-algorithm" title="Permalink to this headline">¶</a></h3>
+<p>This algorithm takes a 2d map in the uv space of a seed generator and iteratively bisects it into 4 quadrants. If the perimeter of a quadrant contains all 4 global topologies, the bisection continues in that quadrant. This has the advantage of uniquely finding all separator points to a given precision that is determined by the maximum number of iterations. This method is superior in most ways than the bit-or algorithm, but it is less extensively tested.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">path</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">viscid</span>
+<span class="kn">from</span> <span class="nn">viscid.plot</span> <span class="kn">import</span> <span class="n">vpyplot</span> <span class="k">as</span> <span class="n">vlt</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+
+<span class="n">viscid</span><span class="o">.</span><span class="n">readers</span><span class="o">.</span><span class="n">openggcm</span><span class="o">.</span><span class="n">GGCMFile</span><span class="o">.</span><span class="n">read_log_file</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="n">viscid</span><span class="o">.</span><span class="n">readers</span><span class="o">.</span><span class="n">openggcm</span><span class="o">.</span><span class="n">GGCMGrid</span><span class="o">.</span><span class="n">mhd_to_gse_on_read</span> <span class="o">=</span> <span class="s1">&#39;auto&#39;</span>
+
+
+<span class="n">f3d</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">load_file</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">viscid</span><span class="o">.</span><span class="n">sample_dir</span><span class="p">,</span> <span class="s1">&#39;sample_xdmf.3d.xdmf&#39;</span><span class="p">))</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">f3d</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">][</span><span class="s1">&#39;x=-40f:15f, y=-20f:20f, z=-20f:20f&#39;</span><span class="p">]</span>
+
+<span class="c1"># for this method, seeds must be a SeedGen subclass, not a field subset</span>
+<span class="n">seeds</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">Volume</span><span class="p">(</span><span class="n">xl</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">40</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">20</span><span class="p">),</span> <span class="n">xh</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="n">n</span><span class="o">=</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">128</span><span class="p">))</span>
+
+<span class="n">trace_opts</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">ibound</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
+<span class="n">xpts</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">get_sep_pts_bisect</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">seeds</span><span class="p">,</span> <span class="n">trace_opts</span><span class="o">=</span><span class="n">trace_opts</span><span class="p">)</span>
+
+<span class="c1"># all done, now just make some illustration</span>
+<span class="n">log_bmag</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">viscid</span><span class="o">.</span><span class="n">magnitude</span><span class="p">(</span><span class="n">B</span><span class="p">))</span>
+<span class="n">lines</span><span class="p">,</span> <span class="n">topo</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">calc_streamlines</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">seeds</span><span class="p">,</span> <span class="o">**</span><span class="n">trace_opts</span><span class="p">)</span>
+
+<span class="n">vlt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">topo</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;afmhot&#39;</span><span class="p">)</span>
+
+<span class="n">vlt</span><span class="o">.</span><span class="n">plot2d_lines</span><span class="p">(</span><span class="n">lines</span><span class="p">[::</span><span class="mi">79</span><span class="p">],</span> <span class="n">scalars</span><span class="o">=</span><span class="n">log_bmag</span><span class="p">,</span> <span class="n">symdir</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xpts</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">xpts</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="s1">&#39;y*&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+             <span class="n">markeredgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">markeredgewidth</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="n">topo</span><span class="o">.</span><span class="n">xl</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">topo</span><span class="o">.</span><span class="n">xh</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="n">topo</span><span class="o">.</span><span class="n">xl</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">topo</span><span class="o">.</span><span class="n">xh</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+
+<span class="c1"># since seeds is a Field, we can use it to determine mhd|gse</span>
+<span class="n">vlt</span><span class="o">.</span><span class="n">plot_earth</span><span class="p">(</span><span class="n">B</span><span class="p">[</span><span class="s1">&#39;y=0f&#39;</span><span class="p">])</span>
+
+<span class="n">vlt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href="../tutorial/magnetic_topology-1.py">Source code</a>, <a class="reference external" href="../tutorial/magnetic_topology-1.png">png</a>)</p>
+<div class="figure">
+<img alt="../_images/magnetic_topology-1.png" src="../_images/magnetic_topology-1.png" />
+</div>
+</div>
+<div class="section" id="bit-or-algorithm">
+<h3>Bit-or algorithm<a class="headerlink" href="#bit-or-algorithm" title="Permalink to this headline">¶</a></h3>
+<p>This algorithm takes a 2d map in the uv space of a seed generator and performs an iterative bitwise-or on neighbors until the intersection of all four global topologies meet. This algorithm is simple, but fragile. The more extended the reconnection region, the worse this algorithm will work. Also, do to the need for a clustering step, it is impossible to determine the accuracy of this method a priori.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">path</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">viscid</span>
+<span class="kn">from</span> <span class="nn">viscid.plot</span> <span class="kn">import</span> <span class="n">vpyplot</span> <span class="k">as</span> <span class="n">vlt</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+
+<span class="n">viscid</span><span class="o">.</span><span class="n">readers</span><span class="o">.</span><span class="n">openggcm</span><span class="o">.</span><span class="n">GGCMFile</span><span class="o">.</span><span class="n">read_log_file</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="n">viscid</span><span class="o">.</span><span class="n">readers</span><span class="o">.</span><span class="n">openggcm</span><span class="o">.</span><span class="n">GGCMGrid</span><span class="o">.</span><span class="n">mhd_to_gse_on_read</span> <span class="o">=</span> <span class="s1">&#39;auto&#39;</span>
+
+
+<span class="n">f3d</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">load_file</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">viscid</span><span class="o">.</span><span class="n">sample_dir</span><span class="p">,</span> <span class="s1">&#39;sample_xdmf.3d.xdmf&#39;</span><span class="p">))</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">f3d</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">][</span><span class="s1">&#39;x=-40f:15f, y=-20f:20f, z=-20f:20f&#39;</span><span class="p">]</span>
+
+<span class="c1"># for this method, seeds must be a SeedGen subclass, not a field subset</span>
+<span class="n">seeds</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">Volume</span><span class="p">(</span><span class="n">xl</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">40</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">20</span><span class="p">),</span> <span class="n">xh</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="n">n</span><span class="o">=</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">128</span><span class="p">))</span>
+<span class="n">seeds_dy</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">Volume</span><span class="p">(</span><span class="n">xl</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">),</span> <span class="n">xh</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">n</span><span class="o">=</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">128</span><span class="p">))</span>
+<span class="n">seeds_nt</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">Volume</span><span class="p">(</span><span class="n">xl</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">40</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">),</span> <span class="n">xh</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">n</span><span class="o">=</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">128</span><span class="p">))</span>
+
+<span class="n">trace_opts</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">ibound</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
+<span class="n">xpts_dy</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">get_sep_pts_bitor</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">seeds_dy</span><span class="p">,</span> <span class="n">trace_opts</span><span class="o">=</span><span class="n">trace_opts</span><span class="p">)</span>
+<span class="n">xpts_nt</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">get_sep_pts_bitor</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">seeds_nt</span><span class="p">,</span> <span class="n">trace_opts</span><span class="o">=</span><span class="n">trace_opts</span><span class="p">)</span>
+
+<span class="c1"># all done, now just make some illustration</span>
+<span class="n">log_bmag</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">viscid</span><span class="o">.</span><span class="n">magnitude</span><span class="p">(</span><span class="n">B</span><span class="p">))</span>
+<span class="n">lines</span><span class="p">,</span> <span class="n">topo</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">calc_streamlines</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">seeds</span><span class="p">,</span> <span class="o">**</span><span class="n">trace_opts</span><span class="p">)</span>
+<span class="n">_</span><span class="p">,</span> <span class="n">topo_dy</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">calc_streamlines</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">seeds_dy</span><span class="p">,</span> <span class="n">ibound</span><span class="o">=</span><span class="mf">3.0</span><span class="p">,</span>
+                                     <span class="n">output</span><span class="o">=</span><span class="n">viscid</span><span class="o">.</span><span class="n">OUTPUT_TOPOLOGY</span><span class="p">)</span>
+<span class="n">_</span><span class="p">,</span> <span class="n">topo_nt</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">calc_streamlines</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">seeds_nt</span><span class="p">,</span> <span class="n">ibound</span><span class="o">=</span><span class="mf">3.0</span><span class="p">,</span>
+                                     <span class="n">output</span><span class="o">=</span><span class="n">viscid</span><span class="o">.</span><span class="n">OUTPUT_TOPOLOGY</span><span class="p">)</span>
+
+<span class="n">clim</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">topo</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">topo</span><span class="p">))</span>
+<span class="n">vlt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">topo</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;afmhot&#39;</span><span class="p">,</span> <span class="n">clim</span><span class="o">=</span><span class="n">clim</span><span class="p">)</span>
+<span class="n">vlt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">topo_dy</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;afmhot&#39;</span><span class="p">,</span> <span class="n">clim</span><span class="o">=</span><span class="n">clim</span><span class="p">,</span> <span class="n">colorbar</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">vlt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">topo_nt</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;afmhot&#39;</span><span class="p">,</span> <span class="n">clim</span><span class="o">=</span><span class="n">clim</span><span class="p">,</span> <span class="n">colorbar</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+
+<span class="n">vlt</span><span class="o">.</span><span class="n">plot2d_lines</span><span class="p">(</span><span class="n">lines</span><span class="p">[::</span><span class="mi">79</span><span class="p">],</span> <span class="n">scalars</span><span class="o">=</span><span class="n">log_bmag</span><span class="p">,</span> <span class="n">symdir</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xpts_dy</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">xpts_dy</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="s1">&#39;y*&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+             <span class="n">markeredgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">markeredgewidth</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xpts_nt</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">xpts_nt</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="s1">&#39;y*&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+             <span class="n">markeredgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">markeredgewidth</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="n">topo</span><span class="o">.</span><span class="n">xl</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">topo</span><span class="o">.</span><span class="n">xh</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="n">topo</span><span class="o">.</span><span class="n">xl</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">topo</span><span class="o">.</span><span class="n">xh</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+
+<span class="c1"># since seeds is a Field, we can use it to determine mhd|gse</span>
+<span class="n">vlt</span><span class="o">.</span><span class="n">plot_earth</span><span class="p">(</span><span class="n">B</span><span class="p">[</span><span class="s1">&#39;y=0f&#39;</span><span class="p">])</span>
+
+<span class="n">vlt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href="../tutorial/magnetic_topology-2.py">Source code</a>, <a class="reference external" href="../tutorial/magnetic_topology-2.png">png</a>)</p>
+<div class="figure">
+<img alt="../_images/magnetic_topology-2.png" src="../_images/magnetic_topology-2.png" />
+</div>
+<p>The bit-or algorithm can has another interface that just takes a topology field. It can be used this way:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">path</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">viscid</span>
+<span class="kn">from</span> <span class="nn">viscid.plot</span> <span class="kn">import</span> <span class="n">vpyplot</span> <span class="k">as</span> <span class="n">vlt</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+
+<span class="n">viscid</span><span class="o">.</span><span class="n">readers</span><span class="o">.</span><span class="n">openggcm</span><span class="o">.</span><span class="n">GGCMFile</span><span class="o">.</span><span class="n">read_log_file</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="n">viscid</span><span class="o">.</span><span class="n">readers</span><span class="o">.</span><span class="n">openggcm</span><span class="o">.</span><span class="n">GGCMGrid</span><span class="o">.</span><span class="n">mhd_to_gse_on_read</span> <span class="o">=</span> <span class="s1">&#39;auto&#39;</span>
+
+
+<span class="n">f3d</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">load_file</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">viscid</span><span class="o">.</span><span class="n">sample_dir</span><span class="p">,</span> <span class="s1">&#39;sample_xdmf.3d.xdmf&#39;</span><span class="p">))</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">f3d</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">][</span><span class="s1">&#39;x=-40f:15f, y=-20f:20f, z=-20f:20f&#39;</span><span class="p">]</span>
+
+<span class="c1"># Fields can be used as seeds to get one seed per grid point</span>
+<span class="n">seeds</span> <span class="o">=</span> <span class="n">B</span><span class="o">.</span><span class="n">slice_keep</span><span class="p">(</span><span class="s1">&#39;y=0f&#39;</span><span class="p">)</span>
+<span class="n">lines</span><span class="p">,</span> <span class="n">topo</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">calc_streamlines</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">seeds</span><span class="p">,</span> <span class="n">ibound</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span>
+                                      <span class="n">output</span><span class="o">=</span><span class="n">viscid</span><span class="o">.</span><span class="n">OUTPUT_BOTH</span><span class="p">)</span>
+<span class="n">xpts_night</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">topology_bitor_clusters</span><span class="p">(</span><span class="n">topo</span><span class="p">[</span><span class="s1">&#39;x=:0f, y=0f&#39;</span><span class="p">])</span>
+
+<span class="c1"># The dayside is done separately here because the sample data is at such</span>
+<span class="c1"># low resolution. Super-sampling the grid with the seeds can sometimes help</span>
+<span class="c1"># in these cases.</span>
+<span class="n">day_seeds</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">Volume</span><span class="p">((</span><span class="mf">7.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">5.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">12.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">),</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">16</span><span class="p">))</span>
+<span class="n">_</span><span class="p">,</span> <span class="n">day_topo</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">calc_streamlines</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">day_seeds</span><span class="p">,</span> <span class="n">ibound</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span>
+                                      <span class="n">output</span><span class="o">=</span><span class="n">viscid</span><span class="o">.</span><span class="n">OUTPUT_TOPOLOGY</span><span class="p">)</span>
+<span class="n">xpts_day</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">topology_bitor_clusters</span><span class="p">(</span><span class="n">day_topo</span><span class="p">)</span>
+
+<span class="n">log_bmag</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">viscid</span><span class="o">.</span><span class="n">magnitude</span><span class="p">(</span><span class="n">B</span><span class="p">))</span>
+
+<span class="n">clim</span> <span class="o">=</span> <span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">day_topo</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">topo</span><span class="p">)),</span>
+        <span class="nb">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">day_topo</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">topo</span><span class="p">)))</span>
+<span class="n">vlt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">topo</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;afmhot&#39;</span><span class="p">,</span> <span class="n">clim</span><span class="o">=</span><span class="n">clim</span><span class="p">)</span>
+<span class="n">vlt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">day_topo</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;afmhot&#39;</span><span class="p">,</span> <span class="n">clim</span><span class="o">=</span><span class="n">clim</span><span class="p">,</span> <span class="n">colorbar</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+
+<span class="n">vlt</span><span class="o">.</span><span class="n">plot2d_lines</span><span class="p">(</span><span class="n">lines</span><span class="p">[::</span><span class="mi">79</span><span class="p">],</span> <span class="n">scalars</span><span class="o">=</span><span class="n">log_bmag</span><span class="p">,</span> <span class="n">symdir</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xpts_night</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">xpts_night</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;y*&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+             <span class="n">markeredgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">markeredgewidth</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xpts_day</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">xpts_day</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;y*&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+             <span class="n">markeredgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">markeredgewidth</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="n">topo</span><span class="o">.</span><span class="n">xl</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">topo</span><span class="o">.</span><span class="n">xh</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="n">topo</span><span class="o">.</span><span class="n">xl</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">topo</span><span class="o">.</span><span class="n">xh</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+
+<span class="c1"># since seeds is a Field, we can use it to determine mhd|gse</span>
+<span class="n">vlt</span><span class="o">.</span><span class="n">plot_earth</span><span class="p">(</span><span class="n">seeds</span><span class="o">.</span><span class="n">slice_reduce</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">))</span>
+
+<span class="n">vlt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href="../tutorial/magnetic_topology-3.py">Source code</a>, <a class="reference external" href="../tutorial/magnetic_topology-3.png">png</a>)</p>
+<div class="figure">
+<img alt="../_images/magnetic_topology-3.png" src="../_images/magnetic_topology-3.png" />
+</div>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../_sources/tutorial/magnetic_topology.rst.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright 2017, Kristofor Maynard.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

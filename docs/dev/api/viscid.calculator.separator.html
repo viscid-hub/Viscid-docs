@@ -1,0 +1,339 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>viscid.calculator.separator module &#8212; Viscid 0.99.7.dev0 documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="viscid.calculator.topology module" href="viscid.calculator.topology.html" />
+    <link rel="prev" title="viscid.calculator.plasma module" href="viscid.calculator.plasma.html" />
+<link rel="icon" href="../_static/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../_static/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon-precomposed" href="../_static/Vicon_128.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Viscid</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.99.7.dev0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+    <li class="dropdown">
+      <a role="button"
+         id="dLabelNavLinxToc"
+         data-toggle="dropdown"
+         data-target="#"
+         href="#">Tutorial <b class="caret"></b></a>
+      <ul class="dropdown-menu navlinktoc"
+          role="menu">
+          <li class="toctree-l1">
+            <a class="reference internal", href="../installation.html">Installation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/creating_fields.html">Creating Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/slicing.html">Slicing Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/plotting_scalars.html">Plotting Scalars</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/plotting_vectors.html">Plotting Vectors</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/mayavi.html">3D Plots (Mayavi)</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/openggcm.html">OpenGGCM Specific</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/ionosphere.html">Ionosphere</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/stream_and_interp.html">Streamline and Interpolation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/magnetic_topology.html">Magnetic Topology</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/magnetopause.html">Magnetopause</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/quasi_potential.html">Quasi Potential</a>
+          </li>
+      </ul>
+    </li>
+
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../changes.html">ChangeLog</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../philosophy.html">Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tips_and_tricks.html">Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functions.html">Useful Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plot_options.html">Plot Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mpl_style_gallery.html">Matplotlib Style Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom_behavior.html">Custom Behavior (rc file)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev_guide.html">Developer’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extending_readers.html">Extending Readers</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="viscid.html">API</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">viscid.calculator.separator module</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="module-viscid.calculator.separator">
+<span id="viscid-calculator-separator-module"></span><h1>viscid.calculator.separator module<a class="headerlink" href="#module-viscid.calculator.separator" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="viscid.calculator.separator.trace_separator">
+<code class="descclassname">viscid.calculator.separator.</code><code class="descname">trace_separator</code><span class="sig-paren">(</span><em>grid</em>, <em>b_slcstr='x=-25f:15f</em>, <em>y=-30f:30f</em>, <em>z=-15f:15f'</em>, <em>r=1.0</em>, <em>plot=False</em>, <em>trace_opts=None</em>, <em>cache=True</em>, <em>cache_dir=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/calculator/separator.html#trace_separator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.calculator.separator.trace_separator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Trace a separator line from most dawnward null</p>
+<p><strong>Still in testing</strong> Uses the bisection algorithm.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>grid</strong> (<a class="reference internal" href="viscid.grid.html#viscid.grid.Grid" title="viscid.grid.Grid"><em>Grid</em></a>) – A grid that has a “b” field</li>
+<li><strong>b_slcstr</strong> (<em>str</em>) – Some valid slice for B field</li>
+<li><strong>r</strong> (<em>float</em>) – spatial step of separator line</li>
+<li><strong>plot</strong> (<em>bool</em>) – make debugging plots</li>
+<li><strong>trace_opts</strong> (<em>dict</em>) – passed to streamline function</li>
+<li><strong>cache</strong> (<em>bool</em><em>, </em><em>str</em>) – Save to and load from cache, if “force”,
+then don’t load from cache if it exists, but do save a
+cache at the end</li>
+<li><strong>cache_dir</strong> (<em>str</em>) – Directory for cache, if None, same directory
+as that file to which the grid belongs</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><code class="xref py py-exc docutils literal notranslate"><span class="pre">IOError</span></code> – Description</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p>(separator_lines, nulls)</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>separator_lines</strong> (list): list of M 3xN ndarrays that
+represent M separator lines with N points</li>
+<li><strong>nulls</strong> (ndarray): 3xN array of N null points</li>
+</ul>
+</div></blockquote>
+</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">tuple</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.calculator.separator.topology_bitor_clusters">
+<code class="descclassname">viscid.calculator.separator.</code><code class="descname">topology_bitor_clusters</code><span class="sig-paren">(</span><em>fld</em>, <em>min_depth=1</em>, <em>max_depth=10</em>, <em>multiple=True</em>, <em>plot=False</em>, <em>sep_val=15</em>, <em>mask_limit=15</em>, <em>periodic='00'</em>, <em>pt_bnds=()</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/calculator/separator.html#topology_bitor_clusters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.calculator.separator.topology_bitor_clusters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find separator as intersection of all global topologies</p>
+<p>Neighbors are bitwise ORed until at least one value matches
+<cite>sep_val</cite> which is presumably (Close | Open N | Open S | SW).
+This happens between min_depth and max_depth times,
+where the resolution of each iteration is reduced by a factor
+of two, ie, worst case 2**(max_depth).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>fld</strong> (<em>Field</em>) – Topology (bitmask) as a field</li>
+<li><strong>min_depth</strong> (<em>int</em>) – Iterate at least this many times</li>
+<li><strong>max_depth</strong> (<em>int</em>) – Iterate at most this many times</li>
+<li><strong>multiple</strong> (<em>bool</em>) – passed to <code class="xref py py-func docutils literal notranslate"><span class="pre">viscid.cluster()</span></code></li>
+<li><strong>sep_val</strong> (<em>int</em>) – Value of bitmask that indicates a separator</li>
+<li><strong>plot</strong> (<em>bool</em>) – Make a 2D plot of Fld and the sep candidates</li>
+<li><strong>mask_limit</strong> (<em>int</em>) – if &gt; 0, then bitmask fld with mask_limit,
+i.e., fld = fld &amp; mask_limit (bitwise and)</li>
+<li><strong>periodic</strong> (<em>sequence</em>) – indicate whether that direction is
+periodic, and if so, whether the coordinate arrays are
+overlapped or not. Values can be True, False, or ‘+’. ‘+’
+indicates that x[0] and x[-1] are not colocated, so assume
+they’re dx apart where dx = x[-1] - x[-2].</li>
+<li><strong>pt_bnd</strong> (<em>sequence</em>) – Boundaries that come to a point, i.e., all
+values along that boundary are neighbors such as the poles
+of a sphere. Specified like “0-” for lower boundary of
+dimension 0 or “1+” for the upper boundary of dimension 1.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">2xN for N clusters of separator points in the same
+coordinates as <cite>fld</cite></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.calculator.separator.get_sep_pts_bitor">
+<code class="descclassname">viscid.calculator.separator.</code><code class="descname">get_sep_pts_bitor</code><span class="sig-paren">(</span><em>fld</em>, <em>seed</em>, <em>trace_opts=None</em>, <em>make_3d=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/calculator/separator.html#get_sep_pts_bitor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.calculator.separator.get_sep_pts_bitor" title="Permalink to this definition">¶</a></dt>
+<dd><p>bitor topologies to find separator points in uv map from seed</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>fld</strong> (<em>VectorField</em>) – Magnetic Field</li>
+<li><strong>seed</strong> (<a class="reference internal" href="viscid.seed.html#viscid.seed.SeedGen" title="viscid.seed.SeedGen"><em>viscid.seed.SeedGen</em></a>) – Any Seed generator with a 2d local
+representation</li>
+<li><strong>trace_opts</strong> (<em>dict</em>) – kwargs for calc_streamlines</li>
+<li><strong>make_3d</strong> (<em>bool</em>) – convert result from uv to 3d space</li>
+<li><strong>**kwargs</strong> – passed to <a class="reference internal" href="#viscid.calculator.separator.topology_bitor_clusters" title="viscid.calculator.separator.topology_bitor_clusters"><code class="xref py py-func docutils literal notranslate"><span class="pre">topology_bitor_clusters()</span></code></a></li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">3xN ndarray of N separator points in uv space or 3d space
+depending on the <cite>make_3d</cite> kwarg</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.calculator.separator.get_sep_pts_bisect">
+<code class="descclassname">viscid.calculator.separator.</code><code class="descname">get_sep_pts_bisect</code><span class="sig-paren">(</span><em>fld</em>, <em>seed</em>, <em>trace_opts=None</em>, <em>min_depth=3</em>, <em>max_depth=7</em>, <em>plot=False</em>, <em>perimeter_check=&lt;function perimeter_check_bitwise_or&gt;</em>, <em>make_3d=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/calculator/separator.html#get_sep_pts_bisect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.calculator.separator.get_sep_pts_bisect" title="Permalink to this definition">¶</a></dt>
+<dd><p>bisect uv map of seed to find separator points</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>fld</strong> (<em>VectorField</em>) – Magnetic Field</li>
+<li><strong>seed</strong> (<a class="reference internal" href="viscid.seed.html#viscid.seed.SeedGen" title="viscid.seed.SeedGen"><em>viscid.seed.SeedGen</em></a>) – Any Seed generator with a 2d local
+representation</li>
+<li><strong>trace_opts</strong> (<em>dict</em>) – kwargs for calc_streamlines</li>
+<li><strong>min_depth</strong> (<em>int</em>) – Min allowable bisection depth</li>
+<li><strong>max_depth</strong> (<em>int</em>) – Max bisection depth</li>
+<li><strong>plot</strong> (<em>bool</em>) – Useful for debugging the algorithm</li>
+<li><strong>perimeter_check</strong> (<em>func</em>) – Some func that returns a bool with the
+same signature as <code class="xref py py-func docutils literal notranslate"><span class="pre">perimeter_check_bitwise_or()</span></code></li>
+<li><strong>make_3d</strong> (<em>bool</em>) – convert result from uv to 3d space</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">3xN ndarray of N separator points in uv space or 3d space
+depending on the <cite>make_3d</cite> kwarg</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../_sources/api/viscid.calculator.separator.rst.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright 2017, Kristofor Maynard.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

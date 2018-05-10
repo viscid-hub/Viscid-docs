@@ -1,0 +1,1143 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>viscid.calculator package &#8212; Viscid 0.99.6 documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="viscid.calculator.calc module" href="viscid.calculator.calc.html" />
+    <link rel="prev" title="viscid package" href="viscid.html" />
+<link rel="icon" href="../_static/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../_static/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon-precomposed" href="../_static/Vicon_128.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Viscid</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.99.6</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+    <li class="dropdown">
+      <a role="button"
+         id="dLabelNavLinxToc"
+         data-toggle="dropdown"
+         data-target="#"
+         href="#">Tutorial <b class="caret"></b></a>
+      <ul class="dropdown-menu navlinktoc"
+          role="menu">
+          <li class="toctree-l1">
+            <a class="reference internal", href="../installation.html">Installation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/creating_fields.html">Creating Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/slicing.html">Slicing Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/plotting_scalars.html">Plotting Scalars</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/plotting_vectors.html">Plotting Vectors</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/mayavi.html">3D Plots (Mayavi)</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/openggcm.html">OpenGGCM Specific</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/ionosphere.html">Ionosphere</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/stream_and_interp.html">Streamline and Interpolation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/magnetic_topology.html">Magnetic Topology</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/magnetopause.html">Magnetopause</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/quasi_potential.html">Quasi Potential</a>
+          </li>
+      </ul>
+    </li>
+
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../changes.html">ChangeLog</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../philosophy.html">Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tips_and_tricks.html">Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functions.html">Useful Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plot_options.html">Plot Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mpl_style_gallery.html">Matplotlib Style Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom_behavior.html">Custom Behavior (rc file)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev_guide.html">Developer’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extending_readers.html">Extending Readers</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="viscid.html">API</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">viscid.calculator package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-viscid.calculator">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="viscid-calculator-package">
+<h1>viscid.calculator package<a class="headerlink" href="#viscid-calculator-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="viscid.calculator.calc.html">viscid.calculator.calc module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="viscid.calculator.cluster.html">viscid.calculator.cluster module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="viscid.calculator.ecfc.html">viscid.calculator.ecfc module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="viscid.calculator.evaluator.html">viscid.calculator.evaluator module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="viscid.calculator.minvar_tools.html">viscid.calculator.minvar_tools module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="viscid.calculator.mpause.html">viscid.calculator.mpause module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="viscid.calculator.necalc.html">viscid.calculator.necalc module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="viscid.calculator.plasma.html">viscid.calculator.plasma module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="viscid.calculator.separator.html">viscid.calculator.separator module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="viscid.calculator.topology.html">viscid.calculator.topology module</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="module-viscid.calculator">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-viscid.calculator" title="Permalink to this headline">¶</a></h2>
+<p>Calculate using fields</p>
+<p>This package has some general purpose calculator stuff, like
+interpolation, streamline tracing, Div, Curl, calculate flux function,
+etc.</p>
+<dl class="function">
+<dt id="viscid.calculator.convective_deriv">
+<code class="descclassname">viscid.calculator.</code><code class="descname">convective_deriv</code><span class="sig-paren">(</span><em>a</em>, <em>b=None</em>, <em>bnd=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/calculator/calc.html#convective_deriv"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.calculator.convective_deriv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute (a dot nabla) b for vector fields a and b</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.calculator.project_vector">
+<code class="descclassname">viscid.calculator.</code><code class="descname">project_vector</code><span class="sig-paren">(</span><em>a</em>, <em>b</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/calculator/calc.html#project_vector"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.calculator.project_vector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the vector (a dot b_hat) * b_hat</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.calculator.project_along_line">
+<code class="descclassname">viscid.calculator.</code><code class="descname">project_along_line</code><span class="sig-paren">(</span><em>line</em>, <em>fld</em>, <em>interp_kind='trilin'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/calculator/calc.html#project_along_line"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.calculator.project_along_line" title="Permalink to this definition">¶</a></dt>
+<dd><p>Project a Vector Field Parallel to a streamline</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>line</strong> (<em>ndarray</em>) – 3xN of points along the</li>
+<li><strong>fld</strong> (<em>VectorField</em>) – Field to interpolate and project onto the
+line</li>
+<li><strong>interp_kind</strong> (<em>str</em>) – which interpolation to use, const or trilin</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.calculator.resample_lines">
+<code class="descclassname">viscid.calculator.</code><code class="descname">resample_lines</code><span class="sig-paren">(</span><em>lines</em>, <em>factor=1</em>, <em>kind='linear'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/calculator/calc.html#resample_lines"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.calculator.resample_lines" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resample a bunch of lines</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>lines</strong> (<em>sequence</em>) – a list of 3xN ndarrays that are lines</li>
+<li><strong>factor</strong> (<em>float</em>) – how to resample. 2 will give a point at
+the midpoint of all points, 3 will give two points, etc.
+0.5 will leave half the number of points, etc. This should
+be &gt; 0.0.</li>
+<li><strong>kind</strong> (<em>str</em>) – How to interpolate; must be a value recognized by
+<code class="xref py py-func docutils literal notranslate"><span class="pre">scipy.interpolate.interp1d()</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> – List of resampled 3xN ndarrays</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.calculator.integrate_along_line">
+<code class="descclassname">viscid.calculator.</code><code class="descname">integrate_along_line</code><span class="sig-paren">(</span><em>line</em>, <em>fld</em>, <em>reduction='dot'</em>, <em>mask_func=None</em>, <em>interp_kind='trilin'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/calculator/calc.html#integrate_along_line"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.calculator.integrate_along_line" title="Permalink to this definition">¶</a></dt>
+<dd><p>Integrate the value of fld along a line</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>line</strong> (<em>ndarray</em>) – 3xN ndarray</li>
+<li><strong>fld</strong> (<em>Field</em>) – Field to interpolate / integrate</li>
+<li><strong>reduction</strong> (<em>str</em>) – If fld is a vector field, what quantity to
+integrate. Can be “dot” to dot the vectors with ds along
+the line, or “mag” to integrate the magnitude.</li>
+<li><strong>interp_kind</strong> (<em>str</em>) – which interpolation to use, const or trilin</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">a scalar with the same dtype as fld</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.calculator.integrate_along_lines">
+<code class="descclassname">viscid.calculator.</code><code class="descname">integrate_along_lines</code><span class="sig-paren">(</span><em>lines</em>, <em>fld</em>, <em>reduction='dot'</em>, <em>mask_func=None</em>, <em>interp_kind='trilin'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/calculator/calc.html#integrate_along_lines"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.calculator.integrate_along_lines" title="Permalink to this definition">¶</a></dt>
+<dd><p>Integrate the value of fld along a list of lines</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>lines</strong> (<em>list</em>) – list of 3xN ndarrays, N needs not be the same for
+all lines</li>
+<li><strong>fld</strong> (<em>Field</em>) – Field to interpolate / integrate</li>
+<li><strong>reduction</strong> (<em>str</em>) – If fld is a vector field, what quantity to
+integrate. Can be “dot” to dot the vectors with ds along
+the line, or “mag” to integrate the magnitude.</li>
+<li><strong>interp_kind</strong> (<em>str</em>) – which interpolation to use, const or trilin</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">ndarray with shape (len(lines), )</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.calculator.jacobian_at_point">
+<code class="descclassname">viscid.calculator.</code><code class="descname">jacobian_at_point</code><span class="sig-paren">(</span><em>B</em>, <em>x</em>, <em>y</em>, <em>z</em>, <em>dx=None</em>, <em>dy=None</em>, <em>dz=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/calculator/calc.html#jacobian_at_point"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.calculator.jacobian_at_point" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the Jacobian at a point</p>
+<p>If dx|dy|dz == None, then their set to the grid spacing
+at the point of interest</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The jacobian as a 3x3 ndarray. The result is in xyz order,
+in other words:<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span> <span class="p">[</span><span class="n">d_x</span> <span class="n">Bx</span><span class="p">,</span> <span class="n">d_y</span> <span class="n">Bx</span><span class="p">,</span> <span class="n">d_z</span> <span class="n">Bx</span><span class="p">],</span>
+  <span class="p">[</span><span class="n">d_x</span> <span class="n">By</span><span class="p">,</span> <span class="n">d_y</span> <span class="n">By</span><span class="p">,</span> <span class="n">d_z</span> <span class="n">By</span><span class="p">],</span>
+  <span class="p">[</span><span class="n">d_x</span> <span class="n">Bz</span><span class="p">,</span> <span class="n">d_y</span> <span class="n">Bz</span><span class="p">,</span> <span class="n">d_z</span> <span class="n">Bz</span><span class="p">]</span> <span class="p">]</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.calculator.jacobian_at_ind">
+<code class="descclassname">viscid.calculator.</code><code class="descname">jacobian_at_ind</code><span class="sig-paren">(</span><em>B</em>, <em>ix</em>, <em>iy</em>, <em>iz</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/calculator/calc.html#jacobian_at_ind"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.calculator.jacobian_at_ind" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the Jacobian at index</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The jacobian as a 3x3 ndarray. The result is in xyz order,
+in other words:<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span> <span class="p">[</span><span class="n">d_x</span> <span class="n">Bx</span><span class="p">,</span> <span class="n">d_y</span> <span class="n">Bx</span><span class="p">,</span> <span class="n">d_z</span> <span class="n">Bx</span><span class="p">],</span>
+  <span class="p">[</span><span class="n">d_x</span> <span class="n">By</span><span class="p">,</span> <span class="n">d_y</span> <span class="n">By</span><span class="p">,</span> <span class="n">d_z</span> <span class="n">By</span><span class="p">],</span>
+  <span class="p">[</span><span class="n">d_x</span> <span class="n">Bz</span><span class="p">,</span> <span class="n">d_y</span> <span class="n">Bz</span><span class="p">,</span> <span class="n">d_z</span> <span class="n">Bz</span><span class="p">]</span> <span class="p">]</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.calculator.jacobian_eig_at_point">
+<code class="descclassname">viscid.calculator.</code><code class="descname">jacobian_eig_at_point</code><span class="sig-paren">(</span><em>B</em>, <em>x</em>, <em>y</em>, <em>z</em>, <em>dx=None</em>, <em>dy=None</em>, <em>dz=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/calculator/calc.html#jacobian_eig_at_point"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.calculator.jacobian_eig_at_point" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the eigen vals/vecs of the jacobian</p>
+<dl class="docutils">
+<dt>Returns: evals, evecs (3x3 ndarray)</dt>
+<dd>The evec[:, i] corresponds to evals[i].
+Eigen vectors are returned in xyz order, aka
+evec[:, 0] is [x, y, z] for the 0th eigen vector</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.calculator.jacobian_eig_at_ind">
+<code class="descclassname">viscid.calculator.</code><code class="descname">jacobian_eig_at_ind</code><span class="sig-paren">(</span><em>B</em>, <em>ix</em>, <em>iy</em>, <em>iz</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/calculator/calc.html#jacobian_eig_at_ind"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.calculator.jacobian_eig_at_ind" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the eigen vals/vecs of the jacobian</p>
+<dl class="docutils">
+<dt>Returns: evals, evecs (3x3 ndarray)</dt>
+<dd>The evec[:, i] corresponds to evals[i].
+Eigen vectors are returned in xyz order, aka
+evec[:, 0] is [x, y, z] for the 0th eigen vector</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.calculator.div_at_point">
+<code class="descclassname">viscid.calculator.</code><code class="descname">div_at_point</code><span class="sig-paren">(</span><em>A</em>, <em>x</em>, <em>y</em>, <em>z</em>, <em>dx=None</em>, <em>dy=None</em>, <em>dz=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/calculator/calc.html#div_at_point"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.calculator.div_at_point" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns divergence at a point</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.calculator.curl_at_point">
+<code class="descclassname">viscid.calculator.</code><code class="descname">curl_at_point</code><span class="sig-paren">(</span><em>A</em>, <em>x</em>, <em>y</em>, <em>z</em>, <em>dx=None</em>, <em>dy=None</em>, <em>dz=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/calculator/calc.html#curl_at_point"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.calculator.curl_at_point" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns curl at point as ndarray with shape (3,) xyz</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.calculator.extend_boundaries">
+<code class="descclassname">viscid.calculator.</code><code class="descname">extend_boundaries</code><span class="sig-paren">(</span><em>fld</em>, <em>nl=1</em>, <em>nh=1</em>, <em>axes='all'</em>, <em>nr_comp=None</em>, <em>order=1</em>, <em>crd_order=1</em>, <em>crds=None</em>, <em>invarient_dx=0.0</em>, <em>crd_invarient_dx=1.0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/calculator/calc.html#extend_boundaries"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.calculator.extend_boundaries" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extend and pad boundaries of field (leaves new corners &#64; 0.0)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>fld</strong> (<em>Field</em>) – Field to extend</li>
+<li><strong>nl</strong> (<em>int</em>) – extend this many cells in lower direction</li>
+<li><strong>nh</strong> (<em>int</em>) – extend this many cells in upper direction</li>
+<li><strong>axes</strong> (<em>str</em><em>, </em><em>list</em>) – something like ‘xyz’, [‘x’, ‘theta’], etc.</li>
+<li><strong>nr_comp</strong> (<em>int</em><em>, </em><em>None</em>) – index of shape that corresponds to vector
+component dimension</li>
+<li><strong>order</strong> (<em>int</em>) – extrapolation order for data; 0 for repeating
+boundary values or 1 for linear extrapolation</li>
+<li><strong>crd_order</strong> (<em>int</em>) – extrapolation order for crds; 0 for repeating
+boundary values or 1 for linear extrapolation</li>
+<li><strong>crds</strong> (<em>Coordinates</em>) – Use these coordinates, no extrapolate them</li>
+<li><strong>invarient_dx</strong> (<em>float</em>) – if fld has a single cell in a given
+dimension, and order == 1, the field is extended with
+constant dx, using 0 here is synonymous with 0th order</li>
+<li><strong>invarient_dx</strong> – if fld has a single cell in a given
+dimension, and crd_order == 1, the coordinates in that
+dimension are extended with constant dx, using 0 here is
+synonymous with crd_order = 0.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A new extended / padded ndarray</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">When using crd_order=0 (0 order hold), coordinates will be
+extended by repeating boundary values, so min_dx will be 0.
+Keep this in mind if dividing by dx.</p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.calculator.extend_boundaries_ndarr">
+<code class="descclassname">viscid.calculator.</code><code class="descname">extend_boundaries_ndarr</code><span class="sig-paren">(</span><em>arr</em>, <em>nl=1</em>, <em>nh=1</em>, <em>axes='all'</em>, <em>nr_comp=None</em>, <em>order=1</em>, <em>invarient_dx=0.0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/calculator/calc.html#extend_boundaries_ndarr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.calculator.extend_boundaries_ndarr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extend and pad boundaries of ndarray (leaves new corners &#64; 0.0)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>arr</strong> (<em>ndarray</em>) – Array to extend</li>
+<li><strong>nl</strong> (<em>int</em>) – extend this many cells in lower direction</li>
+<li><strong>nh</strong> (<em>int</em>) – extend this many cells in upper direction</li>
+<li><strong>axes</strong> (<em>list</em>) – list of ints that correspond to axes that should
+be extended. If nr_comp != None, then axes &gt; nr_comp will
+be shifted by 1.</li>
+<li><strong>nr_comp</strong> (<em>int</em><em>, </em><em>None</em>) – index of shape that corresponds to vector
+component dimension</li>
+<li><strong>order</strong> (<em>int</em>) – 0 for repeating boundary values or 1 for linear
+extrapolation</li>
+<li><strong>invarient_dx</strong> (<em>float</em>) – if len(arr) == 1 and order == 1, then
+the array is extended with constant dx, using 0 here is
+synonymous with 0th order.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A new extended / padded ndarray</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.calculator.distance_to_clusters">
+<code class="descclassname">viscid.calculator.</code><code class="descname">distance_to_clusters</code><span class="sig-paren">(</span><em>point</em>, <em>clusters</em>, <em>alt=()</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/calculator/cluster.html#distance_to_clusters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.calculator.distance_to_clusters" title="Permalink to this definition">¶</a></dt>
+<dd><p>L2 distance between point and clusters</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.calculator.find_clusters">
+<code class="descclassname">viscid.calculator.</code><code class="descname">find_clusters</code><span class="sig-paren">(</span><em>indx</em>, <em>indy</em>, <em>x</em>, <em>y</em>, <em>multiple=True</em>, <em>periodic=(False</em>, <em>False)</em>, <em>diagonals=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/calculator/cluster.html#find_clusters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.calculator.find_clusters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cluster and average groups of neighboring points</p>
+<dl class="docutils">
+<dt>TODO: If absolutely necessary, could do some K-means clustering</dt>
+<dd>here by calling into scikit-learn.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>indx</strong> (<em>sequence</em>) – list of x indices</li>
+<li><strong>indy</strong> (<em>sequence</em>) – list of y indices</li>
+<li><strong>x</strong> (<em>sequence</em>) – x coordinate array</li>
+<li><strong>y</strong> (<em>sequence</em>) – y coordinate array</li>
+<li><strong>multiple</strong> (<em>bool</em>) – If False, average all points as a single
+cluster</li>
+<li><strong>periodic</strong> (<em>sequence</em>) – indicate whether that direction is
+periodic, and if so, whether the coordinate arrays are
+overlapped or not. Values can be True, False, or ‘+’. ‘+’
+indicates that x[0] and x[-1] are not colocated, so assume
+they’re dx apart where dx = x[-1] - x[-2].</li>
+<li><strong>diagonals</strong> (<em>bool</em>) – if true, then diagonal points are considered
+neighbors</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">2xN for N clusters</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.calculator.make_ecfc_field_leading">
+<code class="descclassname">viscid.calculator.</code><code class="descname">make_ecfc_field_leading</code><span class="sig-paren">(</span><em>fc</em>, <em>trim_leading=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/calculator/ecfc.html#make_ecfc_field_leading"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.calculator.make_ecfc_field_leading" title="Permalink to this definition">¶</a></dt>
+<dd><p>Standardize staggering on edge / face centered fields</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.calculator.fc2cc">
+<code class="descclassname">viscid.calculator.</code><code class="descname">fc2cc</code><span class="sig-paren">(</span><em>fc</em>, <em>force_numpy=False</em>, <em>bnd=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/calculator/ecfc.html#fc2cc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.calculator.fc2cc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Average a face centered field to cell centers</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.calculator.ec2cc">
+<code class="descclassname">viscid.calculator.</code><code class="descname">ec2cc</code><span class="sig-paren">(</span><em>ec</em>, <em>force_numpy=False</em>, <em>bnd=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/calculator/ecfc.html#ec2cc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.calculator.ec2cc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Average an edge centered field to cell centers</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.calculator.div_fc">
+<code class="descclassname">viscid.calculator.</code><code class="descname">div_fc</code><span class="sig-paren">(</span><em>fc</em>, <em>force_numpy=False</em>, <em>bnd=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/calculator/ecfc.html#div_fc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.calculator.div_fc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate cell centered divergence of face centered field</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.calculator.evaluate">
+<code class="descclassname">viscid.calculator.</code><code class="descname">evaluate</code><span class="sig-paren">(</span><em>grid</em>, <em>result_name</em>, <em>eqn</em>, <em>try_numexpr=True</em>, <em>slc=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/calculator/evaluator.html#evaluate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.calculator.evaluate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluate an equation on a grid</p>
+<p class="rubric">Examples</p>
+<p>To use this function directly</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">evaluator</span><span class="o">.</span><span class="n">enabled</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">load_file</span><span class="p">(</span><span class="s2">&quot;...&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">evaluator</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">get_grid</span><span class="p">(),</span>
+<span class="go">                       &quot;sqrt(vx**2+vy**2+vz**2)&quot;,</span>
+<span class="go">                       &quot;speed&quot;)</span>
+<span class="go">&lt;viscid.field.ScalarField object at ...&gt;</span>
+</pre></div>
+</div>
+<p>Or, for short, you can as a grid to evaluate implicitly,</p>
+<blockquote>
+<div>&gt;&gt; evaluator.enabled = True
+&gt;&gt; f = viscid.load_file(“…”)
+&gt;&gt; speed = f[“speed=sqrt(vx**2+vy**2+vz**2)”]
+&lt;viscid.field.ScalarField object at …&gt;</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>grid</strong> – a grid instance where the fields live</li>
+<li><strong>result_name</strong> (<em>str</em>) – Used for the name and pretty_name of the
+resulting field</li>
+<li><strong>eqn</strong> (<em>str</em>) – the equation, if a symbol exists in the numpy
+namespace, then that’s how it is interpreted, otherwise,
+the symbol will be looked up in the grid</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Field instance</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.calculator.minvar">
+<code class="descclassname">viscid.calculator.</code><code class="descname">minvar</code><span class="sig-paren">(</span><em>B</em>, <em>p1</em>, <em>p2</em>, <em>n=40</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/calculator/minvar_tools.html#minvar"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.calculator.minvar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find minimum variance eigenvectors of <cite>B</cite> between <cite>p1</cite> and <cite>p2</cite></p>
+<p>Do minimum variance analysis (MVA) of vector field <cite>B</cite> between
+two points, i.e., <cite>p1</cite> and <cite>p2</cite> are like two spacecraft locations
+on either side of the boundary for the MVA.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>B</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">viscid.field.VectorField</span></code>) – Vector field for MVA</li>
+<li><strong>p1</strong> (<em>sequence</em>) – xyz point on one side of the boundary</li>
+<li><strong>p2</strong> (<em>sequence</em>) – xyz point on the other side of the boundary</li>
+<li><strong>n</strong> (<em>int</em>) – number of points to sample B for the MVA</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">(evals, evecs)
+All are ordered toward increasing eigenvalue magnitude. <cite>evecs</cite>
+is a 2d array where the vectors are columns (2nd axis), i.e.,
+the min variance eigenvector is evecs[0, :]</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.calculator.minvar_series">
+<code class="descclassname">viscid.calculator.</code><code class="descname">minvar_series</code><span class="sig-paren">(</span><em>arr</em>, <em>warn_finite=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/calculator/minvar_tools.html#minvar_series"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.calculator.minvar_series" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find minimum variance eigenvectors of vector series</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>arr</strong> (<em>ndarray</em>) – vector time series with shape (nsamples, 3)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">(evals, evecs)
+All are ordered toward increasing eigenvalue magnitude. <cite>evecs</cite>
+is a 2d array where the vectors are columns (2nd axis), i.e.,
+the min variance eigenvector is evecs[0, :]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.calculator.minvar_around">
+<code class="descclassname">viscid.calculator.</code><code class="descname">minvar_around</code><span class="sig-paren">(</span><em>B</em>, <em>p0</em>, <em>l=1.0</em>, <em>path_dir=(1</em>, <em>0</em>, <em>0)</em>, <em>n=40</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/calculator/minvar_tools.html#minvar_around"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.calculator.minvar_around" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find minimum variance eigenvectors of <cite>B</cite> around point <cite>p0</cite></p>
+<p>Do minimum variance analysis (MVA) of vector field <cite>B</cite> a distance
+<cite>l</cite>/2 around point <cite>p0</cite> in the direction of <cite>path_dir</cite>, i.e.,
+<cite>path_dir</cite> is like the spacecraft travel direction.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>B</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">viscid.field.VectorField</span></code>) – Vector field for MVA</li>
+<li><strong>p0</strong> (<em>sequence</em>) – xyz center point, within -l/2 and +l/2 of the
+boundary in the path_dir directon</li>
+<li><strong>l</strong> (<em>float</em>) – distance on either side of center point</li>
+<li><strong>path_dir</strong> (<em>tuple</em>) – spacecraft travel direction</li>
+<li><strong>n</strong> (<em>int</em>) – number of points to sample B for the MVA</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">(evals, evecs)
+All are ordered toward increasing eigenvalue magnitude. <cite>evecs</cite>
+is a 2d array where the vectors are columns (2nd axis), i.e.,
+the min variance eigenvector is evecs[0, :]</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#viscid.calculator.minvar" title="viscid.calculator.minvar"><code class="xref py py-func docutils literal notranslate"><span class="pre">minvar()</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.calculator.find_minvar_lmn">
+<code class="descclassname">viscid.calculator.</code><code class="descname">find_minvar_lmn</code><span class="sig-paren">(</span><em>B</em>, <em>p1</em>, <em>p2</em>, <em>n=40</em>, <em>l_basis=(0</em>, <em>0</em>, <em>1)</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/calculator/minvar_tools.html#find_minvar_lmn"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.calculator.find_minvar_lmn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find rotation matrix for going to boundary normal (lmn) crds</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>B</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">viscid.field.VectorField</span></code>) – Vector field for MVA</li>
+<li><strong>p1</strong> (<em>sequence</em>) – xyz point on one side of the boundary</li>
+<li><strong>p2</strong> (<em>sequence</em>) – xyz point on the other side of the boundary</li>
+<li><strong>n</strong> (<em>int</em>) – number of points to sample B for the MVA</li>
+<li><strong>l_basis</strong> (<em>sequence</em>) – vector used to define the l-direction,
+i.e., the l direction will be <cite>l_basis</cite> projected
+perpendicular to the boundary normal directon. If None,
+then <cite>l_basis</cite> will be set to <cite>evec_max</cite>.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">3x3 array of l,m,n basis column (2nd axis) vectors</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.calculator.find_minvar_lmn_around">
+<code class="descclassname">viscid.calculator.</code><code class="descname">find_minvar_lmn_around</code><span class="sig-paren">(</span><em>B</em>, <em>p0</em>, <em>l=1.0</em>, <em>path_dir=(1</em>, <em>0</em>, <em>0)</em>, <em>n=40</em>, <em>l_basis=(0</em>, <em>0</em>, <em>1)</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/calculator/minvar_tools.html#find_minvar_lmn_around"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.calculator.find_minvar_lmn_around" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find rotation matrix for going to boundary normal (lmn) crds</p>
+<p>Finds boundary normal from minimum variance analysis (MVA) of
+vector field <cite>B</cite> a distance <cite>l</cite>/2 around point <cite>p0</cite> in the
+direction of <cite>path_dir</cite>, i.e., <cite>path_dir</cite> is like the spacecraft
+travel direction.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>B</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">viscid.field.VectorField</span></code>) – Vector field for MVA</li>
+<li><strong>p0</strong> (<em>sequence</em>) – xyz center point, within -l/2 and +l/2 of the
+boundary in the path_dir directon</li>
+<li><strong>l</strong> (<em>float</em>) – distance on either side of center point</li>
+<li><strong>path_dir</strong> (<em>tuple</em>) – spacecraft travel direction</li>
+<li><strong>n</strong> (<em>int</em>) – number of points to sample B for the MVA</li>
+<li><strong>l_basis</strong> (<em>sequence</em>) – vector used to define the l-direction,
+i.e., the l direction will be <cite>l_basis</cite> projected
+perpendicular to the boundary normal directon. If None,
+then <cite>l_basis</cite> will be set to <cite>evec_max</cite>.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">3x3 array of l,m,n basis column (2nd axis) vectors</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><code class="xref py py-func docutils literal notranslate"><span class="pre">find_nlm()</span></code></p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.calculator.paraboloid">
+<code class="descclassname">viscid.calculator.</code><code class="descname">paraboloid</code><span class="sig-paren">(</span><em>y</em>, <em>z</em>, <em>x0</em>, <em>y0</em>, <em>z0</em>, <em>ax</em>, <em>ay</em>, <em>az</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/calculator/mpause.html#paraboloid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.calculator.paraboloid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generic paraboloid function</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.calculator.paraboloid_normal">
+<code class="descclassname">viscid.calculator.</code><code class="descname">paraboloid_normal</code><span class="sig-paren">(</span><em>y</em>, <em>z</em>, <em>x0</em>, <em>y0</em>, <em>z0</em>, <em>ax</em>, <em>ay</em>, <em>az</em>, <em>normalize=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/calculator/mpause.html#paraboloid_normal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.calculator.paraboloid_normal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normal vector of a generic paraboloid</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.calculator.fit_paraboloid">
+<code class="descclassname">viscid.calculator.</code><code class="descname">fit_paraboloid</code><span class="sig-paren">(</span><em>fld</em>, <em>p0=(9.0</em>, <em>0.0</em>, <em>0.0</em>, <em>1.0</em>, <em>-1.0</em>, <em>-1.0)</em>, <em>tolerance=0.0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/calculator/mpause.html#fit_paraboloid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.calculator.fit_paraboloid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit paraboloid it GSE coordinates x ~ y**2 + z**2</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>fld</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">viscid.field.ScalarField</span></code>) – field of x values</li>
+<li><strong>p0</strong> (<em>sequence</em>) – initial guess for parabaloid
+(x0, y0, z0, ax, ay, az), where (x0, y0, z0) is the nose
+location (should be subsolar for 0 dipole tilt), and the
+ay, az, and az coefficients determine the curvature</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>record array of parameters with length 2; the</dt>
+<dd><p class="first last">1st value is the fit value, and the 2nd is one sigma of
+the fit</p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">numpy.recarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.calculator.get_mp_info">
+<code class="descclassname">viscid.calculator.</code><code class="descname">get_mp_info</code><span class="sig-paren">(</span><em>pp</em>, <em>b</em>, <em>j</em>, <em>e</em>, <em>cache=True</em>, <em>cache_dir=None</em>, <em>slc='x=5.5f:11.0f</em>, <em>y=-4.0f:4.0f</em>, <em>z=-3.6f:3.6f'</em>, <em>fit='mp_xloc'</em>, <em>fit_p0=(9.0</em>, <em>0.0</em>, <em>0.0</em>, <em>1.0</em>, <em>-1.0</em>, <em>-1.0)</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/calculator/mpause.html#get_mp_info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.calculator.get_mp_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get info about m-pause as flattened fields</p>
+<p class="rubric">Notes</p>
+<p>The first thing this function does is mask locations where
+the GSE-y current density &lt; 1e-4. This masks out the bow
+shock and current free regions. This works for southward IMF,
+but it is not very general.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pp</strong> (<em>ScalarcField</em>) – pressure</li>
+<li><strong>b</strong> (<em>VectorField</em>) – magnetic field</li>
+<li><strong>j</strong> (<em>VectorField</em>) – current density</li>
+<li><strong>e</strong> (<em>VectorField</em><em>, </em><em>None</em>) – electric field (same centering as b). If
+None, then the info that requires E will be filled with NaN</li>
+<li><strong>cache</strong> (<em>bool</em><em>, </em><em>str</em>) – Save to and load from cache, if “force”,
+then don’t load from cache if it exists, but do save a
+cache at the end</li>
+<li><strong>cache_dir</strong> (<em>str</em>) – Directory for cache, if None, same directory
+as that file to which the grid belongs</li>
+<li><strong>slc</strong> (<em>str</em>) – slice that gives a box that contains the m-pause</li>
+<li><strong>fit</strong> (<em>str</em>) – to which resulting field should the paraboloid be fit,
+defaults to mp_xloc, but pp_max_xloc might be useful in some
+circumstances</li>
+<li><strong>fit_p0</strong> (<em>tuple</em>) – Initial guess vector for paraboloid fit</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p>Unless otherwise noted, the entiries are 2D (y-z) fields</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>mp_xloc</strong> location of minimum abs(Bz), this works
+better than max of J^2 for FTEs</li>
+<li><strong>mp_sheath_edge</strong> location where Jy &gt; 0.1 * Jy when
+coming in from the sheath side</li>
+<li><strong>mp_sphere_edge</strong> location where Jy &gt; 0.1 * Jy when
+coming in from the sphere side</li>
+<li><strong>mp_width</strong> difference between m-sheath edge and
+msphere edge</li>
+<li><strong>mp_shear</strong> magnetic shear taken 6 grid points into
+the m-sheath / m-sphere</li>
+<li><strong>pp_max</strong> max pp</li>
+<li><strong>pp_max_xloc</strong> location of max pp</li>
+<li><strong>epar_max</strong> max e parallel</li>
+<li><strong>epar_max_xloc</strong> location of max e parallel</li>
+<li><strong>paraboloid</strong> numpy.recarray of paraboloid fit. The
+parameters are given in the 0th element, and
+the 1st element contains the 1-sigma values for the fit</li>
+</ul>
+</div></blockquote>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">dict</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal notranslate"><span class="pre">RuntimeError</span></code> – if using MHD crds instead of GSE crds</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.calculator.find_mp_edges">
+<code class="descclassname">viscid.calculator.</code><code class="descname">find_mp_edges</code><span class="sig-paren">(</span><em>j_block</em>, <em>msphere_thresh=0.1</em>, <em>sheath_thresh=0.1</em>, <em>maskval=0.0001</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/calculator/mpause.html#find_mp_edges"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.calculator.find_mp_edges" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find x location of msphere and msheath edges using current (J)</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">GSE coordinates only please</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>j_block</strong> (<em>VectorField</em>) – Current density containing the whole
+magnetopause</li>
+<li><strong>msphere_thresh</strong> (<em>float</em>) – thereshold of current on the
+magnetosphere side as a fraction of the maximum
+current density, i.e., 0.1 is 10% of the max</li>
+<li><strong>sheath_thresh</strong> (<em>float</em>) – thereshold of current on the
+magnetosheath side as a fraction of the maximum
+current density, i.e., 0.1 is 10% of the max</li>
+<li><strong>maskval</strong> (<em>float</em><em>, </em><em>None</em>) – if not None, then mask out J values
+less than maskval; useful for masking out bowshock, and
+current free regions</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p>sheath and sphere fields / values</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>sheath_edge</strong>: float or 2D ScalarField of x values</li>
+<li><strong>msphere_edge</strong>: float or 2D ScalarField of x values</li>
+<li><strong>mp_width</strong>: <strong>sheath_edge</strong> - <strong>msphere_edge</strong></li>
+<li><strong>sheath_ind</strong>: index of sheath_edge x location</li>
+<li><strong>sphere_ind</strong>: index of msphere_edge x location</li>
+</ul>
+</div></blockquote>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">tuple</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.calculator.calc_psi">
+<code class="descclassname">viscid.calculator.</code><code class="descname">calc_psi</code><span class="sig-paren">(</span><em>B</em>, <em>rev=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/calculator/plasma.html#calc_psi"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.calculator.calc_psi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calc Flux function (only valid in 2d)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>B</strong> (<em>VectorField</em>) – magnetic field, should only have two
+spatial dimensions so we can infer the symmetry dimension</li>
+<li><strong>rev</strong> (<em>bool</em>) – since this integration doesn’t like going
+through undefined regions (like within 1 earth radius of
+the origin for openggcm), you can use this to start
+integrating from the opposite corner.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">2-D scalar flux function</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">ScalarField</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> – If B has &lt;&gt; 2 spatial dimensions</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.calculator.calc_beta">
+<code class="descclassname">viscid.calculator.</code><code class="descname">calc_beta</code><span class="sig-paren">(</span><em>pp</em>, <em>B</em>, <em>scale=1.0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/calculator/plasma.html#calc_beta"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.calculator.calc_beta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calc plasma beta (2.0 * p / B^2)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pp</strong> (<em>ScalarField</em><em> or </em><em>ndarray</em>) – pressure</li>
+<li><strong>B</strong> (<em>VectorField</em>) – magnetic field</li>
+<li><strong>scale</strong> (<em>float</em><em>, </em><em>optional</em>) – overall scale factor</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Plasma beta</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ScalarField</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">For OpenGGCM, where pp is in pPa and B is in nT, scale should
+be 40.0.</p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.calculator.trace_separator">
+<code class="descclassname">viscid.calculator.</code><code class="descname">trace_separator</code><span class="sig-paren">(</span><em>grid</em>, <em>b_slcstr='x=-25f:15f</em>, <em>y=-30f:30f</em>, <em>z=-15f:15f'</em>, <em>r=1.0</em>, <em>plot=False</em>, <em>trace_opts=None</em>, <em>cache=True</em>, <em>cache_dir=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/calculator/separator.html#trace_separator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.calculator.trace_separator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Trace a separator line from most dawnward null</p>
+<p><strong>Still in testing</strong> Uses the bisection algorithm.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>grid</strong> (<a class="reference internal" href="viscid.grid.html#viscid.grid.Grid" title="viscid.grid.Grid"><em>Grid</em></a>) – A grid that has a “b” field</li>
+<li><strong>b_slcstr</strong> (<em>str</em>) – Some valid slice for B field</li>
+<li><strong>r</strong> (<em>float</em>) – spatial step of separator line</li>
+<li><strong>plot</strong> (<em>bool</em>) – make debugging plots</li>
+<li><strong>trace_opts</strong> (<em>dict</em>) – passed to streamline function</li>
+<li><strong>cache</strong> (<em>bool</em><em>, </em><em>str</em>) – Save to and load from cache, if “force”,
+then don’t load from cache if it exists, but do save a
+cache at the end</li>
+<li><strong>cache_dir</strong> (<em>str</em>) – Directory for cache, if None, same directory
+as that file to which the grid belongs</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><code class="xref py py-exc docutils literal notranslate"><span class="pre">IOError</span></code> – Description</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p>(separator_lines, nulls)</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>separator_lines</strong> (list): list of M 3xN ndarrays that
+represent M separator lines with N points</li>
+<li><strong>nulls</strong> (ndarray): 3xN array of N null points</li>
+</ul>
+</div></blockquote>
+</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">tuple</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.calculator.topology_bitor_clusters">
+<code class="descclassname">viscid.calculator.</code><code class="descname">topology_bitor_clusters</code><span class="sig-paren">(</span><em>fld</em>, <em>min_depth=1</em>, <em>max_depth=10</em>, <em>multiple=True</em>, <em>plot=False</em>, <em>sep_val=15</em>, <em>mask_limit=15</em>, <em>periodic='00'</em>, <em>pt_bnds=()</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/calculator/separator.html#topology_bitor_clusters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.calculator.topology_bitor_clusters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find separator as intersection of all global topologies</p>
+<p>Neighbors are bitwise ORed until at least one value matches
+<cite>sep_val</cite> which is presumably (Close | Open N | Open S | SW).
+This happens between min_depth and max_depth times,
+where the resolution of each iteration is reduced by a factor
+of two, ie, worst case 2**(max_depth).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>fld</strong> (<em>Field</em>) – Topology (bitmask) as a field</li>
+<li><strong>min_depth</strong> (<em>int</em>) – Iterate at least this many times</li>
+<li><strong>max_depth</strong> (<em>int</em>) – Iterate at most this many times</li>
+<li><strong>multiple</strong> (<em>bool</em>) – passed to <code class="xref py py-func docutils literal notranslate"><span class="pre">viscid.cluster()</span></code></li>
+<li><strong>sep_val</strong> (<em>int</em>) – Value of bitmask that indicates a separator</li>
+<li><strong>plot</strong> (<em>bool</em>) – Make a 2D plot of Fld and the sep candidates</li>
+<li><strong>mask_limit</strong> (<em>int</em>) – if &gt; 0, then bitmask fld with mask_limit,
+i.e., fld = fld &amp; mask_limit (bitwise and)</li>
+<li><strong>periodic</strong> (<em>sequence</em>) – indicate whether that direction is
+periodic, and if so, whether the coordinate arrays are
+overlapped or not. Values can be True, False, or ‘+’. ‘+’
+indicates that x[0] and x[-1] are not colocated, so assume
+they’re dx apart where dx = x[-1] - x[-2].</li>
+<li><strong>pt_bnd</strong> (<em>sequence</em>) – Boundaries that come to a point, i.e., all
+values along that boundary are neighbors such as the poles
+of a sphere. Specified like “0-” for lower boundary of
+dimension 0 or “1+” for the upper boundary of dimension 1.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">2xN for N clusters of separator points in the same
+coordinates as <cite>fld</cite></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.calculator.get_sep_pts_bitor">
+<code class="descclassname">viscid.calculator.</code><code class="descname">get_sep_pts_bitor</code><span class="sig-paren">(</span><em>fld</em>, <em>seed</em>, <em>trace_opts=None</em>, <em>make_3d=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/calculator/separator.html#get_sep_pts_bitor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.calculator.get_sep_pts_bitor" title="Permalink to this definition">¶</a></dt>
+<dd><p>bitor topologies to find separator points in uv map from seed</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>fld</strong> (<em>VectorField</em>) – Magnetic Field</li>
+<li><strong>seed</strong> (<a class="reference internal" href="viscid.seed.html#viscid.seed.SeedGen" title="viscid.seed.SeedGen"><em>viscid.seed.SeedGen</em></a>) – Any Seed generator with a 2d local
+representation</li>
+<li><strong>trace_opts</strong> (<em>dict</em>) – kwargs for calc_streamlines</li>
+<li><strong>make_3d</strong> (<em>bool</em>) – convert result from uv to 3d space</li>
+<li><strong>**kwargs</strong> – passed to <a class="reference internal" href="#viscid.calculator.topology_bitor_clusters" title="viscid.calculator.topology_bitor_clusters"><code class="xref py py-func docutils literal notranslate"><span class="pre">topology_bitor_clusters()</span></code></a></li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">3xN ndarray of N separator points in uv space or 3d space
+depending on the <cite>make_3d</cite> kwarg</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.calculator.get_sep_pts_bisect">
+<code class="descclassname">viscid.calculator.</code><code class="descname">get_sep_pts_bisect</code><span class="sig-paren">(</span><em>fld</em>, <em>seed</em>, <em>trace_opts=None</em>, <em>min_depth=3</em>, <em>max_depth=7</em>, <em>plot=False</em>, <em>perimeter_check=&lt;function perimeter_check_bitwise_or&gt;</em>, <em>make_3d=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/calculator/separator.html#get_sep_pts_bisect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.calculator.get_sep_pts_bisect" title="Permalink to this definition">¶</a></dt>
+<dd><p>bisect uv map of seed to find separator points</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>fld</strong> (<em>VectorField</em>) – Magnetic Field</li>
+<li><strong>seed</strong> (<a class="reference internal" href="viscid.seed.html#viscid.seed.SeedGen" title="viscid.seed.SeedGen"><em>viscid.seed.SeedGen</em></a>) – Any Seed generator with a 2d local
+representation</li>
+<li><strong>trace_opts</strong> (<em>dict</em>) – kwargs for calc_streamlines</li>
+<li><strong>min_depth</strong> (<em>int</em>) – Min allowable bisection depth</li>
+<li><strong>max_depth</strong> (<em>int</em>) – Max bisection depth</li>
+<li><strong>plot</strong> (<em>bool</em>) – Useful for debugging the algorithm</li>
+<li><strong>perimeter_check</strong> (<em>func</em>) – Some func that returns a bool with the
+same signature as <code class="xref py py-func docutils literal notranslate"><span class="pre">perimeter_check_bitwise_or()</span></code></li>
+<li><strong>make_3d</strong> (<em>bool</em>) – convert result from uv to 3d space</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">3xN ndarray of N separator points in uv space or 3d space
+depending on the <cite>make_3d</cite> kwarg</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.calculator.topology2color">
+<code class="descclassname">viscid.calculator.</code><code class="descname">topology2color</code><span class="sig-paren">(</span><em>topology</em>, <em>topo_style='msphere'</em>, <em>bad_color=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/calculator/topology.html#topology2color"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.calculator.topology2color" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine RGB from topology value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>topology</strong> (<em>int</em><em>, </em><em>list</em><em>, </em><em>ndarray</em>) – some value in
+<code class="docutils literal notranslate"><span class="pre">calculator.streamline.TOPOLOGY_*</span></code></li>
+<li><strong>topo_style</strong> (<em>string</em>) – msphere, or a dict with its own
+mapping</li>
+<li><strong>bad_color</strong> (<em>tuple</em>) – rgb color for invalid topologies</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Nx3 array of rgb data or (R, G, B) tuple if topology is a
+single value</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../_sources/api/viscid.calculator.rst.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright 2017, Kristofor Maynard.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

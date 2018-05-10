@@ -1,0 +1,278 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>viscid.plot.vseaborn &#8212; Viscid 0.99.6 documentation</title>
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+<link rel="icon" href="../../../_static/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../../../_static/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon-precomposed" href="../../../_static/Vicon_128.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          Viscid</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.99.6</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+    <li class="dropdown">
+      <a role="button"
+         id="dLabelNavLinxToc"
+         data-toggle="dropdown"
+         data-target="#"
+         href="#">Tutorial <b class="caret"></b></a>
+      <ul class="dropdown-menu navlinktoc"
+          role="menu">
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../installation.html">Installation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/creating_fields.html">Creating Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/slicing.html">Slicing Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/plotting_scalars.html">Plotting Scalars</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/plotting_vectors.html">Plotting Vectors</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/mayavi.html">3D Plots (Mayavi)</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/openggcm.html">OpenGGCM Specific</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/ionosphere.html">Ionosphere</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/stream_and_interp.html">Streamline and Interpolation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/magnetic_topology.html">Magnetic Topology</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/magnetopause.html">Magnetopause</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/quasi_potential.html">Quasi Potential</a>
+          </li>
+      </ul>
+    </li>
+
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../changes.html">ChangeLog</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../philosophy.html">Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/index.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tips_and_tricks.html">Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../functions.html">Useful Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../plot_options.html">Plot Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mpl_style_gallery.html">Matplotlib Style Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../custom_behavior.html">Custom Behavior (rc file)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev_guide.html">Developer’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../extending_readers.html">Extending Readers</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/viscid.html">API</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"></ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <h1>Source code for viscid.plot.vseaborn</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Graceful way to apply seaborn to mpl if you have it installed</span>
+
+<span class="sd">This is mostly controlled with parameters in your rc script</span>
+
+<span class="sd">After activate_from_viscid is called, if the seaborn import is</span>
+<span class="sd">successful, then the entire namespace is imported here and</span>
+<span class="sd">seaborn can be used from this module.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">print_function</span>
+<span class="kn">import</span> <span class="nn">imp</span>
+
+<span class="kn">import</span> <span class="nn">viscid</span>
+<span class="kn">from</span> <span class="nn">viscid</span> <span class="k">import</span> <span class="n">logger</span>
+
+<span class="n">SEABORN_ACTIVATED</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">imp</span><span class="o">.</span><span class="n">find_module</span><span class="p">(</span><span class="s1">&#39;seaborn&#39;</span><span class="p">)</span>
+    <span class="n">HAS_SEABORN</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="n">HAS_SEABORN</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="c1">##############################################</span>
+<span class="c1"># Global config; override before importing</span>
+<span class="c1"># mpl or calling activate_from_visicd either</span>
+<span class="c1">#  in script, or in rc file</span>
+<span class="c1">##############################################</span>
+<span class="n">enabled</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">context</span> <span class="o">=</span> <span class="s2">&quot;notebook&quot;</span>
+<span class="n">style</span> <span class="o">=</span> <span class="s2">&quot;darkgrid&quot;</span>
+<span class="n">palette</span> <span class="o">=</span> <span class="s2">&quot;deep&quot;</span>
+<span class="n">font</span> <span class="o">=</span> <span class="s2">&quot;sans-serif&quot;</span>
+<span class="n">font_scale</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">rc</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># this one can&#39;t be set from rc file</span>
+<span class="c1">##############################################</span>
+
+<div class="viewcode-block" id="activate_from_viscid"><a class="viewcode-back" href="../../../api/viscid.plot.vseaborn.html#viscid.plot.vseaborn.activate_from_viscid">[docs]</a><span class="k">def</span> <span class="nf">activate_from_viscid</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;You should not need to call this</span>
+
+<span class="sd">    This function is called by viscid.plot.vpyplot at time of import.</span>
+<span class="sd">    All you need to do is set the global config options above before</span>
+<span class="sd">    importing `viscid.plot.vpyplot`. This can be done with the rc file.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">enabled</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">distutils.version</span> <span class="k">import</span> <span class="n">LooseVersion</span>
+        <span class="kn">import</span> <span class="nn">matplotlib</span>
+
+        <span class="k">if</span> <span class="n">LooseVersion</span><span class="p">(</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">LooseVersion</span><span class="p">(</span><span class="s2">&quot;1.5.0&quot;</span><span class="p">):</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Using this shim to seaborn for pretty plots &quot;</span>
+                           <span class="s2">&quot;is deprecated since you have matplotlib &gt;= 1.5.</span><span class="se">\n</span><span class="s2">&quot;</span>
+                           <span class="s2">&quot;Instead, use matplotlib&#39;s style sheets through &quot;</span>
+                           <span class="s2">&quot;`viscid.mpl_style`.&quot;</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">real_seaborn</span>
+            <span class="c1"># just some fancyness so i can specify an arbitrary</span>
+            <span class="c1"># color palette function with arbitrary arguments</span>
+            <span class="c1"># from the rc file</span>
+            <span class="n">_palette_func</span> <span class="o">=</span> <span class="n">real_seaborn</span><span class="o">.</span><span class="n">color_palette</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">palette</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
+                <span class="n">_palette</span> <span class="o">=</span> <span class="n">palette</span>
+                <span class="c1"># ##### NOPE, letting the user run an attribute of</span>
+                <span class="c1"># ##### seaborn might be a security problem...</span>
+                <span class="c1"># try:</span>
+                <span class="c1">#     func_name = palette[0].strip().strip(&quot;_&quot;)</span>
+                <span class="c1">#     func = getattr(real_seaborn, func_name)</span>
+                <span class="c1">#     if hasattr(func, &quot;__call__&quot;):</span>
+                <span class="c1">#         _palette_func = func</span>
+                <span class="c1">#         _palette = palette[1:]</span>
+                <span class="c1"># except (AttributeError, TypeError):</span>
+                <span class="c1">#     pass</span>
+                <span class="c1"># #####</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">_palette</span> <span class="o">=</span> <span class="p">[</span><span class="n">palette</span><span class="p">]</span>
+            <span class="n">_palette</span> <span class="o">=</span> <span class="n">_palette_func</span><span class="p">(</span><span class="o">*</span><span class="n">_palette</span><span class="p">)</span>
+
+            <span class="c1"># Ok, now set the defaults</span>
+            <span class="n">real_seaborn</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">style</span><span class="p">,</span>
+                             <span class="n">palette</span><span class="o">=</span><span class="n">_palette</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="n">font</span><span class="p">,</span>
+                             <span class="n">font_scale</span><span class="o">=</span><span class="n">font_scale</span><span class="p">,</span> <span class="n">rc</span><span class="o">=</span><span class="n">rc</span><span class="p">)</span>
+
+            <span class="c1"># now pull in the public namespace</span>
+            <span class="n">g</span> <span class="o">=</span> <span class="nb">globals</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">real_seaborn</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">key</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">):</span>
+                    <span class="n">g</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+            <span class="n">g</span><span class="p">[</span><span class="s1">&#39;SEABORN_ACTIVATED&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">viscid</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">mpl_extra</span><span class="o">.</span><span class="n">post_rc_actions</span><span class="p">(</span><span class="n">show_warning</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">viscid</span><span class="o">.</span><span class="n">mpl_style</span><span class="o">.</span><span class="n">post_rc_actions</span><span class="p">(</span><span class="n">show_warning</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;seaborn package not installed&quot;</span><span class="p">)</span></div>
+
+<span class="c1">##</span>
+<span class="c1">## EOF</span>
+<span class="c1">##</span>
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+      
+    </p>
+    <p>
+        &copy; Copyright 2017, Kristofor Maynard.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

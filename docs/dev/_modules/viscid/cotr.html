@@ -1,0 +1,1254 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>viscid.cotr &#8212; Viscid 0.99.7.dev0 documentation</title>
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+<link rel="icon" href="../../_static/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../../_static/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon-precomposed" href="../../_static/Vicon_128.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          Viscid</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.99.7.dev0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+    <li class="dropdown">
+      <a role="button"
+         id="dLabelNavLinxToc"
+         data-toggle="dropdown"
+         data-target="#"
+         href="#">Tutorial <b class="caret"></b></a>
+      <ul class="dropdown-menu navlinktoc"
+          role="menu">
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../installation.html">Installation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/creating_fields.html">Creating Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/slicing.html">Slicing Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/plotting_scalars.html">Plotting Scalars</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/plotting_vectors.html">Plotting Vectors</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/mayavi.html">3D Plots (Mayavi)</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/openggcm.html">OpenGGCM Specific</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/ionosphere.html">Ionosphere</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/stream_and_interp.html">Streamline and Interpolation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/magnetic_topology.html">Magnetic Topology</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/magnetopause.html">Magnetopause</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/quasi_potential.html">Quasi Potential</a>
+          </li>
+      </ul>
+    </li>
+
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../changes.html">ChangeLog</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../philosophy.html">Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/index.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tips_and_tricks.html">Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../functions.html">Useful Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plot_options.html">Plot Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mpl_style_gallery.html">Matplotlib Style Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../custom_behavior.html">Custom Behavior (rc file)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev_guide.html">Developer’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extending_readers.html">Extending Readers</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/viscid.html">API</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"></ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <h1>Source code for viscid.cotr</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="sd">&quot;&quot;&quot;Numpy implementation of space physics coordinate transformations</span>
+
+<span class="sd">The abbreviations and equations in this module follow [Hapgood1992]_,</span>
+<span class="sd">    - gei: Geocentric equatorial inertial</span>
+<span class="sd">        - X = First Point of Aries</span>
+<span class="sd">        - Z = Geographic North Pole</span>
+<span class="sd">    - geo: Geographic</span>
+<span class="sd">        - X = Intersection of Greenwich meridian and geographic equator</span>
+<span class="sd">        - Z = Geographic North Pole</span>
+<span class="sd">    - gse: Geocentric solar ecliptic</span>
+<span class="sd">        - X = Earth-Sun line (points toward Sun)</span>
+<span class="sd">        - Z = Ecliptic North Pole</span>
+<span class="sd">    - gsm: Geocentric solar magnetospheric</span>
+<span class="sd">        - X = Earth-Sun line (points toward Sun)</span>
+<span class="sd">        - Z = Projection of dipole axis on GSE Y-Z plane</span>
+<span class="sd">    - sm: Solar magnetic</span>
+<span class="sd">        - Y = Perpendicular to plane containing Earth-Sun line and</span>
+<span class="sd">          dipole axis. Positive is opposite to Earth&#39;s orbital motion</span>
+<span class="sd">        - Z = Earth&#39;s dipole axis</span>
+<span class="sd">    - mag: Geomagnetic</span>
+<span class="sd">        - Y = Intersection between geographic equator and the</span>
+<span class="sd">          geographic meridian 90deg East of the meditian containing</span>
+<span class="sd">          the dipole axis</span>
+<span class="sd">        - Z = Earth&#39;s dipole axis</span>
+<span class="sd">    - mhd: OpenGGCM&#39;s native coordinate system (based on GSE)</span>
+<span class="sd">        - X = Sun-Earth line (points AWAY from Sun)</span>
+<span class="sd">        - Z = Ecliptic North Pole</span>
+<span class="sd">    - hae: Heliocentric Aries ecliptic</span>
+<span class="sd">        - X = First Point of Aries</span>
+<span class="sd">        - Z = Ecliptic North Pole</span>
+<span class="sd">    - hee: Heliocentric Earth ecliptic</span>
+<span class="sd">        - X = Sun-Earth line</span>
+<span class="sd">        - Z = Ecliptic North Pole</span>
+<span class="sd">    - heeq: Heliocentric Earth equatorial</span>
+<span class="sd">        - X = Intersection between solar equator and solar central</span>
+<span class="sd">          meridian as seen from Earth</span>
+<span class="sd">        - Z = North Pole of solar rotation</span>
+
+<span class="sd">Dipole info between 2010-01-01 00:00 and 2010-06-20 23:59,</span>
+<span class="sd">    - Smallest dipole tilt angle: 0.00639 deg @ 2010-04-16 05:10</span>
+<span class="sd">    - Largest dipole tilt angle: 33.5 deg @ 2010-06-19 16:59</span>
+<span class="sd">    - Smallest angle between dip and GSE-Z: 13.3 deg @ 2010-01-03 15:54</span>
+<span class="sd">    - Largest angle between dip and GSE-Z: 33.6 deg @ 2010-01-13 03:19</span>
+
+<span class="sd">Dipole info between 1952-01-01 00:00 and 1955-12-31 23:59,</span>
+<span class="sd">    - Smallest dipole tilt angle: -0.00145 deg @ 1952-09-01 01:35</span>
+<span class="sd">    - Largest dipole tilt angle: 35.2 deg @ 1954-06-21 16:38</span>
+<span class="sd">    - Smallest angle between dip and GSE-Z: 11.7 deg @ 1954-12-14 17:05</span>
+<span class="sd">    - Largest angle between dip and GSE-Z: 35.2 deg @ 1955-01-02 03:53</span>
+
+<span class="sd">Note:</span>
+<span class="sd">    IGRF coefficients are taken from [IGRF]_, and coefficients are</span>
+<span class="sd">    assumed constant outside of the given range. This means every 5</span>
+<span class="sd">    years, the new coefficients should be added manually.</span>
+
+<span class="sd">References:</span>
+<span class="sd">    .. [IGRF] &lt;http://wdc.kugi.kyoto-u.ac.jp/igrf/coef/igrf12coeffs.txt&gt;</span>
+<span class="sd">    .. [Hapgood1992] Hapgood, M. A., 2011, &quot;Space Physics Coordinate</span>
+<span class="sd">       Transformations: A User Guide&quot;, Planet. Space Sci. Vol 40,</span>
+<span class="sd">       No. 5. pp. 711-717, 1992.</span>
+<span class="sd">       &lt;http://www.igpp.ucla.edu/public/vassilis/ESS261/Lecture03/Hapgood_sdarticle.pdf&gt;</span>
+
+<span class="sd">This module only depends on npdatetime, which is itself orthogonal to</span>
+<span class="sd">Viscid, so these two modules can be ripped out and used more generally.</span>
+<span class="sd">Please note that Viscid is MIT licensed, which requires attribution.</span>
+
+<span class="sd">The MIT License (MIT)</span>
+<span class="sd">Copyright (c) 2017 Kristofor Maynard</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># pylint: disable=bad-whitespace</span>
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">print_function</span><span class="p">,</span> <span class="n">division</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">viscid.npdatetime</span> <span class="k">import</span> <span class="p">(</span><span class="n">as_datetime64</span><span class="p">,</span> <span class="n">as_datetime</span><span class="p">,</span> <span class="n">as_timedelta</span><span class="p">,</span>  <span class="c1"># pylint: disable=import-error</span>
+                                   <span class="n">linspace_datetime64</span><span class="p">,</span> <span class="n">datetime64_as_years</span><span class="p">,</span>
+                                   <span class="n">format_datetime</span><span class="p">,</span> <span class="n">is_datetime_like</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">npdatetime</span> <span class="k">import</span> <span class="p">(</span><span class="n">as_datetime64</span><span class="p">,</span> <span class="n">as_datetime</span><span class="p">,</span> <span class="n">as_timedelta</span><span class="p">,</span>  <span class="c1"># pylint: disable=import-error</span>
+                            <span class="n">linspace_datetime64</span><span class="p">,</span> <span class="n">datetime64_as_years</span><span class="p">,</span>
+                            <span class="n">format_datetime</span><span class="p">,</span> <span class="n">is_datetime_like</span><span class="p">)</span>
+
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;as_nvec&#39;</span><span class="p">,</span> <span class="s1">&#39;make_rotation&#39;</span><span class="p">,</span> <span class="s1">&#39;make_translation&#39;</span><span class="p">,</span> <span class="s1">&#39;get_rotation_wxyz&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;as_crd_system&#39;</span><span class="p">,</span> <span class="s1">&#39;Cotr&#39;</span><span class="p">,</span> <span class="s1">&#39;as_cotr&#39;</span><span class="p">,</span> <span class="s1">&#39;cotr_transform&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;get_dipole_moment&#39;</span><span class="p">,</span> <span class="s1">&#39;get_dipole_moment_ang&#39;</span><span class="p">,</span> <span class="s1">&#39;get_dipole_angles&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;dipole_moment2cotr&#39;</span><span class="p">]</span>
+
+
+<span class="c1"># note that these globals are used immutably (ie, not rc file configurable)</span>
+<span class="n">DEFAULT_STRENGTH</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="mf">3.0574e-5</span>  <span class="c1"># Strength of earth&#39;s dipole in nT</span>
+
+
+<span class="k">class</span> <span class="nc">_NOT_GIVEN</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+
+<span class="c1"># IGRF values are in nT and come from:</span>
+<span class="c1"># http://wdc.kugi.kyoto-u.ac.jp/igrf/coef/igrf12coeffs.txt</span>
+<span class="c1"># NOTE: This will need to be updated periodically as dates more recent</span>
+<span class="c1">#       than the latest coefficient use 0th order extrapolation</span>
+<span class="c1">#       (ie, the last coefficients are repeated until the end of time)</span>
+<span class="c1">#                             g10      g11       h11</span>
+<span class="c1">#                 year    g:n=1,m=0  g:n=1,m=1 h:n=1,m=1</span>
+<span class="n">_IGRF</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1950.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">30554.00</span><span class="p">,</span> <span class="o">-</span><span class="mf">2250.00</span><span class="p">,</span> <span class="mf">5815.00</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mf">1955.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">30500.00</span><span class="p">,</span> <span class="o">-</span><span class="mf">2215.00</span><span class="p">,</span> <span class="mf">5820.00</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mf">1960.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">30421.00</span><span class="p">,</span> <span class="o">-</span><span class="mf">2169.00</span><span class="p">,</span> <span class="mf">5791.00</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mf">1965.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">30334.00</span><span class="p">,</span> <span class="o">-</span><span class="mf">2119.00</span><span class="p">,</span> <span class="mf">5776.00</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mf">1970.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">30220.00</span><span class="p">,</span> <span class="o">-</span><span class="mf">2068.00</span><span class="p">,</span> <span class="mf">5737.00</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mf">1975.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">30100.00</span><span class="p">,</span> <span class="o">-</span><span class="mf">2013.00</span><span class="p">,</span> <span class="mf">5675.00</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mf">1980.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">29992.00</span><span class="p">,</span> <span class="o">-</span><span class="mf">1956.00</span><span class="p">,</span> <span class="mf">5604.00</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mf">1985.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">29873.00</span><span class="p">,</span> <span class="o">-</span><span class="mf">1905.00</span><span class="p">,</span> <span class="mf">5500.00</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mf">1990.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">29775.00</span><span class="p">,</span> <span class="o">-</span><span class="mf">1848.00</span><span class="p">,</span> <span class="mf">5406.00</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mf">1995.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">29692.00</span><span class="p">,</span> <span class="o">-</span><span class="mf">1784.00</span><span class="p">,</span> <span class="mf">5306.00</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mf">2000.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">29619.40</span><span class="p">,</span> <span class="o">-</span><span class="mf">1728.20</span><span class="p">,</span> <span class="mf">5186.10</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mf">2005.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">29554.63</span><span class="p">,</span> <span class="o">-</span><span class="mf">1669.05</span><span class="p">,</span> <span class="mf">5077.99</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mf">2010.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">29496.57</span><span class="p">,</span> <span class="o">-</span><span class="mf">1586.42</span><span class="p">,</span> <span class="mf">4944.26</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mf">2015.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">29442.00</span><span class="p">,</span> <span class="o">-</span><span class="mf">1501.00</span><span class="p">,</span> <span class="mf">4797.10</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f8&#39;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_igrf_interpolate</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">notilt1967</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="c1"># get time as decimal year, note that epoch is completely arbitrary</span>
+    <span class="n">years</span> <span class="o">=</span> <span class="n">datetime64_as_years</span><span class="p">(</span><span class="n">time</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">notilt1967</span> <span class="ow">and</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">years</span> <span class="o">-</span> <span class="mf">1967.0</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.0006</span><span class="p">:</span>
+        <span class="c1"># OpenGGCM special no-tilt hack</span>
+        <span class="c1"># g10, g11, h11 = np.linalg.norm(IGRF[0, 1:]), 0.0, 0.0</span>
+        <span class="n">g10</span><span class="p">,</span> <span class="n">g11</span><span class="p">,</span> <span class="n">h11</span> <span class="o">=</span> <span class="o">-</span><span class="mf">30554.00</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">g10</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">years</span><span class="p">,</span> <span class="n">_IGRF</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">_IGRF</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="n">g11</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">years</span><span class="p">,</span> <span class="n">_IGRF</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">_IGRF</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">])</span>
+        <span class="n">h11</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">years</span><span class="p">,</span> <span class="n">_IGRF</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">_IGRF</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">g10</span><span class="p">,</span> <span class="n">g11</span><span class="p">,</span> <span class="n">h11</span>
+
+<div class="viewcode-block" id="as_nvec"><a class="viewcode-back" href="../../api/viscid.cotr.html#viscid.as_nvec">[docs]</a><span class="k">def</span> <span class="nf">as_nvec</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">ndim</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">init_vals</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)):</span>
+    <span class="sd">&quot;&quot;&quot;Extend vectors to `ndim` dimensions</span>
+
+<span class="sd">    The first dimension or arr that is the one that is extended. If the</span>
+<span class="sd">    last dimension has shape &gt;= 4, leave arr unchanged</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        arr (sequence): array with shape (3,) or (3, N) for N vectors</span>
+<span class="sd">        ndim (int): extend arr to this many dimensions</span>
+<span class="sd">        init_vals (sequence): initialized values for new dimensions,</span>
+<span class="sd">            note that init_vals[i] is the initialization for the ith</span>
+<span class="sd">            dimension of the result. (0, 0, 0, 1) is useful for 4x4</span>
+<span class="sd">            rotation+translation matrices</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        ndarray: (ndim,) or (ndim, N) depending on input</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">arr</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">ndim</span><span class="p">:</span>
+        <span class="n">dim1234</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">([</span><span class="n">ndim</span> <span class="o">-</span> <span class="n">arr</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">shape</span><span class="p">)[</span><span class="mi">1</span><span class="p">:],</span>
+                           <span class="n">dtype</span><span class="o">=</span><span class="n">arr</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+        <span class="c1"># dim4 = np.empty(list(arr.shape)[:-1] + [1], dtype=arr.dtype)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">init_vals</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">ndim</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;init vals should have length at least ndim&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ndim</span><span class="p">)):</span>
+            <span class="n">dim1234</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="n">init_vals</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+        <span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">arr</span><span class="p">,</span> <span class="n">dim1234</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">arr</span></div>
+
+<div class="viewcode-block" id="make_rotation"><a class="viewcode-back" href="../../api/viscid.cotr.html#viscid.make_rotation">[docs]</a><span class="k">def</span> <span class="nf">make_rotation</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="n">rdim</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Make rotation matrix of theta degrees around axis</span>
+
+<span class="sd">    Warning:</span>
+<span class="sd">        The Hapgood paper uses the convention that rotations around y</span>
+<span class="sd">        are right-handed, but rotations around x and z are left handed!</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        theta (float): angle (degrees)</span>
+<span class="sd">        axis (int, str): one of (0, &#39;x&#39;, 1, &#39;y&#39;, 2, &#39;z&#39;)</span>
+<span class="sd">        rdim (int): 3 to make 3x3 matrices, or 4 to make 4x4 where</span>
+<span class="sd">            `mat[:, 3] == mat[3, :] == [0, 0, 0, 1]`. 4x4 matrices are</span>
+<span class="sd">            useful for performing translations.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        ValueError: On invalid axis</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">axis</span> <span class="o">=</span> <span class="n">axis</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+        <span class="k">pass</span>
+
+    <span class="k">if</span> <span class="n">rdim</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;2x2, 3x3 or 4x4 matrices only&quot;</span><span class="p">)</span>
+
+    <span class="n">theta_rad</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+    <span class="n">sinT</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta_rad</span><span class="p">)</span>
+    <span class="n">cosT</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta_rad</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">theta</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">:</span>
+        <span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">rdim</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">axis</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span>  <span class="mf">1.0</span><span class="p">,</span>   <span class="mf">0.0</span><span class="p">,</span>   <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+                        <span class="p">[</span>  <span class="mf">0.0</span><span class="p">,</span>  <span class="n">cosT</span><span class="p">,</span>  <span class="n">sinT</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+                        <span class="p">[</span>  <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="n">sinT</span><span class="p">,</span>  <span class="n">cosT</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+                        <span class="p">[</span>  <span class="mf">0.0</span><span class="p">,</span>   <span class="mf">0.0</span><span class="p">,</span>   <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]])</span>
+    <span class="k">elif</span> <span class="n">axis</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="n">cosT</span><span class="p">,</span>   <span class="mf">0.0</span><span class="p">,</span>  <span class="n">sinT</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+                        <span class="p">[</span>  <span class="mf">0.0</span><span class="p">,</span>   <span class="mf">1.0</span><span class="p">,</span>   <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+                        <span class="p">[</span><span class="o">-</span><span class="n">sinT</span><span class="p">,</span>   <span class="mf">0.0</span><span class="p">,</span>  <span class="n">cosT</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+                        <span class="p">[</span>  <span class="mf">0.0</span><span class="p">,</span>   <span class="mf">0.0</span><span class="p">,</span>   <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]])</span>
+    <span class="k">elif</span> <span class="n">axis</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+        <span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="n">cosT</span><span class="p">,</span>  <span class="n">sinT</span><span class="p">,</span>   <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+                        <span class="p">[</span><span class="o">-</span><span class="n">sinT</span><span class="p">,</span>  <span class="n">cosT</span><span class="p">,</span>   <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+                        <span class="p">[</span>  <span class="mf">0.0</span><span class="p">,</span>   <span class="mf">0.0</span><span class="p">,</span>   <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+                        <span class="p">[</span>  <span class="mf">0.0</span><span class="p">,</span>   <span class="mf">0.0</span><span class="p">,</span>   <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;invalid axis: </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">axis</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">mat</span><span class="p">[:</span><span class="n">rdim</span><span class="p">,</span> <span class="p">:</span><span class="n">rdim</span><span class="p">])</span></div>
+
+<div class="viewcode-block" id="make_translation"><a class="viewcode-back" href="../../api/viscid.cotr.html#viscid.make_translation">[docs]</a><span class="k">def</span> <span class="nf">make_translation</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Make a 4x4 translation matrix to act on [x, y, z, 1] vectors</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        v (sequence): Translation vector, must have at least 3 entries</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        (mat, imat): mat will translate an [x, y, z, 1] vector, and</span>
+<span class="sd">            imat will do the inverse translation</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">tmat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">+</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span>
+                     <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">+</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span>
+                     <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">+</span><span class="n">v</span><span class="p">[</span><span class="mi">2</span><span class="p">]],</span>
+                     <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>     <span class="mi">1</span><span class="p">]])</span>
+    <span class="n">imat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span>
+                     <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span>
+                     <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="n">v</span><span class="p">[</span><span class="mi">2</span><span class="p">]],</span>
+                     <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>     <span class="mi">1</span><span class="p">]])</span>
+    <span class="k">return</span> <span class="n">tmat</span><span class="p">,</span> <span class="n">imat</span></div>
+
+<div class="viewcode-block" id="get_rotation_wxyz"><a class="viewcode-back" href="../../api/viscid.cotr.html#viscid.get_rotation_wxyz">[docs]</a><span class="k">def</span> <span class="nf">get_rotation_wxyz</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span> <span class="n">check_inverse</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">quick</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Find rotation axis and angle of a rotation matrix</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        mat (ndarray): 3x3 rotation matrix with determinant +1</span>
+<span class="sd">        check_inverse (bool): check if mat.T == inverse(mat)</span>
+<span class="sd">        quick (bool): Try a quicker, less well tested method first</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        ndarray: [w (rotation angle), ux, uy, uz] where u is the</span>
+<span class="sd">            normalized axis vector</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">check_inverse</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">mat</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">mat</span><span class="p">)):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Matrix transpose != inverse, not a rotation&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">quick</span><span class="p">:</span>
+        <span class="c1"># I&#39;m not sure if I trust this method, although it is probably</span>
+        <span class="c1"># quicker than calculating eigenvectors</span>
+        <span class="n">ux</span> <span class="o">=</span> <span class="n">mat</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">mat</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+        <span class="n">uy</span> <span class="o">=</span> <span class="n">mat</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">mat</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="n">uz</span> <span class="o">=</span> <span class="n">mat</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">mat</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">ux</span><span class="p">,</span> <span class="n">uy</span><span class="p">,</span> <span class="n">uz</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">])</span>
+
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">u</span><span class="p">),</span> <span class="mf">0.0</span><span class="p">):</span>
+        <span class="n">eigval</span><span class="p">,</span> <span class="n">eigvecs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">eigval</span> <span class="o">-</span> <span class="mf">1.0</span><span class="p">))</span>
+        <span class="n">u</span> <span class="o">=</span> <span class="n">eigvecs</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">real</span>  <span class="c1"># eigenvector for eigenval closest to 1.0</span>
+
+    <span class="c1"># normalize axis vector</span>
+    <span class="n">u</span> <span class="o">=</span> <span class="n">u</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+
+    <span class="c1"># find a vector `b1` that is perpendicular to rotation axis `u`</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">u</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+    <span class="n">au_diff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">u</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">au_diff</span> <span class="o">&lt;</span> <span class="mf">0.1</span> <span class="ow">or</span> <span class="n">au_diff</span> <span class="o">&gt;</span> <span class="mf">1.9</span><span class="p">:</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">u</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+    <span class="n">b1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">u</span><span class="p">)</span>
+    <span class="n">b1</span> <span class="o">=</span> <span class="n">b1</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">b1</span><span class="p">)</span>  <span class="c1"># minimize effect of roundoff error</span>
+
+    <span class="c1"># rotate `b1` and then find the angle between result (`b2`) at `b1`</span>
+    <span class="n">b2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span> <span class="n">b1</span><span class="p">)</span>
+    <span class="n">b2</span> <span class="o">=</span> <span class="n">b2</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">b2</span><span class="p">)</span>  <span class="c1"># minimize effect of roundoff error</span>
+    <span class="n">angleB</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">rad2deg</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">b1</span><span class="p">,</span> <span class="n">b2</span><span class="p">)))</span>
+
+    <span class="c1"># fix sign of `u` to make the rotation angle right handed, note that</span>
+    <span class="c1"># the angle will always be positive due to range or np.arccos</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">b1</span><span class="p">,</span> <span class="n">b2</span><span class="p">),</span> <span class="n">u</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">:</span>
+        <span class="n">u</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span>
+
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">angleB</span><span class="p">,</span> <span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">u</span><span class="p">[</span><span class="mi">2</span><span class="p">]])</span></div>
+
+<div class="viewcode-block" id="as_crd_system"><a class="viewcode-back" href="../../api/viscid.cotr.html#viscid.as_crd_system">[docs]</a><span class="k">def</span> <span class="nf">as_crd_system</span><span class="p">(</span><span class="n">thing</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">_NOT_GIVEN</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Try to figure out a crd_system for thing</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        thing: Either a string with a crd_system abbreviation, or</span>
+<span class="sd">            something that that can do thing.find_info(&#39;crd_system&#39;)</span>
+<span class="sd">        default (str): fallback value</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        str: crd system abbreviation, stripped and lower case</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        TypeError: if no default supplied and thing can&#39;t be turned</span>
+<span class="sd">            into a crd_system</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">thing</span><span class="p">,</span> <span class="s2">&quot;__crd_system__&quot;</span><span class="p">):</span>
+        <span class="n">crd_system</span> <span class="o">=</span> <span class="n">thing</span><span class="o">.</span><span class="n">__crd_system__</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">crd_system</span> <span class="o">=</span> <span class="n">thing</span><span class="o">.</span><span class="n">find_attr</span><span class="p">(</span><span class="s2">&quot;__crd_system__&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">thing</span><span class="p">,</span> <span class="s2">&quot;find_info&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">thing</span><span class="o">.</span><span class="n">find_info</span><span class="p">(</span><span class="s2">&quot;crd_system&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">):</span>
+                <span class="n">crd_system</span> <span class="o">=</span> <span class="n">thing</span><span class="o">.</span><span class="n">find_info</span><span class="p">(</span><span class="s2">&quot;crd_system&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">crd_system</span> <span class="o">=</span> <span class="n">thing</span>
+
+    <span class="c1"># post-process crd_system - it must be string-like</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">crd_system</span> <span class="o">=</span> <span class="n">crd_system</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">crd_system</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">crd_system</span> <span class="o">=</span> <span class="s2">&quot;Unknown&quot;</span>
+        <span class="k">elif</span> <span class="n">default</span> <span class="ow">is</span> <span class="n">_NOT_GIVEN</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Cound not decipher crd_system: </span><span class="si">{0}</span><span class="s2">&quot;</span>
+                            <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">crd_system</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">crd_system</span> <span class="o">=</span> <span class="n">as_crd_system</span><span class="p">(</span><span class="n">default</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">crd_system</span></div>
+
+
+<div class="viewcode-block" id="Cotr"><a class="viewcode-back" href="../../api/viscid.cotr.html#viscid.Cotr">[docs]</a><span class="k">class</span> <span class="nc">Cotr</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Transform geocentric vectors between crd systems @ a given UTC&quot;&quot;&quot;</span>
+    <span class="c1"># This lookup is a composition of elementary transforms as per</span>
+    <span class="c1"># [Hapgood1992].</span>
+    <span class="c1"># In this lookup, the number refers to the index of a elementary matrix,</span>
+    <span class="c1"># and if it&#39;s negative, it indicates the inverse (transpose) of that matrix</span>
+    <span class="c1"># yay orthoginality :)</span>
+    <span class="c1">#</span>
+    <span class="c1"># Note that this dict only contans transformations in one direction, so you</span>
+    <span class="c1"># may need to reverse the lookup and transpose the result if you want to</span>
+    <span class="c1"># go the other way</span>
+    <span class="c1">#</span>
+    <span class="c1"># Hapgood 1992 caveats:</span>
+    <span class="c1">#   - equations are simplified, but accurate up to 0.001deg up to year 2100</span>
+    <span class="c1">#</span>
+    <span class="c1"># Note that most of these transformations are untested; feel free to</span>
+    <span class="c1"># verify your favorite transformations and fix them or mark them as tested</span>
+    <span class="c1">#</span>
+    <span class="n">GEOCENTRIC</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;gei&#39;</span><span class="p">,</span> <span class="s1">&#39;geo&#39;</span><span class="p">,</span> <span class="s1">&#39;gse&#39;</span><span class="p">,</span> <span class="s1">&#39;gsm&#39;</span><span class="p">,</span> <span class="s1">&#39;sm&#39;</span><span class="p">,</span> <span class="s1">&#39;mag&#39;</span><span class="p">,</span> <span class="s1">&#39;mhd&#39;</span><span class="p">]</span>
+    <span class="n">HELIOCENTRIC</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;hea&#39;</span><span class="p">,</span> <span class="s1">&#39;hee&#39;</span><span class="p">,</span> <span class="s1">&#39;heeq&#39;</span><span class="p">]</span>
+    <span class="n">XFORM_LOOKUP</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;gei-&gt;gei&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">),</span>  <span class="c1"># identity</span>
+                    <span class="s2">&quot;geo-&gt;gei&quot;</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">),</span>
+                    <span class="s2">&quot;gse-&gt;gei&quot;</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="p">),</span>
+                    <span class="s2">&quot;gsm-&gt;gei&quot;</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">),</span>
+                    <span class="s2">&quot;sm-&gt;gei&quot;</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">),</span>
+                    <span class="s2">&quot;mag-&gt;gei&quot;</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">),</span>
+                    <span class="s2">&quot;mhd-&gt;gei&quot;</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span>
+                    <span class="s2">&quot;geo-&gt;geo&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">),</span>  <span class="c1"># identity</span>
+                    <span class="s2">&quot;gse-&gt;geo&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">),</span>  <span class="c1"># &lt;- tested</span>
+                    <span class="s2">&quot;gsm-&gt;geo&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">),</span>
+                    <span class="s2">&quot;sm-&gt;geo&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">),</span>
+                    <span class="s2">&quot;mag-&gt;geo&quot;</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="p">),</span>
+                    <span class="s2">&quot;mhd-&gt;geo&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span>  <span class="c1"># &lt;- tested</span>
+                    <span class="s2">&quot;gse-&gt;gse&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">),</span>  <span class="c1"># identity</span>
+                    <span class="s2">&quot;gsm-&gt;gse&quot;</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,),</span>
+                    <span class="s2">&quot;sm-&gt;gse&quot;</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">),</span>  <span class="c1"># &lt;- tested</span>
+                    <span class="s2">&quot;mag-&gt;gse&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">),</span>
+                    <span class="s2">&quot;mhd-&gt;gse&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="p">),</span>  <span class="c1"># &lt;- tested</span>
+                    <span class="s2">&quot;gsm-&gt;gsm&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">),</span>  <span class="c1"># identity</span>
+                    <span class="s2">&quot;sm-&gt;gsm&quot;</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="p">),</span>
+                    <span class="s2">&quot;mag-&gt;gsm&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">),</span>
+                    <span class="s2">&quot;mhd-&gt;gsm&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span>
+                    <span class="s2">&quot;sm-&gt;sm&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">),</span>  <span class="c1"># identity</span>
+                    <span class="s2">&quot;mag-&gt;sm&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">),</span>
+                    <span class="s2">&quot;mhd-&gt;sm&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span>  <span class="c1"># &lt;- tested</span>
+                    <span class="s2">&quot;mag-&gt;mag&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">),</span>  <span class="c1"># identity</span>
+                    <span class="s2">&quot;mhd-&gt;mag&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span>
+                    <span class="s2">&quot;mhd-&gt;mhd&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">),</span>  <span class="c1"># identity</span>
+                    <span class="c1"># Heliocentric</span>
+                    <span class="s2">&quot;hae-&gt;hae&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">),</span>  <span class="c1"># identity</span>
+                    <span class="s2">&quot;hee-&gt;hae&quot;</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="mi">11</span><span class="p">),</span>
+                    <span class="s2">&quot;heeq-&gt;hae&quot;</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="mi">12</span><span class="p">),</span>
+                    <span class="s2">&quot;hee-&gt;hee&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">),</span>  <span class="c1"># identity</span>
+                    <span class="c1"># &quot;heeq-&gt;hee&quot;: (0),  # &lt;- unknown transform?</span>
+                    <span class="s2">&quot;heeq-&gt;heeq&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">),</span>  <span class="c1"># identity</span>
+                   <span class="p">}</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="s1">&#39;1967-01-01&#39;</span><span class="p">,</span> <span class="n">dip_tilt</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dip_gsm</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">rdim</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+                 <span class="n">notilt1967</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Construct Cotr instance</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            time (datetime-like): A specific date and time for the</span>
+<span class="sd">                transformations (sets earth&#39;s geographic and dipole</span>
+<span class="sd">                orientations)</span>
+<span class="sd">            rdim (int): Dimensionality of rotation matrices</span>
+<span class="sd">            dip_tilt (float): if given, override the dipole tilt angle</span>
+<span class="sd">                (mu in degrees, positive points north pole sunward)</span>
+<span class="sd">            dip_gsm (float): if given, override the dipole gse-&gt;gsm</span>
+<span class="sd">                angle (psi in degrees, positive points north pole</span>
+<span class="sd">                duskward)</span>
+<span class="sd">            notilt1967 (bool): if True, then all transforms (except</span>
+<span class="sd">                &lt;-&gt;mhd transforms) are set to the identity if time is</span>
+<span class="sd">                Jan 1 1967. This is the special OpenGGCM</span>
+<span class="sd">                no-dipole-tilt-time.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_emat_cache</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_xform_cache</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+
+        <span class="c1"># exact UT time of interest</span>
+        <span class="n">time</span> <span class="o">=</span> <span class="n">as_datetime64</span><span class="p">(</span><span class="n">time</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">time</span>
+
+        <span class="c1"># dimension of rotation matrices (3 or 4), use 4 to support</span>
+        <span class="c1"># translations</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rdim</span> <span class="o">=</span> <span class="n">rdim</span>
+
+        <span class="c1"># modified julian date is days from 00:00UT on 17 Nov 1858</span>
+        <span class="n">mjd0</span> <span class="o">=</span> <span class="n">as_datetime64</span><span class="p">(</span><span class="s1">&#39;1858-11-17T00:00:00.0&#39;</span><span class="p">)</span>
+        <span class="n">mjd_td</span> <span class="o">=</span> <span class="n">as_timedelta</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">mjd0</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span> <span class="o">-</span> <span class="n">mjd0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mjd</span> <span class="o">=</span> <span class="n">mjd_td</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span> <span class="o">//</span> <span class="p">(</span><span class="mi">24</span> <span class="o">*</span> <span class="mi">3600</span><span class="p">)</span>
+
+        <span class="c1"># ut is hours from midnight</span>
+        <span class="n">dt</span> <span class="o">=</span> <span class="n">as_datetime</span><span class="p">(</span><span class="n">time</span><span class="p">)</span>
+        <span class="n">day</span> <span class="o">=</span> <span class="n">as_datetime64</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{0:04d}</span><span class="s2">-</span><span class="si">{1:02d}</span><span class="s2">-</span><span class="si">{2:02d}</span><span class="s2">&quot;</span>
+                            <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="n">dt</span><span class="o">.</span><span class="n">month</span><span class="p">,</span> <span class="n">dt</span><span class="o">.</span><span class="n">day</span><span class="p">))</span>
+        <span class="n">secs</span> <span class="o">=</span> <span class="n">as_timedelta</span><span class="p">(</span><span class="n">time</span> <span class="o">-</span> <span class="n">day</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">dtype</span><span class="p">))</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ut</span> <span class="o">=</span> <span class="n">secs</span> <span class="o">/</span> <span class="mf">3600.0</span>
+
+        <span class="c1"># julian centuries (36525 days) since 1 Jan 2000 (epoch 2000)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t0</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mjd</span> <span class="o">-</span> <span class="mf">51544.5</span><span class="p">)</span> <span class="o">/</span> <span class="mf">36525.0</span>
+
+        <span class="c1"># interpolated IGRF</span>
+        <span class="n">g10</span><span class="p">,</span> <span class="n">g11</span><span class="p">,</span> <span class="n">h11</span> <span class="o">=</span> <span class="n">_igrf_interpolate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="n">notilt1967</span><span class="o">=</span><span class="n">notilt1967</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">g10</span> <span class="o">=</span> <span class="n">g10</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">g11</span> <span class="o">=</span> <span class="n">g11</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">h11</span> <span class="o">=</span> <span class="n">h11</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_disable_mag_crds</span> <span class="o">=</span> <span class="n">dip_tilt</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">dip_gsm</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+        <span class="n">years</span> <span class="o">=</span> <span class="n">datetime64_as_years</span><span class="p">(</span><span class="n">time</span><span class="p">)</span>
+        <span class="n">notilt</span> <span class="o">=</span> <span class="n">notilt1967</span> <span class="ow">and</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">years</span> <span class="o">-</span> <span class="mf">1967.0</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.0006</span>
+
+        <span class="c1"># do i really want the self._disable_mag_crds part of this? what</span>
+        <span class="c1"># if i want dip_gsm set by the time, and dip_tilt set by hand...</span>
+        <span class="c1"># would anyone ever want that? is it really more natural to say that</span>
+        <span class="c1"># if you specify dip_tilt or dip_gsm then both ignore the time?</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_disable_mag_crds</span> <span class="ow">or</span> <span class="n">notilt</span><span class="p">:</span>
+            <span class="n">dip_tilt</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="k">if</span> <span class="n">dip_tilt</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">dip_tilt</span>
+            <span class="n">dip_gsm</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="k">if</span> <span class="n">dip_gsm</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">dip_gsm</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cached_sun_ecliptic_longitude</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cached_q_g</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cached_q_e</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cached_dip_geolon_rad</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cached_dip_geolat_rad</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cached_dip_tilt</span> <span class="o">=</span> <span class="n">dip_tilt</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cached_dip_gsm</span> <span class="o">=</span> <span class="n">dip_gsm</span>
+
+        <span class="c1"># hack the cache to set all geocentric transforms to the identity</span>
+        <span class="c1"># except GSE -&gt; MHD</span>
+        <span class="k">if</span> <span class="n">notilt</span><span class="p">:</span>
+            <span class="n">eye</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rdim</span><span class="p">)</span>
+            <span class="c1"># matrices 3, 4, and 6 are missing so that gse, gsm, sm, mhd</span>
+            <span class="c1"># transformations still do something (from dip_tilt and dip_gsm)</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_emat_cache</span><span class="p">[</span><span class="o">-</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">eye</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_emat_cache</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">eye</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">__cotr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">sun_ecliptic_longitude</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># evidently self.ut should really be TDT here, but the error in</span>
+        <span class="c1"># lam_S is only ~0.0007deg</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cached_sun_ecliptic_longitude</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">m</span> <span class="o">=</span> <span class="mf">357.528</span> <span class="o">+</span> <span class="mf">35999.050</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">t0</span> <span class="o">+</span> <span class="mf">0.04107</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">ut</span>
+            <span class="n">m_rad</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+            <span class="n">lam</span> <span class="o">=</span> <span class="mf">280.460</span> <span class="o">+</span> <span class="mf">36000.772</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">t0</span> <span class="o">+</span> <span class="mf">0.04107</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">ut</span>
+            <span class="n">lam_S</span> <span class="o">=</span> <span class="p">(</span><span class="n">lam</span> <span class="o">+</span> <span class="p">(</span><span class="mf">1.915</span> <span class="o">-</span> <span class="mf">0.0048</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">t0</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">m_rad</span><span class="p">)</span> <span class="o">+</span>
+                     <span class="mf">0.020</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">m_rad</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_cached_sun_ecliptic_longitude</span> <span class="o">=</span> <span class="n">lam_S</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cached_sun_ecliptic_longitude</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">dip_geolon_rad</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cached_dip_geolon_rad</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># note that adding pi is a little bit of a hack to put</span>
+            <span class="c1"># lamda in the 4th quadrant... it doesn&#39;t really change anything,</span>
+            <span class="c1"># but in practice, it keeps dip_geolat from going &gt; 90deg</span>
+            <span class="n">lam_rad</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">h11</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">g11</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+            <span class="c1"># lam_rad = np.deg2rad(289.1 + 1.413e-2 * ((self.mjd - 46066) / 365.25))  # &lt;&lt;&lt;&lt;&lt;&lt;&lt;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_cached_dip_geolon_rad</span> <span class="o">=</span> <span class="n">lam_rad</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cached_dip_geolon_rad</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">dip_geolat_rad</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cached_dip_geolat_rad</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">lam_rad</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dip_geolon_rad</span>
+            <span class="n">cos_lam</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">lam_rad</span><span class="p">)</span>
+            <span class="n">sin_lam</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">lam_rad</span><span class="p">)</span>
+            <span class="n">_top</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">g11</span> <span class="o">*</span> <span class="n">cos_lam</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">h11</span> <span class="o">*</span> <span class="n">sin_lam</span>
+            <span class="n">phi_rad</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">arcsin</span><span class="p">(</span><span class="n">_top</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">g10</span><span class="p">)</span>
+            <span class="c1"># phi_rad = np.deg2rad(78.8 + 4.283e-2 * ((self.mjd - 46066) / 365.25))  # &lt;&lt;&lt;&lt;&lt;&lt;&lt;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_cached_dip_geolat_rad</span> <span class="o">=</span> <span class="n">phi_rad</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cached_dip_geolat_rad</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">Q_g</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cached_q_g</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">lam_rad</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dip_geolon_rad</span>
+            <span class="n">cos_lam</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">lam_rad</span><span class="p">)</span>
+            <span class="n">sin_lam</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">lam_rad</span><span class="p">)</span>
+            <span class="n">phi_rad</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dip_geolat_rad</span>
+            <span class="n">cos_phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi_rad</span><span class="p">)</span>
+            <span class="n">sin_phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">phi_rad</span><span class="p">)</span>
+            <span class="n">q_g</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">cos_phi</span> <span class="o">*</span> <span class="n">cos_lam</span><span class="p">,</span> <span class="n">cos_phi</span> <span class="o">*</span> <span class="n">sin_lam</span><span class="p">,</span> <span class="n">sin_phi</span><span class="p">])</span>
+            <span class="n">q_g</span> <span class="o">=</span> <span class="n">as_nvec</span><span class="p">(</span><span class="n">q_g</span><span class="p">,</span> <span class="n">ndim</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">rdim</span><span class="p">,</span> <span class="n">init_vals</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_cached_q_g</span> <span class="o">=</span> <span class="n">q_g</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cached_q_g</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">Q_e</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cached_q_e</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_cached_q_e</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s2">&quot;geo&quot;</span><span class="p">,</span> <span class="s2">&quot;gse&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">Q_g</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cached_q_e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">dip_geolon</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">rad2deg</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dip_geolon_rad</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">dip_geolat</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">rad2deg</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dip_geolat_rad</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">dip_gsm</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Angle psi between GSE-Z and dipole projected into GSE-YZ</span>
+
+<span class="sd">        Note:</span>
+<span class="sd">            SM -&gt; GSE, rotation is &lt;-mu, Y&gt; * &lt;-psi, X&gt; which is</span>
+<span class="sd">            equivalent to &lt;psi, X&gt; * &lt;mu, Y&gt;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cached_dip_gsm</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">_</span><span class="p">,</span> <span class="n">y_e</span><span class="p">,</span> <span class="n">z_e</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Q_e</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_cached_dip_gsm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">rad2deg</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">y_e</span><span class="p">,</span> <span class="n">z_e</span><span class="p">))</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cached_dip_gsm</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">dip_tilt</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Dipole tilt angle mu (angle between GSM-Z and dipole)</span>
+
+<span class="sd">        Note:</span>
+<span class="sd">            SM -&gt; GSE, rotation is &lt;-mu, Y&gt; * &lt;-psi, X&gt; which is</span>
+<span class="sd">            equivalent to &lt;psi, X&gt; * &lt;mu, Y&gt;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cached_dip_tilt</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">x_e</span><span class="p">,</span> <span class="n">y_e</span><span class="p">,</span> <span class="n">z_e</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Q_e</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
+            <span class="n">mu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">rad2deg</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">x_e</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">y_e</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">z_e</span><span class="o">**</span><span class="mi">2</span><span class="p">)))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_cached_dip_tilt</span> <span class="o">=</span> <span class="n">mu</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cached_dip_tilt</span>
+
+    <span class="n">dip_psi</span> <span class="o">=</span> <span class="n">dip_gsm</span>
+    <span class="n">dip_mu</span> <span class="o">=</span> <span class="n">dip_tilt</span>
+
+    <span class="k">def</span> <span class="nf">_get_emat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">which</span><span class="p">):</span>
+        <span class="c1"># create the elementary transform if it doesn&#39;t already exist</span>
+        <span class="k">if</span> <span class="n">which</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_emat_cache</span><span class="p">:</span>
+            <span class="n">abs_which</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">which</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">abs_which</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="c1"># identity</span>
+                <span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rdim</span><span class="p">)</span>
+                <span class="n">imat</span> <span class="o">=</span> <span class="n">mat</span><span class="o">.</span><span class="n">T</span>
+
+            <span class="k">elif</span> <span class="n">abs_which</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="c1"># gei -&gt; geo: &quot;rotate in the plane of earth&#39;s geographic</span>
+                <span class="c1">#              equator from 1st pt of Aries to Greenwich</span>
+                <span class="c1">#              meridian&quot; [Hapgood1992]_</span>
+                <span class="n">theta</span> <span class="o">=</span> <span class="mf">100.461</span> <span class="o">+</span> <span class="mf">36000.770</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">t0</span> <span class="o">+</span> <span class="mf">15.04107</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">ut</span>
+                <span class="n">mat</span> <span class="o">=</span> <span class="n">make_rotation</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="n">rdim</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">rdim</span><span class="p">)</span>
+                <span class="n">imat</span> <span class="o">=</span> <span class="n">mat</span><span class="o">.</span><span class="n">T</span>
+
+            <span class="k">elif</span> <span class="n">abs_which</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="c1"># gei -&gt; gse: e2 rotates &quot;from the Earth&#39;s equator to the plane</span>
+                <span class="c1">#             of the ecliptic&quot;, while e1 rotates &quot;in the plane</span>
+                <span class="c1">#             of the ecliptic from the First Point of Aries to</span>
+                <span class="c1">#             the Earth-Sun direction&quot; [Hapgood1992]_</span>
+                <span class="n">epsilon</span> <span class="o">=</span> <span class="mf">23.439</span> <span class="o">-</span> <span class="mf">0.013</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">t0</span>
+                <span class="n">lam_S</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sun_ecliptic_longitude</span>
+                <span class="n">e1</span> <span class="o">=</span> <span class="n">make_rotation</span><span class="p">(</span><span class="n">lam_S</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="n">rdim</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">rdim</span><span class="p">)</span>
+                <span class="n">e2</span> <span class="o">=</span> <span class="n">make_rotation</span><span class="p">(</span><span class="n">epsilon</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">rdim</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">rdim</span><span class="p">)</span>
+                <span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">e1</span><span class="p">,</span> <span class="n">e2</span><span class="p">)</span>
+                <span class="n">imat</span> <span class="o">=</span> <span class="n">mat</span><span class="o">.</span><span class="n">T</span>
+
+            <span class="k">elif</span> <span class="n">abs_which</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+                <span class="c1"># gse -&gt; gsm: rotate around GSE x-axis</span>
+                <span class="n">mat</span> <span class="o">=</span> <span class="n">make_rotation</span><span class="p">(</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">dip_psi</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">rdim</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">rdim</span><span class="p">)</span>
+                <span class="n">imat</span> <span class="o">=</span> <span class="n">mat</span><span class="o">.</span><span class="n">T</span>
+
+            <span class="k">elif</span> <span class="n">abs_which</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+                <span class="c1"># gsm -&gt; sm: rotate by dipole tilt around GSM y-axis</span>
+                <span class="n">mat</span> <span class="o">=</span> <span class="n">make_rotation</span><span class="p">(</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">dip_mu</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">rdim</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">rdim</span><span class="p">)</span>
+                <span class="n">imat</span> <span class="o">=</span> <span class="n">mat</span><span class="o">.</span><span class="n">T</span>
+
+            <span class="k">elif</span> <span class="n">abs_which</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+                <span class="c1"># geo -&gt; mag: e2 rotates &quot;in the plane of Earth&#39;s equator from</span>
+                <span class="c1">#             the Greenwich meridian to the meridian containing</span>
+                <span class="c1">#             the dipole pole&quot; and e1 rotates &quot;in that meridian</span>
+                <span class="c1">#             from the geographic pole to the dipole pole&quot;</span>
+                <span class="c1">#             [Hapgood1992]_</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_disable_mag_crds</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Setting dip_tilt or dip_gsm by hand &quot;</span>
+                                       <span class="s2">&quot;makes Geomagnetic crds meaningless.&quot;</span><span class="p">)</span>
+                <span class="n">phi</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dip_geolat</span>
+                <span class="n">lam</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dip_geolon</span>
+                <span class="n">e1</span> <span class="o">=</span> <span class="n">make_rotation</span><span class="p">(</span><span class="n">phi</span> <span class="o">-</span> <span class="mf">90.0</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">rdim</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">rdim</span><span class="p">)</span>
+                <span class="n">e2</span> <span class="o">=</span> <span class="n">make_rotation</span><span class="p">(</span><span class="n">lam</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="n">rdim</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">rdim</span><span class="p">)</span>
+                <span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">e1</span><span class="p">,</span> <span class="n">e2</span><span class="p">)</span>
+                <span class="n">imat</span> <span class="o">=</span> <span class="n">mat</span><span class="o">.</span><span class="n">T</span>
+
+            <span class="k">elif</span> <span class="n">abs_which</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span>
+                <span class="c1"># gse -&gt; mhd == mhd -&gt; gse: OpenGGCM&#39;s flipped x/y axes</span>
+                <span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">][:</span><span class="bp">self</span><span class="o">.</span><span class="n">rdim</span><span class="p">])</span>
+                <span class="n">imat</span> <span class="o">=</span> <span class="n">mat</span><span class="o">.</span><span class="n">T</span>
+
+            <span class="k">elif</span> <span class="n">abs_which</span> <span class="o">==</span> <span class="mi">11</span><span class="p">:</span>
+                <span class="c1"># hae-&gt;hee:</span>
+                <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Heliocentric transforms not implemented&quot;</span><span class="p">)</span>
+
+            <span class="k">elif</span> <span class="n">abs_which</span> <span class="o">==</span> <span class="mi">12</span><span class="p">:</span>
+                <span class="c1"># hae-&gt;heeq:</span>
+                <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Heliocentric transforms not implemented&quot;</span><span class="p">)</span>
+
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;No such elementary transformation </span><span class="si">{0}</span><span class="s2">/</span><span class="si">{1}</span><span class="s2">&quot;</span>
+                                 <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">which</span><span class="p">,</span> <span class="n">abs_which</span><span class="p">))</span>
+
+            <span class="c1"># Note that for translations, imat != mat.T</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_emat_cache</span><span class="p">[</span><span class="o">-</span><span class="n">abs_which</span><span class="p">]</span> <span class="o">=</span> <span class="n">imat</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_emat_cache</span><span class="p">[</span><span class="n">abs_which</span><span class="p">]</span> <span class="o">=</span> <span class="n">mat</span>
+
+        <span class="c1"># ok, now the transform we need should be cached</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_emat_cache</span><span class="p">[</span><span class="n">which</span><span class="p">]</span>
+
+<div class="viewcode-block" id="Cotr.get_transform_matrix"><a class="viewcode-back" href="../../api/viscid.cotr.html#viscid.Cotr.get_transform_matrix">[docs]</a>    <span class="k">def</span> <span class="nf">get_transform_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">from_system</span><span class="p">,</span> <span class="n">to_system</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get a transformation matrix from one system to another</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            from_system (str): abbreviation of crd_system</span>
+<span class="sd">            to_system (str): abbreviation of crd_system</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            ndarray: self.rdim x self.rdim transformation matrix</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">from_system</span> <span class="o">=</span> <span class="n">as_crd_system</span><span class="p">(</span><span class="n">from_system</span><span class="p">)</span>
+        <span class="n">to_system</span> <span class="o">=</span> <span class="n">as_crd_system</span><span class="p">(</span><span class="n">to_system</span><span class="p">)</span>
+
+        <span class="n">xform</span> <span class="o">=</span> <span class="s2">&quot;-&gt;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">from_system</span><span class="p">,</span> <span class="n">to_system</span><span class="p">])</span>
+
+        <span class="k">if</span> <span class="n">xform</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_xform_cache</span><span class="p">:</span>
+            <span class="n">xform_rev</span> <span class="o">=</span> <span class="s2">&quot;-&gt;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">to_system</span><span class="p">,</span> <span class="n">from_system</span><span class="p">])</span>
+
+            <span class="c1"># emat_lst is always the list of transformations to go in the</span>
+            <span class="c1"># desired from_system -&gt; to_system direction</span>
+            <span class="k">if</span> <span class="n">xform</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">XFORM_LOOKUP</span><span class="p">:</span>
+                <span class="n">emat_lst</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">XFORM_LOOKUP</span><span class="p">[</span><span class="n">xform</span><span class="p">])</span>
+            <span class="k">elif</span> <span class="n">xform_rev</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">XFORM_LOOKUP</span><span class="p">:</span>
+                <span class="n">emat_lst</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="n">v</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">XFORM_LOOKUP</span><span class="p">[</span><span class="n">xform_rev</span><span class="p">])]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Unknown crd transformation: </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">xform</span><span class="p">))</span>
+
+            <span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rdim</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">emati</span> <span class="ow">in</span> <span class="n">emat_lst</span><span class="p">:</span>
+                <span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_emat</span><span class="p">(</span><span class="n">emati</span><span class="p">))</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">_xform_cache</span><span class="p">[</span><span class="n">xform</span><span class="p">]</span> <span class="o">=</span> <span class="n">mat</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_xform_cache</span><span class="p">[</span><span class="n">xform_rev</span><span class="p">]</span> <span class="o">=</span> <span class="n">mat</span><span class="o">.</span><span class="n">T</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_xform_cache</span><span class="p">[</span><span class="n">xform</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="Cotr.transform"><a class="viewcode-back" href="../../api/viscid.cotr.html#viscid.Cotr.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">from_system</span><span class="p">,</span> <span class="n">to_system</span><span class="p">,</span> <span class="n">vec</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Transform a vector from one system to another</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            from_system (str): abbreviation of crd_system</span>
+<span class="sd">            to_system (str): abbreviation of crd_system</span>
+<span class="sd">            vec (ndarray): should have shape (3, ) or (3, N) to</span>
+<span class="sd">                transform N vectors at once</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            ndarray: vec in new crd system shaped either (3, ) or</span>
+<span class="sd">                (3, N) mirroring the shape of vec</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">from_system</span> <span class="o">=</span> <span class="n">as_crd_system</span><span class="p">(</span><span class="n">from_system</span><span class="p">)</span>
+        <span class="n">to_system</span> <span class="o">=</span> <span class="n">as_crd_system</span><span class="p">(</span><span class="n">to_system</span><span class="p">)</span>
+
+        <span class="n">in_vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">vec</span><span class="p">)</span>
+        <span class="n">vec</span> <span class="o">=</span> <span class="n">as_nvec</span><span class="p">(</span><span class="n">in_vec</span><span class="p">,</span> <span class="n">ndim</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">rdim</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">vec</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">vec</span> <span class="o">=</span> <span class="n">vec</span><span class="o">.</span><span class="n">reshape</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+        <span class="k">if</span> <span class="n">from_system</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">HELIOCENTRIC</span> <span class="ow">and</span> <span class="n">to_system</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">GEOCENTRIC</span><span class="p">:</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Heliocentric -&gt; Geocentric not implemented&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">from_system</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">GEOCENTRIC</span> <span class="ow">and</span> <span class="n">to_system</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">HELIOCENTRIC</span><span class="p">:</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Geocentric -&gt; Heliocentric not implemented&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">mat</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_transform_matrix</span><span class="p">(</span><span class="n">from_system</span><span class="p">,</span> <span class="n">to_system</span><span class="p">)</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span> <span class="n">vec</span><span class="p">)</span>
+
+        <span class="c1"># the slice is in case as_nvec made vec larger to accomidate</span>
+        <span class="c1"># translation, but make sure we return at least 3-D</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ret</span><span class="p">[:</span><span class="nb">max</span><span class="p">(</span><span class="n">in_vec</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">3</span><span class="p">),</span> <span class="o">...</span><span class="p">])</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">in_vec</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="n">ret</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">ret</span></div>
+
+<div class="viewcode-block" id="Cotr.get_rotation_wxyz"><a class="viewcode-back" href="../../api/viscid.cotr.html#viscid.Cotr.get_rotation_wxyz">[docs]</a>    <span class="k">def</span> <span class="nf">get_rotation_wxyz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">from_system</span><span class="p">,</span> <span class="n">to_system</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get rotation axis and angle for a transformation</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            from_system (str): abbreviation of crd_system</span>
+<span class="sd">            to_system (str): abbreviation of crd_system</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            ndarray: [w, x, y, z] where w is the angle around the axis</span>
+<span class="sd">                vector [x, y, z]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">mat</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_transform_matrix</span><span class="p">(</span><span class="n">from_system</span><span class="p">,</span> <span class="n">to_system</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">get_rotation_wxyz</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Cotr.get_dipole_moment"><a class="viewcode-back" href="../../api/viscid.cotr.html#viscid.Cotr.get_dipole_moment">[docs]</a>    <span class="k">def</span> <span class="nf">get_dipole_moment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">crd_system</span><span class="o">=</span><span class="s1">&#39;gse&#39;</span><span class="p">,</span> <span class="n">strength</span><span class="o">=</span><span class="n">DEFAULT_STRENGTH</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get Earth&#39;s dipole moment</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            crd_system (str): crd_system of resulting moment</span>
+<span class="sd">            strength (float): magnitude of dipole moment</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            ndarray: 3-vector of dipole tilt in crd_system</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s1">&#39;sm&#39;</span><span class="p">,</span> <span class="n">crd_system</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="n">strength</span><span class="p">])</span></div>
+
+<div class="viewcode-block" id="Cotr.get_dipole_angles"><a class="viewcode-back" href="../../api/viscid.cotr.html#viscid.Cotr.get_dipole_angles">[docs]</a>    <span class="k">def</span> <span class="nf">get_dipole_angles</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get rotation angles between dipole and GSE</span>
+
+<span class="sd">        Note:</span>
+<span class="sd">            `psi` refers to the angle between GSE and GSM, while `mu`</span>
+<span class="sd">            is the dipole tilt angle.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            (tilt, gsm): The SM -&gt; GSE, rotation is &lt;-mu, Y&gt; * &lt;-psi, X&gt;</span>
+<span class="sd">                which is equivalent to &lt;psi, X&gt; * &lt;mu, Y&gt;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">dip_tilt</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dip_gsm</span></div></div>
+
+<div class="viewcode-block" id="as_cotr"><a class="viewcode-back" href="../../api/viscid.cotr.html#viscid.as_cotr">[docs]</a><span class="k">def</span> <span class="nf">as_cotr</span><span class="p">(</span><span class="n">thing</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">_NOT_GIVEN</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Try to make cotr into a Cotr instance</span>
+
+<span class="sd">    Inputs understood are:</span>
+<span class="sd">      - None for North-South dipole</span>
+<span class="sd">      - anything with a `__cotr__` property</span>
+<span class="sd">      - datetimes or similar, specifies the time for finding dip angles</span>
+<span class="sd">      - mapping (dict or similar), passed to Cotr constructor as kwargs</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        thing (obj): something to turn into a Cotr</span>
+<span class="sd">        default (None, obj): fallback value</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Cotr instance</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        TypeError: if no default supplied and thing can&#39;t be turned</span>
+<span class="sd">            into a Cotr instance</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">cotr</span> <span class="o">=</span> <span class="n">_NOT_GIVEN</span>
+
+    <span class="k">if</span> <span class="n">thing</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">cotr</span> <span class="o">=</span> <span class="n">Cotr</span><span class="p">(</span><span class="n">dip_tilt</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">dip_gsm</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">thing</span><span class="p">,</span> <span class="s2">&quot;__cotr__&quot;</span><span class="p">):</span>
+        <span class="n">cotr</span> <span class="o">=</span> <span class="n">thing</span><span class="o">.</span><span class="n">__cotr__</span>
+    <span class="k">elif</span> <span class="n">is_datetime_like</span><span class="p">(</span><span class="n">thing</span><span class="p">):</span>
+        <span class="n">cotr</span> <span class="o">=</span> <span class="n">Cotr</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">thing</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">cotr</span> <span class="o">=</span> <span class="n">thing</span><span class="o">.</span><span class="n">find_attr</span><span class="p">(</span><span class="s2">&quot;__cotr__&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">thing</span><span class="p">,</span> <span class="s2">&quot;find_info&quot;</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">thing</span><span class="o">.</span><span class="n">find_info</span><span class="p">(</span><span class="s2">&quot;cotr&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">):</span>
+                    <span class="n">cotr</span> <span class="o">=</span> <span class="n">as_cotr</span><span class="p">(</span><span class="n">thing</span><span class="o">.</span><span class="n">find_info</span><span class="p">(</span><span class="s2">&quot;cotr&quot;</span><span class="p">))</span>  <span class="c1"># recursive</span>
+                <span class="k">elif</span> <span class="n">thing</span><span class="o">.</span><span class="n">find_info</span><span class="p">(</span><span class="s2">&quot;dipoletime&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">):</span>
+                    <span class="n">cotr</span> <span class="o">=</span> <span class="n">as_cotr</span><span class="p">(</span><span class="n">thing</span><span class="o">.</span><span class="n">find_info</span><span class="p">(</span><span class="s2">&quot;dipoletime&quot;</span><span class="p">))</span>  <span class="c1"># recursive</span>
+
+    <span class="k">if</span> <span class="n">cotr</span> <span class="ow">is</span> <span class="n">_NOT_GIVEN</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">default</span> <span class="ow">is</span> <span class="n">_NOT_GIVEN</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Cound not decipher cotr: </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">thing</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># recursive to support default == None -&gt; 0 tilt Cotr</span>
+            <span class="n">cotr</span> <span class="o">=</span> <span class="n">as_cotr</span><span class="p">(</span><span class="n">default</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">cotr</span></div>
+
+<div class="viewcode-block" id="cotr_transform"><a class="viewcode-back" href="../../api/viscid.cotr.html#viscid.cotr_transform">[docs]</a><span class="k">def</span> <span class="nf">cotr_transform</span><span class="p">(</span><span class="n">date_time</span><span class="p">,</span> <span class="n">from_system</span><span class="p">,</span> <span class="n">to_system</span><span class="p">,</span> <span class="n">vec</span><span class="p">,</span> <span class="n">notilt1967</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Transform a vector from one system to another</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        date_time (str, datetime64): datetime of transformation</span>
+<span class="sd">        from_system (str): abbreviation of crd_system</span>
+<span class="sd">        to_system (str): abbreviation of crd_system</span>
+<span class="sd">        vec (ndarray): should have shape (3, ) or (N, 3) to</span>
+<span class="sd">            transform N vectors at once</span>
+<span class="sd">        notilt1967 (bool): is 1 Jan 1967 the special notilt time?</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        ndarray: vec in new crd system</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">Cotr</span><span class="p">(</span><span class="n">date_time</span><span class="p">,</span> <span class="n">notilt1967</span><span class="o">=</span><span class="n">notilt1967</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">c</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">from_system</span><span class="p">,</span> <span class="n">to_system</span><span class="p">,</span> <span class="n">vec</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="get_dipole_moment"><a class="viewcode-back" href="../../api/viscid.cotr.html#viscid.get_dipole_moment">[docs]</a><span class="k">def</span> <span class="nf">get_dipole_moment</span><span class="p">(</span><span class="n">date_time</span><span class="p">,</span> <span class="n">crd_system</span><span class="o">=</span><span class="s1">&#39;gse&#39;</span><span class="p">,</span> <span class="n">strength</span><span class="o">=</span><span class="n">DEFAULT_STRENGTH</span><span class="p">,</span>
+                      <span class="n">notilt1967</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get Earth&#39;s dipole moment at datetime</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        date_time (str, datetime64): datetime to get dipole</span>
+<span class="sd">        crd_system (str): crd_system of resulting moment</span>
+<span class="sd">        strength (float): magnitude of dipole moment</span>
+<span class="sd">        notilt1967 (bool): is 1 Jan 1967 the special notilt time?</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        ndarray: 3-vector of dipole tilt in crd_system</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">Cotr</span><span class="p">(</span><span class="n">date_time</span><span class="p">,</span> <span class="n">notilt1967</span><span class="o">=</span><span class="n">notilt1967</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">c</span><span class="o">.</span><span class="n">get_dipole_moment</span><span class="p">(</span><span class="n">crd_system</span><span class="p">,</span> <span class="n">strength</span><span class="o">=</span><span class="n">strength</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="get_dipole_moment_ang"><a class="viewcode-back" href="../../api/viscid.cotr.html#viscid.get_dipole_moment_ang">[docs]</a><span class="k">def</span> <span class="nf">get_dipole_moment_ang</span><span class="p">(</span><span class="n">dip_tilt</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">dip_gsm</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">crd_system</span><span class="o">=</span><span class="s1">&#39;gse&#39;</span><span class="p">,</span>
+                          <span class="n">strength</span><span class="o">=</span><span class="n">DEFAULT_STRENGTH</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get dipole moment from tilt and gsm angles</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        dip_tilt (float): if given, override the dipole tilt angle</span>
+<span class="sd">            (mu degrees, positive points north pole sunward)</span>
+<span class="sd">        dip_gsm (float): if given, override the dipole gse-&gt;gsm</span>
+<span class="sd">            angle (psi in degrees, positive points north pole</span>
+<span class="sd">            duskward)</span>
+<span class="sd">        crd_system (str): coordinate system of the result</span>
+<span class="sd">        strength (float): magnitude of the dipole moment</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        ndarray: dipole moment [mx, my, mz]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">Cotr</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">dip_tilt</span><span class="o">=</span><span class="n">dip_tilt</span><span class="p">,</span> <span class="n">dip_gsm</span><span class="o">=</span><span class="n">dip_gsm</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">c</span><span class="o">.</span><span class="n">get_dipole_moment</span><span class="p">(</span><span class="n">strength</span><span class="o">=</span><span class="n">strength</span><span class="p">,</span> <span class="n">crd_system</span><span class="o">=</span><span class="n">crd_system</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="get_dipole_angles"><a class="viewcode-back" href="../../api/viscid.cotr.html#viscid.get_dipole_angles">[docs]</a><span class="k">def</span> <span class="nf">get_dipole_angles</span><span class="p">(</span><span class="n">date_time</span><span class="p">,</span> <span class="n">notilt1967</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get rotation angles between dipole and GSE</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        date_time (str, datetime64): datetime to get dipole</span>
+<span class="sd">        notilt1967 (bool): is 1 Jan 1967 the special notilt time?</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        `psi` refers to the angle between GSE and GSM, while `mu`</span>
+<span class="sd">        is the dipole tilt angle.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        (tilt, gsm): The SM -&gt; GSE, rotation is &lt;-mu, Y&gt; * &lt;-psi, X&gt;</span>
+<span class="sd">            which is equivalent to &lt;psi, X&gt; * &lt;mu, Y&gt;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">Cotr</span><span class="p">(</span><span class="n">date_time</span><span class="p">,</span> <span class="n">notilt1967</span><span class="o">=</span><span class="n">notilt1967</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">c</span><span class="o">.</span><span class="n">get_dipole_angles</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="dipole_moment2cotr"><a class="viewcode-back" href="../../api/viscid.cotr.html#viscid.dipole_moment2cotr">[docs]</a><span class="k">def</span> <span class="nf">dipole_moment2cotr</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">crd_system</span><span class="o">=</span><span class="s1">&#39;gse&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Turn dipole moment vector into a Cotr instance</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        m (sequence): dipole moment as sequence with length 3</span>
+<span class="sd">        crd_system (str): crd_system of m</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Cotr instance</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="n">as_crd_system</span><span class="p">(</span><span class="n">crd_system</span><span class="p">)</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;gse&#39;</span><span class="p">,</span> <span class="s1">&#39;mhd&#39;</span><span class="p">)</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">Cotr</span><span class="p">(</span><span class="n">dip_tilt</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">dip_gsm</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">crd_system</span><span class="p">,</span> <span class="s1">&#39;gse&#39;</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span>
+    <span class="n">gsm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">rad2deg</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">m</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+    <span class="n">tilt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">rad2deg</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="mi">1</span><span class="p">:])))</span>
+    <span class="k">return</span> <span class="n">Cotr</span><span class="p">(</span><span class="n">dip_tilt</span><span class="o">=</span><span class="n">tilt</span><span class="p">,</span> <span class="n">dip_gsm</span><span class="o">=</span><span class="n">gsm</span><span class="p">)</span></div>
+
+
+<span class="k">def</span> <span class="nf">_main</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;This _main is a faux unit-test of cotr</span>
+
+<span class="sd">    It makes 3d plots using both Viscid and Mayavi</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">plot_mpl</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">plot_vlab</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">crd_system</span> <span class="o">=</span> <span class="s1">&#39;gse&#39;</span>
+
+    <span class="n">dtfmt</span> <span class="o">=</span> <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M&quot;</span>
+
+    <span class="n">t</span> <span class="o">=</span> <span class="s2">&quot;2010-06-23T00:00:00.0&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dipole Moment at </span><span class="si">{0}</span><span class="s2">,&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">format_datetime</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">dtfmt</span><span class="p">)))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    - mhd:&quot;</span><span class="p">,</span> <span class="n">get_dipole_moment</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">crd_system</span><span class="o">=</span><span class="s1">&#39;gse&#39;</span><span class="p">,</span> <span class="n">strength</span><span class="o">=</span><span class="mf">1.0</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    - gse:&quot;</span><span class="p">,</span> <span class="n">get_dipole_moment</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">crd_system</span><span class="o">=</span><span class="s1">&#39;mhd&#39;</span><span class="p">,</span> <span class="n">strength</span><span class="o">=</span><span class="mf">1.0</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="n">plot_mpl</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="kn">from</span> <span class="nn">viscid.plot</span> <span class="k">import</span> <span class="n">vpyplot</span> <span class="k">as</span> <span class="n">vlt</span>
+        <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+        <span class="kn">import</span> <span class="nn">matplotlib.dates</span> <span class="k">as</span> <span class="nn">mdates</span>
+
+        <span class="n">times</span> <span class="o">=</span> <span class="n">linspace_datetime64</span><span class="p">(</span><span class="s2">&quot;2010-01-01T00:00:00.0&quot;</span><span class="p">,</span>
+                                    <span class="s2">&quot;2010-06-21T00:00:00.0&quot;</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="p">(</span><span class="mi">365</span><span class="o">//</span><span class="mi">2</span><span class="o">*</span><span class="mi">24</span><span class="p">))</span>
+        <span class="c1"># times = linspace_datetime64(&quot;1952-01-01T00:00:00.0&quot;,</span>
+        <span class="c1">#                             &quot;1956-01-01T00:00:00.0&quot;, n=(4*365*24*2))</span>
+
+        <span class="n">t_dt</span> <span class="o">=</span> <span class="n">as_datetime</span><span class="p">(</span><span class="n">times</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="n">m_gse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">times</span><span class="p">),</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f8&#39;</span><span class="p">)</span>
+        <span class="n">m_sm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">times</span><span class="p">),</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f8&#39;</span><span class="p">)</span>
+        <span class="n">psi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">times</span><span class="p">),</span> <span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f8&#39;</span><span class="p">)</span>
+        <span class="n">mu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">times</span><span class="p">),</span> <span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f8&#39;</span><span class="p">)</span>
+        <span class="n">message_cadence</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">times</span><span class="p">)</span> <span class="o">//</span> <span class="mi">20</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">times</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="n">message_cadence</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Getting moment for: </span><span class="si">{0}</span><span class="s2"> </span><span class="si">{1}</span><span class="s2"> (</span><span class="si">{2:.0f}% c</span><span class="s2">omplete)&quot;</span>
+                      <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">i</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">times</span><span class="p">)))</span>
+            <span class="n">c</span> <span class="o">=</span> <span class="n">Cotr</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+            <span class="n">m_gse</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">get_dipole_moment</span><span class="p">(</span><span class="n">crd_system</span><span class="o">=</span><span class="s1">&#39;gse&#39;</span><span class="p">,</span> <span class="n">strength</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">m_sm</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">get_dipole_moment</span><span class="p">(</span><span class="n">crd_system</span><span class="o">=</span><span class="s1">&#39;sm&#39;</span><span class="p">,</span> <span class="n">strength</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">mu</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">psi</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">get_dipole_angles</span><span class="p">()</span>
+        <span class="n">dip_angle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">rad2deg</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">m_gse</span> <span class="o">*</span> <span class="n">m_sm</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)))</span>
+
+        <span class="n">i_smallest_diptilt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">mu</span><span class="p">))</span>
+        <span class="n">i_largest_diptilt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">mu</span><span class="p">))</span>
+        <span class="n">i_smallest_dipangle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">dip_angle</span><span class="p">))</span>
+        <span class="n">i_largest_dipangle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">dip_angle</span><span class="p">))</span>
+
+        <span class="nb">print</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dipole info between </span><span class="si">{0}</span><span class="s2"> and </span><span class="si">{1}</span><span class="s2">,&quot;</span>
+              <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">format_datetime</span><span class="p">(</span><span class="n">times</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dtfmt</span><span class="p">),</span>
+                        <span class="n">format_datetime</span><span class="p">(</span><span class="n">times</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">dtfmt</span><span class="p">)))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    - Smallest dipole tilt angle: </span><span class="si">{1:.03g}</span><span class="s2"> deg @ </span><span class="si">{0}</span><span class="s2">&quot;</span>
+              <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">format_datetime</span><span class="p">(</span><span class="n">times</span><span class="p">[</span><span class="n">i_smallest_diptilt</span><span class="p">],</span> <span class="n">dtfmt</span><span class="p">),</span>
+                        <span class="n">mu</span><span class="p">[</span><span class="n">i_smallest_diptilt</span><span class="p">]))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    - Largest dipole tilt angle: </span><span class="si">{1:.03g}</span><span class="s2"> deg @ </span><span class="si">{0}</span><span class="s2">&quot;</span>
+              <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">format_datetime</span><span class="p">(</span><span class="n">times</span><span class="p">[</span><span class="n">i_largest_diptilt</span><span class="p">],</span> <span class="n">dtfmt</span><span class="p">),</span>
+                        <span class="n">mu</span><span class="p">[</span><span class="n">i_largest_diptilt</span><span class="p">]))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    - Smallest angle between dip and GSE-Z: </span><span class="si">{1:.03g}</span><span class="s2"> deg @ </span><span class="si">{0}</span><span class="s2">&quot;</span>
+              <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">format_datetime</span><span class="p">(</span><span class="n">times</span><span class="p">[</span><span class="n">i_smallest_dipangle</span><span class="p">],</span> <span class="n">dtfmt</span><span class="p">),</span>
+                        <span class="n">dip_angle</span><span class="p">[</span><span class="n">i_smallest_dipangle</span><span class="p">]))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    - Largest angle between dip and GSE-Z: </span><span class="si">{1:.03g}</span><span class="s2"> deg @ </span><span class="si">{0}</span><span class="s2">&quot;</span>
+              <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">format_datetime</span><span class="p">(</span><span class="n">times</span><span class="p">[</span><span class="n">i_largest_dipangle</span><span class="p">],</span> <span class="n">dtfmt</span><span class="p">),</span>
+                        <span class="n">dip_angle</span><span class="p">[</span><span class="n">i_largest_dipangle</span><span class="p">]))</span>
+
+        <span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+        <span class="n">ax0</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_dt</span><span class="p">,</span> <span class="n">psi</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;GSM Angle&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_dt</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;DIP Tilt Angle&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">get_xaxis</span><span class="p">()</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">212</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="n">ax0</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_dt</span><span class="p">,</span> <span class="n">dip_angle</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Angle between dip and GSE-Z&#39;</span><span class="p">)</span>
+        <span class="c1"># plt.ylim(11.62, 11.73)  # to see knee on 1954-12-14 @ 17:05</span>
+        <span class="n">dateFmt</span> <span class="o">=</span> <span class="n">mdates</span><span class="o">.</span><span class="n">DateFormatter</span><span class="p">(</span><span class="n">dtfmt</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">dateFmt</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span><span class="o">.</span><span class="n">autofmt_xdate</span><span class="p">()</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mf">0.98</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mf">0.97</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+        <span class="c1"># m = m_gse</span>
+        <span class="c1"># plt.clf()</span>
+        <span class="c1"># plt.subplot(311)</span>
+        <span class="c1"># plt.plot(times, m[:, 0], label=&#39;M$_{0}$&#39;)</span>
+        <span class="c1"># plt.subplot(312)</span>
+        <span class="c1"># plt.plot(times, m[:, 1], label=&#39;M$_{1}$&#39;)</span>
+        <span class="c1"># plt.subplot(313)</span>
+        <span class="c1"># plt.plot(times, m[:, 2], label=&#39;M$_{2}$&#39;)</span>
+        <span class="c1"># plt.show()</span>
+
+    <span class="k">if</span> <span class="n">plot_vlab</span><span class="p">:</span>
+        <span class="kn">import</span> <span class="nn">os</span>
+        <span class="kn">import</span> <span class="nn">viscid</span>
+        <span class="kn">from</span> <span class="nn">viscid.plot</span> <span class="k">import</span> <span class="n">vlab</span>
+
+        <span class="n">vlab</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">768</span><span class="p">,</span> <span class="mi">768</span><span class="p">),</span> <span class="n">fgcolor</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">bgcolor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+                    <span class="n">offscreen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">_plot_time_range</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">figname</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">times</span><span class="p">):</span>
+                <span class="n">vlab</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+                <span class="n">cotr</span> <span class="o">=</span> <span class="n">Cotr</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+
+                <span class="n">vlab</span><span class="o">.</span><span class="n">plot_blue_marble</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">rotate</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">crd_system</span><span class="o">=</span><span class="n">crd_system</span><span class="p">,</span>
+                                      <span class="n">nphi</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">ntheta</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">res</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">lines</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+                <span class="n">vlab</span><span class="o">.</span><span class="n">plot_earth_3d</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mf">1.005</span><span class="p">,</span> <span class="n">crd_system</span><span class="o">=</span><span class="n">crd_system</span><span class="p">,</span>
+                                   <span class="n">night_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+                <span class="n">mag_north</span> <span class="o">=</span> <span class="n">cotr</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s1">&#39;sm&#39;</span><span class="p">,</span> <span class="n">crd_system</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+
+                <span class="n">vlab</span><span class="o">.</span><span class="n">mlab</span><span class="o">.</span><span class="n">points3d</span><span class="p">(</span><span class="o">*</span><span class="n">mag_north</span><span class="p">,</span> <span class="n">scale_factor</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;sphere&#39;</span><span class="p">,</span>
+                                   <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mf">0.992</span><span class="p">,</span> <span class="mf">0.455</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="n">resolution</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
+                <span class="n">vlab</span><span class="o">.</span><span class="n">orientation_axes</span><span class="p">(</span><span class="n">line_width</span><span class="o">=</span><span class="mf">4.0</span><span class="p">)</span>
+
+                <span class="n">vlab</span><span class="o">.</span><span class="n">mlab</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.325</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="n">viscid</span><span class="o">.</span><span class="n">format_datetime</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+
+                <span class="n">vlab</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">azimuth</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">elevation</span><span class="o">=</span><span class="mf">90.0</span><span class="p">,</span> <span class="n">distance</span><span class="o">=</span><span class="mf">5.0</span><span class="p">,</span>
+                          <span class="n">focalpoint</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+                <span class="n">vlab</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{0}</span><span class="s2">_eq_</span><span class="si">{1:06d}</span><span class="s2">.png&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">figname</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span>
+                <span class="n">vlab</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">azimuth</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">elevation</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">distance</span><span class="o">=</span><span class="mf">5.0</span><span class="p">,</span>
+                          <span class="n">focalpoint</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+                <span class="n">vlab</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{0}</span><span class="s2">_pole_</span><span class="si">{1:06d}</span><span class="s2">.png&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">figname</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span>
+
+        <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s2">&quot;~/Desktop/day/</span><span class="si">{0}</span><span class="s2">/&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">crd_system</span><span class="p">))</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Writing 3D images in:&quot;</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span>
+
+        <span class="c1"># summer solstice (earth-sun line @ tropic of cancer)</span>
+        <span class="nb">print</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Making a movie for the June solstice&quot;</span><span class="p">)</span>
+        <span class="n">solstice_times</span> <span class="o">=</span> <span class="n">linspace_datetime64</span><span class="p">(</span><span class="s2">&quot;2010-06-21T00:00:00.0&quot;</span><span class="p">,</span>
+                                             <span class="s2">&quot;2010-06-22T00:00:00.0&quot;</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">49</span><span class="p">)</span>
+        <span class="n">_plot_time_range</span><span class="p">(</span><span class="n">solstice_times</span><span class="p">,</span> <span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;solstice&quot;</span><span class="p">)</span>
+        <span class="n">pfx</span> <span class="o">=</span> <span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;solstice_eq&quot;</span>
+        <span class="n">viscid</span><span class="o">.</span><span class="n">make_animation</span><span class="p">(</span><span class="n">pfx</span> <span class="o">+</span> <span class="s1">&#39;.mp4&#39;</span><span class="p">,</span> <span class="n">pfx</span><span class="p">,</span> <span class="n">framerate</span><span class="o">=</span><span class="mf">23.976</span><span class="p">,</span> <span class="n">yes</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">pfx</span> <span class="o">=</span> <span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;solstice_pole&quot;</span>
+        <span class="n">viscid</span><span class="o">.</span><span class="n">make_animation</span><span class="p">(</span><span class="n">pfx</span> <span class="o">+</span> <span class="s1">&#39;.mp4&#39;</span><span class="p">,</span> <span class="n">pfx</span><span class="p">,</span> <span class="n">framerate</span><span class="o">=</span><span class="mf">23.976</span><span class="p">,</span> <span class="n">yes</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="c1"># autumnal equinox (earth-sun line @ equator)</span>
+        <span class="nb">print</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Making a movie for the September equinox&quot;</span><span class="p">)</span>
+        <span class="n">equinox_times</span> <span class="o">=</span> <span class="n">linspace_datetime64</span><span class="p">(</span><span class="s2">&quot;2010-09-23T00:00:00.0&quot;</span><span class="p">,</span>
+                                            <span class="s2">&quot;2010-09-24T00:00:00.0&quot;</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">49</span><span class="p">)</span>
+        <span class="n">_plot_time_range</span><span class="p">(</span><span class="n">equinox_times</span><span class="p">,</span> <span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;equinox&quot;</span><span class="p">)</span>
+        <span class="n">pfx</span> <span class="o">=</span> <span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;equinox_eq&quot;</span>
+        <span class="n">viscid</span><span class="o">.</span><span class="n">make_animation</span><span class="p">(</span><span class="n">pfx</span> <span class="o">+</span> <span class="s1">&#39;.mp4&#39;</span><span class="p">,</span> <span class="n">pfx</span><span class="p">,</span> <span class="n">framerate</span><span class="o">=</span><span class="mf">23.976</span><span class="p">,</span> <span class="n">yes</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">pfx</span> <span class="o">=</span> <span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;equinox_pole&quot;</span>
+        <span class="n">viscid</span><span class="o">.</span><span class="n">make_animation</span><span class="p">(</span><span class="n">pfx</span> <span class="o">+</span> <span class="s1">&#39;.mp4&#39;</span><span class="p">,</span> <span class="n">pfx</span><span class="p">,</span> <span class="n">framerate</span><span class="o">=</span><span class="mf">23.976</span><span class="p">,</span> <span class="n">yes</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="c1"># Watching the magnetic pole move year-by-year</span>
+        <span class="nb">print</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Making a movie to show magnetic pole motion&quot;</span><span class="p">)</span>
+        <span class="n">years</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1950</span><span class="p">,</span> <span class="mi">2016</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">times</span> <span class="o">=</span> <span class="p">[</span><span class="n">as_datetime64</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{0:04d}</span><span class="s2">-06-21&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">y</span><span class="p">))</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">years</span><span class="p">]</span>
+        <span class="n">_plot_time_range</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;year&quot;</span><span class="p">)</span>
+        <span class="n">pfx</span> <span class="o">=</span> <span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;year_eq&quot;</span>
+        <span class="n">viscid</span><span class="o">.</span><span class="n">make_animation</span><span class="p">(</span><span class="n">pfx</span> <span class="o">+</span> <span class="s1">&#39;.mp4&#39;</span><span class="p">,</span> <span class="n">pfx</span><span class="p">,</span> <span class="n">yes</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">framerate</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+        <span class="n">pfx</span> <span class="o">=</span> <span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;year_pole&quot;</span>
+        <span class="n">viscid</span><span class="o">.</span><span class="n">make_animation</span><span class="p">(</span><span class="n">pfx</span> <span class="o">+</span> <span class="s1">&#39;.mp4&#39;</span><span class="p">,</span> <span class="n">pfx</span><span class="p">,</span> <span class="n">yes</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">framerate</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">_main</span><span class="p">())</span>
+
+<span class="c1">##</span>
+<span class="c1">## EOF</span>
+<span class="c1">##</span>
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+      
+    </p>
+    <p>
+        &copy; Copyright 2017, Kristofor Maynard.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

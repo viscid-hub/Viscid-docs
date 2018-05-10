@@ -1,0 +1,507 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>viscid.fluidtrace &#8212; Viscid 0.99.6 documentation</title>
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+<link rel="icon" href="../../_static/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../../_static/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon-precomposed" href="../../_static/Vicon_128.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          Viscid</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.99.6</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+    <li class="dropdown">
+      <a role="button"
+         id="dLabelNavLinxToc"
+         data-toggle="dropdown"
+         data-target="#"
+         href="#">Tutorial <b class="caret"></b></a>
+      <ul class="dropdown-menu navlinktoc"
+          role="menu">
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../installation.html">Installation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/creating_fields.html">Creating Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/slicing.html">Slicing Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/plotting_scalars.html">Plotting Scalars</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/plotting_vectors.html">Plotting Vectors</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/mayavi.html">3D Plots (Mayavi)</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/openggcm.html">OpenGGCM Specific</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/ionosphere.html">Ionosphere</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/stream_and_interp.html">Streamline and Interpolation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/magnetic_topology.html">Magnetic Topology</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/magnetopause.html">Magnetopause</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/quasi_potential.html">Quasi Potential</a>
+          </li>
+      </ul>
+    </li>
+
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../changes.html">ChangeLog</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../philosophy.html">Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/index.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tips_and_tricks.html">Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../functions.html">Useful Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plot_options.html">Plot Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mpl_style_gallery.html">Matplotlib Style Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../custom_behavior.html">Custom Behavior (rc file)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev_guide.html">Developer’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extending_readers.html">Extending Readers</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/viscid.html">API</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"></ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <h1>Source code for viscid.fluidtrace</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="sd">&quot;&quot;&quot;Trace fluid elements in time&quot;&quot;&quot;</span>
+<span class="c1"># pylint: disable=deprecated-method</span>
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">print_function</span>
+<span class="kn">import</span> <span class="nn">itertools</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">import</span> <span class="nn">viscid</span>
+<span class="kn">from</span> <span class="nn">viscid.compat</span> <span class="k">import</span> <span class="n">izip</span><span class="p">,</span> <span class="n">OrderedDict</span>
+<span class="kn">from</span> <span class="nn">viscid.calculator</span> <span class="k">import</span> <span class="n">calc_streamlines</span>
+<span class="kn">from</span> <span class="nn">viscid.calculator</span> <span class="k">import</span> <span class="n">cycalc</span>
+<span class="kn">from</span> <span class="nn">viscid.calculator</span> <span class="k">import</span> <span class="n">streamline</span>
+<span class="kn">from</span> <span class="nn">viscid</span> <span class="k">import</span> <span class="n">logger</span>
+<span class="kn">from</span> <span class="nn">viscid</span> <span class="k">import</span> <span class="n">seed</span>
+
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;SeedCurator&#39;</span><span class="p">,</span> <span class="s1">&#39;ContinuousCurator&#39;</span><span class="p">,</span> <span class="s1">&#39;ReplacementCurator&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;follow_fluid&#39;</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="SeedCurator"><a class="viewcode-back" href="../../api/viscid.fluidtrace.html#viscid.SeedCurator">[docs]</a><span class="k">class</span> <span class="nc">SeedCurator</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Base class for adding/removing seeds from fluid following</span>
+
+<span class="sd">    This class just removes seeds that go out of bounds, but provides</span>
+<span class="sd">    the _update_delmask_oob method which is probably useful to all</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obound0</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">obound1</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ibound</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">obound_r</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">obound_xl</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">obound_xh</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">obound0</span> <span class="o">=</span> <span class="n">obound0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">obound1</span> <span class="o">=</span> <span class="n">obound1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ibound</span> <span class="o">=</span> <span class="n">ibound</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">obound_r</span> <span class="o">=</span> <span class="n">obound_r</span>
+
+    <span class="k">def</span> <span class="nf">_prepare_xl_xh</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v_field</span><span class="p">):</span>
+        <span class="c1"># Jump through some hoops so that obound0 and obound1 are expanded</span>
+        <span class="c1"># to 3d in the same way as grid.crds</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">obound_xl</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">obound_xh</span> <span class="ow">is</span> <span class="kc">None</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">obound0</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">obound0</span> <span class="o">=</span> <span class="n">v_field</span><span class="o">.</span><span class="n">crds</span><span class="o">.</span><span class="n">xl_nc</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">obound1</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">obound1</span> <span class="o">=</span> <span class="n">v_field</span><span class="o">.</span><span class="n">crds</span><span class="o">.</span><span class="n">xh_nc</span>
+
+            <span class="n">_invar_dim_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">v_field</span><span class="o">.</span><span class="n">sshape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">obound0</span><span class="p">[</span><span class="n">_invar_dim_mask</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">obound1</span><span class="p">[</span><span class="n">_invar_dim_mask</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+
+            <span class="n">crds</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">arrays2crds</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">obound0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">obound1</span><span class="p">])</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
+                                      <span class="n">crd_names</span><span class="o">=</span><span class="n">v_field</span><span class="o">.</span><span class="n">crds</span><span class="o">.</span><span class="n">axes</span><span class="p">)</span><span class="o">.</span><span class="n">atleast_3d</span><span class="p">(</span><span class="n">cc</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">obound_xl</span> <span class="o">=</span> <span class="n">crds</span><span class="o">.</span><span class="n">xl_nc</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">obound_xh</span> <span class="o">=</span> <span class="n">crds</span><span class="o">.</span><span class="n">xh_nc</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">obound_xh</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">_update_delmask_oob</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v_field</span><span class="p">,</span> <span class="n">seeds</span><span class="p">,</span> <span class="n">delmask</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;delmask |= where seeds are out of bounds&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_prepare_xl_xh</span><span class="p">(</span><span class="n">v_field</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">delmask</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">delmask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">seeds</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;bool&#39;</span><span class="p">)</span>
+
+        <span class="n">delmask</span> <span class="o">|=</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">bitwise_or</span><span class="p">(</span><span class="n">seeds</span><span class="o">.</span><span class="n">T</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">obound_xl</span><span class="p">,</span>
+                                        <span class="n">seeds</span><span class="o">.</span><span class="n">T</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">obound_xh</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ibound</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">obound_r</span><span class="p">:</span>
+            <span class="n">rsq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">seeds</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ibound</span><span class="p">:</span>
+                <span class="n">delmask</span> <span class="o">|=</span> <span class="n">rsq</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">ibound</span><span class="o">**</span><span class="mi">2</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">obound_r</span><span class="p">:</span>
+                <span class="n">delmask</span> <span class="o">|=</span> <span class="n">rsq</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">obound_r</span><span class="o">**</span><span class="mi">2</span>
+
+        <span class="k">return</span> <span class="n">delmask</span>
+
+<div class="viewcode-block" id="SeedCurator.update"><a class="viewcode-back" href="../../api/viscid.fluidtrace.html#viscid.SeedCurator.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v_field</span><span class="p">,</span> <span class="n">seeds</span><span class="p">,</span> <span class="n">delmask</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;add/remove seeds&quot;&quot;&quot;</span>
+        <span class="n">delmask</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_update_delmask_oob</span><span class="p">(</span><span class="n">v_field</span><span class="p">,</span> <span class="n">seeds</span><span class="p">,</span> <span class="n">delmask</span><span class="o">=</span><span class="n">delmask</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">seeds</span><span class="p">[:,</span> <span class="o">~</span><span class="n">delmask</span><span class="p">])</span></div></div>
+
+
+<div class="viewcode-block" id="ContinuousCurator"><a class="viewcode-back" href="../../api/viscid.fluidtrace.html#viscid.ContinuousCurator">[docs]</a><span class="k">class</span> <span class="nc">ContinuousCurator</span><span class="p">(</span><span class="n">SeedCurator</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Add seeds to the same places at a steady cadence&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_seeds</span><span class="p">,</span> <span class="n">cadence</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">new_seeds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">new_seeds</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cadence</span> <span class="o">=</span> <span class="n">cadence</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last_run</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">ContinuousCurator</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ContinuousCurator.update"><a class="viewcode-back" href="../../api/viscid.fluidtrace.html#viscid.ContinuousCurator.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v_field</span><span class="p">,</span> <span class="n">seeds</span><span class="p">,</span> <span class="n">delmask</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;remove out-of-bounds seeds, then add the seeds at cadence&quot;&quot;&quot;</span>
+        <span class="n">time</span> <span class="o">=</span> <span class="n">v_field</span><span class="o">.</span><span class="n">time</span> <span class="k">if</span> <span class="n">time</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">time</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">last_run</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">last_run</span> <span class="o">=</span> <span class="n">time</span>
+
+        <span class="k">if</span> <span class="n">time</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">last_run</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">cadence</span><span class="p">:</span>
+            <span class="n">delmask</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_update_delmask_oob</span><span class="p">(</span><span class="n">v_field</span><span class="p">,</span> <span class="n">seeds</span><span class="p">,</span> <span class="n">delmask</span><span class="o">=</span><span class="n">delmask</span><span class="p">)</span>
+            <span class="n">seeds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">seeds</span><span class="p">[:,</span> <span class="o">~</span><span class="n">delmask</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">new_seeds</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">last_run</span> <span class="o">=</span> <span class="n">time</span>
+        <span class="k">return</span> <span class="n">seeds</span></div></div>
+
+
+<div class="viewcode-block" id="ReplacementCurator"><a class="viewcode-back" href="../../api/viscid.fluidtrace.html#viscid.ReplacementCurator">[docs]</a><span class="k">class</span> <span class="nc">ReplacementCurator</span><span class="p">(</span><span class="n">SeedCurator</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Remove out-of-bounds seeds, then reset them&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">orig_seeds</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">orig_seeds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">orig_seeds</span><span class="p">)</span> <span class="k">if</span> <span class="n">orig_seeds</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="kc">None</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">ReplacementCurator</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ReplacementCurator.update"><a class="viewcode-back" href="../../api/viscid.fluidtrace.html#viscid.ReplacementCurator.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v_field</span><span class="p">,</span> <span class="n">seeds</span><span class="p">,</span> <span class="n">delmask</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Remove out-of-bounds seeds, then reset them&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">orig_seeds</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">orig_seeds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">seeds</span><span class="p">)</span>
+        <span class="n">delmask</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_update_delmask_oob</span><span class="p">(</span><span class="n">v_field</span><span class="p">,</span> <span class="n">seeds</span><span class="p">,</span> <span class="n">delmask</span><span class="o">=</span><span class="n">delmask</span><span class="p">)</span>
+        <span class="c1"># for any seeds marked for deletion, replace them with their</span>
+        <span class="c1"># original selves</span>
+        <span class="n">seeds</span><span class="p">[:,</span> <span class="n">delmask</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">orig_seeds</span><span class="p">[:,</span> <span class="n">delmask</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">seeds</span></div></div>
+
+
+<span class="k">def</span> <span class="nf">fluid_callback_template</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">seeds</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">v_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">anc_fields</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                            <span class="n">grid0</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">grid1</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">streamlines</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                            <span class="n">series_fname</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="k">def</span> <span class="nf">default_fluid_callback</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">seeds</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">v_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">anc_fields</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                           <span class="n">grid0</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">grid1</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">streamlines</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                           <span class="n">series_fname</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="kn">from</span> <span class="nn">viscid.plot</span> <span class="k">import</span> <span class="n">vpyplot</span> <span class="k">as</span> <span class="n">vlt</span>
+    <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+    <span class="n">_</span><span class="p">,</span> <span class="n">ax0</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">vlt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">viscid</span><span class="o">.</span><span class="n">magnitude</span><span class="p">(</span><span class="n">v_field</span><span class="p">)</span><span class="o">.</span><span class="n">atmost_nd</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax0</span><span class="p">)</span>
+    <span class="n">vlt</span><span class="o">.</span><span class="n">scatter_2d</span><span class="p">(</span><span class="n">seeds</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax0</span><span class="p">)</span>
+    <span class="n">vlt</span><span class="o">.</span><span class="n">streamplot</span><span class="p">(</span><span class="n">v_field</span><span class="o">.</span><span class="n">atmost_nd</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">vlt</span><span class="o">.</span><span class="n">plot_lines2d</span><span class="p">(</span><span class="n">streamlines</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax0</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{0:8.3f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">series_fname</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{0}</span><span class="s1">_</span><span class="si">{1:06d}</span><span class="s1">.png&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">series_fname</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">show</span><span class="p">:</span>
+        <span class="n">vlt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<div class="viewcode-block" id="follow_fluid"><a class="viewcode-back" href="../../api/viscid.fluidtrace.html#viscid.follow_fluid">[docs]</a><span class="k">def</span> <span class="nf">follow_fluid</span><span class="p">(</span><span class="n">dset</span><span class="p">,</span> <span class="n">initial_seeds</span><span class="p">,</span> <span class="n">time_slice</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">),</span>
+                 <span class="n">curator</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">default_fluid_callback</span><span class="p">,</span>
+                 <span class="n">speed_scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tstart</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tstop</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">duration</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dt_interp</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">v_key</span><span class="o">=</span><span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="n">anc_keys</span><span class="o">=</span><span class="p">(),</span> <span class="n">fld_slc</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">),</span>
+                 <span class="n">stream_opts</span><span class="o">=</span><span class="p">{},</span> <span class="n">callback_kwargs</span><span class="o">=</span><span class="p">{}):</span>
+    <span class="sd">&quot;&quot;&quot;Trace fluid elements</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        you want speed_scale if say V is in km/s and x/y/z is in Re ;)</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        vfile: a vFile object that we can call iter_times on</span>
+<span class="sd">        time_slice: string, slice notation, like 1200:2400:1</span>
+<span class="sd">        initial_seeds: any SeedGen object</span>
+<span class="sd">        plot_function: function that is called each time step,</span>
+<span class="sd">            arguments should be exactly: (i [int], grid, v [Vector</span>
+<span class="sd">            Field], v_lines [result of streamline trace],</span>
+<span class="sd">            root_seeds [SeedGen])</span>
+<span class="sd">        stream_opts: must have ds0 and max_length, maxit will be</span>
+<span class="sd">            automatically calculated</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        root points after following the fluid</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">curator</span> <span class="o">=</span> <span class="n">SeedCurator</span><span class="p">()</span> <span class="k">if</span> <span class="n">curator</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">curator</span>
+
+    <span class="n">grids</span> <span class="o">=</span> <span class="p">[</span><span class="n">grid</span> <span class="k">for</span> <span class="n">grid</span> <span class="ow">in</span> <span class="n">dset</span><span class="o">.</span><span class="n">iter_times</span><span class="p">(</span><span class="n">time_slice</span><span class="p">)]</span>
+    <span class="n">times</span> <span class="o">=</span> <span class="p">[</span><span class="n">g</span><span class="o">.</span><span class="n">time</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">grids</span><span class="p">]</span>
+
+    <span class="n">slc_range</span> <span class="o">=</span> <span class="n">dset</span><span class="o">.</span><span class="n">tslc_range</span><span class="p">(</span><span class="n">time_slice</span><span class="p">)</span>
+    <span class="n">time_slice_dir</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">times</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">times</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
+    <span class="n">slice_min_dt</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">times</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">times</span><span class="p">)))</span>
+
+    <span class="c1"># figure out direction (forward / backward)</span>
+    <span class="k">if</span> <span class="n">tstart</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">tstop</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">tdir</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">tstop</span> <span class="o">-</span> <span class="n">tstart</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="p">(</span><span class="n">dt</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">dt</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">duration</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">duration</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="n">tdir</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">tdir</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="k">if</span> <span class="n">time_slice_dir</span> <span class="o">==</span> <span class="mf">0.0</span> <span class="k">else</span> <span class="n">time_slice_dir</span>
+
+    <span class="c1"># enforce that grids and times arrays are reordered to match tdir</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">tdir</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">time_slice_dir</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">tdir</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">time_slice_dir</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="n">grids</span> <span class="o">=</span> <span class="n">grids</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">times</span> <span class="o">=</span> <span class="n">times</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">slc_range</span> <span class="o">=</span> <span class="n">slc_range</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">time_slice_dir</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span>
+
+    <span class="c1"># set tstart and tstop if they&#39;re not already given</span>
+    <span class="k">if</span> <span class="n">tstart</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">tstart</span> <span class="o">=</span> <span class="n">slc_range</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">tstop</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">duration</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">tstop</span> <span class="o">=</span> <span class="n">tstart</span> <span class="o">+</span> <span class="n">tdir</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">duration</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">tstop</span> <span class="o">=</span> <span class="n">slc_range</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="c1"># set dt if they&#39;re not given</span>
+    <span class="n">dt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span> <span class="k">if</span> <span class="n">dt</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">slice_min_dt</span>
+    <span class="n">dt_interp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">dt_interp</span><span class="p">)</span> <span class="k">if</span> <span class="n">dt_interp</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">dt</span>
+
+    <span class="c1"># ------ main loop</span>
+    <span class="n">fld_keys</span> <span class="o">=</span> <span class="p">[</span><span class="n">v_key</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">anc_keys</span><span class="p">)</span>
+
+    <span class="n">times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">times</span><span class="p">)</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">tstart</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">times</span><span class="p">))</span> <span class="o">!=</span> <span class="n">tdir</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;times is not monotonic&quot;</span><span class="p">)</span>
+
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">seeds</span> <span class="o">=</span> <span class="n">initial_seeds</span><span class="o">.</span><span class="n">get_points</span><span class="p">()</span>
+
+    <span class="k">while</span> <span class="n">tdir</span> <span class="o">*</span> <span class="p">(</span><span class="n">t</span> <span class="o">-</span> <span class="n">tstop</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mf">0.0</span><span class="p">:</span>
+        <span class="n">idx0</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">tdir</span> <span class="o">*</span> <span class="p">(</span><span class="n">times</span> <span class="o">-</span> <span class="n">t</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">idx1</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">idx0</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">grids</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">time0</span><span class="p">,</span> <span class="n">grid0</span> <span class="o">=</span> <span class="n">times</span><span class="p">[</span><span class="n">idx0</span><span class="p">],</span> <span class="n">grids</span><span class="p">[</span><span class="n">idx0</span><span class="p">]</span>
+        <span class="n">time1</span><span class="p">,</span> <span class="n">grid1</span> <span class="o">=</span> <span class="n">times</span><span class="p">[</span><span class="n">idx1</span><span class="p">],</span> <span class="n">grids</span><span class="p">[</span><span class="n">idx1</span><span class="p">]</span>
+
+        <span class="n">frac_interp</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="k">if</span> <span class="n">time0</span> <span class="o">==</span> <span class="n">time1</span> <span class="k">else</span> <span class="p">(</span><span class="n">t</span> <span class="o">-</span> <span class="n">time0</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">time1</span> <span class="o">-</span> <span class="n">time0</span><span class="p">)</span>
+
+        <span class="c1"># get / calculate fields for each key at the current time</span>
+        <span class="k">if</span> <span class="n">grid0</span> <span class="ow">is</span> <span class="n">grid1</span><span class="p">:</span>
+            <span class="n">flds</span> <span class="o">=</span> <span class="p">[</span><span class="n">grid0</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">fld_keys</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">a</span> <span class="o">=</span> <span class="n">frac_interp</span>
+            <span class="n">b</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">frac_interp</span>
+            <span class="n">flds</span> <span class="o">=</span> <span class="p">[</span><span class="n">viscid</span><span class="o">.</span><span class="n">axpby</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">grid0</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">fld_slc</span><span class="p">],</span> <span class="n">b</span><span class="p">,</span> <span class="n">grid1</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">fld_slc</span><span class="p">])</span>
+                    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">fld_keys</span><span class="p">]</span>
+        <span class="n">anc_fields</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">([(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">anc_keys</span><span class="p">,</span> <span class="n">flds</span><span class="p">[</span><span class="mi">1</span><span class="p">:])])</span>
+
+        <span class="n">t_next_interp</span> <span class="o">=</span> <span class="n">t</span> <span class="o">+</span> <span class="n">tdir</span> <span class="o">*</span> <span class="n">dt_interp</span>
+
+        <span class="k">while</span> <span class="n">tdir</span> <span class="o">*</span> <span class="p">(</span><span class="n">t</span> <span class="o">-</span> <span class="n">t_next_interp</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">tdir</span> <span class="o">*</span> <span class="p">(</span><span class="n">t</span> <span class="o">-</span> <span class="n">tstop</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mf">0.0</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s1">&#39;method&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stream_opts</span><span class="p">:</span>
+                <span class="n">stream_opts</span><span class="p">[</span><span class="s1">&#39;method&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;rk45&#39;</span>
+            <span class="n">vpaths</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">calc_streamlines</span><span class="p">(</span><span class="n">tdir</span> <span class="o">*</span> <span class="n">speed_scale</span> <span class="o">*</span> <span class="n">flds</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">seeds</span><span class="p">,</span>
+                                             <span class="n">max_t</span><span class="o">=</span><span class="n">dt</span><span class="p">,</span>
+                                             <span class="n">output</span><span class="o">=</span><span class="n">viscid</span><span class="o">.</span><span class="n">OUTPUT_STREAMLINES</span><span class="p">,</span>
+                                             <span class="n">stream_dir</span><span class="o">=</span><span class="n">viscid</span><span class="o">.</span><span class="n">DIR_FORWARD</span><span class="p">,</span>
+                                             <span class="o">**</span><span class="n">stream_opts</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+            <span class="n">callback</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">seeds</span><span class="o">=</span><span class="n">seeds</span><span class="p">,</span> <span class="n">v_field</span><span class="o">=</span><span class="n">flds</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">anc_fields</span><span class="o">=</span><span class="n">anc_fields</span><span class="p">,</span>
+                     <span class="n">grid0</span><span class="o">=</span><span class="n">grid0</span><span class="p">,</span> <span class="n">grid1</span><span class="o">=</span><span class="n">grid1</span><span class="p">,</span> <span class="n">streamlines</span><span class="o">=</span><span class="n">vpaths</span><span class="p">,</span>
+                     <span class="o">**</span><span class="n">callback_kwargs</span><span class="p">)</span>
+            <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+
+            <span class="c1"># prepare seeds for next iteration</span>
+            <span class="k">for</span> <span class="n">iseed</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">seeds</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+                <span class="n">seeds</span><span class="p">[:,</span> <span class="n">iseed</span><span class="p">]</span> <span class="o">=</span> <span class="n">vpaths</span><span class="p">[</span><span class="n">iseed</span><span class="p">][:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">seeds</span> <span class="o">=</span> <span class="n">curator</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">flds</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">seeds</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="n">t</span><span class="p">)</span>
+            <span class="n">t</span> <span class="o">+=</span> <span class="n">tdir</span> <span class="o">*</span> <span class="n">dt</span></div>
+
+<span class="k">def</span> <span class="nf">_main</span><span class="p">():</span>
+    <span class="kn">import</span> <span class="nn">os</span>
+    <span class="kn">from</span> <span class="nn">viscid.plot</span> <span class="k">import</span> <span class="n">vpyplot</span> <span class="k">as</span> <span class="n">vlt</span>
+
+    <span class="n">grid</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">grid</span><span class="o">.</span><span class="n">Grid</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+    <span class="n">crds</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">arrays2crds</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">32</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">32</span><span class="p">)])</span>
+    <span class="n">grid</span><span class="o">.</span><span class="n">add_field</span><span class="p">(</span><span class="n">viscid</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">crds</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;V&#39;</span><span class="p">))</span>
+
+    <span class="n">seeds0</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">Circle</span><span class="p">(</span><span class="n">p0</span><span class="o">=</span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="n">r</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span><span class="o">.</span><span class="n">get_points</span><span class="p">()</span>
+    <span class="n">seeds1</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">Circle</span><span class="p">(</span><span class="n">p0</span><span class="o">=</span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="n">r</span><span class="o">=</span><span class="mf">1.1</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span><span class="o">.</span><span class="n">get_points</span><span class="p">()</span>
+    <span class="n">seeds3</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">Line</span><span class="p">([</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">n</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">delmask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">seeds0</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;bool&#39;</span><span class="p">)</span>
+
+    <span class="n">curator</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">SeedCurator</span><span class="p">()</span>
+    <span class="n">seeds2</span> <span class="o">=</span> <span class="n">curator</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="s1">&#39;V&#39;</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">seeds1</span><span class="p">),</span> <span class="n">delmask</span><span class="o">=</span><span class="n">delmask</span><span class="p">)</span>
+    <span class="n">vlt</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">seeds1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">seeds1</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">])</span>
+    <span class="n">vlt</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">seeds2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">seeds2</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">vlt</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span> <span class="n">vlt</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># pylint: disable=multiple-statements</span>
+    <span class="n">vlt</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="n">vlt</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># pylint: disable=multiple-statements</span>
+    <span class="n">vlt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+    <span class="n">curator</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">ReplacementCurator</span><span class="p">(</span><span class="n">seeds0</span><span class="p">)</span>
+    <span class="n">seeds2</span> <span class="o">=</span> <span class="n">curator</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="s1">&#39;V&#39;</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">seeds1</span><span class="p">),</span> <span class="n">delmask</span><span class="o">=</span><span class="n">delmask</span><span class="p">)</span>
+    <span class="n">vlt</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">seeds1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">seeds1</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">])</span>
+    <span class="n">vlt</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">seeds2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">seeds2</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">vlt</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span> <span class="n">vlt</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># pylint: disable=multiple-statements</span>
+    <span class="n">vlt</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="n">vlt</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># pylint: disable=multiple-statements</span>
+    <span class="n">vlt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+    <span class="n">curator</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">ContinuousCurator</span><span class="p">(</span><span class="n">seeds3</span><span class="p">,</span> <span class="n">cadence</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">seeds2</span> <span class="o">=</span> <span class="n">curator</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="s1">&#39;V&#39;</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">seeds1</span><span class="p">),</span> <span class="n">delmask</span><span class="o">=</span><span class="n">delmask</span><span class="p">)</span>
+    <span class="n">vlt</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">seeds1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">seeds1</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">])</span>
+    <span class="n">vlt</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">seeds2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">seeds2</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">vlt</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span> <span class="n">vlt</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># pylint: disable=multiple-statements</span>
+    <span class="n">vlt</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="n">vlt</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># pylint: disable=multiple-statements</span>
+    <span class="n">vlt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+    <span class="n">target_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~&#39;</span><span class="p">),</span> <span class="s1">&#39;Desktop&#39;</span><span class="p">,</span> <span class="s1">&#39;fluid_movie&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Attempting to make a movie in:&quot;</span><span class="p">,</span> <span class="n">target_dir</span><span class="p">)</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">load_file</span><span class="p">(</span><span class="s2">&quot;~/dev/stage/otico_001/otico*.3d.xdmf&quot;</span><span class="p">)</span>
+
+    <span class="n">xl</span><span class="p">,</span> <span class="n">xh</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">get_grid</span><span class="p">()</span><span class="o">.</span><span class="n">xl_nc</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">get_grid</span><span class="p">()</span><span class="o">.</span><span class="n">xh_nc</span>
+    <span class="n">seeds0</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">Circle</span><span class="p">(</span><span class="n">p0</span><span class="o">=</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">xl</span> <span class="o">+</span> <span class="n">xh</span><span class="p">),</span> <span class="n">r</span><span class="o">=</span><span class="mf">0.2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">xh</span> <span class="o">-</span> <span class="n">xl</span><span class="p">),</span>
+                           <span class="n">pole</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">seeds1</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">Circle</span><span class="p">(</span><span class="n">p0</span><span class="o">=</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">xl</span> <span class="o">+</span> <span class="n">xh</span><span class="p">),</span> <span class="n">r</span><span class="o">=</span><span class="mf">0.4</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">xh</span> <span class="o">-</span> <span class="n">xl</span><span class="p">),</span>
+                           <span class="n">pole</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">seeds</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">seeds0</span><span class="o">.</span><span class="n">get_points</span><span class="p">(),</span>
+                                         <span class="n">seeds1</span><span class="o">.</span><span class="n">get_points</span><span class="p">()],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">target_dir</span><span class="p">):</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">target_dir</span><span class="p">)</span>
+    <span class="n">target_fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">target_dir</span><span class="p">,</span> <span class="s1">&#39;fluid&#39;</span><span class="p">)</span>
+    <span class="n">viscid</span><span class="o">.</span><span class="n">follow_fluid</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">seeds</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mf">0.0101926</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span>
+                        <span class="n">callback_kwargs</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                                             <span class="n">series_fname</span><span class="o">=</span><span class="n">target_fname</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="mi">0</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">_main</span><span class="p">())</span>
+
+<span class="c1">##</span>
+<span class="c1">## EOF</span>
+<span class="c1">##</span>
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+      
+    </p>
+    <p>
+        &copy; Copyright 2017, Kristofor Maynard.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,738 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>viscid.npdatetime module &#8212; Viscid 0.99.6 documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="viscid.parallel module" href="viscid.parallel.html" />
+    <link rel="prev" title="viscid.multiplot module" href="viscid.multiplot.html" />
+<link rel="icon" href="../_static/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../_static/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon-precomposed" href="../_static/Vicon_128.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Viscid</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.99.6</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+    <li class="dropdown">
+      <a role="button"
+         id="dLabelNavLinxToc"
+         data-toggle="dropdown"
+         data-target="#"
+         href="#">Tutorial <b class="caret"></b></a>
+      <ul class="dropdown-menu navlinktoc"
+          role="menu">
+          <li class="toctree-l1">
+            <a class="reference internal", href="../installation.html">Installation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/creating_fields.html">Creating Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/slicing.html">Slicing Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/plotting_scalars.html">Plotting Scalars</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/plotting_vectors.html">Plotting Vectors</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/mayavi.html">3D Plots (Mayavi)</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/openggcm.html">OpenGGCM Specific</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/ionosphere.html">Ionosphere</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/stream_and_interp.html">Streamline and Interpolation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/magnetic_topology.html">Magnetic Topology</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/magnetopause.html">Magnetopause</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/quasi_potential.html">Quasi Potential</a>
+          </li>
+      </ul>
+    </li>
+
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../changes.html">ChangeLog</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../philosophy.html">Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tips_and_tricks.html">Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functions.html">Useful Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plot_options.html">Plot Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mpl_style_gallery.html">Matplotlib Style Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom_behavior.html">Custom Behavior (rc file)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev_guide.html">Developer’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extending_readers.html">Extending Readers</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="viscid.html">API</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">viscid.npdatetime module</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="module-viscid.npdatetime">
+<span id="viscid-npdatetime-module"></span><h1>viscid.npdatetime module<a class="headerlink" href="#module-viscid.npdatetime" title="Permalink to this headline">¶</a></h1>
+<p>This is a shim to use numpy datetime64 and timedelta64 types</p>
+<p>Times must be given in ISO 8601 format as per numpy &gt;= 1.7.</p>
+<p>All arguments as strings are assumed to be ZULU (UTC) time. This
+keeps the interface the same for numpy versions both before and
+after 1.11 when datetime64 became timezone agnostic.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">There is some trickery here. For numpy versions prior to 1.11, this
+module will force ZULU (UTC) time. Note that when these datetimes
+are printed, numpy will display the local time. This will not be
+a problem for matplotlib plots if arr.astype(datetime.datetime) is
+used. This is because python’s datetime objects are timezone
+agnostic, so matplotlib won’t know a thing about your local TZ.</p>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">Information about the time span of each time unit is available at
+<a class="footnote-reference" href="#id2" id="id1">[1]</a>.</p>
+</div>
+<p class="rubric">References</p>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/arrays.datetime.html#datetime-units">http://docs.scipy.org/doc/numpy/reference/arrays.datetime.html#datetime-units</a></td></tr>
+</tbody>
+</table>
+<p>This module is completely orthogonal to Viscid, so that it can be
+ripped out and used more generally. Please note that Viscid is MIT
+licensed, which requires attribution.</p>
+<p>The MIT License (MIT)
+Copyright (c) 2017 Kristofor Maynard</p>
+<dl class="exception">
+<dt id="viscid.npdatetime.PrecisionError">
+<em class="property">exception </em><code class="descclassname">viscid.npdatetime.</code><code class="descname">PrecisionError</code><a class="reference internal" href="../_modules/viscid/npdatetime.html#PrecisionError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.npdatetime.PrecisionError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">exceptions.ArithmeticError</span></code></p>
+<p>Used if conversion to a time unit truncates value to 0</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.npdatetime.as_datetime64">
+<code class="descclassname">viscid.npdatetime.</code><code class="descname">as_datetime64</code><span class="sig-paren">(</span><em>time</em>, <em>unit=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/npdatetime.html#as_datetime64"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.npdatetime.as_datetime64" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert to a Numpy datetime64 scalar or array</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>time</strong> – some python datetime or string in ISO 8601 format, could
+also be a sequence of these to return a Numpy ndarray</li>
+<li><strong>unit</strong> (<em>str</em>) – one of {Y,M,W,D,h,m,s,m,s,us,ns,ps,fs,as}</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">np.datetime64[unit] or array with dtype np.datetime64[unit]</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.npdatetime.as_timedelta64">
+<code class="descclassname">viscid.npdatetime.</code><code class="descname">as_timedelta64</code><span class="sig-paren">(</span><em>time</em>, <em>unit=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/npdatetime.html#as_timedelta64"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.npdatetime.as_timedelta64" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert to a timedelta64 type</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>time</strong> (<em>timedelta-like</em>) – an int/float/string/… to convert</li>
+<li><strong>unit</strong> (<em>None</em>) – This is the unit of the input, the result
+will be the most coarse unit that can store the time</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.npdatetime.as_datetime">
+<code class="descclassname">viscid.npdatetime.</code><code class="descname">as_datetime</code><span class="sig-paren">(</span><em>time</em>, <em>unit=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/npdatetime.html#as_datetime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.npdatetime.as_datetime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert time to a Numpy ndarray of datetime.datetime objects</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>time</strong> – some python datetime or string in ISO 8601 format, could
+also be a sequence of these to return a Numpy ndarray</li>
+<li><strong>unit</strong> (<em>str</em>) – one of {Y,M,W,D,h,m,s,m,s,us,ns,ps,fs,as}</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">np.ndarray of native datetime.datetime objects (dtype = object)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.npdatetime.as_timedelta">
+<code class="descclassname">viscid.npdatetime.</code><code class="descname">as_timedelta</code><span class="sig-paren">(</span><em>time</em>, <em>unit=None</em>, <em>allow0=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/npdatetime.html#as_timedelta"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.npdatetime.as_timedelta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert time to a Numpy ndarray of datetime.datetime objects</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Python timedelta objects are accurate up to microseconds</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>time</strong> – some python datetime or string in ISO 8601 format, could
+also be a sequence of these to return a Numpy ndarray</li>
+<li><strong>unit</strong> (<em>str</em>) – one of {Y,M,W,D,h,m,s,m,s,us,ns,ps,fs,as}</li>
+<li><strong>allow0</strong> (<em>bool</em>) – If False, then raise PrecisionError if a value
+has been rounded to 0</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">np.ndarray of native datetime.datetime objects (dtype = object)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.npdatetime.to_datetime64">
+<code class="descclassname">viscid.npdatetime.</code><code class="descname">to_datetime64</code><span class="sig-paren">(</span><em>time</em>, <em>unit=None</em><span class="sig-paren">)</span><a class="headerlink" href="#viscid.npdatetime.to_datetime64" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert to a Numpy datetime64 scalar or array</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>time</strong> – some python datetime or string in ISO 8601 format, could
+also be a sequence of these to return a Numpy ndarray</li>
+<li><strong>unit</strong> (<em>str</em>) – one of {Y,M,W,D,h,m,s,m,s,us,ns,ps,fs,as}</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">np.datetime64[unit] or array with dtype np.datetime64[unit]</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.npdatetime.to_timedelta64">
+<code class="descclassname">viscid.npdatetime.</code><code class="descname">to_timedelta64</code><span class="sig-paren">(</span><em>time</em>, <em>unit=None</em><span class="sig-paren">)</span><a class="headerlink" href="#viscid.npdatetime.to_timedelta64" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert to a timedelta64 type</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>time</strong> (<em>timedelta-like</em>) – an int/float/string/… to convert</li>
+<li><strong>unit</strong> (<em>None</em>) – This is the unit of the input, the result
+will be the most coarse unit that can store the time</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.npdatetime.to_datetime">
+<code class="descclassname">viscid.npdatetime.</code><code class="descname">to_datetime</code><span class="sig-paren">(</span><em>time</em>, <em>unit=None</em><span class="sig-paren">)</span><a class="headerlink" href="#viscid.npdatetime.to_datetime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert time to a Numpy ndarray of datetime.datetime objects</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>time</strong> – some python datetime or string in ISO 8601 format, could
+also be a sequence of these to return a Numpy ndarray</li>
+<li><strong>unit</strong> (<em>str</em>) – one of {Y,M,W,D,h,m,s,m,s,us,ns,ps,fs,as}</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">np.ndarray of native datetime.datetime objects (dtype = object)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.npdatetime.to_timedelta">
+<code class="descclassname">viscid.npdatetime.</code><code class="descname">to_timedelta</code><span class="sig-paren">(</span><em>time</em>, <em>unit=None</em>, <em>allow0=True</em><span class="sig-paren">)</span><a class="headerlink" href="#viscid.npdatetime.to_timedelta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert time to a Numpy ndarray of datetime.datetime objects</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Python timedelta objects are accurate up to microseconds</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>time</strong> – some python datetime or string in ISO 8601 format, could
+also be a sequence of these to return a Numpy ndarray</li>
+<li><strong>unit</strong> (<em>str</em>) – one of {Y,M,W,D,h,m,s,m,s,us,ns,ps,fs,as}</li>
+<li><strong>allow0</strong> (<em>bool</em>) – If False, then raise PrecisionError if a value
+has been rounded to 0</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">np.ndarray of native datetime.datetime objects (dtype = object)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.npdatetime.as_isotime">
+<code class="descclassname">viscid.npdatetime.</code><code class="descname">as_isotime</code><span class="sig-paren">(</span><em>time</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/npdatetime.html#as_isotime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.npdatetime.as_isotime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Try to convert times in string format to ISO 8601</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code> – Elements are not strings</li>
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> – numpy.datetime64(time) fails</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.npdatetime.to_isotime">
+<code class="descclassname">viscid.npdatetime.</code><code class="descname">to_isotime</code><span class="sig-paren">(</span><em>time</em><span class="sig-paren">)</span><a class="headerlink" href="#viscid.npdatetime.to_isotime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Try to convert times in string format to ISO 8601</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code> – Elements are not strings</li>
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> – numpy.datetime64(time) fails</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.npdatetime.format_time">
+<code class="descclassname">viscid.npdatetime.</code><code class="descname">format_time</code><span class="sig-paren">(</span><em>time</em>, <em>fmt='.02f'</em>, <em>basetime=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/npdatetime.html#format_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.npdatetime.format_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Format time as a string</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>t</strong> (<em>float</em>) – time</li>
+<li><strong>style</strong> (<em>str</em>) – <p>for this method, can be:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-----------------------</span>   <span class="o">-------</span>   <span class="o">----------------------------</span>
+<span class="n">style</span>                     <span class="n">time</span>      <span class="n">string</span>
+<span class="o">-----------------------</span>   <span class="o">-------</span>   <span class="o">----------------------------</span>
+<span class="s1">&#39;hms&#39;</span>                     <span class="mf">90015.0</span>   <span class="s2">&quot;25:00:15&quot;</span>
+<span class="s1">&#39;hmss&#39;</span>                    <span class="mf">90015.0</span>   <span class="s2">&quot;25:00:15 (090015)&quot;</span>
+<span class="s1">&#39;dhms&#39;</span>                      <span class="mf">900.0</span>   <span class="s2">&quot;0 days 00:15:00&quot;</span>
+<span class="s1">&#39;dhmss&#39;</span>                     <span class="mf">900.0</span>   <span class="s2">&quot;0 days 00:15:00 (000900)&quot;</span>
+<span class="s1">&#39;.02f&#39;</span>                      <span class="mf">900.0</span>   <span class="s1">&#39;900.00&#39;</span>
+<span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M:%S&#39;</span>         <span class="mf">900.0</span>   <span class="s1">&#39;1970-01-01 00:15:00&#39;</span>
+<span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M:%S.</span><span class="si">%1f</span><span class="s1">&#39;</span>     <span class="mf">900.0</span>   <span class="s1">&#39;1970-01-01 00:15:00.0&#39;</span>
+<span class="o">-----------------------</span>   <span class="o">-------</span>   <span class="o">----------------------------</span>
+</pre></div>
+</div>
+<p>Note that the last one can involve any formatting strings
+understood by datetime.strftime</p>
+</li>
+<li><strong>basetime</strong> (<em>np.datetime64</em>) – if formatting just number of seconds
+from something like “.02f”, then use this time as 0 seconds</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">str</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.npdatetime.format_datetime">
+<code class="descclassname">viscid.npdatetime.</code><code class="descname">format_datetime</code><span class="sig-paren">(</span><em>time</em>, <em>fmt='%Y-%m-%d %H:%M:%S.%.02f'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/npdatetime.html#format_datetime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.npdatetime.format_datetime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shortcut to <a class="reference internal" href="#viscid.npdatetime.format_time" title="viscid.npdatetime.format_time"><code class="xref py py-func docutils literal notranslate"><span class="pre">format_time()</span></code></a> for a datetime format</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.npdatetime.is_valid_datetime64">
+<code class="descclassname">viscid.npdatetime.</code><code class="descname">is_valid_datetime64</code><span class="sig-paren">(</span><em>arr</em>, <em>unit=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/npdatetime.html#is_valid_datetime64"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.npdatetime.is_valid_datetime64" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns True iff arr can be made into a datetime64 array</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.npdatetime.is_valid_timedelta64">
+<code class="descclassname">viscid.npdatetime.</code><code class="descname">is_valid_timedelta64</code><span class="sig-paren">(</span><em>arr</em>, <em>unit=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/npdatetime.html#is_valid_timedelta64"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.npdatetime.is_valid_timedelta64" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns True iff arr can be made into a timedelta64 array</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.npdatetime.datetime_as_seconds">
+<code class="descclassname">viscid.npdatetime.</code><code class="descname">datetime_as_seconds</code><span class="sig-paren">(</span><em>a</em>, <em>decimals=0</em>, <em>unit=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/npdatetime.html#datetime_as_seconds"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.npdatetime.datetime_as_seconds" title="Permalink to this definition">¶</a></dt>
+<dd><p>round datetime a to the nearest decimals seconds</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.npdatetime.timedelta_as_seconds">
+<code class="descclassname">viscid.npdatetime.</code><code class="descname">timedelta_as_seconds</code><span class="sig-paren">(</span><em>a</em>, <em>decimals=0</em>, <em>unit=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/npdatetime.html#timedelta_as_seconds"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.npdatetime.timedelta_as_seconds" title="Permalink to this definition">¶</a></dt>
+<dd><p>round timedelta a to the nearest decimals seconds</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">works for ‘fs’, but not ‘as’</p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.npdatetime.time_as_seconds">
+<code class="descclassname">viscid.npdatetime.</code><code class="descname">time_as_seconds</code><span class="sig-paren">(</span><em>a</em>, <em>decimals=0</em>, <em>unit=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/npdatetime.html#time_as_seconds"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.npdatetime.time_as_seconds" title="Permalink to this definition">¶</a></dt>
+<dd><p>round a to the nearest decimal seconds</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.npdatetime.datetime64_as_years">
+<code class="descclassname">viscid.npdatetime.</code><code class="descname">datetime64_as_years</code><span class="sig-paren">(</span><em>time</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/npdatetime.html#datetime64_as_years"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.npdatetime.datetime64_as_years" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get time as floating point years since the year 0</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.npdatetime.asarray_datetime64">
+<code class="descclassname">viscid.npdatetime.</code><code class="descname">asarray_datetime64</code><span class="sig-paren">(</span><em>arr</em>, <em>unit=None</em>, <em>conservative=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/npdatetime.html#asarray_datetime64"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.npdatetime.asarray_datetime64" title="Permalink to this definition">¶</a></dt>
+<dd><p>If is_valid_datetime64, then return a datetime64 array</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>arr</strong> (<em>sequence</em>) – something that can become an arary</li>
+<li><strong>unit</strong> (<em>str</em>) – one of {Y,M,W,D,h,m,s,m,s,us,ns,ps,fs,as}</li>
+<li><strong>conservative</strong> (<em>bool</em>) – If True, then only turn arr into a
+date-time array if it really looks like it</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.npdatetime.linspace_datetime64">
+<code class="descclassname">viscid.npdatetime.</code><code class="descname">linspace_datetime64</code><span class="sig-paren">(</span><em>start</em>, <em>stop</em>, <em>n</em>, <em>endpoint=True</em>, <em>unit=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/npdatetime.html#linspace_datetime64"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.npdatetime.linspace_datetime64" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make an evenly space ndarray from start to stop with n values</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.npdatetime.round_time">
+<code class="descclassname">viscid.npdatetime.</code><code class="descname">round_time</code><span class="sig-paren">(</span><em>tlst</em>, <em>unit</em>, <em>allow0=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/npdatetime.html#round_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.npdatetime.round_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Round a time or list of times to minimum level of coarseness</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ul class="last simple">
+<li>When rounding, some values might be rounded to 0. If you
+rather raise a PrecisionError, then give <cite>allow0=False</cite>.</li>
+</ul>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>tlst</strong> (<em>timelike</em><em>, </em><em>list</em>) – single or list of datetime64 or
+timedelta64</li>
+<li><strong>unit</strong> (<em>str</em>) – units of result will be at least as coarse as
+this unit</li>
+<li><strong>allow0</strong> (<em>bool</em>) – If False, then raise PrecisionError if a value
+has been truncated to 0</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt><cite>tlst</cite> rounded to a unit at least as coarse</dt>
+<dd><p class="first last">as <cite>unit</cite></p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">timelike or list</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.npdatetime.regularize_time">
+<code class="descclassname">viscid.npdatetime.</code><code class="descname">regularize_time</code><span class="sig-paren">(</span><em>tlst</em>, <em>unit=None</em>, <em>most_precise=False</em>, <em>allow_rounding=True</em>, <em>allow0=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/npdatetime.html#regularize_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.npdatetime.regularize_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert a list of times to a common unit</p>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li>If some times are too fine to fit in the same unit as the
+rest of the times, then they will be rounded to a more
+coarse unit. If you rather raise an OverflowError, then give
+<cite>allow_rounding=False</cite>.</li>
+<li>When rounding, some values might be rounded to 0. If you
+rather raise a PrecisionError, then give <cite>allow0=False</cite>.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>tlst</strong> (<em>timelike</em><em>, </em><em>list</em>) – single or list of datetime64 or
+timedelta64</li>
+<li><strong>unit</strong> (<em>str</em>) – If given, regularize all times to this unit,
+otherwise, regularize them to the most precise of the
+bunch</li>
+<li><strong>most_precise</strong> (<em>bool</em>) – If True, then convert all times to the
+most precise unit that fits all the times</li>
+<li><strong>allow_rounding</strong> (<em>bool</em>) – if any time is too small to be
+represented in the desired unit, then use a more coarse
+unit and round values so that everything fits</li>
+<li><strong>allow0</strong> (<em>bool</em>) – If False, then raise PrecisionError if a value
+has been rounded to 0</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">single or list of times all in the same unit</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">timelike or list</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.npdatetime.time_sum">
+<code class="descclassname">viscid.npdatetime.</code><code class="descname">time_sum</code><span class="sig-paren">(</span><em>t0</em>, <em>tdelta</em>, <em>unit=None</em>, <em>most_precise=False</em>, <em>allow_rounding=True</em>, <em>allow0=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/npdatetime.html#time_sum"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.npdatetime.time_sum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add timedelta64 to datetime64 at highest precision w/o overflow</p>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li>If <cite>allow_rounding</cite>, then the result may not be in <cite>unit</cite>. If
+you rather raise an OverflowError, give <cite>allow_rounding=False</cite></li>
+<li>If t0 can not be represented using the same units as tdelta,
+then tdelta could be rounded to 0. If you rather raise a
+PrecisionError, then give <cite>allow0=False</cite></li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>t0</strong> (<em>datetime64</em>) – starting date</li>
+<li><strong>tdelta</strong> (<em>timedelta64</em>) – timedelta to add</li>
+<li><strong>unit</strong> (<em>str</em>) – If given, regularize all times to this unit,
+otherwise, regularize them to the most precise of the
+bunch</li>
+<li><strong>most_precise</strong> (<em>bool</em>) – If True, then convert all times to the
+most precise unit that fits all the times</li>
+<li><strong>allow_rounding</strong> (<em>bool</em>) – if tdelta is too small to be represented
+in the same unit as t0, then round it to the finest unit
+that fits both t0 and tdelta</li>
+<li><strong>allow0</strong> (<em>bool</em>) – If False, and a value is rounded to 0 in a given
+unit, then raise a PrecisionError</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">t0 + tdelta</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">datetime64</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.npdatetime.time_diff">
+<code class="descclassname">viscid.npdatetime.</code><code class="descname">time_diff</code><span class="sig-paren">(</span><em>t1</em>, <em>t2</em>, <em>unit=None</em>, <em>most_precise=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/npdatetime.html#time_diff"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.npdatetime.time_diff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Diff two datetime64s at highest precision w/o overflow</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If <cite>allow_rounding</cite>, then the result may not be in <cite>unit</cite>. If
+you rather raise an OverflowError, give <cite>allow_rounding=False</cite></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>t1</strong> (<em>datetime64</em>) – <cite>t1</cite> for <cite>t1 - t2</cite></li>
+<li><strong>t2</strong> (<em>datetime64</em>) – <cite>t2</cite> for <cite>t1 - t2</cite></li>
+<li><strong>unit</strong> (<em>str</em>) – If given, regularize all times to this unit,
+otherwise, regularize them to the most precise of the
+bunch</li>
+<li><strong>most_precise</strong> (<em>bool</em>) – If True, then convert all times to the
+most precise unit that fits all the times</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">t1 - t2</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">timedelta64</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.npdatetime.is_datetime_like">
+<code class="descclassname">viscid.npdatetime.</code><code class="descname">is_datetime_like</code><span class="sig-paren">(</span><em>val</em>, <em>conservative=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/npdatetime.html#is_datetime_like"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.npdatetime.is_datetime_like" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns True iff val is datetime-like</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.npdatetime.is_timedelta_like">
+<code class="descclassname">viscid.npdatetime.</code><code class="descname">is_timedelta_like</code><span class="sig-paren">(</span><em>val</em>, <em>conservative=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/npdatetime.html#is_timedelta_like"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.npdatetime.is_timedelta_like" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns True iff val is timedelta-like</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.npdatetime.is_time_like">
+<code class="descclassname">viscid.npdatetime.</code><code class="descname">is_time_like</code><span class="sig-paren">(</span><em>val</em>, <em>conservative=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/npdatetime.html#is_time_like"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.npdatetime.is_time_like" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns True iff val is datetime-like or timedelta-like</p>
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../_sources/api/viscid.npdatetime.rst.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright 2017, Kristofor Maynard.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

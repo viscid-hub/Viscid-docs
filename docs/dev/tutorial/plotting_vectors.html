@@ -1,0 +1,296 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Plotting Vector Quantities &#8212; Viscid 0.99.7.dev0 documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3D Plots (Mayavi)" href="mayavi.html" />
+    <link rel="prev" title="Plotting Scalar Quantities" href="plotting_scalars.html" />
+<link rel="icon" href="../_static/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../_static/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon-precomposed" href="../_static/Vicon_128.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Viscid</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.99.7.dev0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+    <li class="dropdown">
+      <a role="button"
+         id="dLabelNavLinxToc"
+         data-toggle="dropdown"
+         data-target="#"
+         href="#">Tutorial <b class="caret"></b></a>
+      <ul class="dropdown-menu navlinktoc"
+          role="menu">
+          <li class="toctree-l1">
+            <a class="reference internal", href="../installation.html">Installation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="creating_fields.html">Creating Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="slicing.html">Slicing Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="plotting_scalars.html">Plotting Scalars</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="#">Plotting Vectors</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="mayavi.html">3D Plots (Mayavi)</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="openggcm.html">OpenGGCM Specific</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="ionosphere.html">Ionosphere</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="stream_and_interp.html">Streamline and Interpolation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="magnetic_topology.html">Magnetic Topology</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="magnetopause.html">Magnetopause</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="quasi_potential.html">Quasi Potential</a>
+          </li>
+      </ul>
+    </li>
+
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../changes.html">ChangeLog</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../philosophy.html">Philosophy</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tips_and_tricks.html">Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functions.html">Useful Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plot_options.html">Plot Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mpl_style_gallery.html">Matplotlib Style Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom_behavior.html">Custom Behavior (rc file)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev_guide.html">Developer’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extending_readers.html">Extending Readers</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/viscid.html">API</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Plotting Vector Quantities</a><ul>
+<li><a class="reference internal" href="#streamplot">Streamplot</a></li>
+<li><a class="reference internal" href="#quivers">Quivers</a></li>
+<li><a class="reference internal" href="#uniform-quivers">Uniform Quivers</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="plotting-vector-quantities">
+<h1>Plotting Vector Quantities<a class="headerlink" href="#plotting-vector-quantities" title="Permalink to this headline">¶</a></h1>
+<p>Various shims for plotting fields using matplotlib are provided by <a class="reference internal" href="../api/viscid.plot.vpyplot.html#module-viscid.plot.vpyplot" title="viscid.plot.vpyplot"><code class="xref py py-mod docutils literal notranslate"><span class="pre">viscid.plot.vpyplot</span></code></a>. The functions are listed in <a class="reference internal" href="../functions.html"><span class="doc">Useful Functions</span></a>. For an enumeration of extra plotting keyword arguments, see <a class="reference internal" href="../plot_options.html"><span class="doc">Plot Options</span></a>. Also, you can specify keyword arguments that are conusmed by the matplotlib function used to make the plot, i.e., <cite>pyplot.streamline</cite>, <cite>pyplot.quiver</cite>, etc.</p>
+<div class="section" id="streamplot">
+<h2>Streamplot<a class="headerlink" href="#streamplot" title="Permalink to this headline">¶</a></h2>
+<p>Plotting 2D streamlines. Note that using matplotlib to make streamlines from a 2D slice may make it appear that Div B ≠ 0, but that’s just an illusion. If this is a problem, you can always resort to full 3D streamlines, as in <a class="reference internal" href="stream_and_interp.html"><span class="doc">Streamlines</span></a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">path</span>
+
+<span class="kn">import</span> <span class="nn">viscid</span>
+<span class="kn">from</span> <span class="nn">viscid.plot</span> <span class="kn">import</span> <span class="n">vpyplot</span> <span class="k">as</span> <span class="n">vlt</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+
+<span class="n">viscid</span><span class="o">.</span><span class="n">calculator</span><span class="o">.</span><span class="n">evaluator</span><span class="o">.</span><span class="n">enabled</span> <span class="o">=</span> <span class="bp">True</span>
+
+
+<span class="n">f3d</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">load_file</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">viscid</span><span class="o">.</span><span class="n">sample_dir</span><span class="p">,</span> <span class="s1">&#39;sample_xdmf.3d.xdmf&#39;</span><span class="p">))</span>
+
+<span class="n">vlt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">f3d</span><span class="p">[</span><span class="s1">&#39;Pressure = pp&#39;</span><span class="p">][</span><span class="s1">&#39;z=0f&#39;</span><span class="p">],</span> <span class="n">logscale</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">earth</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="n">v</span> <span class="o">=</span> <span class="n">f3d</span><span class="p">[</span><span class="s1">&#39;v&#39;</span><span class="p">]</span>
+<span class="n">speed</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">magnitude</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+<span class="n">lw</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">speed</span> <span class="o">/</span> <span class="n">speed</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="n">slc</span> <span class="o">=</span> <span class="s1">&#39;z=0f&#39;</span>
+<span class="n">vlt</span><span class="o">.</span><span class="n">streamplot</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">slc</span><span class="p">],</span> <span class="n">arrowsize</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="n">lw</span><span class="p">[</span><span class="n">slc</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+<span class="n">vlt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href="../tutorial/plotting_vectors-1.py">Source code</a>, <a class="reference external" href="../tutorial/plotting_vectors-1.png">png</a>)</p>
+<div class="figure">
+<img alt="../_images/plotting_vectors-1.png" src="../_images/plotting_vectors-1.png" />
+</div>
+</div>
+<div class="section" id="quivers">
+<h2>Quivers<a class="headerlink" href="#quivers" title="Permalink to this headline">¶</a></h2>
+<p>Quivers are another way to show vector fields, but in many cases, it will be useful to downsample the field, or else there will be far too many arrows.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">path</span>
+
+<span class="kn">import</span> <span class="nn">viscid</span>
+<span class="kn">from</span> <span class="nn">viscid.plot</span> <span class="kn">import</span> <span class="n">vpyplot</span> <span class="k">as</span> <span class="n">vlt</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+
+<span class="n">f3d</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">load_file</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">viscid</span><span class="o">.</span><span class="n">sample_dir</span><span class="p">,</span> <span class="s1">&#39;sample_xdmf.3d.xdmf&#39;</span><span class="p">))</span>
+
+<span class="n">vlt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">f3d</span><span class="p">[</span><span class="s1">&#39;pp&#39;</span><span class="p">][</span><span class="s1">&#39;z=0f&#39;</span><span class="p">],</span> <span class="n">cbarlabel</span><span class="o">=</span><span class="s2">&quot;Pressure&quot;</span><span class="p">,</span> <span class="n">logscale</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">earth</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">Q</span> <span class="o">=</span> <span class="n">vlt</span><span class="o">.</span><span class="n">plot2d_quiver</span><span class="p">(</span><span class="n">f3d</span><span class="p">[</span><span class="s1">&#39;v&#39;</span><span class="p">][</span><span class="s1">&#39;x=::2, y=::2, z=0f&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">quiverkey</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">X</span><span class="o">=</span><span class="mf">1.1</span><span class="p">,</span> <span class="n">Y</span><span class="o">=</span><span class="mf">1.07</span><span class="p">,</span> <span class="n">U</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;400 $\frac{km}{s}$&quot;</span><span class="p">,</span>
+              <span class="n">labelpos</span><span class="o">=</span><span class="s1">&#39;N&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+<span class="n">vlt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href="../tutorial/plotting_vectors-2.py">Source code</a>, <a class="reference external" href="../tutorial/plotting_vectors-2.png">png</a>)</p>
+<div class="figure">
+<img alt="../_images/plotting_vectors-2.png" src="../_images/plotting_vectors-2.png" />
+</div>
+</div>
+<div class="section" id="uniform-quivers">
+<h2>Uniform Quivers<a class="headerlink" href="#uniform-quivers" title="Permalink to this headline">¶</a></h2>
+<p>If your data has a very nonuniform grid, it may be useful to interpolate your data onto a uniform grid first.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">path</span>
+
+<span class="kn">import</span> <span class="nn">viscid</span>
+<span class="kn">from</span> <span class="nn">viscid.plot</span> <span class="kn">import</span> <span class="n">vpyplot</span> <span class="k">as</span> <span class="n">vlt</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+
+<span class="n">viscid</span><span class="o">.</span><span class="n">calculator</span><span class="o">.</span><span class="n">evaluator</span><span class="o">.</span><span class="n">enabled</span> <span class="o">=</span> <span class="bp">True</span>
+
+
+<span class="n">f3d</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">load_file</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">viscid</span><span class="o">.</span><span class="n">sample_dir</span><span class="p">,</span> <span class="s1">&#39;sample_xdmf.3d.xdmf&#39;</span><span class="p">))</span>
+
+<span class="n">vlt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">f3d</span><span class="p">[</span><span class="s1">&#39;Pressure = pp&#39;</span><span class="p">][</span><span class="s1">&#39;z=0f&#39;</span><span class="p">],</span> <span class="n">logscale</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">earth</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">new_grid</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">Volume</span><span class="p">((</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">n</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">interp_trilin</span><span class="p">(</span><span class="n">f3d</span><span class="p">[</span><span class="s1">&#39;v&#39;</span><span class="p">],</span> <span class="n">new_grid</span><span class="p">)</span>
+<span class="n">Q</span> <span class="o">=</span> <span class="n">vlt</span><span class="o">.</span><span class="n">plot2d_quiver</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="s1">&#39;z=0f&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">quiverkey</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">X</span><span class="o">=</span><span class="mf">1.1</span><span class="p">,</span> <span class="n">Y</span><span class="o">=</span><span class="mf">1.07</span><span class="p">,</span> <span class="n">U</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;400 $\frac{km}{s}$&quot;</span><span class="p">,</span>
+              <span class="n">labelpos</span><span class="o">=</span><span class="s1">&#39;N&#39;</span><span class="p">)</span>
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+<span class="n">vlt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href="../tutorial/plotting_vectors-3.py">Source code</a>, <a class="reference external" href="../tutorial/plotting_vectors-3.png">png</a>)</p>
+<div class="figure">
+<img alt="../_images/plotting_vectors-3.png" src="../_images/plotting_vectors-3.png" />
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../_sources/tutorial/plotting_vectors.rst.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright 2017, Kristofor Maynard.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

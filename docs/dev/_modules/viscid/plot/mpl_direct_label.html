@@ -1,0 +1,677 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>viscid.plot.mpl_direct_label &#8212; Viscid 0.99.7.dev0 documentation</title>
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+<link rel="icon" href="../../../_static/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../../../_static/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon-precomposed" href="../../../_static/Vicon_128.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          Viscid</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.99.7.dev0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+    <li class="dropdown">
+      <a role="button"
+         id="dLabelNavLinxToc"
+         data-toggle="dropdown"
+         data-target="#"
+         href="#">Tutorial <b class="caret"></b></a>
+      <ul class="dropdown-menu navlinktoc"
+          role="menu">
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../installation.html">Installation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/creating_fields.html">Creating Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/slicing.html">Slicing Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/plotting_scalars.html">Plotting Scalars</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/plotting_vectors.html">Plotting Vectors</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/mayavi.html">3D Plots (Mayavi)</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/openggcm.html">OpenGGCM Specific</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/ionosphere.html">Ionosphere</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/stream_and_interp.html">Streamline and Interpolation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/magnetic_topology.html">Magnetic Topology</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/magnetopause.html">Magnetopause</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/quasi_potential.html">Quasi Potential</a>
+          </li>
+      </ul>
+    </li>
+
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../changes.html">ChangeLog</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../philosophy.html">Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/index.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tips_and_tricks.html">Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../functions.html">Useful Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../plot_options.html">Plot Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mpl_style_gallery.html">Matplotlib Style Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../custom_behavior.html">Custom Behavior (rc file)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev_guide.html">Developer’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../extending_readers.html">Extending Readers</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/viscid.html">API</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"></ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <h1>Source code for viscid.plot.mpl_direct_label</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="sd">&quot;&quot;&quot;For matplotlib: Instead of a legend, label the data directly</span>
+
+<span class="sd">This module takes care to position labels so not to overlap other</span>
+<span class="sd">elements already on the plot. Simply calling :py:func`apply_labels`</span>
+<span class="sd">should act like a call to :py:func:`matplotlib.pyplot.legend`</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Note, this is not in viscid/plot/__init__.py on purpose since it imports</span>
+<span class="c1"># pylab. Instead, the entry point of this module is available using</span>
+<span class="c1"># viscid.plot.vpyplot.apply_labels(...)</span>
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">print_function</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">unicode_literals</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="k">import</span> <span class="n">count</span><span class="p">,</span> <span class="n">cycle</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="kn">from</span> <span class="nn">matplotlib.cbook</span> <span class="k">import</span> <span class="n">is_string_like</span>
+<span class="kn">from</span> <span class="nn">matplotlib.font_manager</span> <span class="k">import</span> <span class="n">FontProperties</span>
+<span class="kn">from</span> <span class="nn">matplotlib.path</span> <span class="k">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">matplotlib.transforms</span> <span class="k">import</span> <span class="n">Bbox</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+
+<div class="viewcode-block" id="apply_labels"><a class="viewcode-back" href="../../../api/viscid.plot.vpyplot.html#viscid.plot.vpyplot.apply_labels">[docs]</a><span class="k">def</span> <span class="nf">apply_labels</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">magnet</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">),</span>
+                 <span class="n">magnetcoords</span><span class="o">=</span><span class="s2">&quot;axes fraction&quot;</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">paddingcoords</span><span class="o">=</span><span class="s2">&quot;offset points&quot;</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="s2">&quot;00:02:20:22&quot;</span><span class="p">,</span>
+                 <span class="n">n_candidates</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">ignore_filling</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">_debug</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Apply labels directly to series in liu of a legend</span>
+
+<span class="sd">    The `choices` offsets are as follows::</span>
+
+<span class="sd">        ---------------------</span>
+<span class="sd">        |  02  |  12  | 22  |</span>
+<span class="sd">        |-------------------|</span>
+<span class="sd">        |  01  |  XX  | 21  |</span>
+<span class="sd">        |-------------------|</span>
+<span class="sd">        |  00  |  10  | 20  |</span>
+<span class="sd">        ---------------------</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        labels (sequence): Optional sequence of labels to override the</span>
+<span class="sd">            labels already in the data series</span>
+<span class="sd">        colors (str, sequence): color as hex string, list of hex</span>
+<span class="sd">            strings to color each label, or an Nx4 ndarray of rgba</span>
+<span class="sd">            values for N labels</span>
+<span class="sd">        ax (matplotlib.axis): axis; defaults to `plt.gca()`</span>
+<span class="sd">        magnet (tuple): prefer positions that are closer to the magnet</span>
+<span class="sd">        magnetcoords (str): &#39;offset pixels&#39;, &#39;offset points&#39; or &#39;axes fraction&#39;</span>
+<span class="sd">        padding (tuple): padding for text in the (x, y) directions</span>
+<span class="sd">        paddingcoords (str): &#39;offset pixels&#39;, &#39;offset points&#39; or &#39;axes fraction&#39;</span>
+<span class="sd">        choices (str): colon separated list of possible label positions</span>
+<span class="sd">            relative to the data values. The positions are summarized</span>
+<span class="sd">            above.</span>
+<span class="sd">        alpha (float): alpha channel (opacity) of label text. Defaults</span>
+<span class="sd">            to 1.0 to make text visible. Set to `None` to use the</span>
+<span class="sd">            underlying alpha from the handle&#39;s color.</span>
+<span class="sd">        n_candidates (int): number of potential label locations to</span>
+<span class="sd">            consider for each data series.</span>
+<span class="sd">        _debug (bool): Mark up all possible label locations</span>
+<span class="sd">        **kwargs: passed to plt.annotate</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        List: annotation objects</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">ax</span><span class="p">:</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">colors</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
+        <span class="k">pass</span>
+
+    <span class="c1"># choices:: &quot;01:02:22&quot; -&gt; [(0, 1), (0, 2), (2, 2)]</span>
+    <span class="n">choices</span> <span class="o">=</span> <span class="p">[(</span><span class="nb">int</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">choices</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)]</span>
+
+    <span class="n">_size</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;fontsize&#39;</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+    <span class="n">_fontproperties</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;fontproperties&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="n">font_size_pts</span> <span class="o">=</span> <span class="n">text_size_points</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">_size</span><span class="p">,</span> <span class="n">fontproperties</span><span class="o">=</span><span class="n">_fontproperties</span><span class="p">)</span>
+
+    <span class="c1"># set the default padding equal to the font size</span>
+    <span class="k">if</span> <span class="n">paddingcoords</span> <span class="o">==</span> <span class="s1">&#39;offset pixels&#39;</span><span class="p">:</span>
+        <span class="n">default_padding</span> <span class="o">=</span> <span class="n">font_size_pts</span> <span class="o">*</span> <span class="mi">72</span> <span class="o">/</span> <span class="n">ax</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">dpi</span>
+    <span class="k">elif</span> <span class="n">paddingcoords</span> <span class="o">==</span> <span class="s1">&#39;offset points&#39;</span><span class="p">:</span>
+        <span class="n">default_padding</span> <span class="o">=</span> <span class="n">font_size_pts</span>
+    <span class="k">elif</span> <span class="n">paddingcoords</span> <span class="o">==</span> <span class="s1">&#39;axes fraction&#39;</span><span class="p">:</span>
+        <span class="n">default_padding</span> <span class="o">=</span> <span class="mf">0.05</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Bad padding coords &#39;</span><span class="si">{0}</span><span class="s2">&#39;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">paddingcoords</span><span class="p">))</span>
+
+    <span class="c1"># print(&quot;fontsize pt:&quot;, font_size_pts,</span>
+    <span class="c1">#       &quot;fontsize px:&quot;, xy_as_pixels([font_size_pts, font_size_pts],</span>
+    <span class="c1">#                                    &#39;offset points&#39;)[0])</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">padding</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
+        <span class="n">padding</span> <span class="o">=</span> <span class="p">[</span><span class="n">padding</span><span class="p">,</span> <span class="n">padding</span><span class="p">]</span>
+    <span class="n">padding</span> <span class="o">=</span> <span class="p">[</span><span class="n">default_padding</span> <span class="k">if</span> <span class="n">pd</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">pd</span> <span class="k">for</span> <span class="n">pd</span> <span class="ow">in</span> <span class="n">padding</span><span class="p">]</span>
+    <span class="c1"># print(&quot;padding::&quot;, paddingcoords, padding)</span>
+
+    <span class="n">magnet_px</span> <span class="o">=</span> <span class="n">xy_as_pixels</span><span class="p">(</span><span class="n">magnet</span><span class="p">,</span> <span class="n">magnetcoords</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+    <span class="n">padding_px</span> <span class="o">=</span> <span class="n">xy_as_pixels</span><span class="p">(</span><span class="n">padding</span><span class="p">,</span> <span class="n">paddingcoords</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+    <span class="c1"># print(&quot;padding px::&quot;, padding_px)</span>
+
+    <span class="n">annotations</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="n">cand_map</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">choice</span> <span class="ow">in</span> <span class="n">choices</span><span class="p">:</span>
+        <span class="n">cand_map</span><span class="p">[</span><span class="n">choice</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">n_candidates</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
+
+    <span class="c1"># these paths are all the paths we can get our hands on so that the text</span>
+    <span class="c1"># doesn&#39;t overlap them. bboxes around labels are added as we go</span>
+    <span class="n">paths_px</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="c1"># here is a list of bounding boxes around the text boxes as we add them</span>
+    <span class="n">bbox_paths_px</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">is_filled</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1">## how many vertices to avoid ?</span>
+    <span class="c1"># artist</span>
+    <span class="c1"># collection</span>
+    <span class="c1"># image</span>
+    <span class="c1"># line</span>
+    <span class="c1"># patch</span>
+    <span class="c1"># table</span>
+    <span class="c1"># container</span>
+
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">ax</span><span class="o">.</span><span class="n">lines</span><span class="p">:</span>
+        <span class="n">paths_px</span> <span class="o">+=</span> <span class="p">[</span><span class="n">ax</span><span class="o">.</span><span class="n">transData</span><span class="o">.</span><span class="n">transform_path</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">get_path</span><span class="p">())]</span>
+        <span class="n">is_filled</span> <span class="o">+=</span> <span class="p">[</span><span class="kc">False</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">collection</span> <span class="ow">in</span> <span class="n">ax</span><span class="o">.</span><span class="n">collections</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">pth</span> <span class="ow">in</span> <span class="n">collection</span><span class="o">.</span><span class="n">get_paths</span><span class="p">():</span>
+            <span class="n">paths_px</span> <span class="o">+=</span> <span class="p">[</span><span class="n">ax</span><span class="o">.</span><span class="n">transData</span><span class="o">.</span><span class="n">transform_path</span><span class="p">(</span><span class="n">pth</span><span class="p">)]</span>
+            <span class="n">is_filled</span> <span class="o">+=</span> <span class="p">[</span><span class="n">collection</span><span class="o">.</span><span class="n">get_fill</span><span class="p">()]</span>
+
+    <span class="k">if</span> <span class="n">ignore_filling</span><span class="p">:</span>
+        <span class="n">is_filled</span> <span class="o">=</span> <span class="p">[</span><span class="kc">False</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">is_filled</span><span class="p">)</span>
+
+    <span class="n">hands</span><span class="p">,</span> <span class="n">hand_labels</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_legend_handles_labels</span><span class="p">()</span>
+
+    <span class="n">colors</span> <span class="o">=</span> <span class="n">_cycle_colors</span><span class="p">(</span><span class="n">colors</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">hands</span><span class="p">))</span>
+
+    <span class="c1"># &gt;&gt;&gt; debug &gt;&gt;&gt;</span>
+    <span class="k">if</span> <span class="n">_debug</span><span class="p">:</span>
+        <span class="kn">import</span> <span class="nn">viscid</span>
+        <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">patches</span> <span class="k">as</span> <span class="n">mpatches</span>
+        <span class="kn">from</span> <span class="nn">viscid.plot</span> <span class="k">import</span> <span class="n">vpyplot</span> <span class="k">as</span> <span class="n">vlt</span>
+
+        <span class="n">_fig_width</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">bbox</span><span class="o">.</span><span class="n">width</span><span class="p">)</span>
+        <span class="n">_fig_height</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">bbox</span><span class="o">.</span><span class="n">height</span><span class="p">)</span>
+        <span class="n">fig_fld</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">_fig_width</span><span class="p">,</span> <span class="n">_fig_height</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">,</span>
+                               <span class="n">center</span><span class="o">=</span><span class="s1">&#39;node&#39;</span><span class="p">)</span>
+        <span class="n">_X</span><span class="p">,</span> <span class="n">_Y</span> <span class="o">=</span> <span class="n">fig_fld</span><span class="o">.</span><span class="n">get_crds</span><span class="p">(</span><span class="n">shaped</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="n">_axXL</span><span class="p">,</span> <span class="n">_axYL</span><span class="p">,</span> <span class="n">_axXH</span><span class="p">,</span> <span class="n">_axYH</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">bbox</span><span class="o">.</span><span class="n">extents</span>
+
+        <span class="n">_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">bitwise_and</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">bitwise_and</span><span class="p">(</span><span class="n">_X</span> <span class="o">&gt;=</span> <span class="n">_axXL</span><span class="p">,</span> <span class="n">_X</span> <span class="o">&lt;=</span> <span class="n">_axXH</span><span class="p">),</span>
+                               <span class="n">np</span><span class="o">.</span><span class="n">bitwise_and</span><span class="p">(</span><span class="n">_Y</span> <span class="o">&gt;=</span> <span class="n">_axYL</span><span class="p">,</span> <span class="n">_Y</span> <span class="o">&lt;=</span> <span class="n">_axYH</span><span class="p">))</span>
+        <span class="n">fig_fld</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">_mask</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+        <span class="n">dfig</span><span class="p">,</span> <span class="n">dax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">get_size_inches</span><span class="p">())</span>
+
+        <span class="n">vlt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fig_fld</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">dax</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="n">colorbar</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">path</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">paths_px</span><span class="p">):</span>
+            <span class="n">dax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">vertices</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">path</span><span class="o">.</span><span class="n">vertices</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="n">dfig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">bottom</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">dfig</span><span class="p">,</span> <span class="n">dax</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+    <span class="c1"># &lt;&lt;&lt; debug &lt;&lt;&lt;</span>
+
+
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">hand</span><span class="p">,</span> <span class="n">label_i</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">count</span><span class="p">(),</span> <span class="n">hands</span><span class="p">,</span> <span class="n">hand_labels</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">labels</span> <span class="ow">and</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">):</span>
+            <span class="n">label</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">label</span> <span class="o">=</span> <span class="n">label_i</span>
+
+        <span class="c1"># divine color of label</span>
+        <span class="k">if</span> <span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+            <span class="n">color</span> <span class="o">=</span> <span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">color</span> <span class="o">=</span> <span class="n">hand</span><span class="o">.</span><span class="n">get_color</span><span class="p">()</span>
+            <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+                <span class="n">color</span> <span class="o">=</span> <span class="n">hand</span><span class="o">.</span><span class="n">get_facecolor</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="c1"># get path vertices to determine candidate label positions</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">verts</span> <span class="o">=</span> <span class="n">hand</span><span class="o">.</span><span class="n">get_path</span><span class="p">()</span><span class="o">.</span><span class="n">vertices</span>
+        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+            <span class="n">verts</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">vertices</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">hand</span><span class="o">.</span><span class="n">get_paths</span><span class="p">()]</span>
+            <span class="n">verts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">verts</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+        <span class="c1"># resample the path of the current handle to get some candidate</span>
+        <span class="c1"># locations for the label along the path</span>
+        <span class="n">s_src</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">verts</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="c1"># shape is [i_candidate, value: [x, y]], corner: [lower left, upper right]</span>
+        <span class="n">s_dest</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n_candidates</span><span class="p">)</span>
+        <span class="n">root_dat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">n_candidates</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
+        <span class="n">root_px</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">n_candidates</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
+
+        <span class="n">root_dat</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">s_dest</span><span class="p">,</span> <span class="n">s_src</span><span class="p">,</span> <span class="n">verts</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>
+        <span class="n">root_dat</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">s_dest</span><span class="p">,</span> <span class="n">s_src</span><span class="p">,</span> <span class="n">verts</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
+
+        <span class="n">root_px</span><span class="p">[:,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">transData</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">root_dat</span><span class="p">)</span>
+
+        <span class="c1"># estimate the width and height of the label&#39;s text</span>
+        <span class="n">txt_size</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">estimate_text_size_px</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">fig</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">figure</span><span class="p">,</span>
+                                                  <span class="n">size</span><span class="o">=</span><span class="n">font_size_pts</span><span class="p">))</span>
+        <span class="n">txt_size</span> <span class="o">=</span> <span class="n">txt_size</span><span class="o">.</span><span class="n">reshape</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+
+        <span class="c1"># this initial offset is needed to shift the center of the label</span>
+        <span class="c1"># to the data point</span>
+        <span class="n">offset0</span> <span class="o">=</span> <span class="o">-</span><span class="n">txt_size</span> <span class="o">/</span> <span class="mi">2</span>
+
+        <span class="c1"># now we can shift the label away from the data point by an amount</span>
+        <span class="c1"># equal to half the text width/height + the padding</span>
+        <span class="n">offset1</span> <span class="o">=</span> <span class="n">padding_px</span> <span class="o">+</span> <span class="n">txt_size</span> <span class="o">/</span> <span class="mi">2</span>
+
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">abs_px_arr</span> <span class="ow">in</span> <span class="n">cand_map</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">ioff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;i&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+            <span class="n">total_offset</span> <span class="o">=</span> <span class="n">offset0</span> <span class="o">+</span> <span class="n">ioff</span> <span class="o">*</span> <span class="n">offset1</span>
+            <span class="c1"># approx lower left corner of the text box in absolute pixels</span>
+            <span class="n">abs_px_arr</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">root_px</span> <span class="o">+</span> <span class="n">total_offset</span>
+            <span class="c1"># approx upper right corner of the text box in absolute pixels</span>
+            <span class="n">abs_px_arr</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">abs_px_arr</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">txt_size</span>
+
+        <span class="c1"># candidates_abs_px[i] has root @ root_px[i % n_candidates]</span>
+        <span class="n">candidates_abs_px</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">cand_map</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">choices</span><span class="p">],</span>
+                                           <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+        <span class="c1"># find how many other things each candidate overlaps</span>
+        <span class="n">n_overlaps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">candidates_abs_px</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">candidate</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">candidates_abs_px</span><span class="p">):</span>
+            <span class="n">cand_bbox</span> <span class="o">=</span> <span class="n">Bbox</span><span class="p">(</span><span class="n">candidate</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+
+            <span class="c1"># penalty for each time a box overlaps a path that&#39;s already</span>
+            <span class="c1"># on the plot</span>
+            <span class="k">for</span> <span class="n">ipth</span><span class="p">,</span> <span class="n">path</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">paths_px</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">path</span><span class="o">.</span><span class="n">intersects_bbox</span><span class="p">(</span><span class="n">cand_bbox</span><span class="p">,</span> <span class="n">filled</span><span class="o">=</span><span class="n">is_filled</span><span class="p">[</span><span class="n">ipth</span><span class="p">]):</span>
+                    <span class="n">n_overlaps</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+            <span class="c1"># slightly larger penalty if we intersect a text box that we</span>
+            <span class="c1"># just added to the plot</span>
+            <span class="k">for</span> <span class="n">ipth</span><span class="p">,</span> <span class="n">path</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">bbox_paths_px</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">path</span><span class="o">.</span><span class="n">intersects_bbox</span><span class="p">(</span><span class="n">cand_bbox</span><span class="p">,</span> <span class="n">filled</span><span class="o">=</span><span class="n">is_filled</span><span class="p">[</span><span class="n">ipth</span><span class="p">]):</span>
+                    <span class="n">n_overlaps</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">5</span>
+
+            <span class="c1"># big penalty if the candidate is out of the current view</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">bbox</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="o">*</span><span class="n">cand_bbox</span><span class="o">.</span><span class="n">min</span><span class="p">)</span> <span class="ow">and</span>
+                    <span class="n">ax</span><span class="o">.</span><span class="n">bbox</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="o">*</span><span class="n">cand_bbox</span><span class="o">.</span><span class="n">max</span><span class="p">)):</span>
+                <span class="n">n_overlaps</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">100</span>
+
+        <span class="c1"># sort candidates by distance between center of text box and magnet</span>
+        <span class="n">magnet_dist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">candidates_abs_px</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+                                     <span class="o">-</span> <span class="n">magnet_px</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">isorted</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">magnet_dist</span><span class="p">)</span>
+        <span class="n">magnet_dist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">magnet_dist</span><span class="p">[</span><span class="n">isorted</span><span class="p">])</span>
+        <span class="n">candidates_abs_px</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">candidates_abs_px</span><span class="p">[</span><span class="n">isorted</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:])</span>
+        <span class="n">n_overlaps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">n_overlaps</span><span class="p">[</span><span class="n">isorted</span><span class="p">])</span>
+        <span class="n">root_dat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">root_dat</span><span class="p">[</span><span class="n">isorted</span> <span class="o">%</span> <span class="n">n_candidates</span><span class="p">,</span> <span class="p">:])</span>
+        <span class="n">root_px</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">root_px</span><span class="p">[</span><span class="n">isorted</span> <span class="o">%</span> <span class="n">n_candidates</span><span class="p">,</span> <span class="p">:])</span>
+
+        <span class="c1"># sort candidates so the ones with the fewest overlaps are first</span>
+        <span class="c1"># but do it with a stable algorithm so among the best candidates,</span>
+        <span class="c1"># choose the one closest to the magnet</span>
+        <span class="n">sargs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">n_overlaps</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;mergesort&#39;</span><span class="p">)</span>
+
+        <span class="c1"># &gt;&gt;&gt; debug &gt;&gt;&gt;</span>
+        <span class="k">if</span> <span class="n">dax</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">_candidate</span><span class="p">,</span> <span class="n">n_overlap</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">candidates_abs_px</span><span class="p">,</span> <span class="n">n_overlaps</span><span class="p">):</span>
+                <span class="n">_cand_bbox</span> <span class="o">=</span> <span class="n">Bbox</span><span class="p">(</span><span class="n">_candidate</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+                <span class="n">_x0</span> <span class="o">=</span> <span class="n">_cand_bbox</span><span class="o">.</span><span class="n">get_points</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">_bbox_center</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">_candidate</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+                <span class="n">_ray_x</span> <span class="o">=</span> <span class="p">[</span><span class="n">_bbox_center</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">magnet_px</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+                <span class="n">_ray_y</span> <span class="o">=</span> <span class="p">[</span><span class="n">_bbox_center</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">magnet_px</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+                <span class="n">dax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">_ray_x</span><span class="p">,</span> <span class="n">_ray_y</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">)</span>
+                <span class="n">_rect</span> <span class="o">=</span> <span class="n">mpatches</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">(</span><span class="n">_x0</span><span class="p">,</span> <span class="n">_cand_bbox</span><span class="o">.</span><span class="n">width</span><span class="p">,</span>
+                                           <span class="n">_cand_bbox</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+                <span class="n">dax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">_rect</span><span class="p">)</span>
+                <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">_x0</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">_x0</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+                <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">_x0</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">_x0</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;</span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n_overlap</span><span class="p">))</span>
+        <span class="c1"># &lt;&lt;&lt; debug &lt;&lt;&lt;</span>
+
+        <span class="c1"># pick winning candidate and add its bounding box to this list of</span>
+        <span class="c1"># paths to avoid</span>
+        <span class="n">winner_abs_px</span> <span class="o">=</span> <span class="n">candidates_abs_px</span><span class="p">[</span><span class="n">sargs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">:,</span> <span class="p">:]</span>
+        <span class="n">xy_root_px</span> <span class="o">=</span> <span class="n">root_px</span><span class="p">[</span><span class="n">sargs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">:]</span>
+        <span class="n">xy_root_dat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">root_dat</span><span class="p">[</span><span class="n">sargs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">:])</span>
+        <span class="n">xy_txt_offset</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">winner_abs_px</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">xy_root_px</span><span class="p">)</span>
+
+        <span class="n">corners</span> <span class="o">=</span> <span class="n">Bbox</span><span class="p">(</span><span class="n">winner_abs_px</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">corners</span><span class="p">()[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">:]</span>
+        <span class="n">bbox_paths_px</span> <span class="o">+=</span> <span class="p">[</span><span class="n">Path</span><span class="p">(</span><span class="n">corners</span><span class="p">)]</span>
+
+        <span class="c1"># a = plt.annotate(label, xy=xy_root_dat, xycoords=&#39;data&#39;,</span>
+        <span class="c1">#                  xytext=xy_txt_offset, textcoords=&quot;offset pixels&quot;,</span>
+        <span class="c1">#                  color=color, **kwargs)</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="n">xy_root_dat</span><span class="p">,</span> <span class="n">xycoords</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span>
+                        <span class="n">xytext</span><span class="o">=</span><span class="n">xy_txt_offset</span><span class="p">,</span> <span class="n">textcoords</span><span class="o">=</span><span class="s2">&quot;offset pixels&quot;</span><span class="p">,</span>
+                        <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">annotations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">annotations</span></div>
+
+<span class="k">def</span> <span class="nf">text_size_points</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fontproperties</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">size</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">fontproperties</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">fontproperties</span> <span class="o">=</span> <span class="n">FontProperties</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">is_string_like</span><span class="p">(</span><span class="n">fontproperties</span><span class="p">):</span>
+            <span class="n">fontproperties</span> <span class="o">=</span> <span class="n">FontProperties</span><span class="p">(</span><span class="n">fontproperties</span><span class="p">)</span>
+        <span class="n">size</span> <span class="o">=</span> <span class="n">fontproperties</span><span class="o">.</span><span class="n">get_size_in_points</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">size</span>
+
+<span class="k">def</span> <span class="nf">estimate_text_size_px</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span> <span class="n">char_aspect_ratio</span><span class="o">=</span><span class="mf">0.618</span><span class="p">,</span> <span class="n">line_spacing</span><span class="o">=</span><span class="mf">1.62</span><span class="p">,</span>
+                          <span class="n">fig</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fontproperties</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Given some text, estimate its extent in pixels when rendered</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        txt (str): Text to estimate the render size of</span>
+<span class="sd">        char_aspect_ratio (float): Assume characters have this aspect</span>
+<span class="sd">            ratio on average. Really, this depends on font and which</span>
+<span class="sd">            chars are actually in `txt`, but at least it&#39;s an estimate.</span>
+<span class="sd">            Default is 1 / golden ratio.</span>
+<span class="sd">        line_spacing (float): Assume lines are this fraction &gt; 1 of the</span>
+<span class="sd">            font height. Default is the golden ratio.</span>
+<span class="sd">        fig (Figure): Matplotlib figure or None to use plt.gcf(), used</span>
+<span class="sd">            to get the `dpi` if it&#39;s not given</span>
+<span class="sd">        size (float): font height in points, gets the default from</span>
+<span class="sd">            matplotlib if not given</span>
+<span class="sd">        fontproperties (None): Specific fort progerties to get font</span>
+<span class="sd">            size from if not given</span>
+<span class="sd">        dpi (int): rendering dots per inch; defaults to `fig.get_dpi()`</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Tuple (width, height) of the text in pixels</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">fig</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">dpi</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">dpi</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">get_dpi</span><span class="p">()</span>
+
+    <span class="n">size</span> <span class="o">=</span> <span class="n">text_size_points</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="n">fontproperties</span><span class="o">=</span><span class="n">fontproperties</span><span class="p">)</span>
+
+    <span class="n">char_height_px</span> <span class="o">=</span> <span class="n">dpi</span> <span class="o">*</span> <span class="n">size</span> <span class="o">/</span> <span class="mi">72</span>
+    <span class="c1"># Note: default values of golden ratio and 1/golden ratio give ~13%</span>
+    <span class="c1">#       overestimate for a single test, which is ok for my purposes</span>
+    <span class="n">char_width_px</span> <span class="o">=</span> <span class="n">char_aspect_ratio</span> <span class="o">*</span> <span class="n">char_height_px</span>
+    <span class="c1"># guestimate the line height as some fraction &gt; 1 of the font height</span>
+    <span class="n">line_height_px</span> <span class="o">=</span> <span class="n">line_spacing</span> <span class="o">*</span> <span class="n">char_height_px</span>
+
+    <span class="c1"># i don&#39;t think i should do an rstrip here b/c the renderer doesn&#39;t</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="n">txt</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">nlines</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
+    <span class="n">widest_line_nchars</span> <span class="o">=</span> <span class="nb">max</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="p">(</span><span class="n">char_width_px</span> <span class="o">*</span> <span class="n">widest_line_nchars</span><span class="p">,</span> <span class="n">line_height_px</span> <span class="o">*</span> <span class="n">nlines</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">xy_as_pixels</span><span class="p">(</span><span class="n">xy</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;convert xy from coords to pixels&quot;&quot;&quot;</span>
+    <span class="c1"># make sure xy has two elements, one for x, one for y</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">xy</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">xy</span> <span class="o">=</span> <span class="p">[</span><span class="n">xy</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">xy</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+        <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">xy</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;only [x pad, y pad] please&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+        <span class="n">xy</span> <span class="o">=</span> <span class="p">[</span><span class="n">xy</span><span class="p">,</span> <span class="n">xy</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">coords</span> <span class="o">==</span> <span class="s2">&quot;offset pixels&quot;</span><span class="p">:</span>
+        <span class="n">xy_px</span> <span class="o">=</span> <span class="n">xy</span>
+    <span class="k">elif</span> <span class="n">coords</span> <span class="o">==</span> <span class="s2">&quot;offset points&quot;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">ax</span><span class="p">:</span>
+            <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+        <span class="n">scale</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">dpi</span> <span class="o">/</span> <span class="mi">72</span>
+        <span class="n">xy_px</span> <span class="o">=</span> <span class="p">[</span><span class="n">scale</span> <span class="o">*</span> <span class="n">xy</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">scale</span> <span class="o">*</span> <span class="n">xy</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+    <span class="k">elif</span> <span class="n">coords</span> <span class="o">==</span> <span class="s2">&quot;axes fraction&quot;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">ax</span><span class="p">:</span>
+            <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+        <span class="n">xl</span><span class="p">,</span> <span class="n">yl</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">bbox</span><span class="o">.</span><span class="n">corners</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">xh</span><span class="p">,</span> <span class="n">yh</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">bbox</span><span class="o">.</span><span class="n">corners</span><span class="p">()[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">xy_px</span> <span class="o">=</span> <span class="p">[</span><span class="n">xl</span> <span class="o">+</span> <span class="n">xy</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">xh</span> <span class="o">-</span> <span class="n">xl</span><span class="p">),</span> <span class="n">yl</span> <span class="o">+</span> <span class="n">xy</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">yh</span> <span class="o">-</span> <span class="n">yl</span><span class="p">)]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;coords &#39;</span><span class="si">{0}</span><span class="s2">&#39; not understood&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">coords</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">xy_px</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">estimate_text_size_data</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span> <span class="n">char_aspect_ratio</span><span class="o">=</span><span class="mf">0.618</span><span class="p">,</span> <span class="n">line_spacing</span><span class="o">=</span><span class="mf">1.62</span><span class="p">,</span>
+                            <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fontproperties</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Given some text, estimate its extent in data units when rendered</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        This is not useful if axes are log-scaled.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        txt (str): Text to estimate the render size of</span>
+<span class="sd">        char_aspect_ratio (float): Assume characters have this aspect</span>
+<span class="sd">            ratio on average. Really, this depends on font and which</span>
+<span class="sd">            chars are actually in `txt`, but at least it&#39;s an estimate.</span>
+<span class="sd">            Default is 1 / golden ratio.</span>
+<span class="sd">        line_spacing (float): Assume lines are this fraction &gt; 1 of the</span>
+<span class="sd">            font height. Default is the golden ratio.</span>
+<span class="sd">        ax (Axes): Matplotlib axes or None to use plt.gca(), used</span>
+<span class="sd">            to get the `dpi` if it&#39;s not given</span>
+<span class="sd">        size (float): font height in points, gets the default from</span>
+<span class="sd">            matplotlib if not given</span>
+<span class="sd">        fontproperties (None): Specific fort progerties to get font</span>
+<span class="sd">            size from if not given</span>
+<span class="sd">        dpi (int): rendering dots per inch; defaults to `fig.get_dpi()`</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Tuple (width, height) of the text in data units.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">figure</span>
+
+    <span class="n">w_px</span><span class="p">,</span> <span class="n">h_px</span> <span class="o">=</span> <span class="n">estimate_text_size_px</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span> <span class="n">char_aspect_ratio</span><span class="o">=</span><span class="n">char_aspect_ratio</span><span class="p">,</span>
+                                       <span class="n">line_spacing</span><span class="o">=</span><span class="n">line_spacing</span><span class="p">,</span> <span class="n">fig</span><span class="o">=</span><span class="n">fig</span><span class="p">,</span>
+                                       <span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="n">fontproperties</span><span class="o">=</span><span class="n">fontproperties</span><span class="p">,</span>
+                                       <span class="n">dpi</span><span class="o">=</span><span class="n">dpi</span><span class="p">)</span>
+
+    <span class="n">ax_width_px</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">bbox</span><span class="o">.</span><span class="n">width</span>
+    <span class="n">ax_height_px</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">bbox</span><span class="o">.</span><span class="n">height</span>
+
+    <span class="n">xl</span><span class="p">,</span> <span class="n">xh</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">get_xlim</span><span class="p">()</span>
+    <span class="n">yl</span><span class="p">,</span> <span class="n">yh</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">get_ylim</span><span class="p">()</span>
+
+    <span class="n">data_width</span> <span class="o">=</span> <span class="n">w_px</span> <span class="o">*</span> <span class="p">((</span><span class="n">xh</span> <span class="o">-</span> <span class="n">xl</span><span class="p">)</span> <span class="o">/</span> <span class="n">ax_width_px</span><span class="p">)</span>
+    <span class="n">data_height</span> <span class="o">=</span> <span class="n">h_px</span> <span class="o">*</span> <span class="p">((</span><span class="n">yh</span> <span class="o">-</span> <span class="n">yl</span><span class="p">)</span> <span class="o">/</span> <span class="n">ax_height_px</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">data_width</span><span class="p">,</span> <span class="n">data_height</span>
+
+<span class="k">def</span> <span class="nf">_cycle_colors</span><span class="p">(</span><span class="n">colors</span><span class="p">,</span> <span class="n">n_hands</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">colors</span><span class="p">:</span>
+        <span class="n">colors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">colors</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">colors</span><span class="o">.</span><span class="n">shape</span><span class="p">:</span>
+            <span class="n">colors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="n">colors</span><span class="p">])</span>
+
+        <span class="k">if</span> <span class="n">colors</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">kind</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;U&#39;</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">colors</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">colors</span> <span class="o">=</span> <span class="n">colors</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">colors</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">()</span>
+            <span class="c1"># turn rgb -&gt; rgba</span>
+            <span class="k">if</span> <span class="n">colors</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+                <span class="n">colors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">colors</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">colors</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">1</span><span class="p">]),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n_hands</span><span class="p">),</span> <span class="n">cycle</span><span class="p">(</span><span class="n">colors</span><span class="p">))]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">n_hands</span>
+    <span class="k">return</span> <span class="n">colors</span>
+
+
+<span class="k">def</span> <span class="nf">_test0</span><span class="p">():</span>
+    <span class="n">_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">128</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">_x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">_x</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;sin wave&quot;</span><span class="p">)</span>
+
+    <span class="n">_txt</span> <span class="o">=</span> <span class="s2">&quot;some text&quot;</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">_txt</span><span class="p">,</span> <span class="n">estimate_text_size_data</span><span class="p">(</span><span class="n">_txt</span><span class="p">),</span>
+                 <span class="n">bbox</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="k">return</span> <span class="mi">0</span>
+
+<span class="k">def</span> <span class="nf">_test1</span><span class="p">():</span>
+    <span class="k">def</span> <span class="nf">_gaussian</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">var</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">var</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">x0</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">var</span><span class="p">))</span>
+
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">512</span><span class="p">)</span>
+
+    <span class="n">series1</span> <span class="o">=</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="n">_gaussian</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span> <span class="o">+</span> <span class="n">_gaussian</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
+    <span class="n">series2</span> <span class="o">=</span> <span class="mf">1.65</span> <span class="o">*</span> <span class="n">_gaussian</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.95</span> <span class="o">*</span> <span class="n">_gaussian</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">80</span><span class="p">)</span>
+
+    <span class="n">_</span><span class="p">,</span> <span class="n">ax0</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+    <span class="n">ax0</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">series1</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#028482&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+                     <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Series 1&quot;</span><span class="p">)</span>
+    <span class="n">ax0</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">series2</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#7ABA7A&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+                     <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Series 2&quot;</span><span class="p">)</span>
+    <span class="c1"># plt.plot(x, series1, color=&#39;#028482&#39;, alpha=0.7, lw=3, label=&quot;Series 1&quot;)</span>
+    <span class="c1"># plt.plot(x, series2, color=&#39;#7ABA7A&#39;, alpha=0.7, lw=3, label=&quot;Series 2&quot;)</span>
+    <span class="n">apply_labels</span><span class="p">(</span><span class="n">choices</span><span class="o">=</span><span class="s2">&quot;02&quot;</span><span class="p">,</span> <span class="n">magnet</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_debug</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="mi">0</span>
+
+<span class="k">def</span> <span class="nf">_main</span><span class="p">():</span>
+    <span class="n">errcode0</span> <span class="o">=</span> <span class="n">_test0</span><span class="p">()</span>
+    <span class="n">errcode1</span> <span class="o">=</span> <span class="n">_test1</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">errcode1</span> <span class="o">+</span> <span class="n">errcode0</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">_main</span><span class="p">())</span>
+
+<span class="c1">##</span>
+<span class="c1">## EOF</span>
+<span class="c1">##</span>
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+      
+    </p>
+    <p>
+        &copy; Copyright 2017, Kristofor Maynard.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

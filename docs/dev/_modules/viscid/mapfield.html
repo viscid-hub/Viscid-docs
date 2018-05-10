@@ -1,0 +1,753 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>viscid.mapfield &#8212; Viscid 0.99.7.dev0 documentation</title>
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+<link rel="icon" href="../../_static/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../../_static/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon-precomposed" href="../../_static/Vicon_128.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          Viscid</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.99.7.dev0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+    <li class="dropdown">
+      <a role="button"
+         id="dLabelNavLinxToc"
+         data-toggle="dropdown"
+         data-target="#"
+         href="#">Tutorial <b class="caret"></b></a>
+      <ul class="dropdown-menu navlinktoc"
+          role="menu">
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../installation.html">Installation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/creating_fields.html">Creating Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/slicing.html">Slicing Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/plotting_scalars.html">Plotting Scalars</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/plotting_vectors.html">Plotting Vectors</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/mayavi.html">3D Plots (Mayavi)</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/openggcm.html">OpenGGCM Specific</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/ionosphere.html">Ionosphere</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/stream_and_interp.html">Streamline and Interpolation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/magnetic_topology.html">Magnetic Topology</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/magnetopause.html">Magnetopause</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/quasi_potential.html">Quasi Potential</a>
+          </li>
+      </ul>
+    </li>
+
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../changes.html">ChangeLog</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../philosophy.html">Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/index.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tips_and_tricks.html">Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../functions.html">Useful Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plot_options.html">Plot Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mpl_style_gallery.html">Matplotlib Style Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../custom_behavior.html">Custom Behavior (rc file)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev_guide.html">Developer’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extending_readers.html">Extending Readers</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/viscid.html">API</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"></ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <h1>Source code for viscid.mapfield</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="sd">&quot;&quot;&quot;utility for translating spherical fields (theta, phi) &lt;-&gt; (lat, lon)&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">viscid</span>
+<span class="kn">from</span> <span class="nn">viscid.coordinate</span> <span class="k">import</span> <span class="n">wrap_crds</span>
+
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;as_mapfield&quot;</span><span class="p">,</span> <span class="s2">&quot;as_spherefield&quot;</span><span class="p">,</span> <span class="s2">&quot;as_polar_mapfield&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;pts2polar_mapfield&quot;</span><span class="p">,</span> <span class="s2">&quot;convert_coordinates&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;lat2theta&quot;</span><span class="p">,</span> <span class="s2">&quot;lon2phi&quot;</span><span class="p">,</span> <span class="s2">&quot;phi2lon&quot;</span><span class="p">,</span> <span class="s2">&quot;theta2lat&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;cart2sph&quot;</span><span class="p">,</span> <span class="s2">&quot;cart2latlon&quot;</span><span class="p">,</span> <span class="s2">&quot;sph2cart&quot;</span><span class="p">,</span> <span class="s2">&quot;latlon2cart&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;great_circle&quot;</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="theta2lat"><a class="viewcode-back" href="../../api/viscid.mapfield.html#viscid.theta2lat">[docs]</a><span class="k">def</span> <span class="nf">theta2lat</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;deg&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;spherical theta -&gt; latitude transformation&quot;&quot;&quot;</span>
+    <span class="n">p90</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span> <span class="k">if</span> <span class="n">unit</span> <span class="o">==</span> <span class="s1">&#39;rad&#39;</span> <span class="k">else</span> <span class="mf">90.0</span>
+    <span class="n">lat</span> <span class="o">=</span> <span class="n">p90</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">lat</span> <span class="o">&lt;</span> <span class="o">-</span><span class="n">p90</span><span class="p">)</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">lat</span> <span class="o">&gt;</span> <span class="n">p90</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Latitude is not bound between -</span><span class="si">{0}</span><span class="s2"> and </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p90</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">lat</span></div>
+
+<div class="viewcode-block" id="phi2lon"><a class="viewcode-back" href="../../api/viscid.mapfield.html#viscid.phi2lon">[docs]</a><span class="k">def</span> <span class="nf">phi2lon</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;deg&#39;</span><span class="p">):</span>  <span class="c1"># pylint: disable=unused-argument</span>
+    <span class="sd">&quot;&quot;&quot;spherical phi -&gt; longitude transform; currently a no-op&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">phi</span></div>
+
+<div class="viewcode-block" id="lat2theta"><a class="viewcode-back" href="../../api/viscid.mapfield.html#viscid.lat2theta">[docs]</a><span class="k">def</span> <span class="nf">lat2theta</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;deg&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;spherical latitude -&gt; theta transformation&quot;&quot;&quot;</span>
+    <span class="n">p90</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span> <span class="k">if</span> <span class="n">unit</span> <span class="o">==</span> <span class="s1">&#39;rad&#39;</span> <span class="k">else</span> <span class="mf">90.0</span>
+    <span class="n">p180</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="k">if</span> <span class="n">unit</span> <span class="o">==</span> <span class="s1">&#39;rad&#39;</span> <span class="k">else</span> <span class="mf">180.0</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="n">p90</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">lat</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">theta</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">)</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">theta</span> <span class="o">&gt;</span> <span class="n">p180</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Theta is not bound between 0 and </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p180</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">theta</span></div>
+
+<div class="viewcode-block" id="lon2phi"><a class="viewcode-back" href="../../api/viscid.mapfield.html#viscid.lon2phi">[docs]</a><span class="k">def</span> <span class="nf">lon2phi</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;deg&#39;</span><span class="p">):</span>  <span class="c1"># pylint: disable=unused-argument</span>
+    <span class="sd">&quot;&quot;&quot;spherical longitude -&gt; phi transform; currently a no-op&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">lon</span></div>
+
+<span class="k">def</span> <span class="nf">arr_noop</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">**</span><span class="n">_</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span>
+
+<span class="k">def</span> <span class="nf">fld_noop</span><span class="p">(</span><span class="n">fld</span><span class="p">,</span> <span class="n">base</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Although this is called noop, it could do a unit transform&quot;&quot;&quot;</span>
+    <span class="n">crd_xform</span> <span class="o">=</span> <span class="n">arr_noop</span>
+    <span class="n">dat_xform</span> <span class="o">=</span> <span class="n">arr_noop</span>
+    <span class="k">return</span> <span class="n">_fld_xform_common</span><span class="p">(</span><span class="n">fld</span><span class="p">,</span> <span class="n">base</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">unit</span><span class="p">,</span> <span class="n">crd_xform</span><span class="p">,</span> <span class="n">dat_xform</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">_prep_units</span><span class="p">(</span><span class="n">order</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">fld</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">units</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
+        <span class="n">units</span> <span class="o">=</span> <span class="p">[</span><span class="n">units</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">order</span><span class="p">)</span>
+    <span class="n">units</span> <span class="o">+=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">units</span><span class="p">)</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">order</span><span class="p">))</span>
+    <span class="n">units</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span> <span class="k">if</span> <span class="n">u</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">u</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">units</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">fld</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">crds</span> <span class="o">=</span> <span class="n">fld</span><span class="o">.</span><span class="n">crds</span>
+        <span class="n">units</span> <span class="o">=</span> <span class="p">[</span><span class="n">u</span> <span class="k">if</span> <span class="n">u</span> <span class="k">else</span> <span class="n">crds</span><span class="o">.</span><span class="n">get_unit</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span> <span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">u</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">order</span><span class="p">,</span> <span class="n">units</span><span class="p">)]</span>
+    <span class="k">return</span> <span class="n">units</span>
+
+<span class="k">def</span> <span class="nf">_make_transform_unit_func</span><span class="p">(</span><span class="n">base_unit</span><span class="p">,</span> <span class="n">target_unit</span><span class="p">):</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">base_unit</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">target_unit</span><span class="p">)</span> <span class="ow">or</span> <span class="n">base_unit</span> <span class="o">==</span> <span class="n">target_unit</span><span class="p">:</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">arr_noop</span>
+    <span class="k">elif</span> <span class="n">target_unit</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">base_unit</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;If target_unit is given, then base unit must be valid&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">base_unit</span> <span class="o">==</span> <span class="s1">&#39;deg&#39;</span> <span class="ow">and</span> <span class="n">target_unit</span> <span class="o">==</span> <span class="s1">&#39;rad&#39;</span><span class="p">:</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mf">180.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">base_unit</span> <span class="o">==</span> <span class="s1">&#39;rad&#39;</span> <span class="ow">and</span> <span class="n">target_unit</span> <span class="o">==</span> <span class="s1">&#39;deg&#39;</span><span class="p">:</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="mf">180.0</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;No transform to go </span><span class="si">{0}</span><span class="s2"> -&gt; </span><span class="si">{1}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">base_unit</span><span class="p">,</span>
+                                                                <span class="n">target_unit</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">ret</span>
+
+<span class="k">def</span> <span class="nf">_get_axinds</span><span class="p">(</span><span class="n">fld</span><span class="p">,</span> <span class="n">ax</span><span class="p">):</span>
+    <span class="n">dcrd</span> <span class="o">=</span> <span class="n">fld</span><span class="o">.</span><span class="n">crds</span><span class="o">.</span><span class="n">ind</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
+    <span class="n">ddat</span> <span class="o">=</span> <span class="n">dcrd</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">fld</span><span class="o">.</span><span class="n">nr_comps</span> <span class="ow">and</span> <span class="n">fld</span><span class="o">.</span><span class="n">nr_comp</span> <span class="o">&lt;</span> <span class="n">dcrd</span> <span class="k">else</span> <span class="n">dcrd</span>
+    <span class="k">return</span> <span class="n">dcrd</span><span class="p">,</span> <span class="n">ddat</span>
+
+<span class="k">def</span> <span class="nf">_fld_xform_common</span><span class="p">(</span><span class="n">fld</span><span class="p">,</span> <span class="n">base</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">unit</span><span class="p">,</span> <span class="n">crd_xform</span><span class="p">,</span> <span class="n">dat_xform</span><span class="p">,</span> <span class="n">raw</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">dcrd</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_get_axinds</span><span class="p">(</span><span class="n">fld</span><span class="p">,</span> <span class="n">base</span><span class="p">)</span>
+
+    <span class="n">unit_xform</span> <span class="o">=</span> <span class="n">_make_transform_unit_func</span><span class="p">(</span><span class="n">fld</span><span class="o">.</span><span class="n">crds</span><span class="o">.</span><span class="n">get_unit</span><span class="p">(</span><span class="n">base</span><span class="p">),</span> <span class="n">unit</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">unit</span><span class="p">:</span>
+        <span class="n">unit</span> <span class="o">=</span> <span class="n">fld</span><span class="o">.</span><span class="n">crds</span><span class="o">.</span><span class="n">get_unit</span><span class="p">(</span><span class="n">base</span><span class="p">)</span>
+
+    <span class="n">xforms</span> <span class="o">=</span> <span class="p">(</span><span class="n">unit_xform</span><span class="p">,</span> <span class="n">crd_xform</span><span class="p">,</span> <span class="n">dat_xform</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">base</span> <span class="o">==</span> <span class="n">target</span> <span class="ow">and</span> <span class="nb">all</span><span class="p">(</span><span class="n">f</span> <span class="ow">is</span> <span class="n">arr_noop</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">xforms</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">fld</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">clist</span> <span class="o">=</span> <span class="n">fld</span><span class="o">.</span><span class="n">get_clist</span><span class="p">()</span>
+        <span class="n">clist</span><span class="p">[</span><span class="n">dcrd</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">target</span>
+        <span class="k">if</span> <span class="n">fld</span><span class="o">.</span><span class="n">crds</span><span class="o">.</span><span class="n">is_uniform</span><span class="p">()</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">raw</span><span class="p">:</span>
+            <span class="n">clist</span><span class="p">[</span><span class="n">dcrd</span><span class="p">][</span><span class="mi">1</span><span class="p">][:</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">crd_xform</span><span class="p">(</span><span class="n">unit_xform</span><span class="p">(</span><span class="n">clist</span><span class="p">[</span><span class="n">dcrd</span><span class="p">][</span><span class="mi">1</span><span class="p">][:</span><span class="mi">2</span><span class="p">]))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">clist</span><span class="p">[</span><span class="n">dcrd</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">crd_xform</span><span class="p">(</span><span class="n">unit_xform</span><span class="p">(</span><span class="n">clist</span><span class="p">[</span><span class="n">dcrd</span><span class="p">][</span><span class="mi">1</span><span class="p">]))</span>
+
+        <span class="n">units</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">fld</span><span class="o">.</span><span class="n">crds</span><span class="o">.</span><span class="n">units</span><span class="p">)</span>
+        <span class="n">units</span><span class="p">[</span><span class="n">dcrd</span><span class="p">]</span> <span class="o">=</span> <span class="n">unit</span>
+        <span class="n">crds</span> <span class="o">=</span> <span class="n">wrap_crds</span><span class="p">(</span><span class="n">fld</span><span class="o">.</span><span class="n">crds</span><span class="o">.</span><span class="n">crdtype</span><span class="p">,</span> <span class="n">clist</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">fld</span><span class="o">.</span><span class="n">crds</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span>
+                         <span class="n">units</span><span class="o">=</span><span class="n">units</span><span class="p">)</span>
+        <span class="n">ctx</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">crds</span><span class="o">=</span><span class="n">crds</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">fld</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">dat_xform</span><span class="p">(</span><span class="n">fld</span><span class="o">.</span><span class="n">data</span><span class="p">),</span> <span class="n">context</span><span class="o">=</span><span class="n">ctx</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">fld_phi2lon</span><span class="p">(</span><span class="n">fld</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="s1">&#39;phi&#39;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;lon&#39;</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;deg&#39;</span><span class="p">):</span>
+    <span class="c1"># FIXME: shouldn&#39;t be a noop, but longitude is a stupid unit on account</span>
+    <span class="c1"># of that bizarre -180 == +180 seam</span>
+    <span class="k">return</span> <span class="n">fld_noop</span><span class="p">(</span><span class="n">fld</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="n">base</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="n">target</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="n">unit</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">fld_theta2lat</span><span class="p">(</span><span class="n">fld</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="s1">&#39;theta&#39;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;deg&#39;</span><span class="p">):</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">ddat</span> <span class="o">=</span> <span class="n">_get_axinds</span><span class="p">(</span><span class="n">fld</span><span class="p">,</span> <span class="n">base</span><span class="p">)</span>
+    <span class="n">crd_xform</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">theta2lat</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="n">unit</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">dslc</span> <span class="o">=</span> <span class="p">[</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">)]</span> <span class="o">*</span> <span class="n">fld</span><span class="o">.</span><span class="n">nr_dims</span>
+    <span class="n">dslc</span><span class="p">[</span><span class="n">ddat</span><span class="p">]</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">dat_xform</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">a</span><span class="p">:</span> <span class="n">a</span><span class="p">[</span><span class="n">dslc</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">_fld_xform_common</span><span class="p">(</span><span class="n">fld</span><span class="p">,</span> <span class="n">base</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">unit</span><span class="p">,</span> <span class="n">crd_xform</span><span class="p">,</span> <span class="n">dat_xform</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">fld_lon2phi</span><span class="p">(</span><span class="n">fld</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="s1">&#39;lon&#39;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;phi&#39;</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;deg&#39;</span><span class="p">):</span>
+    <span class="c1"># FIXME: shouldn&#39;t be a noop, but longitude is a stupid unit on account</span>
+    <span class="c1"># of that bizarre -180 == +180 seam</span>
+    <span class="k">return</span> <span class="n">fld_noop</span><span class="p">(</span><span class="n">fld</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="n">base</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="n">target</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="n">unit</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">fld_lat2theta</span><span class="p">(</span><span class="n">fld</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;theta&#39;</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;deg&#39;</span><span class="p">):</span>
+    <span class="n">dcrd</span><span class="p">,</span> <span class="n">ddat</span> <span class="o">=</span> <span class="n">_get_axinds</span><span class="p">(</span><span class="n">fld</span><span class="p">,</span> <span class="n">base</span><span class="p">)</span>
+    <span class="n">crd_xform</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">lat2theta</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="n">unit</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">dslc</span> <span class="o">=</span> <span class="p">[</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">)]</span> <span class="o">*</span> <span class="n">fld</span><span class="o">.</span><span class="n">nr_dims</span>
+    <span class="n">dslc</span><span class="p">[</span><span class="n">ddat</span><span class="p">]</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">dat_xform</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">a</span><span class="p">:</span> <span class="n">a</span><span class="p">[</span><span class="n">dslc</span><span class="p">]</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">_fld_xform_common</span><span class="p">(</span><span class="n">fld</span><span class="p">,</span> <span class="n">base</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">unit</span><span class="p">,</span> <span class="n">crd_xform</span><span class="p">,</span> <span class="n">dat_xform</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">ret</span><span class="o">.</span><span class="n">xh</span><span class="p">[</span><span class="n">dcrd</span><span class="p">]</span> <span class="o">-</span> <span class="n">ret</span><span class="o">.</span><span class="n">xl</span><span class="p">[</span><span class="n">dcrd</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">p90</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span> <span class="k">if</span> <span class="n">unit</span> <span class="o">==</span> <span class="s1">&#39;rad&#39;</span> <span class="k">else</span> <span class="mf">90.0</span>
+        <span class="n">p180</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="k">if</span> <span class="n">unit</span> <span class="o">==</span> <span class="s1">&#39;rad&#39;</span> <span class="k">else</span> <span class="mf">180.0</span>
+        <span class="n">viscid</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Spherical Fields expect the data to be &quot;</span>
+                              <span class="s2">&quot;ordered </span><span class="si">{0}</span><span class="s2">..-</span><span class="si">{0}</span><span class="s2"> in latitude (theta: 0..</span><span class="si">{1}</span><span class="s2">)&quot;</span>
+                              <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p90</span><span class="p">,</span> <span class="n">p180</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">ret</span>
+
+<div class="viewcode-block" id="convert_coordinates"><a class="viewcode-back" href="../../api/viscid.mapfield.html#viscid.convert_coordinates">[docs]</a><span class="k">def</span> <span class="nf">convert_coordinates</span><span class="p">(</span><span class="n">fld</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">crd_mapping</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Convert a Field&#39;s coordinates</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        fld (Field): Description</span>
+<span class="sd">        order (sequence): target coordinates</span>
+<span class="sd">        crd_mapping (dict): summarizes functions that go from</span>
+<span class="sd">            base -&gt; target</span>
+<span class="sd">        units (str, optional): Additional info if you need to convert</span>
+<span class="sd">            units too</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        RuntimeError: If no mapping is found to go base -&gt; target</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">base_axes</span> <span class="o">=</span> <span class="n">fld</span><span class="o">.</span><span class="n">crds</span><span class="o">.</span><span class="n">axes</span>
+
+    <span class="c1"># select the bases in crd_mapping that match the axes in fld.crds</span>
+    <span class="c1"># _mapping is like {&#39;t&#39;: {base: &#39;t&#39;, base2target: fld_noop},</span>
+    <span class="c1">#                   &#39;lon&#39;: {base: &#39;phi&#39;, base2aslas: fld_phi2lon},</span>
+    <span class="c1">#                   &#39;lat&#39;: {base: &#39;theta&#39;, base2aslas: fld_theta2lat}}</span>
+    <span class="c1"># where the keys are the aliases (target crds), and the bases are the</span>
+    <span class="c1"># crds that actuall exist in fld, unlike crd_mapping which contains many</span>
+    <span class="c1"># bases for each target as a possible transformation</span>
+    <span class="n">_mapping</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">target</span><span class="p">,</span> <span class="n">available_bases</span> <span class="ow">in</span> <span class="n">crd_mapping</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">base</span><span class="p">,</span> <span class="n">transform_func</span> <span class="ow">in</span> <span class="n">available_bases</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">base</span> <span class="ow">in</span> <span class="n">base_axes</span><span class="p">:</span>
+                <span class="n">_mapping</span><span class="p">[</span><span class="n">target</span><span class="p">]</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">base</span><span class="o">=</span><span class="n">base</span><span class="p">,</span> <span class="n">base2target</span><span class="o">=</span><span class="n">transform_func</span><span class="p">)</span>
+                <span class="k">break</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">target</span> <span class="ow">in</span> <span class="n">_mapping</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">target</span> <span class="ow">in</span> <span class="n">order</span><span class="p">:</span>
+                <span class="n">_mapping</span><span class="p">[</span><span class="n">target</span><span class="p">]</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">base</span><span class="o">=</span><span class="n">target</span><span class="p">,</span> <span class="n">base2target</span><span class="o">=</span><span class="n">fld_noop</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;no mapping found to go </span><span class="si">{0}</span><span class="s2"> -&gt; </span><span class="si">{1}</span><span class="s2">&quot;</span>
+                                   <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">base_axes</span><span class="p">,</span> <span class="n">target</span><span class="p">))</span>
+
+    <span class="n">bases_target_order</span> <span class="o">=</span> <span class="p">[</span><span class="n">_mapping</span><span class="p">[</span><span class="n">ax</span><span class="p">][</span><span class="s1">&#39;base&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">order</span><span class="p">]</span>
+    <span class="n">transforms</span> <span class="o">=</span> <span class="p">[</span><span class="n">_mapping</span><span class="p">[</span><span class="n">ax</span><span class="p">][</span><span class="s1">&#39;base2target&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">order</span><span class="p">]</span>
+    <span class="n">units</span> <span class="o">=</span> <span class="n">_prep_units</span><span class="p">(</span><span class="n">order</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="n">units</span><span class="p">)</span>
+
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">fld</span>
+    <span class="k">for</span> <span class="n">base</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">transform</span><span class="p">,</span> <span class="n">unit</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">bases_target_order</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">transforms</span><span class="p">,</span> <span class="n">units</span><span class="p">):</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">transform</span><span class="p">(</span><span class="n">ret</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="n">base</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="n">target</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="n">unit</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">list</span><span class="p">(</span><span class="n">order</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">list</span><span class="p">(</span><span class="n">ret</span><span class="o">.</span><span class="n">crds</span><span class="o">.</span><span class="n">axes</span><span class="p">):</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">ret</span><span class="o">.</span><span class="n">spatial_transpose</span><span class="p">(</span><span class="o">*</span><span class="n">order</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ret</span></div>
+
+<div class="viewcode-block" id="as_mapfield"><a class="viewcode-back" href="../../api/viscid.mapfield.html#viscid.as_mapfield">[docs]</a><span class="k">def</span> <span class="nf">as_mapfield</span><span class="p">(</span><span class="n">fld</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;lon&#39;</span><span class="p">,</span> <span class="s1">&#39;lat&#39;</span><span class="p">),</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Make sure a field has (lon, lat) coordinates</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        fld (Field): some field to transform</span>
+<span class="sd">        order (tuple, optional): Desired axes of the result</span>
+<span class="sd">        units (str, optional): units of the result (deg/rad)</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Viscid.Field: a field with (lon, lat) coordinates. The data</span>
+<span class="sd">        will be loaded into memory if not already.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">mapping</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">lon</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;phi&#39;</span><span class="p">:</span> <span class="n">fld_phi2lon</span><span class="p">,</span> <span class="s1">&#39;lon&#39;</span><span class="p">:</span> <span class="n">fld_noop</span><span class="p">},</span>
+                   <span class="n">lat</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;theta&#39;</span><span class="p">:</span> <span class="n">fld_theta2lat</span><span class="p">,</span> <span class="s1">&#39;lat&#39;</span><span class="p">:</span> <span class="n">fld_noop</span><span class="p">})</span>
+
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">convert_coordinates</span><span class="p">(</span><span class="n">fld</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">mapping</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="n">units</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ret</span></div>
+
+<div class="viewcode-block" id="as_spherefield"><a class="viewcode-back" href="../../api/viscid.mapfield.html#viscid.as_spherefield">[docs]</a><span class="k">def</span> <span class="nf">as_spherefield</span><span class="p">(</span><span class="n">fld</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;phi&#39;</span><span class="p">,</span> <span class="s1">&#39;theta&#39;</span><span class="p">),</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Make sure fld has (phi, theta) coordinates</span>
+
+<span class="sd">        fld (Field): some field to transform</span>
+<span class="sd">        order (tuple, optional): Desired axes of the result</span>
+<span class="sd">        units (str, optional): units of the result (deg/rad)</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Viscid.Field: a field with (lon, lat) coordinates. The data</span>
+<span class="sd">        will be loaded into memory if not already.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">mapping</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">phi</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;lon&#39;</span><span class="p">:</span> <span class="n">fld_lon2phi</span><span class="p">,</span> <span class="s1">&#39;phi&#39;</span><span class="p">:</span> <span class="n">fld_noop</span><span class="p">},</span>
+                   <span class="n">theta</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;lat&#39;</span><span class="p">:</span> <span class="n">fld_lat2theta</span><span class="p">,</span> <span class="s1">&#39;theta&#39;</span><span class="p">:</span> <span class="n">fld_noop</span><span class="p">})</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">convert_coordinates</span><span class="p">(</span><span class="n">fld</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">mapping</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="n">units</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ret</span></div>
+
+<div class="viewcode-block" id="as_polar_mapfield"><a class="viewcode-back" href="../../api/viscid.mapfield.html#viscid.as_polar_mapfield">[docs]</a><span class="k">def</span> <span class="nf">as_polar_mapfield</span><span class="p">(</span><span class="n">fld</span><span class="p">,</span> <span class="n">bounding_lat</span><span class="o">=</span><span class="mf">40.0</span><span class="p">,</span> <span class="n">hemisphere</span><span class="o">=</span><span class="s1">&#39;north&#39;</span><span class="p">,</span>
+                      <span class="n">make_periodic</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Prepare a theta/phi or lat/lon field for polar projection</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        fld (Field): Some scalar or vector field</span>
+<span class="sd">        bounding_lat (float, optional): Used to slice the field, i.e.,</span>
+<span class="sd">            gives data from the pole to bounding_lat degrees</span>
+<span class="sd">            equator-ward of the pole</span>
+<span class="sd">        hemisphere (str, optional): &#39;north&#39; or &#39;south&#39;</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Field: a field that can be mapfield plotted on polar axes</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        ValueError: on bad hemisphere</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">hemisphere</span> <span class="o">=</span> <span class="n">hemisphere</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="n">bounding_lat</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mf">180.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">bounding_lat</span>
+    <span class="n">abs_bounding_lat</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">bounding_lat</span><span class="p">)</span>
+
+    <span class="n">mfld</span> <span class="o">=</span> <span class="n">as_mapfield</span><span class="p">(</span><span class="n">fld</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;lon&#39;</span><span class="p">,</span> <span class="s1">&#39;lat&#39;</span><span class="p">),</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;rad&#39;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">hemisphere</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;north&quot;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">mfld</span><span class="o">.</span><span class="n">get_crd</span><span class="p">(</span><span class="s1">&#39;lat&#39;</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">abs_bounding_lat</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;fld </span><span class="si">{0}</span><span class="s2"> contains no values north of bounding lat &quot;</span>
+                             <span class="s2">&quot;</span><span class="si">{1:g}</span><span class="s2"> deg&quot;</span>
+                             <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fld</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">bounding_lat</span> <span class="o">*</span> <span class="mi">180</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
+        <span class="c1"># mfld = mfld[&quot;lat=:{0}f:-1&quot;.format(abs_bounding_lat)]</span>
+        <span class="n">mfld</span> <span class="o">=</span> <span class="n">mfld</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">abs_bounding_lat</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="n">hemisphere</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;south&quot;</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">mfld</span><span class="o">.</span><span class="n">get_crd</span><span class="p">(</span><span class="s1">&#39;lat&#39;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="o">-</span><span class="n">abs_bounding_lat</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;fld </span><span class="si">{0}</span><span class="s2"> contains no values south of bounding lat &quot;</span>
+                             <span class="s2">&quot;</span><span class="si">{1:g}</span><span class="s2"> deg&quot;</span>
+                             <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fld</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">bounding_lat</span> <span class="o">*</span> <span class="mi">180</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
+        <span class="c1"># mfld = mfld[&quot;lat=:{0}f&quot;.format(-abs_bounding_lat)]</span>
+        <span class="n">mfld</span> <span class="o">=</span> <span class="n">mfld</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">abs_bounding_lat</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;hemisphere should be either north or south&quot;</span><span class="p">)</span>
+
+    <span class="n">clist</span> <span class="o">=</span> <span class="n">mfld</span><span class="o">.</span><span class="n">get_clist</span><span class="p">()</span>
+    <span class="n">offset</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="n">scale</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="k">if</span> <span class="n">hemisphere</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;north&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="mi">1</span>
+
+    <span class="k">if</span> <span class="n">mfld</span><span class="o">.</span><span class="n">crds</span><span class="o">.</span><span class="n">is_uniform</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+            <span class="n">clist</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">scale</span> <span class="o">*</span> <span class="n">clist</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">offset</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">clist</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">scale</span> <span class="o">*</span> <span class="n">clist</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">offset</span>
+
+    <span class="n">mfld_dat</span> <span class="o">=</span> <span class="n">mfld</span><span class="o">.</span><span class="n">data</span>
+    <span class="k">if</span> <span class="n">make_periodic</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">mfld</span><span class="o">.</span><span class="n">crds</span><span class="o">.</span><span class="n">is_uniform</span><span class="p">():</span>
+            <span class="n">phi_diff</span> <span class="o">=</span> <span class="n">clist</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">clist</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">phi_diff</span> <span class="o">=</span> <span class="n">clist</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">clist</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">phi_diff</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">-</span> <span class="mf">1e-5</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">mfld</span><span class="o">.</span><span class="n">crds</span><span class="o">.</span><span class="n">is_uniform</span><span class="p">():</span>
+                <span class="n">clist</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">phi_diff</span> <span class="o">/</span> <span class="n">clist</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">clist</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">clist</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">):</span>
+                    <span class="n">viscid</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Tried unsuccessfully to make uniform &quot;</span>
+                                          <span class="s2">&quot;polar mapfield periodic: </span><span class="si">{0:g}</span><span class="s2">&quot;</span>
+                                          <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">clist</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">clist</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">clist</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">clist</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span>
+                                              <span class="p">[</span><span class="n">clist</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">]])</span>
+            <span class="n">mfld_dat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">mfld_dat</span><span class="p">,</span> <span class="n">mfld_dat</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="n">crds</span> <span class="o">=</span> <span class="n">wrap_crds</span><span class="p">(</span><span class="n">mfld</span><span class="o">.</span><span class="n">crds</span><span class="o">.</span><span class="n">crdtype</span><span class="p">,</span> <span class="n">clist</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">mfld</span><span class="o">.</span><span class="n">crds</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+    <span class="n">ctx</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">crds</span><span class="o">=</span><span class="n">crds</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">mfld</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">mfld_dat</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="n">ctx</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="pts2polar_mapfield"><a class="viewcode-back" href="../../api/viscid.mapfield.html#viscid.pts2polar_mapfield">[docs]</a><span class="k">def</span> <span class="nf">pts2polar_mapfield</span><span class="p">(</span><span class="n">pts</span><span class="p">,</span> <span class="n">pts_axes</span><span class="p">,</span> <span class="n">pts_unit</span><span class="o">=</span><span class="s1">&#39;deg&#39;</span><span class="p">,</span> <span class="n">hemisphere</span><span class="o">=</span><span class="s1">&#39;north&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Prepare theta/phi or lat/lon points for a polar plot</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        pts (ndarray): A 2xN array of N points where the spatial</span>
+<span class="sd">            dimensions encode phi, theta, lat, or lon.</span>
+<span class="sd">        pts_axes (sequence): sequence of strings that say what each</span>
+<span class="sd">            axis of pts encodes, i.e., (&#39;theta&#39;, &#39;phi&#39;).</span>
+<span class="sd">        pts_unit (str, optional): units of pts (&#39;deg&#39; or &#39;rad&#39;)</span>
+<span class="sd">        hemisphere (str, optional): &#39;north&#39; or &#39;south&#39;</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        ndarray: 2xN array of N points in radians where the axes</span>
+<span class="sd">        are (&#39;lon&#39;, &#39;lat&#39;), such that they can be given straight to</span>
+<span class="sd">        matplotlib.pyplot.plot()</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        ValueError: On bad pts_axes</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        This example plots total field align currents in the northern</span>
+<span class="sd">        hemisphere, then plots a curve onto the same plot</span>
+
+<span class="sd">        &gt;&gt;&gt; f = viscid.load_file(&quot;$SRC/Viscid/sample/*_xdmf.iof.*.xdmf&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; vlt.plot(1e9 * f[&#39;fac_tot&#39;], symmetric=True)</span>
+<span class="sd">        &gt;&gt;&gt; # now make a curve from dawn to dusk spanning 20deg in lat</span>
+<span class="sd">        &gt;&gt;&gt; N = 64</span>
+<span class="sd">        &gt;&gt;&gt; pts = np.vstack([np.linspace(-90, 90, N),</span>
+<span class="sd">                             np.linspace(10, 30, N)])</span>
+<span class="sd">        &gt;&gt;&gt; pts_polar = viscid.pts2polar_mapfield(pts, (&#39;phi&#39;, &#39;theta&#39;),</span>
+<span class="sd">                                                  pts_unit=&#39;deg&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; plt.plot(pts_polar[0], pts_polar[1])</span>
+<span class="sd">        &gt;&gt;&gt; vlt.show()</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">hemisphere</span> <span class="o">=</span> <span class="n">hemisphere</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+
+    <span class="n">pts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pts</span><span class="p">)</span>
+    <span class="n">pts_axes</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">pts_axes</span><span class="p">)</span>
+
+    <span class="c1"># convert pts to lat/lon</span>
+    <span class="k">if</span> <span class="n">pts_unit</span> <span class="o">==</span> <span class="s1">&#39;deg&#39;</span><span class="p">:</span>
+        <span class="n">_to_rad</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mf">180.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">pts_unit</span> <span class="o">==</span> <span class="s1">&#39;rad&#39;</span><span class="p">:</span>
+        <span class="n">_to_rad</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;bad unit: </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pts_unit</span><span class="p">))</span>
+
+    <span class="n">mapping</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;phi&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;lon&#39;</span><span class="p">,</span> <span class="n">phi2lon</span><span class="p">),</span> <span class="s1">&#39;theta&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span> <span class="n">theta2lat</span><span class="p">)}</span>
+
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">pts_axes</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">mapping</span><span class="p">:</span>
+            <span class="n">pts</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">mapping</span><span class="p">[</span><span class="n">ax</span><span class="p">][</span><span class="mi">1</span><span class="p">](</span><span class="n">_to_rad</span><span class="p">(</span><span class="n">pts</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]),</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;rad&#39;</span><span class="p">)</span>
+            <span class="n">pts_axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">mapping</span><span class="p">[</span><span class="n">ax</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">pts</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">_to_rad</span><span class="p">(</span><span class="n">pts</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:])</span>
+
+    <span class="c1"># reorder axes so pts[0, :] are lon and pts[1, :] are lat</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">transpose_inds</span> <span class="o">=</span> <span class="p">[</span><span class="n">pts_axes</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span> <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;lon&#39;</span><span class="p">,</span> <span class="s1">&#39;lat&#39;</span><span class="p">)]</span>
+        <span class="n">pts</span> <span class="o">=</span> <span class="n">pts</span><span class="p">[</span><span class="n">transpose_inds</span><span class="p">,</span> <span class="p">:]</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;pts array must have both lon+lat or phi+theta&quot;</span><span class="p">)</span>
+
+    <span class="c1"># clist = mfld.get_clist()</span>
+    <span class="n">offset</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="n">scale</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="k">if</span> <span class="n">hemisphere</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;north&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="mi">1</span>
+
+    <span class="n">pts</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">scale</span> <span class="o">*</span> <span class="n">pts</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">+</span> <span class="n">offset</span>
+
+    <span class="k">return</span> <span class="n">pts</span></div>
+
+<span class="k">def</span> <span class="nf">_as_3xN</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;return a copy of arr as a 3xN array&quot;&quot;&quot;</span>
+    <span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+    <span class="n">was_single_point</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="p">)</span>
+    <span class="n">arr</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">d</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">arr</span><span class="p">,</span> <span class="n">was_single_point</span>
+
+<div class="viewcode-block" id="cart2sph"><a class="viewcode-back" href="../../api/viscid.mapfield.html#viscid.cart2sph">[docs]</a><span class="k">def</span> <span class="nf">cart2sph</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">deg</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Convert cartesian points to spherical (rad by default)</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        arr (sequence): shaped (3, ) or (3, N) for N xyz points</span>
+<span class="sd">        deg (bool): if result should be in degrees</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        ndarray: shaped (3, ) or (3, N) r, theta, phi points in radians</span>
+<span class="sd">            by default</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">arr</span><span class="p">,</span> <span class="n">was_single_point</span> <span class="o">=</span> <span class="n">_as_3xN</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+    <span class="n">ret</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">arr</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="p">:]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">ret</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="p">:]</span> <span class="o">/</span> <span class="n">ret</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:])</span>
+    <span class="n">ret</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:],</span> <span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:])</span>
+    <span class="k">if</span> <span class="n">deg</span><span class="p">:</span>
+        <span class="n">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">*=</span> <span class="mf">180.0</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+    <span class="k">if</span> <span class="n">was_single_point</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">ret</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">ret</span></div>
+
+<div class="viewcode-block" id="sph2cart"><a class="viewcode-back" href="../../api/viscid.mapfield.html#viscid.sph2cart">[docs]</a><span class="k">def</span> <span class="nf">sph2cart</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">deg</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Convert cartesian points to spherical (rad by default)</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        arr (sequence): shaped (3, ) or (3, N) for N r, theta, phi</span>
+<span class="sd">            points in radians by default</span>
+<span class="sd">        deg (bool): if arr is in dergrees</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        ndarray: shaped (3, ) or (3, N) xyz</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">arr</span><span class="p">,</span> <span class="n">was_single_point</span> <span class="o">=</span> <span class="n">_as_3xN</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">deg</span><span class="p">:</span>
+        <span class="n">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">*=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mf">180.0</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+    <span class="n">ret</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:])</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="p">:])</span>
+    <span class="n">ret</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:])</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="p">:])</span>
+    <span class="n">ret</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:])</span>
+    <span class="k">if</span> <span class="n">was_single_point</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">ret</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">ret</span></div>
+
+<div class="viewcode-block" id="latlon2cart"><a class="viewcode-back" href="../../api/viscid.mapfield.html#viscid.latlon2cart">[docs]</a><span class="k">def</span> <span class="nf">latlon2cart</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">deg</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Convert cartesian points to latitude longitude (deg by default)</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        arr (sequence): shaped (2, ) or (2, N) for N r, theta, phi</span>
+<span class="sd">            points in radians by default</span>
+<span class="sd">        deg (bool): if arr is in dergrees</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        ndarray: shaped (3, ) or (3, N) xyz</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">quarter_circ</span> <span class="o">=</span> <span class="mi">90</span> <span class="k">if</span> <span class="n">deg</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="n">half_circ</span> <span class="o">=</span> <span class="mi">180</span> <span class="k">if</span> <span class="n">deg</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+    <span class="n">arr</span><span class="p">,</span> <span class="n">was_single_point</span> <span class="o">=</span> <span class="n">_as_3xN</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">arr</span><span class="p">[:</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]),</span> <span class="n">arr</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">quarter_circ</span> <span class="o">-</span> <span class="n">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span>
+    <span class="n">arr</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="p">:]</span> <span class="o">+=</span> <span class="n">half_circ</span>
+    <span class="n">arr_cart</span> <span class="o">=</span> <span class="n">sph2cart</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">deg</span><span class="o">=</span><span class="n">deg</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">was_single_point</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">arr_cart</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">arr_cart</span></div>
+
+<div class="viewcode-block" id="cart2latlon"><a class="viewcode-back" href="../../api/viscid.mapfield.html#viscid.cart2latlon">[docs]</a><span class="k">def</span> <span class="nf">cart2latlon</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">deg</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Convert latitude longitude (deg by default) to cartesian</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        arr (sequence): shaped (3, ) or (3, N) for N r, theta, phi</span>
+<span class="sd">            points in radians by default</span>
+<span class="sd">        deg (bool): if arr is in dergrees</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        ndarray: shaped (2, ) or (2, N) xyz</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">quarter_circ</span> <span class="o">=</span> <span class="mi">90</span> <span class="k">if</span> <span class="n">deg</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="n">half_circ</span> <span class="o">=</span> <span class="mi">180</span> <span class="k">if</span> <span class="n">deg</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+    <span class="n">arr</span><span class="p">,</span> <span class="n">was_single_point</span> <span class="o">=</span> <span class="n">_as_3xN</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+    <span class="n">arr_sph</span> <span class="o">=</span> <span class="n">cart2sph</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">deg</span><span class="o">=</span><span class="n">deg</span><span class="p">)</span>
+    <span class="n">arr_sph</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">quarter_circ</span> <span class="o">-</span> <span class="n">arr_sph</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span>
+    <span class="n">arr_sph</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="p">:]</span> <span class="o">-=</span> <span class="n">half_circ</span>
+    <span class="k">if</span> <span class="n">was_single_point</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">arr_sph</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">arr_sph</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span></div>
+
+<div class="viewcode-block" id="great_circle"><a class="viewcode-back" href="../../api/viscid.mapfield.html#viscid.great_circle">[docs]</a><span class="k">def</span> <span class="nf">great_circle</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">n</span><span class="o">=</span><span class="mi">32</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get great circle path between two points in 3d</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        p1 (sequence): first point as [x, y, z]</span>
+<span class="sd">        p2 (sequence): second point as [x, y, z]</span>
+<span class="sd">        origin (sequence): origin of the sphere</span>
+<span class="sd">        n (int): Number of line segments along the great circle</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        3xN ndarray</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">origin</span> <span class="o">=</span> <span class="n">_as_3xN</span><span class="p">(</span><span class="n">origin</span><span class="p">)[</span><span class="mi">0</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="n">p1</span> <span class="o">=</span> <span class="n">_as_3xN</span><span class="p">(</span><span class="n">p1</span><span class="p">)[</span><span class="mi">0</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">origin</span>
+    <span class="n">p2</span> <span class="o">=</span> <span class="n">_as_3xN</span><span class="p">(</span><span class="n">p2</span><span class="p">)[</span><span class="mi">0</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">origin</span>
+
+    <span class="n">r1</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">cart2sph</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>
+    <span class="n">r2</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">cart2sph</span><span class="p">(</span><span class="n">p2</span><span class="p">)</span>
+
+    <span class="c1"># generate points on sphere B whose equator (theta = pi / 2) will be the</span>
+    <span class="c1"># shortest path between p0 and p1</span>
+
+    <span class="c1"># Convention: A labels the p0/p1 normal xyz coordinate system, while B</span>
+    <span class="c1">#             denotes the rotated system</span>
+
+    <span class="n">pole</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">)</span>
+
+    <span class="c1"># handle edge case colinear p1 == p2</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">pole</span><span class="p">),</span> <span class="mf">0.0</span><span class="p">):</span>
+        <span class="n">viscid</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Great circle says p1 and p2 are colinear.&quot;</span><span class="p">)</span>
+        <span class="n">pole</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">pole</span><span class="p">,</span> <span class="n">p1</span><span class="p">)),</span> <span class="mf">0.0</span><span class="p">):</span>
+            <span class="n">pole</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+    <span class="n">matBtoA</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">make_rotation_matrix</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">pole</span><span class="p">,</span> <span class="n">new_x</span><span class="o">=</span><span class="n">p1</span><span class="p">)</span>
+
+    <span class="c1"># this is some code to validate rotation matrix</span>
+    <span class="n">_xrot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">matBtoA</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+    <span class="n">_xrot</span> <span class="o">=</span> <span class="n">_xrot</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">_xrot</span><span class="p">)</span>
+    <span class="n">_p1</span> <span class="o">=</span> <span class="n">p1</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">_p1</span><span class="p">,</span> <span class="n">_xrot</span><span class="p">)):</span>
+        <span class="n">viscid</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Great circle says new_x: </span><span class="si">{0}</span><span class="s2"> != </span><span class="si">{1}</span><span class="s2">&quot;</span>
+                            <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">_xrot</span><span class="p">,</span> <span class="n">_p1</span><span class="p">))</span>
+
+    <span class="n">dphi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">)),</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">))</span>
+
+    <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">r1</span><span class="p">,</span> <span class="n">r2</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+    <span class="n">phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">dphi</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    <span class="n">cartB</span> <span class="o">=</span> <span class="n">sph2cart</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">r</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">phi</span><span class="p">]))</span>
+
+    <span class="c1"># now rotate our special coordinates into the same coordinates ax p0 and p1</span>
+    <span class="n">cartA</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">&#39;ij,jk-&gt;ik&#39;</span><span class="p">,</span> <span class="n">matBtoA</span><span class="p">,</span> <span class="n">cartB</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">cartA</span> <span class="o">+</span> <span class="n">origin</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span></div>
+
+<span class="k">def</span> <span class="nf">_main</span><span class="p">():</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># raise ImportError</span>
+        <span class="kn">from</span> <span class="nn">viscid.plot</span> <span class="k">import</span> <span class="n">vlab</span>
+        <span class="n">_HAS_MVI</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+        <span class="n">_HAS_MVI</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">def</span> <span class="nf">_test</span><span class="p">(</span><span class="n">_p1</span><span class="p">,</span> <span class="n">_p2</span><span class="p">,</span> <span class="n">r1</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">r2</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">r1</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">_p1</span> <span class="o">=</span> <span class="n">r1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">_p1</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">_p1</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">r2</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">_p2</span> <span class="o">=</span> <span class="n">r2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">_p2</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">_p2</span><span class="p">)</span>
+        <span class="n">circ</span> <span class="o">=</span> <span class="n">great_circle</span><span class="p">(</span><span class="n">_p1</span><span class="p">,</span> <span class="n">_p2</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">circ</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">_p1</span><span class="p">)):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;!! great circle error P1:&quot;</span><span class="p">,</span> <span class="n">_p1</span><span class="p">,</span> <span class="s2">&quot;, P2:&quot;</span><span class="p">,</span> <span class="n">_p2</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;             first_point:&quot;</span><span class="p">,</span> <span class="n">circ</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;!= P1&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">circ</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">_p2</span><span class="p">)):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;!! great circle error P1:&quot;</span><span class="p">,</span> <span class="n">_p1</span><span class="p">,</span> <span class="s2">&quot;, P2:&quot;</span><span class="p">,</span> <span class="n">_p2</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;              last_point:&quot;</span><span class="p">,</span> <span class="n">circ</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;!= P2&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">_HAS_MVI</span><span class="p">:</span>
+            <span class="n">vlab</span><span class="o">.</span><span class="n">plot_lines</span><span class="p">([</span><span class="n">circ</span><span class="p">],</span> <span class="n">tube_radius</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;TEST 1&quot;</span><span class="p">)</span>
+    <span class="n">_test</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">r1</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">r2</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;TEST 2&quot;</span><span class="p">)</span>
+    <span class="n">_test</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">r1</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">r2</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;TEST 3&quot;</span><span class="p">)</span>
+    <span class="n">_test</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">],</span> <span class="n">r1</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">r2</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">))</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;TEST 4&quot;</span><span class="p">)</span>
+    <span class="n">_test</span><span class="p">([</span><span class="o">-</span><span class="mf">0.9947146</span><span class="p">,</span> <span class="mf">1.3571029</span><span class="p">,</span> <span class="mf">2.6095123</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.3371437</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.5566425</span><span class="p">,</span> <span class="mf">2.6634643</span><span class="p">],</span>
+          <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;TEST 5&quot;</span><span class="p">)</span>
+    <span class="n">_test</span><span class="p">([</span><span class="mf">0.9775307</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.3741084</span><span class="p">,</span> <span class="mf">2.6030273</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.3273931</span><span class="p">,</span> <span class="mf">1.5570284</span><span class="p">,</span> <span class="mf">2.6652965</span><span class="p">],</span>
+          <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="n">_HAS_MVI</span><span class="p">:</span>
+        <span class="n">vlab</span><span class="o">.</span><span class="n">plot_blue_marble</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">lines</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ntheta</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">nphi</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span>
+        <span class="n">vlab</span><span class="o">.</span><span class="n">plot_earth_3d</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mf">1.01</span><span class="p">,</span> <span class="n">night_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+        <span class="n">vlab</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="mi">0</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">_main</span><span class="p">())</span>
+
+<span class="c1">##</span>
+<span class="c1">## EOF</span>
+<span class="c1">##</span>
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+      
+    </p>
+    <p>
+        &copy; Copyright 2017, Kristofor Maynard.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

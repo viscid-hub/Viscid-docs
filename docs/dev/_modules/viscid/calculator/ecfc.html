@@ -1,0 +1,461 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>viscid.calculator.ecfc &#8212; Viscid 0.99.7.dev0 documentation</title>
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+<link rel="icon" href="../../../_static/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../../../_static/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon-precomposed" href="../../../_static/Vicon_128.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          Viscid</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.99.7.dev0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+    <li class="dropdown">
+      <a role="button"
+         id="dLabelNavLinxToc"
+         data-toggle="dropdown"
+         data-target="#"
+         href="#">Tutorial <b class="caret"></b></a>
+      <ul class="dropdown-menu navlinktoc"
+          role="menu">
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../installation.html">Installation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/creating_fields.html">Creating Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/slicing.html">Slicing Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/plotting_scalars.html">Plotting Scalars</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/plotting_vectors.html">Plotting Vectors</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/mayavi.html">3D Plots (Mayavi)</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/openggcm.html">OpenGGCM Specific</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/ionosphere.html">Ionosphere</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/stream_and_interp.html">Streamline and Interpolation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/magnetic_topology.html">Magnetic Topology</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/magnetopause.html">Magnetopause</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/quasi_potential.html">Quasi Potential</a>
+          </li>
+      </ul>
+    </li>
+
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../changes.html">ChangeLog</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../philosophy.html">Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/index.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tips_and_tricks.html">Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../functions.html">Useful Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../plot_options.html">Plot Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mpl_style_gallery.html">Matplotlib Style Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../custom_behavior.html">Custom Behavior (rc file)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev_guide.html">Developer’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../extending_readers.html">Extending Readers</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/viscid.html">API</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"></ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <h1>Source code for viscid.calculator.ecfc</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="sd">&quot;&quot;&quot;Edge and face centered tools&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">numexpr</span> <span class="k">as</span> <span class="nn">ne</span>
+    <span class="n">_HAS_NUMEXPR</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="n">_HAS_NUMEXPR</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">import</span> <span class="nn">viscid</span>
+
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;STAGGER_LEADING&#39;</span><span class="p">,</span> <span class="s1">&#39;STAGGER_TRAILING&#39;</span><span class="p">,</span> <span class="s1">&#39;PREPROCESSED_KEY&#39;</span><span class="p">,</span> <span class="s1">&#39;FLIP_KEY&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;STAGGER_KEY&#39;</span><span class="p">,</span> <span class="s1">&#39;make_ecfc_field_leading&#39;</span><span class="p">,</span> <span class="s1">&#39;fc2cc&#39;</span><span class="p">,</span> <span class="s1">&#39;ec2cc&#39;</span><span class="p">,</span> <span class="s1">&#39;div_fc&#39;</span><span class="p">]</span>
+
+<span class="c1"># The leading / trailing nomenclature says how nc/cc indices are</span>
+<span class="c1"># staggered, ie, for leading, cc_i = 0.5 * (fc_i + fc_i+1). This is</span>
+<span class="c1"># the case for the C3 stepper, etc. Trailing is the convention used</span>
+<span class="c1"># by the fortran kernel, ie, cc_i = 0.5 * (fc_i-1 + fc_i)</span>
+
+<span class="n">STAGGER_LEADING</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">STAGGER_TRAILING</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="n">PREPROCESSED_KEY</span> <span class="o">=</span> <span class="s2">&quot;ecfc_preprocessed&quot;</span>
+<span class="n">FLIP_KEY</span> <span class="o">=</span> <span class="s2">&quot;ecfc_flip&quot;</span>
+<span class="n">STAGGER_KEY</span> <span class="o">=</span> <span class="s2">&quot;ecfc_staggering&quot;</span>
+
+
+<span class="k">def</span> <span class="nf">_prep_slices</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="n">is_leading</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">find_info</span><span class="p">(</span><span class="n">PREPROCESSED_KEY</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+    <span class="n">is_leading</span> <span class="o">|=</span> <span class="n">f</span><span class="o">.</span><span class="n">find_info</span><span class="p">(</span><span class="n">STAGGER_KEY</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="n">STAGGER_LEADING</span><span class="p">]</span> <span class="o">*</span> <span class="mi">3</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">is_leading</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Please make f leading staggered first&quot;</span><span class="p">)</span>
+
+    <span class="n">_s0</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">_smL</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">_spL</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+    <span class="n">s0</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="mi">3</span>
+    <span class="n">sm</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="mi">3</span>
+    <span class="n">sp</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="mi">3</span>
+
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">sshape</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">s0</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">sm</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">sp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">),</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">),</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">s0</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">sm</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">sp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">_s0</span><span class="p">,</span> <span class="n">_smL</span><span class="p">,</span> <span class="n">_spL</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;I shouldn&#39;t be here&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">s0</span><span class="p">,</span> <span class="n">sm</span><span class="p">,</span> <span class="n">sp</span>
+
+<div class="viewcode-block" id="make_ecfc_field_leading"><a class="viewcode-back" href="../../../api/viscid.calculator.ecfc.html#viscid.make_ecfc_field_leading">[docs]</a><span class="k">def</span> <span class="nf">make_ecfc_field_leading</span><span class="p">(</span><span class="n">fc</span><span class="p">,</span> <span class="n">trim_leading</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Standardize staggering on edge / face centered fields&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">fc</span><span class="o">.</span><span class="n">find_info</span><span class="p">(</span><span class="n">PREPROCESSED_KEY</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">fc</span>
+    <span class="k">elif</span> <span class="n">fc</span><span class="o">.</span><span class="n">find_info</span><span class="p">(</span><span class="n">PREPROCESSED_KEY</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># this is for non-ggcm fields</span>
+        <span class="n">fc</span><span class="o">.</span><span class="n">set_info</span><span class="p">(</span><span class="n">PREPROCESSED_KEY</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+        <span class="n">fc</span><span class="o">.</span><span class="n">set_info</span><span class="p">(</span><span class="n">STAGGER_KEY</span><span class="p">,</span> <span class="p">[</span><span class="n">STAGGER_LEADING</span><span class="p">]</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">fc</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># NOTE: I deeply apologize for the variable names and logic here,</span>
+        <span class="c1"># it turns out to be super confusing to deal with staggering and</span>
+        <span class="c1"># flipping of 2 components (mhd-&gt;gse), etc. The important thing is</span>
+        <span class="c1"># this logic was tested to work with step_c, step_c3, and jrrle</span>
+        <span class="c1"># output in both mhd and gse crds</span>
+        <span class="n">center</span> <span class="o">=</span> <span class="n">fc</span><span class="o">.</span><span class="n">center</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">center</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;face&#39;</span><span class="p">,</span> <span class="s1">&#39;edge&#39;</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;This only makes sense for Edge / Face centered &quot;</span>
+                             <span class="s2">&quot;fields&quot;</span><span class="p">)</span>
+
+        <span class="n">SA</span> <span class="o">=</span> <span class="p">[</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">)]</span>
+        <span class="n">SB</span> <span class="o">=</span> <span class="p">[</span><span class="n">SA</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">SA</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">SA</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span>
+
+        <span class="c1"># Trailing offsets/Staggering</span>
+        <span class="n">_sd0T</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">_sdT</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="c1"># Leading Offsets/Staggering</span>
+        <span class="k">if</span> <span class="n">trim_leading</span><span class="p">:</span>
+            <span class="c1"># this makes everything symmetric since trailing offset fields</span>
+            <span class="c1"># will be sliced by one value, so you can slice the first and</span>
+            <span class="c1"># last values from a CC field and add it to an fc2cc field</span>
+            <span class="c1"># regardless of the fc field&#39;s representation.</span>
+            <span class="n">_sd0L</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="n">_sdL</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">_sd0L</span> <span class="o">=</span> <span class="mi">2</span>
+            <span class="n">_sdL</span> <span class="o">=</span> <span class="mi">2</span>
+
+        <span class="c1"># sd: how to slice the data for vector component xyz</span>
+        <span class="c1"># sc: how to slice the xyz NC coordinates</span>
+        <span class="n">sd</span> <span class="o">=</span> <span class="p">[[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="mi">3</span><span class="p">]</span>
+        <span class="n">sc</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="mi">3</span>
+        <span class="c1"># staggering = fc.find_info(STAGGER_KEY, [STAGGER_TRAILING] * 3)</span>
+        <span class="n">staggering</span> <span class="o">=</span> <span class="n">fc</span><span class="o">.</span><span class="n">find_info</span><span class="p">(</span><span class="n">STAGGER_KEY</span><span class="p">,</span> <span class="p">[</span><span class="n">STAGGER_LEADING</span><span class="p">]</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="n">flipping</span> <span class="o">=</span> <span class="n">fc</span><span class="o">.</span><span class="n">find_info</span><span class="p">(</span><span class="n">FLIP_KEY</span><span class="p">,</span> <span class="p">[</span><span class="kc">False</span><span class="p">]</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">fc</span><span class="o">.</span><span class="n">sshape</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">staggering</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">STAGGER_TRAILING</span><span class="p">:</span>
+                <span class="n">_sd0</span><span class="p">,</span> <span class="n">_sd</span> <span class="o">=</span> <span class="n">_sd0T</span><span class="p">,</span> <span class="n">_sdT</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">_sd0</span><span class="p">,</span> <span class="n">_sd</span> <span class="o">=</span> <span class="n">_sd0L</span><span class="p">,</span> <span class="n">_sdL</span>
+
+            <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">sc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+                    <span class="n">sd</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">sc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+                    <span class="n">cnd</span> <span class="o">=</span> <span class="n">i</span> <span class="o">==</span> <span class="n">j</span> <span class="k">if</span> <span class="n">center</span> <span class="o">==</span> <span class="s1">&#39;face&#39;</span> <span class="k">else</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">j</span>
+                    <span class="n">S</span> <span class="o">=</span> <span class="n">SB</span> <span class="k">if</span> <span class="n">flipping</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="ow">and</span> <span class="n">cnd</span> <span class="k">else</span> <span class="n">SA</span>
+                    <span class="k">if</span> <span class="n">cnd</span><span class="p">:</span>
+                        <span class="n">sd</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">S</span><span class="p">[</span><span class="n">_sd</span><span class="p">]</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">sd</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">S</span><span class="p">[</span><span class="n">_sd0</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;I shouldn&#39;t be here&quot;</span><span class="p">)</span>
+
+        <span class="n">fc</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>  <span class="c1"># if translating -&gt; gse, do it once, not 4 times</span>
+        <span class="n">s0vec</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">sc</span><span class="p">)</span>
+        <span class="n">s0vec</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">fc</span><span class="o">.</span><span class="n">nr_comp</span><span class="p">,</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">))</span>
+        <span class="n">prepared_fc</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">fc</span><span class="p">[</span><span class="n">s0vec</span><span class="p">])</span>
+
+        <span class="n">prepared_fc</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fc</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">sd</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">sd</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">sd</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">]]</span>
+        <span class="n">prepared_fc</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fc</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">sd</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">sd</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">sd</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">]]</span>
+        <span class="n">prepared_fc</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fc</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="n">sd</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">sd</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">sd</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">]]</span>
+
+        <span class="n">prepared_fc</span><span class="o">.</span><span class="n">set_info</span><span class="p">(</span><span class="n">PREPROCESSED_KEY</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+        <span class="n">prepared_fc</span><span class="o">.</span><span class="n">set_info</span><span class="p">(</span><span class="n">STAGGER_KEY</span><span class="p">,</span> <span class="p">[</span><span class="n">STAGGER_LEADING</span><span class="p">]</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="n">prepared_fc</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">fc</span><span class="o">.</span><span class="n">name</span>
+        <span class="n">prepared_fc</span><span class="o">.</span><span class="n">pretty_name</span> <span class="o">=</span> <span class="n">fc</span><span class="o">.</span><span class="n">pretty_name</span>
+        <span class="k">return</span> <span class="n">prepared_fc</span></div>
+
+<div class="viewcode-block" id="fc2cc"><a class="viewcode-back" href="../../../api/viscid.calculator.ecfc.html#viscid.fc2cc">[docs]</a><span class="k">def</span> <span class="nf">fc2cc</span><span class="p">(</span><span class="n">fc</span><span class="p">,</span> <span class="n">force_numpy</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">bnd</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Average a face centered field to cell centers&quot;&quot;&quot;</span>
+    <span class="n">fc</span> <span class="o">=</span> <span class="n">fc</span><span class="o">.</span><span class="n">atleast_3d</span><span class="p">()</span>
+    <span class="n">fc</span> <span class="o">=</span> <span class="n">make_ecfc_field_leading</span><span class="p">(</span><span class="n">fc</span><span class="p">)</span>
+    <span class="n">s0</span><span class="p">,</span> <span class="n">sm</span><span class="p">,</span> <span class="n">sp</span> <span class="o">=</span> <span class="n">_prep_slices</span><span class="p">(</span><span class="n">fc</span><span class="p">)</span>
+
+    <span class="n">s0vec</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">s0</span><span class="p">)</span>
+    <span class="n">s0vec</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">fc</span><span class="o">.</span><span class="n">nr_comp</span><span class="p">,</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">))</span>
+    <span class="n">cc</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">fc</span><span class="p">[</span><span class="n">s0vec</span><span class="p">])</span>
+    <span class="n">cc</span><span class="o">.</span><span class="n">center</span> <span class="o">=</span> <span class="s2">&quot;Cell&quot;</span>
+
+    <span class="n">fcx0</span><span class="p">,</span> <span class="n">fcx1</span> <span class="o">=</span> <span class="p">(</span><span class="n">fc</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">sm</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">s0</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">s0</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
+                  <span class="n">fc</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">sp</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">s0</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">s0</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">fcy0</span><span class="p">,</span> <span class="n">fcy1</span> <span class="o">=</span> <span class="p">(</span><span class="n">fc</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">s0</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">sm</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">s0</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
+                  <span class="n">fc</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">s0</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">sp</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">s0</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">fcz0</span><span class="p">,</span> <span class="n">fcz1</span> <span class="o">=</span> <span class="p">(</span><span class="n">fc</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="n">s0</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">s0</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">sm</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
+                  <span class="n">fc</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="n">s0</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">s0</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">sp</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">_HAS_NUMEXPR</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">force_numpy</span><span class="p">:</span>
+        <span class="n">half</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.5</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">fc</span><span class="o">.</span><span class="n">dtype</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># pylint: disable=unused-variable</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;half * (a + b)&quot;</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">fcx0</span><span class="p">,</span> <span class="n">fcx1</span>  <span class="c1"># pylint: disable=unused-variable</span>
+        <span class="n">cc</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ne</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">fcy0</span><span class="p">,</span> <span class="n">fcy1</span>
+        <span class="n">cc</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ne</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">fcz0</span><span class="p">,</span> <span class="n">fcz1</span>
+        <span class="n">cc</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ne</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">cc</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">fcx0</span> <span class="o">+</span> <span class="n">fcx1</span><span class="p">)</span>
+        <span class="n">cc</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">fcy0</span> <span class="o">+</span> <span class="n">fcy1</span><span class="p">)</span>
+        <span class="n">cc</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">fcz0</span> <span class="o">+</span> <span class="n">fcz1</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">bnd</span><span class="p">:</span>
+        <span class="c1"># FIXME: this is really just faking the bnd so there aren&#39;t shape</span>
+        <span class="c1">#        errors when doing math with the result</span>
+        <span class="n">cc</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">extend_boundaries</span><span class="p">(</span><span class="n">cc</span><span class="p">,</span> <span class="n">nl</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">nh</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">crd_order</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">cc</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">fc</span><span class="o">.</span><span class="n">name</span>
+    <span class="n">cc</span><span class="o">.</span><span class="n">pretty_name</span> <span class="o">=</span> <span class="n">fc</span><span class="o">.</span><span class="n">pretty_name</span>
+    <span class="k">return</span> <span class="n">cc</span></div>
+
+<div class="viewcode-block" id="ec2cc"><a class="viewcode-back" href="../../../api/viscid.calculator.ecfc.html#viscid.ec2cc">[docs]</a><span class="k">def</span> <span class="nf">ec2cc</span><span class="p">(</span><span class="n">ec</span><span class="p">,</span> <span class="n">force_numpy</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">bnd</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Average an edge centered field to cell centers&quot;&quot;&quot;</span>
+    <span class="n">ec</span> <span class="o">=</span> <span class="n">ec</span><span class="o">.</span><span class="n">atleast_3d</span><span class="p">()</span>
+    <span class="n">ec</span> <span class="o">=</span> <span class="n">make_ecfc_field_leading</span><span class="p">(</span><span class="n">ec</span><span class="p">)</span>
+    <span class="n">s0</span><span class="p">,</span> <span class="n">sm</span><span class="p">,</span> <span class="n">sp</span> <span class="o">=</span> <span class="n">_prep_slices</span><span class="p">(</span><span class="n">ec</span><span class="p">)</span>
+
+    <span class="n">s0vec</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">s0</span><span class="p">)</span>
+    <span class="n">s0vec</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">ec</span><span class="o">.</span><span class="n">nr_comp</span><span class="p">,</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">))</span>
+    <span class="n">cc</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">ec</span><span class="p">[</span><span class="n">s0vec</span><span class="p">])</span>
+    <span class="n">cc</span><span class="o">.</span><span class="n">center</span> <span class="o">=</span> <span class="s2">&quot;Cell&quot;</span>
+
+    <span class="n">ecx0</span><span class="p">,</span> <span class="n">ecx1</span><span class="p">,</span> <span class="n">ecx2</span><span class="p">,</span> <span class="n">ecx3</span> <span class="o">=</span> <span class="p">(</span><span class="n">ec</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">s0</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">sm</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">sm</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
+                              <span class="n">ec</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">s0</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">sm</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">sp</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
+                              <span class="n">ec</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">s0</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">sp</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">sm</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
+                              <span class="n">ec</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">s0</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">sp</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">sp</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">ecy0</span><span class="p">,</span> <span class="n">ecy1</span><span class="p">,</span> <span class="n">ecy2</span><span class="p">,</span> <span class="n">ecy3</span> <span class="o">=</span> <span class="p">(</span><span class="n">ec</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">sm</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">s0</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">sm</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
+                              <span class="n">ec</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">sm</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">s0</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">sp</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
+                              <span class="n">ec</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">sp</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">s0</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">sm</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
+                              <span class="n">ec</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">sp</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">s0</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">sp</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">ecz0</span><span class="p">,</span> <span class="n">ecz1</span><span class="p">,</span> <span class="n">ecz2</span><span class="p">,</span> <span class="n">ecz3</span> <span class="o">=</span> <span class="p">(</span><span class="n">ec</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="n">sm</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">sm</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">s0</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
+                              <span class="n">ec</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="n">sm</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">sp</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">s0</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
+                              <span class="n">ec</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="n">sp</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">sm</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">s0</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
+                              <span class="n">ec</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="n">sp</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">sp</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">s0</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">_HAS_NUMEXPR</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">force_numpy</span><span class="p">:</span>
+        <span class="n">quarter</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.25</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">ec</span><span class="o">.</span><span class="n">dtype</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># pylint: disable=unused-variable</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;quarter * (a + b + c + d)&quot;</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">ecx0</span><span class="p">,</span> <span class="n">ecx1</span><span class="p">,</span> <span class="n">ecx2</span><span class="p">,</span> <span class="n">ecx3</span>  <span class="c1"># pylint: disable=unused-variable</span>
+        <span class="n">cc</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ne</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">ecy0</span><span class="p">,</span> <span class="n">ecy1</span><span class="p">,</span> <span class="n">ecy2</span><span class="p">,</span> <span class="n">ecy3</span>
+        <span class="n">cc</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ne</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">ecz0</span><span class="p">,</span> <span class="n">ecz1</span><span class="p">,</span> <span class="n">ecz2</span><span class="p">,</span> <span class="n">ecz3</span>
+        <span class="n">cc</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ne</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">cc</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.25</span> <span class="o">*</span> <span class="p">(</span><span class="n">ecx0</span> <span class="o">+</span> <span class="n">ecx1</span> <span class="o">+</span> <span class="n">ecx2</span> <span class="o">+</span> <span class="n">ecx3</span><span class="p">)</span>
+        <span class="n">cc</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.25</span> <span class="o">*</span> <span class="p">(</span><span class="n">ecy0</span> <span class="o">+</span> <span class="n">ecy1</span> <span class="o">+</span> <span class="n">ecy2</span> <span class="o">+</span> <span class="n">ecy3</span><span class="p">)</span>
+        <span class="n">cc</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.25</span> <span class="o">*</span> <span class="p">(</span><span class="n">ecz0</span> <span class="o">+</span> <span class="n">ecz1</span> <span class="o">+</span> <span class="n">ecz2</span> <span class="o">+</span> <span class="n">ecz3</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">bnd</span><span class="p">:</span>
+        <span class="c1"># FIXME: this is really just faking the bnd so there aren&#39;t shape</span>
+        <span class="c1">#        errors when doing math with the result</span>
+        <span class="n">cc</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">extend_boundaries</span><span class="p">(</span><span class="n">cc</span><span class="p">,</span> <span class="n">nl</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">nh</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">crd_order</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">cc</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">ec</span><span class="o">.</span><span class="n">name</span>
+    <span class="n">cc</span><span class="o">.</span><span class="n">pretty_name</span> <span class="o">=</span> <span class="n">ec</span><span class="o">.</span><span class="n">pretty_name</span>
+    <span class="k">return</span> <span class="n">cc</span></div>
+
+
+<div class="viewcode-block" id="div_fc"><a class="viewcode-back" href="../../../api/viscid.calculator.ecfc.html#viscid.div_fc">[docs]</a><span class="k">def</span> <span class="nf">div_fc</span><span class="p">(</span><span class="n">fc</span><span class="p">,</span> <span class="n">force_numpy</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">bnd</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Calculate cell centered divergence of face centered field&quot;&quot;&quot;</span>
+    <span class="n">fc</span> <span class="o">=</span> <span class="n">fc</span><span class="o">.</span><span class="n">atleast_3d</span><span class="p">()</span>
+    <span class="n">fc</span> <span class="o">=</span> <span class="n">make_ecfc_field_leading</span><span class="p">(</span><span class="n">fc</span><span class="p">)</span>
+    <span class="c1"># FIXME: maybe it&#39;s possible to do the boundary correctly here without</span>
+    <span class="c1">#        just faking it with a 0 order hold before returning</span>
+    <span class="n">s0</span><span class="p">,</span> <span class="n">sm</span><span class="p">,</span> <span class="n">sp</span> <span class="o">=</span> <span class="n">_prep_slices</span><span class="p">(</span><span class="n">fc</span><span class="p">)</span>
+
+    <span class="n">s0vec</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">s0</span><span class="p">)</span>
+    <span class="n">s0vec</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">fc</span><span class="o">.</span><span class="n">nr_comp</span><span class="p">,</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="n">div_cc</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">fc</span><span class="p">[</span><span class="n">s0vec</span><span class="p">],</span> <span class="n">center</span><span class="o">=</span><span class="s2">&quot;cell&quot;</span><span class="p">)</span>
+
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">fc</span><span class="o">.</span><span class="n">get_crds_nc</span><span class="p">(</span><span class="s1">&#39;xyz&#39;</span><span class="p">,</span> <span class="n">shaped</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">if</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="c1"># x, y, z = x[1:, :, :], y[:, 1:, :], z[:, :, 1:]</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:],</span> <span class="n">y</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:],</span> <span class="n">z</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+    <span class="c1"># x, y, z = fc.get_crds_cc(&#39;xyz&#39;, shaped=True)</span>
+
+    <span class="n">xm</span><span class="p">,</span> <span class="n">xp</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">sm</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">:,</span> <span class="p">:],</span> <span class="n">x</span><span class="p">[</span><span class="n">sp</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">:,</span> <span class="p">:]</span>
+    <span class="n">ym</span><span class="p">,</span> <span class="n">yp</span> <span class="o">=</span> <span class="n">y</span><span class="p">[:,</span> <span class="n">sm</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="p">:],</span> <span class="n">y</span><span class="p">[:,</span> <span class="n">sp</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="p">:]</span>
+    <span class="n">zm</span><span class="p">,</span> <span class="n">zp</span> <span class="o">=</span> <span class="n">z</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">sm</span><span class="p">[</span><span class="mi">2</span><span class="p">]],</span> <span class="n">z</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">sp</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span>
+
+    <span class="n">fcx0</span><span class="p">,</span> <span class="n">fcx1</span> <span class="o">=</span> <span class="p">(</span><span class="n">fc</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">sm</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">s0</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">s0</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
+                  <span class="n">fc</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">sp</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">s0</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">s0</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">fcy0</span><span class="p">,</span> <span class="n">fcy1</span> <span class="o">=</span> <span class="p">(</span><span class="n">fc</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">s0</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">sm</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">s0</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
+                  <span class="n">fc</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">s0</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">sp</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">s0</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">fcz0</span><span class="p">,</span> <span class="n">fcz1</span> <span class="o">=</span> <span class="p">(</span><span class="n">fc</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="n">s0</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">s0</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">sm</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
+                  <span class="n">fc</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="n">s0</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">s0</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">sp</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="c1"># xp, yp, zp = xm + 1.0, ym + 1.0, zm + 1.0</span>
+
+    <span class="k">if</span> <span class="n">_HAS_NUMEXPR</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">force_numpy</span><span class="p">:</span>
+        <span class="n">div_cc</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">ne</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="s2">&quot;((fcx1 - fcx0) / (xp - xm)) + &quot;</span>
+                                      <span class="s2">&quot;((fcy1 - fcy0) / (yp - ym)) + &quot;</span>
+                                      <span class="s2">&quot;((fcz1 - fcz0) / (zp - zm))&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">div_cc</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">:]</span> <span class="o">=</span> <span class="p">(((</span><span class="n">fcx1</span> <span class="o">-</span> <span class="n">fcx0</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">xp</span> <span class="o">-</span> <span class="n">xm</span><span class="p">))</span> <span class="o">+</span>
+                           <span class="p">((</span><span class="n">fcy1</span> <span class="o">-</span> <span class="n">fcy0</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">yp</span> <span class="o">-</span> <span class="n">ym</span><span class="p">))</span> <span class="o">+</span>
+                           <span class="p">((</span><span class="n">fcz1</span> <span class="o">-</span> <span class="n">fcz0</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">zp</span> <span class="o">-</span> <span class="n">zm</span><span class="p">)))</span>
+
+    <span class="k">if</span> <span class="n">bnd</span><span class="p">:</span>
+        <span class="c1"># FIXME: this is really just faking the bnd so there aren&#39;t shape</span>
+        <span class="c1">#        errors when doing math with the result</span>
+        <span class="n">div_cc</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">extend_boundaries</span><span class="p">(</span><span class="n">div_cc</span><span class="p">,</span> <span class="n">nl</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">nh</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                                          <span class="n">crd_order</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">div_cc</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;div &quot;</span> <span class="o">+</span> <span class="n">fc</span><span class="o">.</span><span class="n">name</span>
+    <span class="n">div_cc</span><span class="o">.</span><span class="n">pretty_name</span> <span class="o">=</span> <span class="s2">&quot;Div &quot;</span> <span class="o">+</span> <span class="n">fc</span><span class="o">.</span><span class="n">pretty_name</span>
+    <span class="k">return</span> <span class="n">div_cc</span></div>
+
+<span class="c1">##</span>
+<span class="c1">## EOF</span>
+<span class="c1">##</span>
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+      
+    </p>
+    <p>
+        &copy; Copyright 2017, Kristofor Maynard.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

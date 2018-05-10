@@ -1,0 +1,254 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Overview: module code &#8212; Viscid 0.99.7.dev0 documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+<link rel="icon" href="../_static/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../_static/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon-precomposed" href="../_static/Vicon_128.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Viscid</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.99.7.dev0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+    <li class="dropdown">
+      <a role="button"
+         id="dLabelNavLinxToc"
+         data-toggle="dropdown"
+         data-target="#"
+         href="#">Tutorial <b class="caret"></b></a>
+      <ul class="dropdown-menu navlinktoc"
+          role="menu">
+          <li class="toctree-l1">
+            <a class="reference internal", href="../installation.html">Installation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/creating_fields.html">Creating Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/slicing.html">Slicing Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/plotting_scalars.html">Plotting Scalars</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/plotting_vectors.html">Plotting Vectors</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/mayavi.html">3D Plots (Mayavi)</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/openggcm.html">OpenGGCM Specific</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/ionosphere.html">Ionosphere</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/stream_and_interp.html">Streamline and Interpolation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/magnetic_topology.html">Magnetic Topology</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/magnetopause.html">Magnetopause</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/quasi_potential.html">Quasi Potential</a>
+          </li>
+      </ul>
+    </li>
+
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../changes.html">ChangeLog</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../philosophy.html">Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tips_and_tricks.html">Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functions.html">Useful Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plot_options.html">Plot Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mpl_style_gallery.html">Matplotlib Style Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom_behavior.html">Custom Behavior (rc file)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev_guide.html">Developer’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extending_readers.html">Extending Readers</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/viscid.html">API</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"></ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <h1>All modules for which code is available</h1>
+<ul><li><a href="__builtin__.html">__builtin__</a></li>
+<li><a href="_abcoll.html">_abcoll</a></li>
+<li><a href="collections.html">collections</a></li>
+<li><a href="importlib.html">importlib</a></li>
+<li><a href="itertools.html">itertools</a></li>
+<li><a href="logging.html">logging</a></li>
+<li><a href="viscid.html">viscid</a></li>
+<ul><li><a href="viscid/amr_field.html">viscid.amr_field</a></li>
+<li><a href="viscid/amr_grid.html">viscid.amr_grid</a></li>
+<li><a href="viscid/bucket.html">viscid.bucket</a></li>
+<li><a href="viscid/calculator/calc.html">viscid.calculator.calc</a></li>
+<li><a href="viscid/calculator/cluster.html">viscid.calculator.cluster</a></li>
+<li><a href="viscid/calculator/ecfc.html">viscid.calculator.ecfc</a></li>
+<li><a href="viscid/calculator/evaluator.html">viscid.calculator.evaluator</a></li>
+<li><a href="viscid/calculator/minvar_tools.html">viscid.calculator.minvar_tools</a></li>
+<li><a href="viscid/calculator/mpause.html">viscid.calculator.mpause</a></li>
+<li><a href="viscid/calculator/necalc.html">viscid.calculator.necalc</a></li>
+<li><a href="viscid/calculator/plasma.html">viscid.calculator.plasma</a></li>
+<li><a href="viscid/calculator/separator.html">viscid.calculator.separator</a></li>
+<li><a href="viscid/calculator/topology.html">viscid.calculator.topology</a></li>
+<li><a href="viscid/compat/element_tree.html">viscid.compat.element_tree</a></li>
+<li><a href="viscid/coordinate.html">viscid.coordinate</a></li>
+<li><a href="viscid/cotr.html">viscid.cotr</a></li>
+<li><a href="viscid/cython/cyamr.html">viscid.cython.cyamr</a></li>
+<li><a href="viscid/cython/cycalc.html">viscid.cython.cycalc</a></li>
+<li><a href="viscid/cython/cyfield.html">viscid.cython.cyfield</a></li>
+<li><a href="viscid/cython/null_tools.html">viscid.cython.null_tools</a></li>
+<li><a href="viscid/cython/streamline.html">viscid.cython.streamline</a></li>
+<li><a href="viscid/dataset.html">viscid.dataset</a></li>
+<li><a href="viscid/dipole.html">viscid.dipole</a></li>
+<li><a href="viscid/extools.html">viscid.extools</a></li>
+<li><a href="viscid/field.html">viscid.field</a></li>
+<li><a href="viscid/fluidtrace.html">viscid.fluidtrace</a></li>
+<li><a href="viscid/grid.html">viscid.grid</a></li>
+<li><a href="viscid/mapfield.html">viscid.mapfield</a></li>
+<li><a href="viscid/multiplot.html">viscid.multiplot</a></li>
+<li><a href="viscid/npdatetime.html">viscid.npdatetime</a></li>
+<li><a href="viscid/parallel.html">viscid.parallel</a></li>
+<li><a href="viscid/plot/mpl_direct_label.html">viscid.plot.mpl_direct_label</a></li>
+<li><a href="viscid/plot/mpl_extra.html">viscid.plot.mpl_extra</a></li>
+<li><a href="viscid/plot/mpl_style.html">viscid.plot.mpl_style</a></li>
+<li><a href="viscid/plot/vlab.html">viscid.plot.vlab</a></li>
+<li><a href="viscid/plot/vpyplot.html">viscid.plot.vpyplot</a></li>
+<li><a href="viscid/plot/vseaborn.html">viscid.plot.vseaborn</a></li>
+<li><a href="viscid/pyeval.html">viscid.pyeval</a></li>
+<li><a href="viscid/readers.html">viscid.readers</a></li>
+<ul><li><a href="viscid/readers/ascii.html">viscid.readers.ascii</a></li>
+<li><a href="viscid/readers/athena.html">viscid.readers.athena</a></li>
+<li><a href="viscid/readers/athena_bin.html">viscid.readers.athena_bin</a></li>
+<li><a href="viscid/readers/athena_hst.html">viscid.readers.athena_hst</a></li>
+<li><a href="viscid/readers/athena_tab.html">viscid.readers.athena_tab</a></li>
+<li><a href="viscid/readers/athena_xdmf.html">viscid.readers.athena_xdmf</a></li>
+<li><a href="viscid/readers/ggcm_fortbin.html">viscid.readers.ggcm_fortbin</a></li>
+<li><a href="viscid/readers/ggcm_jrrle.html">viscid.readers.ggcm_jrrle</a></li>
+<li><a href="viscid/readers/ggcm_logfile.html">viscid.readers.ggcm_logfile</a></li>
+<li><a href="viscid/readers/ggcm_xdmf.html">viscid.readers.ggcm_xdmf</a></li>
+<li><a href="viscid/readers/gkeyll.html">viscid.readers.gkeyll</a></li>
+<li><a href="viscid/readers/hdf5.html">viscid.readers.hdf5</a></li>
+<li><a href="viscid/readers/numpy_binary.html">viscid.readers.numpy_binary</a></li>
+<li><a href="viscid/readers/openggcm.html">viscid.readers.openggcm</a></li>
+<li><a href="viscid/readers/psc.html">viscid.readers.psc</a></li>
+<li><a href="viscid/readers/vfile.html">viscid.readers.vfile</a></li>
+<li><a href="viscid/readers/vfile_bucket.html">viscid.readers.vfile_bucket</a></li>
+<li><a href="viscid/readers/vpic.html">viscid.readers.vpic</a></li>
+<li><a href="viscid/readers/xdmf.html">viscid.readers.xdmf</a></li>
+</ul><li><a href="viscid/seed.html">viscid.seed</a></li>
+<li><a href="viscid/sliceutil.html">viscid.sliceutil</a></li>
+<li><a href="viscid/tree.html">viscid.tree</a></li>
+<li><a href="viscid/verror.html">viscid.verror</a></li>
+<li><a href="viscid/vjson.html">viscid.vjson</a></li>
+<li><a href="viscid/vutil.html">viscid.vutil</a></li>
+</ul></ul>
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+      
+    </p>
+    <p>
+        &copy; Copyright 2017, Kristofor Maynard.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

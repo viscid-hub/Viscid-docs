@@ -1,0 +1,500 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>viscid.readers.hdf5 &#8212; Viscid 0.99.6 documentation</title>
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+<link rel="icon" href="../../../_static/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../../../_static/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon-precomposed" href="../../../_static/Vicon_128.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          Viscid</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.99.6</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+    <li class="dropdown">
+      <a role="button"
+         id="dLabelNavLinxToc"
+         data-toggle="dropdown"
+         data-target="#"
+         href="#">Tutorial <b class="caret"></b></a>
+      <ul class="dropdown-menu navlinktoc"
+          role="menu">
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../installation.html">Installation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/creating_fields.html">Creating Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/slicing.html">Slicing Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/plotting_scalars.html">Plotting Scalars</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/plotting_vectors.html">Plotting Vectors</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/mayavi.html">3D Plots (Mayavi)</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/openggcm.html">OpenGGCM Specific</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/ionosphere.html">Ionosphere</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/stream_and_interp.html">Streamline and Interpolation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/magnetic_topology.html">Magnetic Topology</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/magnetopause.html">Magnetopause</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/quasi_potential.html">Quasi Potential</a>
+          </li>
+      </ul>
+    </li>
+
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../changes.html">ChangeLog</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../philosophy.html">Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/index.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tips_and_tricks.html">Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../functions.html">Useful Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../plot_options.html">Plot Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mpl_style_gallery.html">Matplotlib Style Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../custom_behavior.html">Custom Behavior (rc file)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev_guide.html">Developer’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../extending_readers.html">Extending Readers</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/viscid.html">API</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"></ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <h1>Source code for viscid.readers.hdf5</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">print_function</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">import</span> <span class="nn">viscid</span>
+<span class="kn">from</span> <span class="nn">viscid</span> <span class="k">import</span> <span class="n">logger</span>
+<span class="kn">from</span> <span class="nn">viscid.readers</span> <span class="k">import</span> <span class="n">vfile</span>
+
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">h5py</span>
+    <span class="n">HAS_H5PY</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="n">HAS_H5PY</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;h5py library not found, no hdf5 support.&quot;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="H5pyDataWrapper"><a class="viewcode-back" href="../../../api/viscid.readers.hdf5.html#viscid.readers.hdf5.H5pyDataWrapper">[docs]</a><span class="k">class</span> <span class="nc">H5pyDataWrapper</span><span class="p">(</span><span class="n">vfile</span><span class="o">.</span><span class="n">DataWrapper</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;  &quot;&quot;&quot;</span>
+    <span class="n">_hypersliceable</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># can read slices from disk</span>
+
+    <span class="n">fname</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">loc</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">comp_dim</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">comp_idx</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">transpose</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="n">_shape</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">_dtype</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fname</span><span class="p">,</span> <span class="n">loc</span><span class="p">,</span> <span class="n">comp_dim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">comp_idx</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">transpose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="n">HAS_H5PY</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">H5pyDataWrapper</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fname</span> <span class="o">=</span> <span class="n">fname</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">loc</span> <span class="o">=</span> <span class="n">loc</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">comp_dim</span> <span class="o">=</span> <span class="n">comp_dim</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">comp_idx</span> <span class="o">=</span> <span class="n">comp_idx</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">transpose</span> <span class="o">=</span> <span class="n">transpose</span>
+
+    <span class="k">def</span> <span class="nf">_read_info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fname</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">dset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_resolve_loc</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_shape</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">dset</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">comp_dim</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_shape</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">comp_dim</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_shape</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_shape</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_dtype</span> <span class="o">=</span> <span class="n">dset</span><span class="o">.</span><span class="n">dtype</span>
+        <span class="k">except</span> <span class="ne">IOError</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Problem opening hdf5 file, &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">fname</span><span class="p">)</span>
+            <span class="k">raise</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">shape</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; only ask for this if you really need it; can be a speed problem</span>
+<span class="sd">        for large temporal datasets over sshfs &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_shape</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_read_info</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">transpose</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_shape</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_shape</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">dtype</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; only ask for this if you really need it; can be a speed problem</span>
+<span class="sd">        for large temporal datasets over sshfs &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dtype</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_read_info</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dtype</span>
+
+    <span class="k">def</span> <span class="nf">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">transpose</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">__array__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">read_direct</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">arr</span>
+
+    <span class="k">def</span> <span class="nf">_inject_comp_slice</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">slc</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">comp_dim</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">new_slc</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">if</span> <span class="n">slc</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">new_slc</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">slc</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+                    <span class="n">new_slc</span> <span class="o">=</span> <span class="p">[</span><span class="n">slc</span><span class="p">]</span>
+                <span class="n">new_slc</span> <span class="o">+=</span> <span class="p">[</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">)]</span> <span class="o">*</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">new_slc</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">new_slc</span> <span class="o">=</span> <span class="p">[</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">)]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">comp_dim</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">comp_dim</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">comp_dim</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;comp_dim can&#39;t be &lt; -len(self.shape)&quot;</span><span class="p">)</span>
+
+            <span class="n">new_slc</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">comp_dim</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">comp_idx</span><span class="p">)</span>
+            <span class="n">slc</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">new_slc</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">slc</span>
+
+<div class="viewcode-block" id="H5pyDataWrapper.read_direct"><a class="viewcode-back" href="../../../api/viscid.readers.hdf5.html#viscid.readers.hdf5.H5pyDataWrapper.read_direct">[docs]</a>    <span class="k">def</span> <span class="nf">read_direct</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arr</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">source_sel</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;source_sel&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="n">source_sel</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_inject_comp_slice</span><span class="p">(</span><span class="n">source_sel</span><span class="p">)</span>
+        <span class="k">with</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fname</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">fill_arr</span> <span class="o">=</span> <span class="n">arr</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">transpose</span><span class="p">:</span>
+                <span class="c1"># FIXME: the temp array here isn&#39;t pretty, but transposing</span>
+                <span class="c1"># the array is kind of a hack anyway. it is fixed by the</span>
+                <span class="c1"># ability for fields to specify their xyz/zyx order in the</span>
+                <span class="c1"># xyz branch, but that branch isn&#39;t fully tested yet</span>
+                <span class="n">fill_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">shape</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">arr</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_resolve_loc</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="o">.</span><span class="n">read_direct</span><span class="p">(</span><span class="n">fill_arr</span><span class="p">,</span> <span class="n">source_sel</span><span class="o">=</span><span class="n">source_sel</span><span class="p">,</span>
+                                             <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">transpose</span><span class="p">:</span>
+                <span class="n">arr</span><span class="p">[</span><span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="n">fill_arr</span><span class="o">.</span><span class="n">T</span></div>
+
+    <span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_inject_comp_slice</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="k">with</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fname</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">arr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_resolve_loc</span><span class="p">(</span><span class="n">f</span><span class="p">)[</span><span class="n">item</span><span class="p">]</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">transpose</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">arr</span>
+
+    <span class="k">def</span> <span class="nf">_resolve_loc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">open_file</span><span class="p">):</span>
+        <span class="n">ret</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">loc</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">resolve_path</span><span class="p">(</span><span class="n">open_file</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">loc</span><span class="p">,</span> <span class="n">first</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ret</span></div>
+
+
+<div class="viewcode-block" id="FileLazyHDF5"><a class="viewcode-back" href="../../../api/viscid.readers.hdf5.html#viscid.readers.hdf5.FileLazyHDF5">[docs]</a><span class="k">class</span> <span class="nc">FileLazyHDF5</span><span class="p">(</span><span class="n">vfile</span><span class="o">.</span><span class="n">VFile</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; This is for lazy wrapping an h5 file referred to by an xdmf file,</span>
+<span class="sd">    or anything else where you want to have a single file instance for a single</span>
+<span class="sd">    hdf5 file, but you don&#39;t want any parsing because you already know what&#39;s</span>
+<span class="sd">    going to be in the file. &quot;&quot;&quot;</span>
+    <span class="n">_detector</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fname</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="n">HAS_H5PY</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">FileLazyHDF5</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_parse</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+<div class="viewcode-block" id="FileLazyHDF5.get_data"><a class="viewcode-back" href="../../../api/viscid.readers.hdf5.html#viscid.readers.hdf5.FileLazyHDF5.get_data">[docs]</a>    <span class="k">def</span> <span class="nf">get_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">handle</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">H5pyDataWrapper</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fname</span><span class="p">,</span> <span class="n">handle</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="FileLazyHDF5.resolve_path"><a class="viewcode-back" href="../../../api/viscid.readers.hdf5.html#viscid.readers.hdf5.FileLazyHDF5.resolve_path">[docs]</a>    <span class="k">def</span> <span class="nf">resolve_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">first</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="k">with</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fname</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">viscid</span><span class="o">.</span><span class="n">resolve_path</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">first</span><span class="o">=</span><span class="n">first</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="FileLazyHDF5.find_items"><a class="viewcode-back" href="../../../api/viscid.readers.hdf5.html#viscid.readers.hdf5.FileLazyHDF5.find_items">[docs]</a>    <span class="k">def</span> <span class="nf">find_items</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">resolve_path</span><span class="p">(</span><span class="n">item</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="FileLazyHDF5.find_item"><a class="viewcode-back" href="../../../api/viscid.readers.hdf5.html#viscid.readers.hdf5.FileLazyHDF5.find_item">[docs]</a>    <span class="k">def</span> <span class="nf">find_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">resolve_path</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">first</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span></div></div>
+
+
+<div class="viewcode-block" id="FileHDF5"><a class="viewcode-back" href="../../../api/viscid.readers.hdf5.html#viscid.readers.hdf5.FileHDF5">[docs]</a><span class="k">class</span> <span class="nc">FileHDF5</span><span class="p">(</span><span class="n">vfile</span><span class="o">.</span><span class="n">VFile</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; this is an abstract-ish class from which other types of hdf5 readers</span>
+<span class="sd">    should derrive &quot;&quot;&quot;</span>
+    <span class="n">_detector</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;.*\.h5\s*$&quot;</span>
+
+    <span class="n">SAVE_ONLY</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="n">_CRDS_GROUP</span> <span class="o">=</span> <span class="s2">&quot;/crds&quot;</span>
+    <span class="n">_FLD_GROUPS</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;node&quot;</span><span class="p">:</span> <span class="s2">&quot;/flds_nc&quot;</span><span class="p">,</span>
+                   <span class="s2">&quot;cell&quot;</span><span class="p">:</span> <span class="s2">&quot;/flds_cc&quot;</span><span class="p">,</span>
+                   <span class="s2">&quot;face&quot;</span><span class="p">:</span> <span class="s2">&quot;/flds_fc&quot;</span><span class="p">,</span>
+                   <span class="s2">&quot;edge&quot;</span><span class="p">:</span> <span class="s2">&quot;/flds_ec&quot;</span><span class="p">}</span>
+
+    <span class="n">_XDMF_TEMPLATE_BEGIN</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;&lt;?xml version=&#39;1.0&#39; ?&gt;</span>
+<span class="s2">&lt;Xdmf xmlns:xi=&#39;http://www.w3.org/2001/XInclude&#39; Version=&#39;2.0&#39;&gt;</span>
+<span class="s2">&lt;Domain&gt;</span>
+<span class="s2">&lt;Grid GridType=&quot;Collection&quot; CollectionType=&quot;Spatial&quot;&gt;</span>
+<span class="s2">  &lt;Time Type=&quot;Single&quot; Value=&quot;</span><span class="si">{time}</span><span class="s2">&quot; /&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+    <span class="n">_XDMF_TEMPLATE_RECTILINEAR_GRID_BEGIN</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">  &lt;Grid Name=&quot;</span><span class="si">{grid_name}</span><span class="s2">&quot; GridType=&quot;Uniform&quot;&gt;</span>
+<span class="s2">    &lt;Topology TopologyType=&quot;3DRectMesh&quot; Dimensions=&quot;</span><span class="si">{crd_dims}</span><span class="s2">&quot;/&gt;</span>
+<span class="s2">    &lt;Geometry GeometryType=&quot;VXVYVZ&quot;&gt;</span>
+<span class="s2">    &lt;DataItem Name=&quot;VX&quot; DataType=&quot;Float&quot; Dimensions=&quot;</span><span class="si">{xdim}</span><span class="s2">&quot; Format=&quot;HDF&quot;&gt;</span>
+<span class="s2">       </span><span class="si">{h5fname}</span><span class="s2">:</span><span class="si">{xloc}</span><span class="s2"></span>
+<span class="s2">    &lt;/DataItem&gt;</span>
+<span class="s2">    &lt;DataItem Name=&quot;VY&quot; DataType=&quot;Float&quot; Dimensions=&quot;</span><span class="si">{ydim}</span><span class="s2">&quot; Format=&quot;HDF&quot;&gt;</span>
+<span class="s2">       </span><span class="si">{h5fname}</span><span class="s2">:</span><span class="si">{yloc}</span><span class="s2"></span>
+<span class="s2">    &lt;/DataItem&gt;</span>
+<span class="s2">    &lt;DataItem Name=&quot;VZ&quot; DataType=&quot;Float&quot; Dimensions=&quot;</span><span class="si">{zdim}</span><span class="s2">&quot; Format=&quot;HDF&quot;&gt;</span>
+<span class="s2">       </span><span class="si">{h5fname}</span><span class="s2">:</span><span class="si">{zloc}</span><span class="s2"></span>
+<span class="s2">    &lt;/DataItem&gt;</span>
+<span class="s2">    &lt;/Geometry&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+    <span class="n">_XDMF_TEMPLATE_ATTRIBUTE</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">    &lt;Attribute Name=&quot;</span><span class="si">{fld_name}</span><span class="s2">&quot; AttributeType=&quot;</span><span class="si">{fld_type}</span><span class="s2">&quot; Center=&quot;</span><span class="si">{center}</span><span class="s2">&quot;&gt;</span>
+<span class="s2">      &lt;DataItem Dimensions=&quot;</span><span class="si">{fld_dims}</span><span class="s2">&quot; NumberType=&quot;</span><span class="si">{dtype}</span><span class="s2">&quot;</span>
+<span class="s2">                Precision=&quot;</span><span class="si">{precision}</span><span class="s2">&quot; Format=&quot;HDF&quot;&gt;</span>
+<span class="s2">        </span><span class="si">{h5fname}</span><span class="s2">:</span><span class="si">{fld_loc}</span><span class="s2"></span>
+<span class="s2">      &lt;/DataItem&gt;</span>
+<span class="s2">    &lt;/Attribute&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+    <span class="n">_XDMF_INFO_TEMPLATE</span> <span class="o">=</span> <span class="s1">&#39;&lt;Information Name=&quot;</span><span class="si">{name}</span><span class="s1">&quot; Value=&quot;</span><span class="si">{value}</span><span class="s1">&quot; /&gt;</span><span class="se">\n</span><span class="s1">&#39;</span>
+
+    <span class="n">_XDMF_TEMPLATE_GRID_END</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;  &lt;/Grid&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+    <span class="n">_XDMF_TEMPLATE_END</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;&lt;/Grid&gt;</span>
+<span class="s2">&lt;/Domain&gt;</span>
+<span class="s2">&lt;/Xdmf&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fname</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="n">HAS_H5PY</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">FileHDF5</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_parse</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Please load using the xdmf file&quot;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="FileHDF5.save"><a class="viewcode-back" href="../../../api/viscid.readers.hdf5.html#viscid.readers.hdf5.FileHDF5.save">[docs]</a>    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fname</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; save an instance of VFile, fname defaults to the name</span>
+<span class="sd">        of the file object as read &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">fname</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">fname</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fname</span>
+        <span class="n">flds</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">iter_fields</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">save_fields</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">flds</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="FileHDF5.save_fields"><a class="viewcode-back" href="../../../api/viscid.readers.hdf5.html#viscid.readers.hdf5.FileHDF5.save_fields">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">save_fields</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">fname</span><span class="p">,</span> <span class="n">flds</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; save some fields using the format given by the class &quot;&quot;&quot;</span>
+        <span class="c1"># FIXME: this is only good for writing cartesian rectilnear flds</span>
+        <span class="c1"># FIXME: axes are renamed if flds[0] is 1D or 2D</span>
+        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">flds</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+        <span class="n">fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expandvars</span><span class="p">(</span><span class="n">fname</span><span class="p">))</span>
+
+        <span class="c1"># FIXME: all coordinates are saved as non-uniform, the proper</span>
+        <span class="c1">#        way to do this is to have let coordinate format its own</span>
+        <span class="c1">#        hdf5 / xdmf / numpy binary output</span>
+        <span class="n">clist</span> <span class="o">=</span> <span class="n">flds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">crds</span><span class="o">.</span><span class="n">get_clist</span><span class="p">(</span><span class="n">full_arrays</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">crd_arrs</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">])]</span> <span class="o">*</span> <span class="mi">3</span>
+        <span class="n">crd_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;z&quot;</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">clist</span><span class="p">):</span>
+            <span class="n">crd_arrs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">crd_shape</span> <span class="o">=</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="k">for</span> <span class="n">arr</span> <span class="ow">in</span> <span class="n">crd_arrs</span><span class="p">]</span>
+        <span class="n">time</span> <span class="o">=</span> <span class="n">flds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">time</span>
+
+        <span class="c1"># write arrays to the hdf5 file</span>
+        <span class="k">with</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">axis_name</span><span class="p">,</span> <span class="n">arr</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">crd_names</span><span class="p">,</span> <span class="n">crd_arrs</span><span class="p">):</span>
+                <span class="n">loc</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_CRDS_GROUP</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">axis_name</span>
+                <span class="n">f</span><span class="p">[</span><span class="n">loc</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span>
+
+            <span class="k">for</span> <span class="n">fld</span> <span class="ow">in</span> <span class="n">flds</span><span class="p">:</span>
+                <span class="n">loc</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_FLD_GROUPS</span><span class="p">[</span><span class="n">fld</span><span class="o">.</span><span class="n">center</span><span class="o">.</span><span class="n">lower</span><span class="p">()]</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">fld</span><span class="o">.</span><span class="n">name</span>
+                <span class="c1"># xdmf files use kji ordering</span>
+                <span class="n">f</span><span class="p">[</span><span class="n">loc</span><span class="p">]</span> <span class="o">=</span> <span class="n">fld</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">T</span>
+
+            <span class="c1"># big bad openggcm time_str hack to put basetime into hdf5 file</span>
+            <span class="k">for</span> <span class="n">fld</span> <span class="ow">in</span> <span class="n">flds</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">tfmt</span> <span class="o">=</span> <span class="s2">&quot;%Y:%m:</span><span class="si">%d</span><span class="s2">:%H:%M:%S.</span><span class="si">%f</span><span class="s2">&quot;</span>
+                    <span class="n">sec_td</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">as_timedelta64</span><span class="p">(</span><span class="n">fld</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span>
+                    <span class="n">dtime</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">as_datetime</span><span class="p">(</span><span class="n">fld</span><span class="o">.</span><span class="n">basetime</span> <span class="o">+</span> <span class="n">sec_td</span><span class="p">)</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="n">tfmt</span><span class="p">)</span>
+                    <span class="n">epoch</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">readers</span><span class="o">.</span><span class="n">openggcm</span><span class="o">.</span><span class="n">GGCM_EPOCH</span>
+                    <span class="n">ts</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">as_timedelta</span><span class="p">(</span><span class="n">fld</span><span class="o">.</span><span class="n">basetime</span> <span class="o">-</span> <span class="n">epoch</span><span class="p">)</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span>
+                    <span class="n">ts</span> <span class="o">+=</span> <span class="n">fld</span><span class="o">.</span><span class="n">time</span>
+                    <span class="n">timestr</span> <span class="o">=</span> <span class="s2">&quot;time= </span><span class="si">{0}</span><span class="s2"> </span><span class="si">{1:.16e}</span><span class="s2"> </span><span class="si">{2}</span><span class="s2"> 300c&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fld</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="n">ts</span><span class="p">,</span> <span class="n">dtime</span><span class="p">)</span>
+                    <span class="n">f</span><span class="o">.</span><span class="n">create_group</span><span class="p">(</span><span class="s1">&#39;openggcm&#39;</span><span class="p">)</span>
+                    <span class="n">f</span><span class="p">[</span><span class="s1">&#39;openggcm&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;time_str&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">string_</span><span class="p">(</span><span class="n">timestr</span><span class="p">)</span>
+                    <span class="k">break</span>
+                <span class="k">except</span> <span class="n">viscid</span><span class="o">.</span><span class="n">NoBasetimeError</span><span class="p">:</span>
+                    <span class="k">pass</span>
+
+        <span class="c1"># now write an xdmf file</span>
+        <span class="n">xdmf_fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">fname</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;.xdmf&quot;</span>
+        <span class="n">relh5fname</span> <span class="o">=</span> <span class="s2">&quot;./&quot;</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">xdmf_fname</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">xloc</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_CRDS_GROUP</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">crd_names</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">yloc</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_CRDS_GROUP</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">crd_names</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">zloc</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_CRDS_GROUP</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">crd_names</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+            <span class="n">dim_str</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">crd_shape</span><span class="p">][::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">_XDMF_TEMPLATE_BEGIN</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">time</span><span class="p">))</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_XDMF_TEMPLATE_RECTILINEAR_GRID_BEGIN</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">grid_name</span><span class="o">=</span><span class="s2">&quot;vgrid&quot;</span><span class="p">,</span> <span class="n">crd_dims</span><span class="o">=</span><span class="n">dim_str</span><span class="p">,</span> <span class="n">h5fname</span><span class="o">=</span><span class="n">relh5fname</span><span class="p">,</span>
+                <span class="n">xdim</span><span class="o">=</span><span class="n">crd_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ydim</span><span class="o">=</span><span class="n">crd_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">zdim</span><span class="o">=</span><span class="n">crd_shape</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+                <span class="n">xloc</span><span class="o">=</span><span class="n">xloc</span><span class="p">,</span> <span class="n">yloc</span><span class="o">=</span><span class="n">yloc</span><span class="p">,</span> <span class="n">zloc</span><span class="o">=</span><span class="n">zloc</span><span class="p">)</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">fld</span> <span class="ow">in</span> <span class="n">flds</span><span class="p">:</span>
+                <span class="n">_crd_system</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">as_crd_system</span><span class="p">(</span><span class="n">fld</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">_crd_system</span><span class="p">:</span>
+                    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">_XDMF_INFO_TEMPLATE</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;crd_system&quot;</span><span class="p">,</span>
+                                                           <span class="n">value</span><span class="o">=</span><span class="n">_crd_system</span><span class="p">))</span>
+                    <span class="k">break</span>
+
+            <span class="k">for</span> <span class="n">fld</span> <span class="ow">in</span> <span class="n">flds</span><span class="p">:</span>
+                <span class="n">fld</span> <span class="o">=</span> <span class="n">fld</span><span class="o">.</span><span class="n">as_flat</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
+                <span class="n">dt</span> <span class="o">=</span> <span class="n">fld</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">&quot;0123456789&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
+                <span class="n">precision</span> <span class="o">=</span> <span class="n">fld</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">itemsize</span>
+                <span class="n">fld_dim_str</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">fld</span><span class="o">.</span><span class="n">shape</span><span class="p">])</span>
+                <span class="n">loc</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_FLD_GROUPS</span><span class="p">[</span><span class="n">fld</span><span class="o">.</span><span class="n">center</span><span class="o">.</span><span class="n">lower</span><span class="p">()]</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">fld</span><span class="o">.</span><span class="n">name</span>
+                <span class="n">s</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_XDMF_TEMPLATE_ATTRIBUTE</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">fld_name</span><span class="o">=</span><span class="n">fld</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                    <span class="n">fld_type</span><span class="o">=</span><span class="n">fld</span><span class="o">.</span><span class="n">fldtype</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="n">fld</span><span class="o">.</span><span class="n">center</span><span class="o">.</span><span class="n">title</span><span class="p">(),</span>
+                    <span class="n">dtype</span><span class="o">=</span><span class="n">dt</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="n">precision</span><span class="p">,</span> <span class="n">fld_dims</span><span class="o">=</span><span class="n">fld_dim_str</span><span class="p">,</span>
+                    <span class="n">h5fname</span><span class="o">=</span><span class="n">relh5fname</span><span class="p">,</span> <span class="n">fld_loc</span><span class="o">=</span><span class="n">loc</span><span class="p">)</span>
+                <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">_XDMF_TEMPLATE_GRID_END</span><span class="p">)</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">_XDMF_TEMPLATE_END</span><span class="p">)</span></div></div>
+
+<span class="c1">##</span>
+<span class="c1">## EOF</span>
+<span class="c1">##</span>
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+      
+    </p>
+    <p>
+        &copy; Copyright 2017, Kristofor Maynard.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

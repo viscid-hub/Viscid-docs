@@ -1,0 +1,463 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>viscid.tree &#8212; Viscid 0.99.7.dev0 documentation</title>
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+<link rel="icon" href="../../_static/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../../_static/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon-precomposed" href="../../_static/Vicon_128.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          Viscid</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.99.7.dev0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+    <li class="dropdown">
+      <a role="button"
+         id="dLabelNavLinxToc"
+         data-toggle="dropdown"
+         data-target="#"
+         href="#">Tutorial <b class="caret"></b></a>
+      <ul class="dropdown-menu navlinktoc"
+          role="menu">
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../installation.html">Installation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/creating_fields.html">Creating Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/slicing.html">Slicing Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/plotting_scalars.html">Plotting Scalars</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/plotting_vectors.html">Plotting Vectors</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/mayavi.html">3D Plots (Mayavi)</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/openggcm.html">OpenGGCM Specific</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/ionosphere.html">Ionosphere</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/stream_and_interp.html">Streamline and Interpolation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/magnetic_topology.html">Magnetic Topology</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/magnetopause.html">Magnetopause</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/quasi_potential.html">Quasi Potential</a>
+          </li>
+      </ul>
+    </li>
+
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../changes.html">ChangeLog</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../philosophy.html">Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/index.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tips_and_tricks.html">Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../functions.html">Useful Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plot_options.html">Plot Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mpl_style_gallery.html">Matplotlib Style Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../custom_behavior.html">Custom Behavior (rc file)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev_guide.html">Developer’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extending_readers.html">Extending Readers</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/viscid.html">API</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"></ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <h1>Source code for viscid.tree</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Classes for elements along the tree from files to fields&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">print_function</span>
+
+<span class="kn">import</span> <span class="nn">viscid</span>
+
+
+<span class="k">class</span> <span class="nc">_NO_DEFAULT_GIVEN</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+
+<div class="viewcode-block" id="Node"><a class="viewcode-back" href="../../api/viscid.tree.html#viscid.tree.Node">[docs]</a><span class="k">class</span> <span class="nc">Node</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Base class for Datasets and Grids&quot;&quot;&quot;</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">_info</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">parents</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">info</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">parents</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;&lt;</span><span class="si">{0}</span><span class="s2"> @ </span><span class="si">{1}</span><span class="s2">&gt;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="nb">hex</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="bp">self</span><span class="p">)))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+
+        <span class="k">if</span> <span class="n">info</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">info</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_info</span> <span class="o">=</span> <span class="n">info</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">time</span>
+
+        <span class="k">if</span> <span class="n">parents</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">parents</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">parents</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
+            <span class="n">parents</span> <span class="o">=</span> <span class="p">[</span><span class="n">parents</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parents</span> <span class="o">=</span> <span class="n">parents</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_info</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Node.prepare_child"><a class="viewcode-back" href="../../api/viscid.tree.html#viscid.tree.Node.prepare_child">[docs]</a>    <span class="k">def</span> <span class="nf">prepare_child</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">obj</span><span class="o">.</span><span class="n">parents</span><span class="p">:</span>
+            <span class="n">obj</span><span class="o">.</span><span class="n">parents</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Node.tear_down_child"><a class="viewcode-back" href="../../api/viscid.tree.html#viscid.tree.Node.tear_down_child">[docs]</a>    <span class="k">def</span> <span class="nf">tear_down_child</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">obj</span><span class="o">.</span><span class="n">parents</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="k">pass</span></div>
+
+    <span class="k">def</span> <span class="nf">_parent_bfs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="n">getvalue</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Breadth first search of parent</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            condition (callable): function for match condition, must</span>
+<span class="sd">                take 2 arguments, the first being the object in</span>
+<span class="sd">                question, and the 2nd being a value returned by</span>
+<span class="sd">                getvalue.</span>
+<span class="sd">            value (callable, optional): if given, call on the object</span>
+<span class="sd">                in question, and return a value that will be passed to</span>
+<span class="sd">                condition. Then return value in addition to the object</span>
+<span class="sd">                if condition is True.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Node, or (Node, value) if getvalue is given</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">visited_nodes</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="c1"># import inspect</span>
+        <span class="c1"># try:</span>
+        <span class="c1">#     _s = inspect.stack()[3][3]</span>
+        <span class="c1"># except IndexError:</span>
+        <span class="c1">#     _s = inspect.stack()[1][3]</span>
+        <span class="c1"># print(&quot;== parent_bfs&quot;, _s)</span>
+
+        <span class="k">if</span> <span class="n">getvalue</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># print(&quot;..parent_bfs:&quot;, self, condition(self, None))</span>
+            <span class="k">if</span> <span class="n">condition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="kc">None</span><span class="p">):</span>
+                <span class="k">return</span> <span class="bp">self</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">val</span> <span class="o">=</span> <span class="n">getvalue</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+            <span class="c1"># print(&quot;..parent_bfs:&quot;, self, condition(self, val), val)</span>
+            <span class="k">if</span> <span class="n">condition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="p">,</span> <span class="n">val</span>
+
+        <span class="n">this_level</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">next_level</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parents</span>
+        <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">next_level</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">this_level</span> <span class="o">=</span> <span class="n">next_level</span>
+            <span class="n">next_level</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">this_level</span><span class="p">:</span>
+                <span class="c1"># check for circular refernces</span>
+                <span class="k">if</span> <span class="nb">id</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span> <span class="ow">in</span> <span class="n">visited_nodes</span><span class="p">:</span>
+                    <span class="k">continue</span>
+                <span class="c1"># see if this is our node, and return if true</span>
+                <span class="k">if</span> <span class="n">getvalue</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="c1"># print(&quot;..parent_bfs:&quot;, obj, condition(obj, None))</span>
+                    <span class="k">if</span> <span class="n">condition</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="kc">None</span><span class="p">):</span>
+                        <span class="k">return</span> <span class="n">obj</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">value</span> <span class="o">=</span> <span class="n">getvalue</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+                    <span class="c1"># print(&quot;..parent_bfs:&quot;, obj, condition(obj, value), value)</span>
+                    <span class="k">if</span> <span class="n">condition</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+                        <span class="k">return</span> <span class="n">obj</span><span class="p">,</span> <span class="n">value</span>
+                <span class="c1"># setup the next level parent-ward</span>
+                <span class="n">visited_nodes</span><span class="p">[</span><span class="nb">id</span><span class="p">(</span><span class="n">obj</span><span class="p">)]</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="n">next_level</span> <span class="o">+=</span> <span class="n">obj</span><span class="o">.</span><span class="n">parents</span>
+
+        <span class="k">if</span> <span class="n">getvalue</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="Node.has_info"><a class="viewcode-back" href="../../api/viscid.tree.html#viscid.tree.Node.has_info">[docs]</a>    <span class="k">def</span> <span class="nf">has_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_info</span></div>
+
+<div class="viewcode-block" id="Node.get_info"><a class="viewcode-back" href="../../api/viscid.tree.html#viscid.tree.Node.get_info">[docs]</a>    <span class="k">def</span> <span class="nf">get_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">_NO_DEFAULT_GIVEN</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_info</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">default</span> <span class="ow">is</span> <span class="n">_NO_DEFAULT_GIVEN</span><span class="p">:</span>
+                <span class="k">raise</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">default</span></div>
+
+<div class="viewcode-block" id="Node.get_all_info"><a class="viewcode-back" href="../../api/viscid.tree.html#viscid.tree.Node.get_all_info">[docs]</a>    <span class="k">def</span> <span class="nf">get_all_info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">all_info</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="k">def</span> <span class="nf">condition</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>  <span class="c1"># pylint: disable=unused-argument</span>
+            <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">obj</span><span class="o">.</span><span class="n">_info</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>  <span class="c1"># pylint: disable=protected-access</span>
+                <span class="k">if</span> <span class="n">k</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">all_info</span><span class="p">:</span>
+                    <span class="n">all_info</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_parent_bfs</span><span class="p">(</span><span class="n">condition</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">all_info</span></div>
+
+<div class="viewcode-block" id="Node.print_info_tree"><a class="viewcode-back" href="../../api/viscid.tree.html#viscid.tree.Node.print_info_tree">[docs]</a>    <span class="k">def</span> <span class="nf">print_info_tree</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">def</span> <span class="nf">stringifiy_items</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>  <span class="c1"># pylint: disable=unused-argument</span>
+            <span class="n">prefix</span> <span class="o">=</span> <span class="s2">&quot;....&quot;</span>
+            <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">prefix</span> <span class="o">+</span> <span class="s2">&quot;:: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">obj</span><span class="p">))</span>
+            <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">obj</span><span class="o">.</span><span class="n">_info</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>  <span class="c1"># pylint: disable=protected-access</span>
+                <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">prefix</span> <span class="o">+</span> <span class="s2">&quot;  &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_parent_bfs</span><span class="p">(</span><span class="n">stringifiy_items</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">lines</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Node.set_info"><a class="viewcode-back" href="../../api/viscid.tree.html#viscid.tree.Node.set_info">[docs]</a>    <span class="k">def</span> <span class="nf">set_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_info</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span></div>
+
+<div class="viewcode-block" id="Node.find_info_owner"><a class="viewcode-back" href="../../api/viscid.tree.html#viscid.tree.Node.find_info_owner">[docs]</a>    <span class="k">def</span> <span class="nf">find_info_owner</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Go through the parents (breadth first) and find the info</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            KeyError</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">def</span> <span class="nf">condition</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">_</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">obj</span><span class="o">.</span><span class="n">has_info</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+        <span class="n">matching_parent</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parent_bfs</span><span class="p">(</span><span class="n">condition</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">matching_parent</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s2">&quot;info &#39;</span><span class="si">{0}</span><span class="s2">&#39; is nowhere to be found&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">matching_parent</span></div>
+
+<div class="viewcode-block" id="Node.find_info"><a class="viewcode-back" href="../../api/viscid.tree.html#viscid.tree.Node.find_info">[docs]</a>    <span class="k">def</span> <span class="nf">find_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">_NO_DEFAULT_GIVEN</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Go through the parents (breadth first) and find the info&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">matching_parent</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_info_owner</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">matching_parent</span><span class="o">.</span><span class="n">get_info</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">default</span> <span class="ow">is</span> <span class="n">_NO_DEFAULT_GIVEN</span><span class="p">:</span>
+                <span class="k">raise</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">default</span></div>
+
+<div class="viewcode-block" id="Node.update_info"><a class="viewcode-back" href="../../api/viscid.tree.html#viscid.tree.Node.update_info">[docs]</a>    <span class="k">def</span> <span class="nf">update_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">fallback</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Update an existing key if found, or fall back to add_info&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">matching_parent</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_info_owner</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+            <span class="n">matching_parent</span><span class="o">.</span><span class="n">set_info</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">fallback</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">set_info</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span></div>
+
+<div class="viewcode-block" id="Node.find_attr"><a class="viewcode-back" href="../../api/viscid.tree.html#viscid.tree.Node.find_attr">[docs]</a>    <span class="k">def</span> <span class="nf">find_attr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr_name</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">_NO_DEFAULT_GIVEN</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Breadth first search of parents for attr_name</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            attr_name (str): some attribute name</span>
+<span class="sd">            default (Any): fallback, possibly raises AttributeError</span>
+<span class="sd">                if this is not given</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            AttributeError: if no default given, and no parent found</span>
+<span class="sd">                with attr_name</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The attribute, or default</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">def</span> <span class="nf">_condition</span><span class="p">(</span><span class="n">_node</span><span class="p">,</span> <span class="n">_</span><span class="p">):</span>
+            <span class="k">return</span> <span class="p">(</span><span class="nb">hasattr</span><span class="p">(</span><span class="n">_node</span><span class="p">,</span> <span class="n">attr_name</span><span class="p">)</span> <span class="ow">and</span>
+                    <span class="nb">getattr</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">attr_name</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">NotImplemented</span><span class="p">)</span>
+        <span class="n">parent</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parent_bfs</span><span class="p">(</span><span class="n">_condition</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">parent</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">attr_name</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">default</span> <span class="ow">is</span> <span class="n">_NO_DEFAULT_GIVEN</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s2">&quot;No parent of </span><span class="si">{0}</span><span class="s2"> has an attribute </span><span class="si">{1}</span><span class="s2">&quot;</span>
+                                     <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr_name</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">default</span></div>
+
+    <span class="c1">##########################</span>
+    <span class="c1"># for time related things</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">basetime</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">basetime</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_info</span><span class="p">(</span><span class="s1">&#39;basetime&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">basetime</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Node </span><span class="si">{0}</span><span class="s2"> did not set basetime, so it can&#39;t deal with &quot;</span>
+                 <span class="s2">&quot;datetimes. Maybe you forgot to set basetime, or your &quot;</span>
+                 <span class="s2">&quot;logfile is missing or mangled.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="bp">self</span><span class="p">)))</span>
+            <span class="k">raise</span> <span class="n">viscid</span><span class="o">.</span><span class="n">NoBasetimeError</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">viscid</span><span class="o">.</span><span class="n">as_datetime64</span><span class="p">(</span><span class="n">basetime</span><span class="p">)</span>
+
+    <span class="nd">@basetime</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">basetime</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_info</span><span class="p">(</span><span class="s1">&#39;basetime&#39;</span><span class="p">,</span> <span class="n">viscid</span><span class="o">.</span><span class="n">as_datetime64</span><span class="p">(</span><span class="n">val</span><span class="p">))</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">time</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_info</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+    <span class="nd">@time</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">viscid</span><span class="o">.</span><span class="n">is_datetime_like</span><span class="p">(</span><span class="n">val</span><span class="p">):</span>
+            <span class="n">val</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">as_timedelta</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">basetime</span> <span class="o">-</span> <span class="n">viscid</span><span class="o">.</span><span class="n">as_datetime64</span><span class="p">(</span><span class="n">val</span><span class="p">))</span>
+            <span class="n">val</span> <span class="o">=</span> <span class="n">val</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">viscid</span><span class="o">.</span><span class="n">is_timedelta_like</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">conservative</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+            <span class="n">val</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">as_timedelta</span><span class="p">(</span><span class="n">val</span><span class="p">)</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">val</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_info</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">val</span><span class="p">))</span>
+
+<div class="viewcode-block" id="Node.time_as_timedelta64"><a class="viewcode-back" href="../../api/viscid.tree.html#viscid.tree.Node.time_as_timedelta64">[docs]</a>    <span class="k">def</span> <span class="nf">time_as_timedelta64</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">viscid</span><span class="o">.</span><span class="n">as_timedelta64</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Node.time_as_timedelta"><a class="viewcode-back" href="../../api/viscid.tree.html#viscid.tree.Node.time_as_timedelta">[docs]</a>    <span class="k">def</span> <span class="nf">time_as_timedelta</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">viscid</span><span class="o">.</span><span class="n">as_timedelta</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Node.time_as_datetime64"><a class="viewcode-back" href="../../api/viscid.tree.html#viscid.tree.Node.time_as_datetime64">[docs]</a>    <span class="k">def</span> <span class="nf">time_as_datetime64</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">t2datetime64</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">time_as_timedelta64</span><span class="p">())</span></div>
+
+<div class="viewcode-block" id="Node.time_as_datetime"><a class="viewcode-back" href="../../api/viscid.tree.html#viscid.tree.Node.time_as_datetime">[docs]</a>    <span class="k">def</span> <span class="nf">time_as_datetime</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">viscid</span><span class="o">.</span><span class="n">as_datetime</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">time_as_datetime64</span><span class="p">())</span></div>
+
+<div class="viewcode-block" id="Node.t2datetime64"><a class="viewcode-back" href="../../api/viscid.tree.html#viscid.tree.Node.t2datetime64">[docs]</a>    <span class="k">def</span> <span class="nf">t2datetime64</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">viscid</span><span class="o">.</span><span class="n">time_sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">basetime</span><span class="p">,</span> <span class="n">viscid</span><span class="o">.</span><span class="n">as_timedelta64</span><span class="p">(</span><span class="n">t</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Node.format_time"><a class="viewcode-back" href="../../api/viscid.tree.html#viscid.tree.Node.format_time">[docs]</a>    <span class="k">def</span> <span class="nf">format_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;.02f&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;Timeless&quot;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">default</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">viscid</span><span class="o">.</span><span class="n">format_time</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">time_as_datetime64</span><span class="p">(),</span> <span class="n">fmt</span><span class="o">=</span><span class="n">fmt</span><span class="p">,</span>
+                                          <span class="n">basetime</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">basetime</span><span class="p">)</span>
+            <span class="k">except</span> <span class="n">viscid</span><span class="o">.</span><span class="n">NoBasetimeError</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">viscid</span><span class="o">.</span><span class="n">format_time</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">time_as_timedelta64</span><span class="p">(),</span> <span class="n">fmt</span><span class="o">=</span><span class="n">fmt</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Node.resolve"><a class="viewcode-back" href="../../api/viscid.tree.html#viscid.tree.Node.resolve">[docs]</a>    <span class="k">def</span> <span class="nf">resolve</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="Node.iter_resolved_children"><a class="viewcode-back" href="../../api/viscid.tree.html#viscid.tree.Node.iter_resolved_children">[docs]</a>    <span class="k">def</span> <span class="nf">iter_resolved_children</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">child</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span> <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="Leaf"><a class="viewcode-back" href="../../api/viscid.tree.html#viscid.tree.Leaf">[docs]</a><span class="k">class</span> <span class="nc">Leaf</span><span class="p">(</span><span class="n">Node</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Base class for fields&quot;&quot;&quot;</span>
+    <span class="k">pass</span></div>
+
+<span class="c1">##</span>
+<span class="c1">## EOF</span>
+<span class="c1">##</span>
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+      
+    </p>
+    <p>
+        &copy; Copyright 2017, Kristofor Maynard.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

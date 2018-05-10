@@ -1,0 +1,247 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>viscid.extools &#8212; Viscid 0.99.7.dev0 documentation</title>
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+<link rel="icon" href="../../_static/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../../_static/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon-precomposed" href="../../_static/Vicon_128.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          Viscid</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.99.7.dev0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+    <li class="dropdown">
+      <a role="button"
+         id="dLabelNavLinxToc"
+         data-toggle="dropdown"
+         data-target="#"
+         href="#">Tutorial <b class="caret"></b></a>
+      <ul class="dropdown-menu navlinktoc"
+          role="menu">
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../installation.html">Installation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/creating_fields.html">Creating Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/slicing.html">Slicing Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/plotting_scalars.html">Plotting Scalars</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/plotting_vectors.html">Plotting Vectors</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/mayavi.html">3D Plots (Mayavi)</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/openggcm.html">OpenGGCM Specific</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/ionosphere.html">Ionosphere</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/stream_and_interp.html">Streamline and Interpolation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/magnetic_topology.html">Magnetic Topology</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/magnetopause.html">Magnetopause</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/quasi_potential.html">Quasi Potential</a>
+          </li>
+      </ul>
+    </li>
+
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../changes.html">ChangeLog</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../philosophy.html">Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/index.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tips_and_tricks.html">Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../functions.html">Useful Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plot_options.html">Plot Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mpl_style_gallery.html">Matplotlib Style Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../custom_behavior.html">Custom Behavior (rc file)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev_guide.html">Developer’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extending_readers.html">Extending Readers</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/viscid.html">API</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"></ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <h1>Source code for viscid.extools</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="sd">&quot;&quot;&quot;Call out to external tools like ffmpeg and meshlab&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">print_function</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">subprocess</span> <span class="k">as</span> <span class="nn">sub</span>
+
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;make_animation&#39;</span><span class="p">,</span> <span class="s1">&#39;meshlab_convert&#39;</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="make_animation"><a class="viewcode-back" href="../../api/viscid.extools.html#viscid.make_animation">[docs]</a><span class="k">def</span> <span class="nf">make_animation</span><span class="p">(</span><span class="n">movie_fname</span><span class="p">,</span> <span class="n">prefix</span><span class="p">,</span> <span class="n">framerate</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">qscale</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">keep</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                   <span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">frame_idx_fmt</span><span class="o">=</span><span class="s2">&quot;_</span><span class="si">%06d</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">program</span><span class="o">=</span><span class="s2">&quot;ffmpeg&quot;</span><span class="p">,</span>
+                   <span class="n">yes</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; make animation by calling program (only ffmpeg works for now) using</span>
+<span class="sd">    args, which is a namespace filled by the argparse options from</span>
+<span class="sd">    add_animate_arguments. Plots are expected to be named</span>
+<span class="sd">    ${args.prefix}_000001.png where the number is in order from 1 up &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">args</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">prefix</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">prefix</span>
+        <span class="n">framerate</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">framerate</span>
+        <span class="n">qscale</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">qscale</span>
+        <span class="n">movie_fname</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">animate</span>
+        <span class="n">keep</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">keep</span>
+
+    <span class="k">if</span> <span class="n">movie_fname</span><span class="p">:</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s2">&quot;yes | </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">program</span><span class="p">)</span> <span class="k">if</span> <span class="n">yes</span> <span class="k">else</span> <span class="n">program</span>
+        <span class="k">if</span> <span class="n">program</span> <span class="o">==</span> <span class="s2">&quot;ffmpeg&quot;</span><span class="p">:</span>
+            <span class="n">sub</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{0}</span><span class="s2"> -r </span><span class="si">{1}</span><span class="s2"> -i </span><span class="si">{3}{4}</span><span class="s2">.png -pix_fmt yuv420p &quot;</span>
+                      <span class="s2">&quot;-qscale </span><span class="si">{2}</span><span class="s2"> </span><span class="si">{5}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">framerate</span><span class="p">,</span> <span class="n">qscale</span><span class="p">,</span> <span class="n">prefix</span><span class="p">,</span>
+                                               <span class="n">frame_idx_fmt</span><span class="p">,</span> <span class="n">movie_fname</span><span class="p">),</span>
+                      <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">communicate</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">movie_fname</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">prefix</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">keep</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">keep</span><span class="p">:</span>
+        <span class="n">sub</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="s2">&quot;rm -f </span><span class="si">{0}</span><span class="s2">_*.png&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">prefix</span><span class="p">),</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">communicate</span><span class="p">()</span>
+    <span class="k">return</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="meshlab_convert"><a class="viewcode-back" href="../../api/viscid.extools.html#viscid.meshlab_convert">[docs]</a><span class="k">def</span> <span class="nf">meshlab_convert</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;dae&quot;</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Run meshlabserver to convert 3D mesh files</span>
+
+<span class="sd">    Uses `MeshLab &lt;http://meshlab.sourceforge.net/&gt;`_, which is a great</span>
+<span class="sd">    little program for playing with 3D meshes. The best part is that</span>
+<span class="sd">    OS X&#39;s Preview can open the COLLADA (`*.dae`) format. How cool is</span>
+<span class="sd">    that?</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        fname (str): file to convert</span>
+<span class="sd">        fmt (str): extension of result, defaults to COLLADA format</span>
+<span class="sd">        quiet (bool): redirect output to :py:attr:`os.devnull`</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">iname</span> <span class="o">=</span> <span class="n">fname</span>
+    <span class="n">oname</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">iname</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="n">fmt</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">redirect</span> <span class="o">=</span> <span class="s2">&quot;&amp;&gt; </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">devnull</span><span class="p">)</span> <span class="k">if</span> <span class="n">quiet</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">cmd</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;meshlabserver -i </span><span class="si">{0}</span><span class="s2"> -o </span><span class="si">{1}</span><span class="s2"> -m vc vn fc fn </span><span class="si">{2}</span><span class="s2">&quot;</span>
+           <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">iname</span><span class="p">,</span> <span class="n">oname</span><span class="p">,</span> <span class="n">redirect</span><span class="p">))</span>
+    <span class="n">sub</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></div>
+
+<span class="c1">##</span>
+<span class="c1">## EOF</span>
+<span class="c1">##</span>
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+      
+    </p>
+    <p>
+        &copy; Copyright 2017, Kristofor Maynard.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

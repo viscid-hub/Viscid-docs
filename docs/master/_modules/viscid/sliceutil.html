@@ -1,0 +1,1066 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>viscid.sliceutil &#8212; Viscid 0.99.6 documentation</title>
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+<link rel="icon" href="../../_static/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../../_static/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon-precomposed" href="../../_static/Vicon_128.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          Viscid</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.99.6</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+    <li class="dropdown">
+      <a role="button"
+         id="dLabelNavLinxToc"
+         data-toggle="dropdown"
+         data-target="#"
+         href="#">Tutorial <b class="caret"></b></a>
+      <ul class="dropdown-menu navlinktoc"
+          role="menu">
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../installation.html">Installation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/creating_fields.html">Creating Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/slicing.html">Slicing Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/plotting_scalars.html">Plotting Scalars</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/plotting_vectors.html">Plotting Vectors</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/mayavi.html">3D Plots (Mayavi)</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/openggcm.html">OpenGGCM Specific</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/ionosphere.html">Ionosphere</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/stream_and_interp.html">Streamline and Interpolation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/magnetic_topology.html">Magnetic Topology</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/magnetopause.html">Magnetopause</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/quasi_potential.html">Quasi Potential</a>
+          </li>
+      </ul>
+    </li>
+
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../changes.html">ChangeLog</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../philosophy.html">Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/index.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tips_and_tricks.html">Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../functions.html">Useful Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plot_options.html">Plot Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mpl_style_gallery.html">Matplotlib Style Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../custom_behavior.html">Custom Behavior (rc file)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev_guide.html">Developer’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extending_readers.html">Extending Readers</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/viscid.html">API</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"></ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <h1>Source code for viscid.sliceutil</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="sd">&quot;&quot;&quot;Convenience functions for slicing by value&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">print_function</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="k">import</span> <span class="n">count</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">viscid</span> <span class="k">import</span> <span class="n">logger</span>
+<span class="kn">from</span> <span class="nn">viscid.compat</span> <span class="k">import</span> <span class="n">izip</span><span class="p">,</span> <span class="n">string_types</span>
+<span class="kn">from</span> <span class="nn">viscid.npdatetime</span> <span class="k">import</span> <span class="p">(</span><span class="n">is_datetime_like</span><span class="p">,</span> <span class="n">is_timedelta_like</span><span class="p">,</span>
+                               <span class="n">as_datetime64</span><span class="p">,</span> <span class="n">as_timedelta64</span><span class="p">,</span> <span class="n">time_diff</span><span class="p">)</span>
+
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;str2value&quot;</span><span class="p">,</span> <span class="s2">&quot;parse_time_slice_str&quot;</span><span class="p">,</span> <span class="s2">&quot;make_fwd_slice&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;to_slices&quot;</span><span class="p">,</span> <span class="s2">&quot;to_slice&quot;</span><span class="p">,</span> <span class="s2">&quot;make_slice_inclusive&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;selections2values&quot;</span><span class="p">,</span> <span class="s2">&quot;selection2values&quot;</span><span class="p">,</span> <span class="s2">&quot;slice2values&quot;</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="str2value"><a class="viewcode-back" href="../../api/viscid.sliceutil.html#viscid.str2value">[docs]</a><span class="k">def</span> <span class="nf">str2value</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;try to parse things like none, true, false, ints, floats, etc.&quot;&quot;&quot;</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">s</span>
+    <span class="n">s_clean</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">s_clean</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">s_clean</span> <span class="o">==</span> <span class="s2">&quot;none&quot;</span><span class="p">:</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">elif</span> <span class="n">s_clean</span> <span class="o">==</span> <span class="s2">&quot;true&quot;</span><span class="p">:</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">elif</span> <span class="n">s_clean</span> <span class="o">==</span> <span class="s2">&quot;false&quot;</span><span class="p">:</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">elif</span> <span class="n">s_clean</span> <span class="o">==</span> <span class="s2">&quot;True&quot;</span><span class="p">:</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">s_clean</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">ret</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">s_clean</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                <span class="k">pass</span>
+    <span class="k">return</span> <span class="n">ret</span></div>
+
+<span class="k">def</span> <span class="nf">_warn_deprecated_float</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">varname</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;DEPRECATION...</span><span class="se">\n</span><span class="s2">&quot;</span>
+         <span class="s2">&quot;Slicing by float is deprecated. The slice by value syntax is </span><span class="se">\n</span><span class="s2">&quot;</span>
+         <span class="s2">&quot;now a string that has a trailing &#39;f&#39;, as in &#39;x=0f&#39; [</span><span class="si">{0}</span><span class="s2"> = </span><span class="si">{1}</span><span class="s2">]&quot;</span>
+         <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">varname</span><span class="p">,</span> <span class="n">val</span><span class="p">))</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">_standardize_slcval</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">epoch</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tdunit</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Standardize things that can appear in a slice</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        One of the following,</span>
+<span class="sd">         - None</span>
+<span class="sd">         - np.newaxis</span>
+<span class="sd">         - int</span>
+<span class="sd">         - &#39;{flt}f&#39;.format(flt=val)</span>
+
+<span class="sd">        Datetime-like and timedelta-like values are converted</span>
+<span class="sd">        to floats using epoch and tdunit.</span>
+
+<span class="sd">        Deprecation warnings arise when trying to convert bare floats</span>
+<span class="sd">        or floats in strings that don&#39;t end if &#39;f&#39;.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">is_timedelta_like</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">conservative</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{0}</span><span class="s2">f&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">as_timedelta64</span><span class="p">(</span><span class="n">val</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">timedelta64</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">tdunit</span><span class="p">))</span>
+    <span class="k">elif</span> <span class="n">is_datetime_like</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">conservative</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">epoch</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">epoch</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">datetime64</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;us&#39;</span><span class="p">)</span>
+        <span class="n">tflt</span> <span class="o">=</span> <span class="n">time_diff</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">epoch</span><span class="p">,</span> <span class="n">most_precise</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">timedelta64</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">tdunit</span><span class="p">)</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{0}</span><span class="s2">f&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tflt</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">integer</span><span class="p">)):</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">val</span>
+    <span class="k">elif</span> <span class="n">val</span> <span class="ow">in</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;None&quot;</span><span class="p">,</span> <span class="s2">&quot;none&quot;</span><span class="p">]:</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">elif</span> <span class="n">val</span> <span class="ow">in</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="s2">&quot;newaxis&quot;</span><span class="p">]:</span>
+        <span class="c1"># note, np.newaxis is None, so this probably dosen&#39;t happen, but</span>
+        <span class="c1"># in case it changes in the future...</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">floating</span><span class="p">)):</span>
+        <span class="n">_warn_deprecated_float</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{0}</span><span class="s2">f&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">string_types</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">val</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;f&#39;</span><span class="p">:</span>
+            <span class="c1"># gymnastics to validate the contents</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{0}</span><span class="s2">f&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">val</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">ret</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">ret</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{0}</span><span class="s1">f&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">val</span><span class="p">))</span>
+                    <span class="n">_warn_deprecated_float</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                    <span class="k">raise</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;I&#39;m not sure what to do with </span><span class="si">{0}</span><span class="s2"> (type = </span><span class="si">{1}</span><span class="s2">)&quot;</span>
+                        <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">val</span><span class="p">)))</span>
+    <span class="k">return</span> <span class="n">ret</span>
+
+<span class="k">def</span> <span class="nf">_arr2float</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">epoch</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tdunit</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f8&#39;</span><span class="p">):</span>
+    <span class="c1"># If arr is a datetime64, then turn it into a float with</span>
+    <span class="c1"># units of tdunit since the given epoch. if no epoch is given</span>
+    <span class="c1"># then epoch = arr[0]. From this point forward, arr is treated</span>
+    <span class="c1"># like a float array, and slices should be converted to floats</span>
+    <span class="c1"># using the same epoch and tdunit.</span>
+
+    <span class="c1"># arr = np.asarray(arr)</span>
+    <span class="k">if</span> <span class="n">is_timedelta_like</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">conservative</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="n">arr</span> <span class="o">=</span> <span class="n">as_timedelta64</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">timedelta64</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">tdunit</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">is_datetime_like</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">conservative</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="n">arr</span> <span class="o">=</span> <span class="n">as_datetime64</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">epoch</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">epoch</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">arr</span> <span class="o">=</span> <span class="n">time_diff</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">epoch</span><span class="p">,</span> <span class="n">most_precise</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">timedelta64</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">tdunit</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">arr</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">dtype</span><span class="p">),</span> <span class="n">epoch</span>
+
+<div class="viewcode-block" id="parse_time_slice_str"><a class="viewcode-back" href="../../api/viscid.sliceutil.html#viscid.parse_time_slice_str">[docs]</a><span class="k">def</span> <span class="nf">parse_time_slice_str</span><span class="p">(</span><span class="n">slc_str</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Args:</span>
+<span class="sd">        slc_str (str): must be a single string containing a single</span>
+<span class="sd">            time slice</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        one of {int, string, or slice (can contain ints,</span>
+<span class="sd">        floats, or strings)}</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        Individual elements of the slice can look like an int,</span>
+<span class="sd">        float with trailing &#39;f&#39;, or they can have the form</span>
+<span class="sd">        [A-Z]+[\d:]+\.\d*. This last one is a datetime-like</span>
+<span class="sd">        representation with some preceding letters. The preceding</span>
+<span class="sd">        letters are</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># regex parse the sting into a list of datetime-like strings,</span>
+    <span class="c1"># integers, floats, and bare colons that mark the slices</span>
+    <span class="c1"># Note: for datetime-like strings, the letters preceeding a datetime</span>
+    <span class="c1"># are necessary, otherwise 02:20:30.01 would have more than one meaning</span>
+    <span class="n">rstr</span> <span class="o">=</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\s*(?:(?!:)[A-Z]+[-\d:T]+\.\d*|:|[-+]?[0-9]*\.?[0-9]+f?)\s*|&quot;</span>
+            <span class="sa">r</span><span class="s2">&quot;[-+]?[0-9]+&quot;</span><span class="p">)</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">rstr</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">I</span><span class="p">)</span>
+
+    <span class="n">all_times</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">slc_str</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">all_times</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">all_times</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;:&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">str2value</span><span class="p">(</span><span class="n">all_times</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="c1"># fill in implied slice colons, then replace them with something</span>
+    <span class="c1"># unique... like !!</span>
+    <span class="n">all_times</span> <span class="o">+=</span> <span class="p">[</span><span class="s1">&#39;:&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">-</span> <span class="n">all_times</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">))</span>
+    <span class="n">all_times</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="k">if</span> <span class="n">s</span> <span class="o">!=</span> <span class="s2">&quot;:&quot;</span> <span class="k">else</span> <span class="s2">&quot;!!&quot;</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">all_times</span><span class="p">]</span>
+    <span class="c1"># this is kinda silly, but turn all times back into a string,</span>
+    <span class="c1"># then split it again, this is the easiest way to parse something</span>
+    <span class="c1"># like &#39;1::2&#39;</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">all_times</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;!!&quot;</span><span class="p">)</span>
+    <span class="c1"># convert empty -&gt; None, ints -&gt; ints and floats-&gt;floats</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ret</span><span class="p">):</span>
+        <span class="n">ret</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">str2value</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Could not decipher slice: &#39;</span><span class="si">{0}</span><span class="s2">&#39;. Perhaps you&#39;re &quot;</span>
+                         <span class="s2">&quot;missing some letters in front of a time &quot;</span>
+                         <span class="s2">&quot;string?&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">slc_str</span><span class="p">))</span>
+    <span class="c1"># trim trailing dots</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="p">[</span><span class="n">r</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="s1">&#39;rstrip&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="n">r</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">ret</span><span class="p">]</span>
+    <span class="k">return</span> <span class="nb">slice</span><span class="p">(</span><span class="o">*</span><span class="n">ret</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="make_fwd_slice"><a class="viewcode-back" href="../../api/viscid.sliceutil.html#viscid.make_fwd_slice">[docs]</a><span class="k">def</span> <span class="nf">make_fwd_slice</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">slices</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cull_second</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Make sure slices go forward</span>
+
+<span class="sd">    This function returns two slices equivalent to `slices` such</span>
+<span class="sd">    that the first slice always goes forward. This is necessary because</span>
+<span class="sd">    h5py can&#39;t deal with reverse slices such as [::-1].</span>
+
+<span class="sd">    The optional `reverse` can be used to interpret a dimension as</span>
+<span class="sd">    flipped. This is used if the indices in a slice are based on a</span>
+<span class="sd">    coordinate array that has already been flipped. For instance, the</span>
+<span class="sd">    result is equivalent to `arr[::-1][slices]`, but in a way that can</span>
+<span class="sd">    be  handled by h5py. This lets us efficiently load small subsets</span>
+<span class="sd">    of large arrays on disk, which is most useful when the large array</span>
+<span class="sd">    is coming through sshfs.</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        The only restriction on slices is that neither start nor stop</span>
+<span class="sd">        can be outide the range [-L, L].</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        shape: shape of the array that is to be sliced</span>
+<span class="sd">        slices: a tuple of slices to work with</span>
+<span class="sd">        reverse (optional): list of bools that indicate if the</span>
+<span class="sd">            corresponding value in slices should be ineterpreted as</span>
+<span class="sd">            flipped</span>
+<span class="sd">        cull_second (bool, optional): iff True, remove elements of</span>
+<span class="sd">            the second slice for dimensions that don&#39;t exist after</span>
+<span class="sd">            the first slice has completed. This is only here for</span>
+<span class="sd">            a super-hacky case when slicing fields.</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        (first_slice, second_slice)</span>
+
+<span class="sd">        * first_slice: a forward-only slice that retrieves the</span>
+<span class="sd">          desired elements of an array</span>
+<span class="sd">        * second_slice: a slice that does [::1] or [::-1] as needed</span>
+<span class="sd">          to make the result equivalent to slices. If keep_all,</span>
+<span class="sd">          then this may contain None indicating that this</span>
+<span class="sd">          dimension no longer exists after the first slice.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt; a = np.arange(8)</span>
+<span class="sd">        &gt;&gt; first, second = make_fwd_slice(len(a),slice(None, None, -1))</span>
+<span class="sd">        &gt;&gt; (a[::-1] == a[first][second]).all()</span>
+<span class="sd">        True</span>
+
+<span class="sd">        &gt;&gt; a = np.arange(4*5*6).reshape((4, 5, 6))</span>
+<span class="sd">        &gt;&gt; first, second = make_fwd_slice(a.shape,</span>
+<span class="sd">        &gt;&gt;                                [slice(None, -1, 1),</span>
+<span class="sd">        &gt;&gt;                                 slice(-1, None, 1),</span>
+<span class="sd">        &gt;&gt;                                 slice(-4, -1, 2)],</span>
+<span class="sd">        &gt;&gt;                                [True, True, True])</span>
+<span class="sd">        &gt;&gt; a1 = a[::-1, ::-1, ::-1][:-1, -1:, -4:-1:2]</span>
+<span class="sd">        &gt;&gt; a2 = a[first][second]</span>
+<span class="sd">        &gt;&gt; a1 == a2</span>
+<span class="sd">        True</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">reverse</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">reverse</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)):</span>
+        <span class="n">shape</span> <span class="o">=</span> <span class="p">[</span><span class="n">shape</span><span class="p">]</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">slices</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
+        <span class="n">slices</span> <span class="o">=</span> <span class="p">[</span><span class="n">slices</span><span class="p">]</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">reverse</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
+        <span class="n">reverse</span> <span class="o">=</span> <span class="p">[</span><span class="n">reverse</span><span class="p">]</span>
+
+    <span class="n">newax_inds</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">slices</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+    <span class="n">shape</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">newax_inds</span><span class="p">:</span>
+        <span class="n">shape</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># ya know, lets just go through all the dimensions in shape</span>
+    <span class="c1"># just to be safe and default to an empty slice / no reverse</span>
+    <span class="n">slices</span> <span class="o">=</span> <span class="n">slices</span> <span class="o">+</span> <span class="p">[</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">)]</span> <span class="o">*</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">slices</span><span class="p">))</span>
+    <span class="n">reverse</span> <span class="o">=</span> <span class="n">reverse</span> <span class="o">+</span> <span class="p">[</span><span class="kc">False</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">slices</span><span class="p">)</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">reverse</span><span class="p">))</span>
+
+    <span class="n">first_slc</span> <span class="o">=</span> <span class="p">[</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">)]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">slices</span><span class="p">)</span>
+    <span class="n">second_slc</span> <span class="o">=</span> <span class="p">[</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">first_slc</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">slc</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">rev</span> <span class="ow">in</span> <span class="n">izip</span><span class="p">(</span><span class="n">count</span><span class="p">(),</span> <span class="n">slices</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">reverse</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">slc</span><span class="p">,</span> <span class="nb">slice</span><span class="p">):</span>
+            <span class="n">step</span> <span class="o">=</span> <span class="n">slc</span><span class="o">.</span><span class="n">step</span> <span class="k">if</span> <span class="n">slc</span><span class="o">.</span><span class="n">step</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="mi">1</span>
+            <span class="n">start</span> <span class="o">=</span> <span class="n">slc</span><span class="o">.</span><span class="n">start</span> <span class="k">if</span> <span class="n">slc</span><span class="o">.</span><span class="n">start</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="mi">0</span>
+            <span class="n">stop</span> <span class="o">=</span> <span class="n">slc</span><span class="o">.</span><span class="n">stop</span> <span class="k">if</span> <span class="n">slc</span><span class="o">.</span><span class="n">stop</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">L</span>
+            <span class="k">if</span> <span class="n">start</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">start</span> <span class="o">+=</span> <span class="n">L</span>
+            <span class="k">if</span> <span class="n">stop</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">stop</span> <span class="o">+=</span> <span class="n">L</span>
+
+            <span class="c1"># sanity check the start/stop since we&#39;re gunna be playing</span>
+            <span class="c1"># fast and loose with them</span>
+            <span class="k">if</span> <span class="n">start</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">stop</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;((start = </span><span class="si">{0}</span><span class="s2">) or (stop = </span><span class="si">{1}</span><span class="s2">)) &lt; 0&quot;</span>
+                                 <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">start</span> <span class="o">&gt;</span> <span class="n">L</span> <span class="ow">or</span> <span class="n">stop</span> <span class="o">&gt;</span> <span class="n">L</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;((start=</span><span class="si">{0}</span><span class="s2">) or (stop=</span><span class="si">{1}</span><span class="s2">)) &gt; (L=</span><span class="si">{2}</span><span class="s2">)&quot;</span>
+                                 <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">L</span><span class="p">))</span>
+
+            <span class="c1"># now do the math of flipping the slice if needed, these branches</span>
+            <span class="c1"># change start, stop, and step so they can be used to create a new</span>
+            <span class="c1"># slice below</span>
+            <span class="k">if</span> <span class="n">rev</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">step</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">step</span> <span class="o">=</span> <span class="o">-</span><span class="n">step</span>
+                    <span class="k">if</span> <span class="n">slc</span><span class="o">.</span><span class="n">start</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="n">start</span> <span class="o">=</span> <span class="n">L</span> <span class="o">-</span> <span class="mi">1</span>
+                    <span class="k">if</span> <span class="n">slc</span><span class="o">.</span><span class="n">stop</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="n">start</span> <span class="o">=</span> <span class="n">L</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">start</span>
+                        <span class="n">stop</span> <span class="o">=</span> <span class="kc">None</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">start</span><span class="p">,</span> <span class="n">stop</span> <span class="o">=</span> <span class="n">L</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">start</span><span class="p">,</span> <span class="n">L</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">stop</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">start</span><span class="p">,</span> <span class="n">stop</span> <span class="o">=</span> <span class="n">L</span> <span class="o">-</span> <span class="n">stop</span><span class="p">,</span> <span class="n">L</span> <span class="o">-</span> <span class="n">start</span>
+                    <span class="n">start</span> <span class="o">+=</span> <span class="p">((</span><span class="n">stop</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span> <span class="o">%</span> <span class="n">step</span><span class="p">)</span>
+                    <span class="n">second_slc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">step</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">step</span> <span class="o">=</span> <span class="o">-</span><span class="n">step</span>
+                <span class="k">if</span> <span class="n">slc</span><span class="o">.</span><span class="n">start</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">start</span> <span class="o">=</span> <span class="n">L</span> <span class="o">-</span> <span class="mi">1</span>
+
+                <span class="k">if</span> <span class="n">slc</span><span class="o">.</span><span class="n">stop</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">start</span><span class="p">,</span> <span class="n">stop</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">start</span> <span class="o">+</span> <span class="mi">1</span>
+                    <span class="n">start</span> <span class="o">=</span> <span class="p">((</span><span class="n">stop</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span> <span class="o">%</span> <span class="n">step</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">start</span><span class="p">,</span> <span class="n">stop</span> <span class="o">=</span> <span class="n">stop</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">start</span> <span class="o">+</span> <span class="mi">1</span>
+                    <span class="n">start</span> <span class="o">+=</span> <span class="p">((</span><span class="n">stop</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span> <span class="o">%</span> <span class="n">step</span><span class="p">)</span>
+
+                <span class="n">second_slc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+            <span class="c1"># check that our slice is valid</span>
+            <span class="k">assert</span> <span class="n">start</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="p">(</span><span class="n">start</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">start</span> <span class="o">&lt;=</span> <span class="n">L</span><span class="p">),</span> \
+                <span class="s2">&quot;start (=</span><span class="si">{0}</span><span class="s2">) is outside range&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">start</span><span class="p">)</span>
+            <span class="k">assert</span> <span class="n">start</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="p">(</span><span class="n">start</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">start</span> <span class="o">&lt;=</span> <span class="n">L</span><span class="p">),</span> \
+                <span class="s2">&quot;start (=</span><span class="si">{0}</span><span class="s2">) is outside range&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">start</span><span class="p">)</span>
+            <span class="k">assert</span> <span class="n">start</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">stop</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">start</span> <span class="o">==</span> <span class="n">stop</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> \
+                <span class="n">start</span> <span class="o">&lt;</span> <span class="n">stop</span><span class="p">,</span> <span class="s2">&quot;bad slice ordering: </span><span class="si">{0}</span><span class="s2"> !&lt; </span><span class="si">{1}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">)</span>
+            <span class="k">assert</span> <span class="n">step</span> <span class="o">&gt;</span> <span class="mi">0</span>
+            <span class="n">slc</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">step</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">slc</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">integer</span><span class="p">)):</span>
+            <span class="n">second_slc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">if</span> <span class="n">rev</span><span class="p">:</span>
+                <span class="n">slc</span> <span class="o">=</span> <span class="p">(</span><span class="n">L</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">slc</span>
+
+        <span class="k">elif</span> <span class="n">slc</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">:</span>
+            <span class="n">second_slc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;NEWAXIS&quot;</span>
+
+        <span class="n">first_slc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">slc</span>
+
+    <span class="n">first_slc</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">first_slc</span> <span class="k">if</span> <span class="n">s</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">cull_second</span><span class="p">:</span>
+        <span class="n">second_slc</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">second_slc</span> <span class="k">if</span> <span class="n">s</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">]</span>
+    <span class="n">second_slc</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span> <span class="k">if</span> <span class="n">s</span> <span class="o">==</span> <span class="s2">&quot;NEWAXIS&quot;</span> <span class="k">else</span> <span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">second_slc</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">first_slc</span><span class="p">,</span> <span class="n">second_slc</span></div>
+
+<span class="k">def</span> <span class="nf">_resolve_float</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">epoch</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tdunit</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">):</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">_standardize_slcval</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">epoch</span><span class="o">=</span><span class="n">epoch</span><span class="p">,</span> <span class="n">tdunit</span><span class="o">=</span><span class="n">tdunit</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Can&#39;t slice with nothing&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">value</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;f&#39;</span><span class="p">:</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>  <span class="c1"># pylint: disable=redefined-variable-type</span>
+
+    <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="fm">__index__</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">ret</span>
+
+<span class="k">def</span> <span class="nf">_closest_index</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">epoch</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tdunit</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">):</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">_standardize_slcval</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">epoch</span><span class="o">=</span><span class="n">epoch</span><span class="p">,</span> <span class="n">tdunit</span><span class="o">=</span><span class="n">tdunit</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Can&#39;t slice with nothing&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">value</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;f&#39;</span><span class="p">:</span>
+            <span class="n">arr</span><span class="p">,</span> <span class="n">epoch</span> <span class="o">=</span> <span class="n">_arr2float</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">epoch</span><span class="o">=</span><span class="n">epoch</span><span class="p">,</span> <span class="n">tdunit</span><span class="o">=</span><span class="n">tdunit</span><span class="p">)</span>
+            <span class="n">index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">arr</span> <span class="o">-</span> <span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]))))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="fm">__index__</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">index</span>
+
+<span class="k">def</span> <span class="nf">extract_index</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">val_endpoint</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                  <span class="n">interior</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">epoch</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tdunit</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get integer indices for slice parts</span>
+
+<span class="sd">    If start, stop, or step are strings, they are either cast to</span>
+<span class="sd">    integers or used for a float lookup if they have a trailing &#39;f&#39;.</span>
+
+<span class="sd">    An example float lookup is::</span>
+<span class="sd">        &gt;&gt;&gt; [0.1, 0.2, 0.3, 0.4, 0.5, 0.6][&#39;0.2f:0.6f:2&#39;]</span>
+<span class="sd">        [0.2, 0.4, 0.6]</span>
+
+<span class="sd">    Normally (val_endpoint=True, interior=False), the rules for float</span>
+<span class="sd">    lookup val_endpoints are,</span>
+<span class="sd">        - The slice will never include an element whose value in arr</span>
+<span class="sd">          is &lt; start (or &gt; if the slice is backward)</span>
+<span class="sd">        - The slice will never include an element whose value in arr</span>
+<span class="sd">          is &gt; stop (or &lt; if the slice is backward)</span>
+<span class="sd">        - !! The slice WILL INCLUDE stop if you don&#39;t change</span>
+<span class="sd">          val_endpoint. This is different from normal slicing, but</span>
+<span class="sd">          it&#39;s more natural when specifying a slice as a float.</span>
+<span class="sd">          To this end, an epsilon tolerance can be given to</span>
+<span class="sd">          determine what&#39;s close enough.</span>
+<span class="sd">        - TODO: implement floating point steps, this is tricky</span>
+<span class="sd">          since arr need not be uniformly spaced, so step is</span>
+<span class="sd">          ambiguous in this case</span>
+
+<span class="sd">    If interior=True, then the slice is expanded such that start and</span>
+<span class="sd">    stop are interior to the sliced array.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        arr (ndarray): filled with floats to do the lookup</span>
+<span class="sd">        start (None, int, str): like slice().start</span>
+<span class="sd">        stop (None, int, str): like slice().stop</span>
+<span class="sd">        step (None, int): like slice().step</span>
+<span class="sd">        val_endpoint (bool): iff True then include stop in the slice when</span>
+<span class="sd">            slicing-by-value (DOES NOT EFFECT SLICE-BY-INDEX).</span>
+<span class="sd">            Set to False to get python slicing symantics when it</span>
+<span class="sd">            comes to excluding stop, but fair warning, python</span>
+<span class="sd">            symantics feel awkward here. Consider the case</span>
+<span class="sd">            [0.1, 0.2, 0.3][:0.25]. If you think this should include</span>
+<span class="sd">            0.2, then leave keep val_endpoint=True.</span>
+<span class="sd">        interior (bool): if True, then extend both ends of the slice</span>
+<span class="sd">            such that slice-by-value endpoints are interior to the</span>
+<span class="sd">            slice</span>
+<span class="sd">        epoch (datetime64-like): Epoch for to go datetime64 &lt;-&gt; float</span>
+<span class="sd">        tdunit (str): Presumed time unit for floats</span>
+<span class="sd">        tol (int): number of machine epsilons to consider</span>
+<span class="sd">            &quot;close enough&quot;</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        start, stop, step after floating point vals have been</span>
+<span class="sd">        converted to integers</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">arr</span><span class="p">,</span> <span class="n">epoch</span> <span class="o">=</span> <span class="n">_arr2float</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">epoch</span><span class="o">=</span><span class="n">epoch</span><span class="p">,</span> <span class="n">tdunit</span><span class="o">=</span><span class="n">tdunit</span><span class="p">)</span>
+
+    <span class="n">start</span> <span class="o">=</span> <span class="n">_standardize_slcval</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">epoch</span><span class="o">=</span><span class="n">epoch</span><span class="p">,</span> <span class="n">tdunit</span><span class="o">=</span><span class="n">tdunit</span><span class="p">)</span>
+    <span class="n">stop</span> <span class="o">=</span> <span class="n">_standardize_slcval</span><span class="p">(</span><span class="n">stop</span><span class="p">,</span> <span class="n">epoch</span><span class="o">=</span><span class="n">epoch</span><span class="p">,</span> <span class="n">tdunit</span><span class="o">=</span><span class="n">tdunit</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">interior</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">val_endpoint</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;For interior slices, val_endpoint must be True, I&#39;ll &quot;</span>
+                       <span class="s2">&quot;change that for you.&quot;</span><span class="p">)</span>
+        <span class="n">val_endpoint</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">epsilon</span> <span class="o">=</span> <span class="n">tol</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span><span class="o">.</span><span class="n">eps</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="c1"># array is probably of type numpy.int*</span>
+        <span class="n">epsilon</span> <span class="o">=</span> <span class="mf">0.01</span>
+
+    <span class="n">_step</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">step</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="nb">int</span><span class="p">(</span><span class="n">step</span><span class="p">)</span>
+    <span class="n">epsilon_step</span> <span class="o">=</span> <span class="n">epsilon</span> <span class="k">if</span> <span class="n">_step</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="o">-</span><span class="n">epsilon</span>
+
+    <span class="c1"># print(&quot;?!? |{0}|  |{1}|&quot;.format(start, stop))</span>
+
+    <span class="n">startstop</span> <span class="o">=</span> <span class="p">[</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">]</span>
+    <span class="n">eps_sign</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="c1"># if start or stop is not an int, try to make it one</span>
+    <span class="n">byval</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">startstop</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">_epsilon_step</span> <span class="o">=</span> <span class="n">epsilon_step</span>
+
+        <span class="c1"># s is a string if and only if it&#39;s slice by float value</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">string_types</span><span class="p">):</span>
+            <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span>  <span class="c1"># startstop[0] = None ???</span>
+            <span class="n">byval</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">s</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+            <span class="c1"># print(&quot;byval[&quot;, i, &quot;]&quot;, s, byval[i])</span>
+
+            <span class="k">if</span> <span class="n">_epsilon_step</span><span class="p">:</span>
+                <span class="n">diff</span> <span class="o">=</span> <span class="n">arr</span> <span class="o">-</span> <span class="n">byval</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">eps_sign</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">_epsilon_step</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">diff</span> <span class="o">=</span> <span class="n">arr</span> <span class="o">-</span> <span class="n">byval</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">zero</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">diff</span><span class="o">.</span><span class="n">dtype</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+            <span class="c1"># FIXME: there is far too much decision making here</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="c1"># start</span>
+                <span class="k">if</span> <span class="n">_step</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">diff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_less</span><span class="p">(</span><span class="n">diff</span><span class="p">,</span> <span class="n">zero</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">diff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_greater</span><span class="p">(</span><span class="n">diff</span><span class="p">,</span> <span class="n">zero</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">diff</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="c1"># start value is past the wrong end of the array</span>
+                    <span class="k">if</span> <span class="n">_step</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                        <span class="n">startstop</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="c1"># start = -len(arr) - 1</span>
+                        <span class="c1"># having a value &lt; -len(arr) won&#39;t play</span>
+                        <span class="c1"># nice with make_fwd_slice, but in this</span>
+                        <span class="c1"># case, the slice will have no data, so...</span>
+                        <span class="k">return</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">step</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">startstop</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">diff</span><span class="p">)))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># stop</span>
+                <span class="k">if</span> <span class="n">_step</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">diff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_greater</span><span class="p">(</span><span class="n">diff</span><span class="p">,</span> <span class="n">zero</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">diff</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                        <span class="c1"># stop value is past the wong end of the array</span>
+                        <span class="n">startstop</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">startstop</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">diff</span><span class="p">)))</span>
+                        <span class="k">if</span> <span class="n">val_endpoint</span><span class="p">:</span>
+                            <span class="n">startstop</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">diff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_less</span><span class="p">(</span><span class="n">diff</span><span class="p">,</span> <span class="n">zero</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">diff</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                        <span class="c1"># stop value is past the wrong end of the array</span>
+                        <span class="n">startstop</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">startstop</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">diff</span><span class="p">)))</span>
+                        <span class="k">if</span> <span class="n">val_endpoint</span><span class="p">:</span>
+                            <span class="k">if</span> <span class="n">startstop</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                                <span class="n">startstop</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span>
+                            <span class="k">else</span><span class="p">:</span>
+                                <span class="c1"># 0 - 1 == -1 which would wrap to the end of</span>
+                                <span class="c1"># of the array... instead, just make it None</span>
+                                <span class="n">startstop</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="c1"># print(&quot;startstop[&quot;, i, &quot;]&quot;, startstop[i])</span>
+
+    <span class="c1"># turn start, stop, step into indices</span>
+    <span class="n">start</span><span class="p">,</span> <span class="n">stop</span> <span class="o">=</span> <span class="n">startstop</span>
+    <span class="n">sss</span> <span class="o">=</span> <span class="p">[</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">step</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sss</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">s</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">string_types</span><span class="p">):</span>
+            <span class="n">sss</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">sss</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="fm">__index__</span><span class="p">()</span>
+
+    <span class="c1"># start stop and step are now all integers... yay</span>
+    <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">step</span> <span class="o">=</span> <span class="n">sss</span>
+    <span class="k">if</span> <span class="n">interior</span><span class="p">:</span>
+        <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">step</span> <span class="o">=</span> <span class="n">_interiorize_slice</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">byval</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">byval</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                                               <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">step</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">step</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">_expand_newaxis</span><span class="p">(</span><span class="n">arrs</span><span class="p">,</span> <span class="n">slices</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">sl</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">slices</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">sl</span> <span class="ow">in</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="s2">&quot;None&quot;</span><span class="p">,</span> <span class="s2">&quot;newaxis&quot;</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">arrs</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">slices</span><span class="p">):</span>
+                <span class="n">arrs</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="n">slices</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span>
+    <span class="k">return</span> <span class="n">arrs</span><span class="p">,</span> <span class="n">slices</span>
+
+<span class="k">def</span> <span class="nf">_prepare_selections</span><span class="p">(</span><span class="n">arrs</span><span class="p">,</span> <span class="n">selections</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;make arrs and selections something that can be zipped together&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">selections</span><span class="p">,</span> <span class="n">string_types</span><span class="p">):</span>
+        <span class="n">selections</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">selections</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+        <span class="n">selections</span> <span class="o">=</span> <span class="n">selections</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">selections</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;To wrap a single slice use vutil.to_slice(...)&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">arrs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">arrs</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">selections</span><span class="p">)</span>
+
+    <span class="n">arrs</span><span class="p">,</span> <span class="n">selections</span> <span class="o">=</span> <span class="n">_expand_newaxis</span><span class="p">(</span><span class="n">arrs</span><span class="p">,</span> <span class="n">selections</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">arrs</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">selections</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;len(arrs) must == len(slices):: </span><span class="si">{0}</span><span class="s2"> </span><span class="si">{1}</span><span class="s2">&quot;</span>
+                           <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">arrs</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">selections</span><span class="p">)))</span>
+
+    <span class="k">return</span> <span class="n">arrs</span><span class="p">,</span> <span class="n">selections</span>
+
+<span class="k">def</span> <span class="nf">_standardize_selection</span><span class="p">(</span><span class="n">selection</span><span class="p">):</span>
+    <span class="n">std_selection</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">is_slice_list</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">selection</span><span class="p">,</span> <span class="n">string_types</span><span class="p">):</span>
+        <span class="n">selection</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">selection</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+        <span class="n">selection</span> <span class="o">=</span> <span class="n">parse_time_slice_str</span><span class="p">(</span><span class="n">selection</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">selection</span><span class="p">,</span> <span class="s2">&quot;__index__&quot;</span><span class="p">):</span>
+        <span class="n">std_selection</span> <span class="o">=</span> <span class="n">selection</span>
+        <span class="n">is_slice_list</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">elif</span> <span class="n">selection</span> <span class="ow">in</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="s2">&quot;newaxis&quot;</span><span class="p">,</span> <span class="s2">&quot;None&quot;</span><span class="p">,</span> <span class="s2">&quot;none&quot;</span><span class="p">]:</span>
+        <span class="n">std_selection</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">is_slice_list</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">is_slice_list</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">selection</span><span class="p">,</span> <span class="nb">slice</span><span class="p">):</span>
+            <span class="n">std_selection</span> <span class="o">=</span> <span class="p">[</span><span class="n">selection</span><span class="o">.</span><span class="n">start</span><span class="p">,</span> <span class="n">selection</span><span class="o">.</span><span class="n">stop</span><span class="p">,</span> <span class="n">selection</span><span class="o">.</span><span class="n">step</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">selection</span><span class="p">,</span> <span class="n">string_types</span><span class="p">):</span>
+            <span class="c1"># kill whitespace</span>
+            <span class="n">std_selection</span> <span class="o">=</span> <span class="p">[</span><span class="n">v</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">selection</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">selection</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">selection</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">selection</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+                    <span class="n">selection</span> <span class="o">=</span> <span class="p">[</span><span class="n">selection</span><span class="p">]</span>
+            <span class="n">std_selection</span> <span class="o">=</span> <span class="n">selection</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">std_selection</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;slices can have at most start, stop, step:&quot;</span>
+                             <span class="s2">&quot;</span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">selection</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">std_selection</span><span class="p">,</span> <span class="n">is_slice_list</span>
+
+<div class="viewcode-block" id="to_slices"><a class="viewcode-back" href="../../api/viscid.sliceutil.html#viscid.to_slices">[docs]</a><span class="k">def</span> <span class="nf">to_slices</span><span class="p">(</span><span class="n">arrs</span><span class="p">,</span> <span class="n">selections</span><span class="p">,</span> <span class="n">val_endpoint</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">interior</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">epoch</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+              <span class="n">tdunit</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Wraps :py:func:`to_slice` for multiple arrays / slices</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        arrs (list, None): list of arrays for float lookups, must be</span>
+<span class="sd">            the same length as s.split(&#39;,&#39;). If all slices are by</span>
+<span class="sd">            index, then `arrs` can be `None`.</span>
+<span class="sd">        selections (list, str): list of things that :py:func:`to_slice`</span>
+<span class="sd">            understands, or a comma separated string of slices</span>
+<span class="sd">        val_endpoint (bool): passed to :py:func:`extract_index` if needed</span>
+<span class="sd">        interior (bool): passed to :py:func:`extract_index` if needed</span>
+<span class="sd">        epoch (datetime64-like): Epoch for to go datetime64 &lt;-&gt; float</span>
+<span class="sd">        tdunit (str): Presumed time unit for floats</span>
+<span class="sd">        tol (int): passed to :py:func:`extract_index` if needed</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        tuple of slice objects</span>
+
+<span class="sd">    See Also:</span>
+<span class="sd">        * :py:func:`to_slice`</span>
+<span class="sd">        * :py:func:`extract_index`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">arrs</span><span class="p">,</span> <span class="n">selections</span> <span class="o">=</span> <span class="n">_prepare_selections</span><span class="p">(</span><span class="n">arrs</span><span class="p">,</span> <span class="n">selections</span><span class="p">)</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">arr</span><span class="p">,</span> <span class="n">slc</span> <span class="ow">in</span> <span class="n">izip</span><span class="p">(</span><span class="n">arrs</span><span class="p">,</span> <span class="n">selections</span><span class="p">):</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">to_slice</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">slc</span><span class="p">,</span> <span class="n">val_endpoint</span><span class="o">=</span><span class="n">val_endpoint</span><span class="p">,</span> <span class="n">interior</span><span class="o">=</span><span class="n">interior</span><span class="p">,</span>
+                            <span class="n">epoch</span><span class="o">=</span><span class="n">epoch</span><span class="p">,</span> <span class="n">tdunit</span><span class="o">=</span><span class="n">tdunit</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="n">tol</span><span class="p">))</span>
+    <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="to_slice"><a class="viewcode-back" href="../../api/viscid.sliceutil.html#viscid.to_slice">[docs]</a><span class="k">def</span> <span class="nf">to_slice</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">selection</span><span class="p">,</span> <span class="n">val_endpoint</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">interior</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">epoch</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+             <span class="n">tdunit</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Convert anything describing a slice to a slice object</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        arr (array): Array that you&#39;re going to slice if you specify any</span>
+<span class="sd">            parts of the slice by value. If all slices are by index,</span>
+<span class="sd">            `arr` can be `None`.</span>
+<span class="sd">        selection (int, str, slice): Something that can be turned into</span>
+<span class="sd">            a slice. Ints are returned as-is. Slices and strings are</span>
+<span class="sd">            parsed to see if they contain indices, or values. Values</span>
+<span class="sd">            are strings that contain a number followed by an &#39;f&#39;. Refer</span>
+<span class="sd">            to :py:func:`extract_index` for the slice-by-value</span>
+<span class="sd">            semantics.</span>
+<span class="sd">        val_endpoint (bool): passed to :py:func:`extract_index` if needed</span>
+<span class="sd">        interior (bool): passed to :py:func:`extract_index` if needed</span>
+<span class="sd">        epoch (datetime64-like): Epoch for to go datetime64 &lt;-&gt; float</span>
+<span class="sd">        tdunit (str): Presumed time unit for floats</span>
+<span class="sd">        tol (int): passed to :py:func:`extract_index` if needed</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        slice object or int</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        ValueError: Description</span>
+
+<span class="sd">    See Also:</span>
+<span class="sd">        * :py:func:`extract_index`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">std_selection</span><span class="p">,</span> <span class="n">is_slice_list</span> <span class="o">=</span> <span class="n">_standardize_selection</span><span class="p">(</span><span class="n">selection</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">is_slice_list</span><span class="p">:</span>
+        <span class="n">slclst</span> <span class="o">=</span> <span class="n">std_selection</span>
+        <span class="k">if</span> <span class="n">arr</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">slclst</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="c1"># FIXME: i&#39;m not sure if this is guarded for cases where</span>
+                <span class="c1">#        slclst[0] is something like &#39;0.0&#39;</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">slclst</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">string_types</span><span class="p">)</span> <span class="ow">and</span> <span class="s1">&#39;.&#39;</span> <span class="ow">in</span> <span class="n">slclst</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+                    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Fell through a crack.&quot;</span><span class="p">)</span>
+                <span class="n">ret</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">slclst</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">ret</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="kc">None</span> <span class="k">if</span> <span class="n">a</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="nb">int</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">slclst</span><span class="p">])</span>
+        <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">slclst</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="n">_closest_index</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">slclst</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">epoch</span><span class="o">=</span><span class="n">epoch</span><span class="p">,</span> <span class="n">tdunit</span><span class="o">=</span><span class="n">tdunit</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># sss -&gt; start step step</span>
+            <span class="n">sss</span> <span class="o">=</span> <span class="n">extract_index</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="o">*</span><span class="n">slclst</span><span class="p">,</span> <span class="n">val_endpoint</span><span class="o">=</span><span class="n">val_endpoint</span><span class="p">,</span>
+                                <span class="n">interior</span><span class="o">=</span><span class="n">interior</span><span class="p">,</span> <span class="n">epoch</span><span class="o">=</span><span class="n">epoch</span><span class="p">,</span> <span class="n">tdunit</span><span class="o">=</span><span class="n">tdunit</span><span class="p">,</span>
+                                <span class="n">tol</span><span class="o">=</span><span class="n">tol</span><span class="p">)</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="o">*</span><span class="n">sss</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">std_selection</span>
+
+    <span class="k">return</span> <span class="n">ret</span></div>
+
+<span class="k">def</span> <span class="nf">_interiorize_slice</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">start_val</span><span class="p">,</span> <span class="n">stop_val</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">step</span><span class="p">,</span>
+                       <span class="n">verify</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Ensure start_val and stop_val interior to the sliced array</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        arr (sequence): sequence being sliced</span>
+<span class="sd">        start_val (None, float): Value used to find start index, or</span>
+<span class="sd">            None to not adjust start</span>
+<span class="sd">        stop_val (None, float): Value used to find stop index, or</span>
+<span class="sd">            None to net adjust stop</span>
+<span class="sd">        start (int): start of slice</span>
+<span class="sd">        stop (int): stop of slice</span>
+<span class="sd">        step (int): step of slice</span>
+<span class="sd">        verify (bool): verify that start_val and stop_val are interior</span>
+<span class="sd">            to the resulting sequence</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        (start, stop, step), adusted sliced start:stop:step indices</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">step</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">step</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">step</span>
+
+    <span class="k">if</span> <span class="n">start_val</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">start</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">start_slcval</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">start</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">step</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">start_slcval</span> <span class="o">&gt;</span> <span class="n">start_val</span><span class="p">:</span>
+            <span class="c1"># print(&quot;ADJUSTING start fwd&quot;)</span>
+            <span class="k">if</span> <span class="n">start</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">start</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">start</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">step</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">start_slcval</span> <span class="o">&lt;</span> <span class="n">start_val</span><span class="p">:</span>
+            <span class="c1"># print(&quot;ADJUSTING start rev&quot;)</span>
+            <span class="k">if</span> <span class="n">start</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="n">start</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">start</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">if</span> <span class="n">stop_val</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">stop</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">step</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">stop_slcval</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">stop</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">arr</span><span class="p">[</span><span class="n">stop</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">stop_slcval</span> <span class="o">&lt;</span> <span class="n">stop_val</span><span class="p">:</span>
+                <span class="c1"># print(&quot;ADJUSTING stop fwd&quot;)</span>
+                <span class="k">if</span> <span class="n">stop</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                    <span class="n">stop</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">stop</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">step</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">stop_slcval</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">stop</span> <span class="ow">in</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">))</span> <span class="k">else</span> <span class="n">arr</span><span class="p">[</span><span class="n">stop</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">stop_slcval</span> <span class="o">&gt;</span> <span class="n">stop_val</span><span class="p">:</span>
+                <span class="c1"># print(&quot;ADJUSTING stop rev&quot;)</span>
+                <span class="k">if</span> <span class="n">stop</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">stop</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">stop</span> <span class="o">-=</span> <span class="mi">1</span>
+
+    <span class="c1"># for debug, check that interior does what it says</span>
+    <span class="k">if</span> <span class="n">verify</span><span class="p">:</span>
+        <span class="n">subarr</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">stop</span><span class="p">:</span><span class="n">step</span><span class="p">]</span>
+        <span class="n">ends</span> <span class="o">=</span> <span class="p">[</span><span class="n">v</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">([</span><span class="n">subarr</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">subarr</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]])]</span>
+        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="p">[</span><span class="n">start_val</span><span class="p">,</span> <span class="n">stop_val</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="n">v</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">v</span> <span class="o">&lt;</span> <span class="n">ends</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">or</span> <span class="n">v</span> <span class="o">&gt;</span> <span class="n">ends</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+                    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Logic issue in interiorize, &quot;</span>
+                                       <span class="s2">&quot;v: </span><span class="si">{0}</span><span class="s2"> ends: </span><span class="si">{1}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">ends</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">step</span>
+
+<div class="viewcode-block" id="make_slice_inclusive"><a class="viewcode-back" href="../../api/viscid.sliceutil.html#viscid.make_slice_inclusive">[docs]</a><span class="k">def</span> <span class="nf">make_slice_inclusive</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Extend the end of a slice by 1 element</span>
+
+<span class="sd">    Chances are you don&#39;t want to use this function.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        start (int, None): same as a slice.start</span>
+<span class="sd">        stop (int, None): same as a slice.stop</span>
+<span class="sd">        step (int, None): same as a slice.step</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        (start, stop, step) To be given to slice()</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">stop</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">step</span>
+
+    <span class="k">if</span> <span class="n">step</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">step</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">stop</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="n">stop</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">stop</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">stop</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">stop</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">stop</span> <span class="o">-=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">step</span></div>
+
+<div class="viewcode-block" id="selections2values"><a class="viewcode-back" href="../../api/viscid.sliceutil.html#viscid.selections2values">[docs]</a><span class="k">def</span> <span class="nf">selections2values</span><span class="p">(</span><span class="n">arrs</span><span class="p">,</span> <span class="n">selections</span><span class="p">,</span> <span class="n">nr_dims</span><span class="p">,</span> <span class="n">epoch</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tdunit</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;find the extrema values for a given selection</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        arrs (None, sequence): array that is being selected, if this is</span>
+<span class="sd">            None, then the output will contain np.nan where it can not</span>
+<span class="sd">            infer values.</span>
+<span class="sd">        selections (slice, str): selections that could be given to</span>
+<span class="sd">            :py:func:`to_slices`</span>
+<span class="sd">        nr_dims (int): arrs and selections are expanded to this length</span>
+<span class="sd">        epoch (datetime64-like): Epoch for to go datetime64 &lt;-&gt; float</span>
+<span class="sd">        tdunit (str): Presumed time unit for floats</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        ndarray with shape (nr_dims, 2) of extents as floats</span>
+
+<span class="sd">        - If arr is None and start/stop are None, then they will become</span>
+<span class="sd">          +/- inf depending on the sign of step.</span>
+<span class="sd">        - If arr is None and start/stop are slice-by-index, they will</span>
+<span class="sd">          become NaN.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">arrs</span><span class="p">,</span> <span class="n">selections</span> <span class="o">=</span> <span class="n">_prepare_selections</span><span class="p">(</span><span class="n">arrs</span><span class="p">,</span> <span class="n">selections</span><span class="p">)</span>
+    <span class="n">n_new</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">nr_dims</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">arrs</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">arrs</span> <span class="o">+=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">n_new</span>
+    <span class="n">selections</span> <span class="o">+=</span> <span class="p">[</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">)]</span> <span class="o">*</span> <span class="n">n_new</span>
+
+    <span class="n">ret</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">arr</span><span class="p">,</span> <span class="n">sel</span> <span class="ow">in</span> <span class="n">izip</span><span class="p">(</span><span class="n">arrs</span><span class="p">,</span> <span class="n">selections</span><span class="p">):</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">selection2values</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">sel</span><span class="p">,</span> <span class="n">epoch</span><span class="o">=</span><span class="n">epoch</span><span class="p">,</span> <span class="n">tdunit</span><span class="o">=</span><span class="n">tdunit</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="selection2values"><a class="viewcode-back" href="../../api/viscid.sliceutil.html#viscid.selection2values">[docs]</a><span class="k">def</span> <span class="nf">selection2values</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">selection</span><span class="p">,</span> <span class="n">epoch</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tdunit</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;find the extrema values for a given selection</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        arr (None, sequence): array that is being selected, if this is</span>
+<span class="sd">            None, then the output will contain np.nan where it can not</span>
+<span class="sd">            infer values.</span>
+<span class="sd">        selection (slice, str): a single selection that could be given</span>
+<span class="sd">            to :py:func:`to_slice`</span>
+<span class="sd">        epoch (datetime64-like): Epoch for to go datetime64 &lt;-&gt; float</span>
+<span class="sd">        tdunit (str): Presumed time unit for floats</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        (start_val, stop_val) as floats</span>
+
+<span class="sd">        - If arr is None and start/stop are None, then they will become</span>
+<span class="sd">          +/- inf depending on the sign of step.</span>
+<span class="sd">        - If arr is None and start/stop are slice-by-index, they will</span>
+<span class="sd">          become NaN.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">std_selection</span><span class="p">,</span> <span class="n">is_slice_list</span> <span class="o">=</span> <span class="n">_standardize_selection</span><span class="p">(</span><span class="n">selection</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">is_slice_list</span><span class="p">:</span>
+        <span class="n">slclst</span> <span class="o">=</span> <span class="n">std_selection</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">slclst</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="c1"># FIXME: i&#39;m not sure if this is guarded for cases where</span>
+            <span class="c1">#        slclst[0] is something like &#39;0.0&#39;, but i think it&#39;s ok</span>
+            <span class="c1">#        since this goes through slice2values, which does guard this</span>
+            <span class="n">slclst</span> <span class="o">+=</span> <span class="p">[</span><span class="n">slclst</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">slice2values</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">slclst</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">slclst</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">slclst</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">epoch</span><span class="o">=</span><span class="n">epoch</span><span class="p">,</span>
+                           <span class="n">tdunit</span><span class="o">=</span><span class="n">tdunit</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">std_selection</span><span class="p">,</span> <span class="s2">&quot;__index__&quot;</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">arr</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">ret</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">ret</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">([</span><span class="n">arr</span><span class="p">[</span><span class="n">std_selection</span><span class="p">]]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">std_selection</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Not sure how we got here&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">ret</span></div>
+
+<div class="viewcode-block" id="slice2values"><a class="viewcode-back" href="../../api/viscid.sliceutil.html#viscid.slice2values">[docs]</a><span class="k">def</span> <span class="nf">slice2values</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">epoch</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tdunit</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Find the values that correspond with start and stop</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        (start_val, stop_val) as floats</span>
+
+<span class="sd">        - If arr is None and start/stop are None, then they will become</span>
+<span class="sd">          +/- inf depending on the sign of step.</span>
+<span class="sd">        - If arr is None and start/stop are slice-by-index, they will</span>
+<span class="sd">          become NaN.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">step</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">step</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">step</span>
+    <span class="k">if</span> <span class="n">arr</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">arr_flt</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">arr_extents</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">arr_flt</span><span class="p">,</span> <span class="n">epoch</span> <span class="o">=</span> <span class="n">_arr2float</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">epoch</span><span class="o">=</span><span class="n">epoch</span><span class="p">,</span> <span class="n">tdunit</span><span class="o">=</span><span class="n">tdunit</span><span class="p">)</span>
+        <span class="n">arr_extents</span> <span class="o">=</span> <span class="p">[</span><span class="n">arr_flt</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">arr_flt</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
+
+    <span class="k">if</span> <span class="n">step</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">arr_extents</span> <span class="o">=</span> <span class="n">arr_extents</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="n">start</span> <span class="o">=</span> <span class="n">_standardize_slcval</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">epoch</span><span class="o">=</span><span class="n">epoch</span><span class="p">,</span> <span class="n">tdunit</span><span class="o">=</span><span class="n">tdunit</span><span class="p">)</span>
+    <span class="n">stop</span> <span class="o">=</span> <span class="n">_standardize_slcval</span><span class="p">(</span><span class="n">stop</span><span class="p">,</span> <span class="n">epoch</span><span class="o">=</span><span class="n">epoch</span><span class="p">,</span> <span class="n">tdunit</span><span class="o">=</span><span class="n">tdunit</span><span class="p">)</span>
+
+    <span class="c1"># start/stop are strings if and only if they are slice by float value</span>
+    <span class="n">ss</span> <span class="o">=</span> <span class="p">[</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ss</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">string_types</span><span class="p">):</span>
+            <span class="n">ss</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">s</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">elif</span> <span class="n">s</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">ss</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr_extents</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="s1">&#39;__index__&#39;</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">arr_flt</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">ss</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">ss</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr_flt</span><span class="p">[</span><span class="n">ss</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Not sure what to do with </span><span class="si">{0}</span><span class="s2"> [type = </span><span class="si">{1}</span><span class="s2">]&quot;</span>
+                            <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">s</span><span class="p">)))</span>
+    <span class="n">start</span><span class="p">,</span> <span class="n">stop</span> <span class="o">=</span> <span class="n">ss</span>
+    <span class="k">return</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span></div>
+
+<span class="c1">##</span>
+<span class="c1">## EOF</span>
+<span class="c1">##</span>
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+      
+    </p>
+    <p>
+        &copy; Copyright 2017, Kristofor Maynard.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

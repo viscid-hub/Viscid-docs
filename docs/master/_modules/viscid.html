@@ -1,0 +1,437 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>viscid &#8212; Viscid 0.99.6 documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+<link rel="icon" href="../_static/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../_static/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon-precomposed" href="../_static/Vicon_128.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Viscid</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.99.6</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+    <li class="dropdown">
+      <a role="button"
+         id="dLabelNavLinxToc"
+         data-toggle="dropdown"
+         data-target="#"
+         href="#">Tutorial <b class="caret"></b></a>
+      <ul class="dropdown-menu navlinktoc"
+          role="menu">
+          <li class="toctree-l1">
+            <a class="reference internal", href="../installation.html">Installation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/creating_fields.html">Creating Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/slicing.html">Slicing Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/plotting_scalars.html">Plotting Scalars</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/plotting_vectors.html">Plotting Vectors</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/mayavi.html">3D Plots (Mayavi)</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/openggcm.html">OpenGGCM Specific</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/ionosphere.html">Ionosphere</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/stream_and_interp.html">Streamline and Interpolation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/magnetic_topology.html">Magnetic Topology</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/magnetopause.html">Magnetopause</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/quasi_potential.html">Quasi Potential</a>
+          </li>
+      </ul>
+    </li>
+
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../changes.html">ChangeLog</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../philosophy.html">Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tips_and_tricks.html">Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functions.html">Useful Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plot_options.html">Plot Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mpl_style_gallery.html">Matplotlib Style Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom_behavior.html">Custom Behavior (rc file)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev_guide.html">Developer’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extending_readers.html">Extending Readers</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/viscid.html">API</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"></ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <h1>Source code for viscid</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;A set of python modules that aid in plotting scientific data</span>
+
+<span class="sd">Plotting depends on matplotlib and/or mayavi and file reading uses h5py</span>
+<span class="sd">and to read hdf5 / xdmf files.</span>
+
+<span class="sd">Note:</span>
+<span class="sd">    Modules in calculator and plot must be imported explicitly since</span>
+<span class="sd">    they have side effects on import.</span>
+
+<span class="sd">Attributes:</span>
+<span class="sd">    logger (logging.Logger): a logging object whose verbosity can be</span>
+<span class="sd">        set from the command line using</span>
+<span class="sd">        :py:func`viscid.vutil.common_argparse`.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">print_function</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">signal</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">textwrap</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+<span class="kn">from</span> <span class="nn">viscid</span> <span class="k">import</span> <span class="n">_rc</span>
+<span class="kn">from</span> <span class="nn">viscid.compat.vimportlib</span> <span class="k">import</span> <span class="n">import_module</span>
+
+
+<span class="n">__version__</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;0.99.6&quot;&quot;&quot;</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;amr_field&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;amr_grid&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;bucket&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;coordinate&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;cotr&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;dataset&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;dipole&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;extools&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;field&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;fluidtrace&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;grid&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;mapfield&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;multiplot&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;npdatetime&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;parallel&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;pyeval&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;seed&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;sliceutil&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;tree&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;verror&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;vjson&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;vutil&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;calculator&#39;</span><span class="p">,</span>  <span class="c1"># packages</span>
+           <span class="s1">&#39;compat&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;cython&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;plot&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;readers&#39;</span><span class="p">,</span>
+          <span class="p">]</span>
+
+
+<span class="c1">#########################################</span>
+<span class="c1"># setup logger for use throughout viscid</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;viscid&quot;</span><span class="p">)</span>
+<span class="n">_handler</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">()</span>
+<span class="n">_handler</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span><span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%(levelname)s</span><span class="s2">: </span><span class="si">%(message)s</span><span class="s2">&quot;</span><span class="p">))</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">_handler</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">_CustomFilter</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">Filter</span><span class="p">,</span> <span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">filter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">record</span><span class="p">):</span>
+        <span class="k">if</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">record</span><span class="o">.</span><span class="n">msg</span><span class="p">:</span>
+            <span class="n">record</span><span class="o">.</span><span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">textwrap</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">record</span><span class="o">.</span><span class="n">msg</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">65</span><span class="p">))</span>
+        <span class="n">spaces</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span> <span class="o">*</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">record</span><span class="o">.</span><span class="n">levelname</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">record</span><span class="o">.</span><span class="n">msg</span> <span class="o">=</span> <span class="n">record</span><span class="o">.</span><span class="n">msg</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">spaces</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">_CustomFilter</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>
+
+
+<span class="n">logger</span><span class="o">.</span><span class="n">addFilter</span><span class="p">(</span><span class="n">_CustomFilter</span><span class="p">())</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">propagate</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="k">del</span> <span class="n">_handler</span>
+
+
+<span class="c1">###################################################################</span>
+<span class="c1"># this is thunder-hacky, but it&#39;s a really simple way to import</span>
+<span class="c1"># everything in __all__ and also, if those module have an __all__,</span>
+<span class="c1"># then bring that stuff into this namespace too</span>
+<span class="k">def</span> <span class="nf">_on_injected_import_error</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">exception</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">quiet</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">exception</span><span class="p">))</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Viscid tried to import </span><span class="si">{0}</span><span class="s2">, but the import failed.</span><span class="se">\n</span><span class="s2">&quot;</span>
+                     <span class="s2">&quot;This module will not be available&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">import_injector</span><span class="p">(</span><span class="n">attr_list</span><span class="p">,</span> <span class="n">namespace</span><span class="p">,</span> <span class="n">package</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                    <span class="n">fatal</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;import list of modules and consume their __all__ attrs&quot;&quot;&quot;</span>
+    <span class="n">additional</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">attr_list</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">m</span> <span class="o">=</span> <span class="n">import_module</span><span class="p">(</span><span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="n">s</span><span class="p">,</span> <span class="n">package</span><span class="o">=</span><span class="n">package</span><span class="p">)</span>
+            <span class="n">namespace</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span>
+            <span class="c1"># print(&quot;&gt;&quot;, package, &quot;&gt;&quot;, s)</span>
+            <span class="c1"># print(&quot;&gt;&quot;, package, &quot;&gt;&quot;, s, &quot;::&quot;, getattr(m, &quot;__all__&quot;, None))</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="s2">&quot;__all__&quot;</span><span class="p">):</span>
+                <span class="n">all_subattrs</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="s2">&quot;__all__&quot;</span><span class="p">)</span>
+                <span class="n">additional</span> <span class="o">+=</span> <span class="n">all_subattrs</span>
+                <span class="k">for</span> <span class="n">sub</span> <span class="ow">in</span> <span class="n">all_subattrs</span><span class="p">:</span>
+                    <span class="c1"># print(&quot;    &quot;, sub, &quot;=&quot;, getattr(m, sub))</span>
+                    <span class="n">namespace</span><span class="p">[</span><span class="n">sub</span><span class="p">]</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">sub</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">s</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">namespace</span><span class="p">:</span>
+                <span class="n">_on_injected_import_error</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="n">quiet</span><span class="p">)</span>
+                <span class="n">attr_list</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">fatal</span><span class="p">:</span>
+                    <span class="k">raise</span>
+    <span class="n">attr_list</span> <span class="o">+=</span> <span class="n">additional</span>
+
+<span class="n">import_injector</span><span class="p">(</span><span class="n">__all__</span><span class="p">,</span> <span class="nb">globals</span><span class="p">(),</span> <span class="n">package</span><span class="o">=</span><span class="s2">&quot;viscid&quot;</span><span class="p">)</span>
+
+
+<span class="c1">##############################################################</span>
+<span class="c1"># now add some other random things into the __all__ namespace</span>
+<span class="n">__all__</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;logger&quot;</span><span class="p">)</span>
+
+<span class="c1"># set the sample_dir so that it always points to something useful</span>
+<span class="c1"># - for installed distribution</span>
+<span class="n">sample_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="s1">&#39;sample&#39;</span><span class="p">)</span>
+<span class="c1"># - for in-place distribution</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">sample_dir</span><span class="p">):</span>
+    <span class="n">sample_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="s1">&#39;..&#39;</span><span class="p">,</span> <span class="s1">&#39;sample&#39;</span><span class="p">)</span>
+    <span class="n">sample_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">sample_dir</span><span class="p">)</span>
+<span class="c1"># - is there a 3rd option? this shouldn&#39;t happen</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">sample_dir</span><span class="p">):</span>
+    <span class="n">sample_dir</span> <span class="o">=</span> <span class="s2">&quot;SAMPLE-DIR-NOT-FOUND&quot;</span>
+
+<span class="n">__all__</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;sample_dir&quot;</span><span class="p">)</span>
+
+<span class="c1"># now this is just too cute to pass up :)</span>
+<span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="c1"># hide setting to a unicode variable name in an exec b/c otherwise</span>
+    <span class="c1"># this file wouldn&#39;t parse in python2x</span>
+    <span class="n">exec</span><span class="p">(</span><span class="s2">&quot;π = numpy.pi&quot;</span><span class="p">)</span>  <span class="c1"># pylint: disable=exec-used</span>
+    <span class="n">__all__</span> <span class="o">+=</span> <span class="p">[</span><span class="s2">&quot;π&quot;</span><span class="p">]</span>
+
+<span class="c1"># apply settings in the rc file</span>
+<span class="n">_rc</span><span class="o">.</span><span class="n">load_rc_file</span><span class="p">(</span><span class="s2">&quot;~/.viscidrc&quot;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="check_version"><a class="viewcode-back" href="../api/viscid.html#viscid.check_version">[docs]</a><span class="k">def</span> <span class="nf">check_version</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Check status of viscid and associated libraries and modules&quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Viscid located at:&quot;</span><span class="p">,</span> <span class="vm">__file__</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Viscid version:&quot;</span><span class="p">,</span> <span class="n">__version__</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">import</span> <span class="nn">matplotlib</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Matplotlib version:&quot;</span><span class="p">,</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Matplotlib not installed&quot;</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">import</span> <span class="nn">mayavi</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mayavi version:&quot;</span><span class="p">,</span> <span class="n">mayavi</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="kn">import</span> <span class="nn">vtk</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;VTK version:&quot;</span><span class="p">,</span> <span class="n">vtk</span><span class="o">.</span><span class="n">VTK_VERSION</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;VTK python module not installed&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mayavi not installed&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">print_err</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;file&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">cyfield</span><span class="p">,</span> <span class="n">cython</span><span class="o">.</span><span class="n">_dummy</span><span class="p">):</span>
+        <span class="n">print_err</span><span class="p">(</span><span class="s2">&quot;WARNING: cython modules (interpolation and streamlines) are not&quot;</span><span class="p">)</span>
+        <span class="n">print_err</span><span class="p">(</span><span class="s2">&quot;         available. To use these functions, please ensure that you&quot;</span><span class="p">)</span>
+        <span class="n">print_err</span><span class="p">(</span><span class="s2">&quot;         have a C compiler compatable with your version of&quot;</span><span class="p">)</span>
+        <span class="n">print_err</span><span class="p">(</span><span class="s2">&quot;         Python / Numpy and reinstall (or rebulid) Viscid.&quot;</span><span class="p">)</span>
+        <span class="n">print_err</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cython modules are compiled.&quot;</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">viscid.readers</span> <span class="k">import</span> <span class="n">_jrrle</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fortran modules are compiled.&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+        <span class="n">print_err</span><span class="p">(</span><span class="s2">&quot;WARNING: jrrle reader is not available. If you need this&quot;</span><span class="p">)</span>
+        <span class="n">print_err</span><span class="p">(</span><span class="s2">&quot;         functionality, please ensure that you have a working&quot;</span><span class="p">)</span>
+        <span class="n">print_err</span><span class="p">(</span><span class="s2">&quot;         fortran compiler and reinstall (or rebulid) Viscid.&quot;</span><span class="p">)</span>
+        <span class="n">print_err</span><span class="p">()</span></div>
+
+
+<span class="n">__all__</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;check_version&quot;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="check"><a class="viewcode-back" href="../api/viscid.html#viscid.check">[docs]</a><span class="k">def</span> <span class="nf">check</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Runtime check compiled modules&quot;&quot;&quot;</span>
+    <span class="kn">import</span> <span class="nn">os</span>
+    <span class="kn">import</span> <span class="nn">sys</span>
+
+    <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+    <span class="kn">import</span> <span class="nn">viscid</span>
+
+    <span class="n">ret</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="n">check_version</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">()</span>
+
+    <span class="c1">#####################################################</span>
+    <span class="c1"># run streamline calculation (checks cython modules)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">cotr</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">Cotr</span><span class="p">(</span><span class="n">dip_tilt</span><span class="o">=</span><span class="mf">15.0</span><span class="p">,</span> <span class="n">dip_gsm</span><span class="o">=</span><span class="mf">21.0</span><span class="p">)</span>  <span class="c1"># pylint: disable=not-callable</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">cotr</span><span class="o">.</span><span class="n">get_dipole_moment</span><span class="p">(</span><span class="n">crd_system</span><span class="o">=</span><span class="s1">&#39;gse&#39;</span><span class="p">)</span>
+        <span class="n">seeds</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">seed</span><span class="o">.</span><span class="n">Sphere</span><span class="p">((</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="mf">2.0</span><span class="p">,</span> <span class="n">pole</span><span class="o">=-</span><span class="n">m</span><span class="p">,</span> <span class="n">ntheta</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
+                                   <span class="n">nphi</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">thetalim</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">90</span><span class="p">),</span> <span class="n">philim</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">360</span><span class="p">),</span>
+                                   <span class="n">phi_endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">B</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">make_dipole</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="n">m</span><span class="p">,</span> <span class="n">crd_system</span><span class="o">=</span><span class="s1">&#39;gse&#39;</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">),</span>
+                               <span class="n">l</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">25</span><span class="p">,</span> <span class="o">-</span><span class="mi">25</span><span class="p">,</span> <span class="o">-</span><span class="mi">25</span><span class="p">),</span> <span class="n">h</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f8&#39;</span><span class="p">)</span>
+        <span class="n">lines</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">calc_streamlines</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">seeds</span><span class="p">,</span> <span class="n">ibound</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">line</span><span class="p">)):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;NaN in line&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cython module ran successfully&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cython module has runtime errors.&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+        <span class="n">ret</span> <span class="o">+=</span> <span class="mi">5</span>
+    <span class="nb">print</span><span class="p">()</span>
+
+    <span class="c1">####################################</span>
+    <span class="c1"># load a jrrle file (checks fortran)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">f3d</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">load_file</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">viscid</span><span class="o">.</span><span class="n">sample_dir</span><span class="p">,</span>
+                                            <span class="s1">&#39;sample_jrrle.3df.*&#39;</span><span class="p">))</span>
+        <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">f3d</span><span class="p">[</span><span class="s1">&#39;pp&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fortran module ran successfully&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fortran module has runtime errors.&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">ret</span></div>
+
+<span class="n">__all__</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;check&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="s1">&#39;SIGINFO&#39;</span><span class="p">):</span>
+    <span class="c1"># this is useful for debugging, ie, immediately do a pdb.set_trace()</span>
+    <span class="c1"># on the SIGINFO signal</span>
+    <span class="k">def</span> <span class="nf">_set_trace</span><span class="p">(</span><span class="n">seg</span><span class="p">,</span> <span class="n">frame</span><span class="p">):</span>  <span class="c1"># pylint: disable=unused-argument</span>
+        <span class="kn">import</span> <span class="nn">pdb</span>
+        <span class="n">pdb</span><span class="o">.</span><span class="n">set_trace</span><span class="p">()</span>
+    <span class="n">signal</span><span class="o">.</span><span class="n">signal</span><span class="p">(</span><span class="n">signal</span><span class="o">.</span><span class="n">SIGINFO</span><span class="p">,</span> <span class="n">_set_trace</span><span class="p">)</span>
+    <span class="c1"># print(&quot;Trigger pdb with SIGINFO (ctrl + T)&quot;)</span>
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+      
+    </p>
+    <p>
+        &copy; Copyright 2017, Kristofor Maynard.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

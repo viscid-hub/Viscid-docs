@@ -1,0 +1,396 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>viscid.cython.streamline module &#8212; Viscid 0.99.7.dev0 documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="viscid.cython.null_tools module" href="viscid.cython.null_tools.html" />
+    <link rel="prev" title="viscid.cython.integrate module" href="viscid.cython.integrate.html" />
+<link rel="icon" href="../_static/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../_static/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon-precomposed" href="../_static/Vicon_128.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Viscid</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.99.7.dev0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+    <li class="dropdown">
+      <a role="button"
+         id="dLabelNavLinxToc"
+         data-toggle="dropdown"
+         data-target="#"
+         href="#">Tutorial <b class="caret"></b></a>
+      <ul class="dropdown-menu navlinktoc"
+          role="menu">
+          <li class="toctree-l1">
+            <a class="reference internal", href="../installation.html">Installation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/creating_fields.html">Creating Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/slicing.html">Slicing Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/plotting_scalars.html">Plotting Scalars</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/plotting_vectors.html">Plotting Vectors</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/mayavi.html">3D Plots (Mayavi)</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/openggcm.html">OpenGGCM Specific</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/ionosphere.html">Ionosphere</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/stream_and_interp.html">Streamline and Interpolation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/magnetic_topology.html">Magnetic Topology</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/magnetopause.html">Magnetopause</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/quasi_potential.html">Quasi Potential</a>
+          </li>
+      </ul>
+    </li>
+
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../changes.html">ChangeLog</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../philosophy.html">Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tips_and_tricks.html">Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functions.html">Useful Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plot_options.html">Plot Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mpl_style_gallery.html">Matplotlib Style Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom_behavior.html">Custom Behavior (rc file)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev_guide.html">Developer’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extending_readers.html">Extending Readers</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="viscid.html">API</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">viscid.cython.streamline module</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="module-viscid.cython.streamline">
+<span id="viscid-cython-streamline-module"></span><h1>viscid.cython.streamline module<a class="headerlink" href="#module-viscid.cython.streamline" title="Permalink to this headline">¶</a></h1>
+<p>All streamlines all the time</p>
+<p>Calculate streamlines of a vector field on as many processors as your
+heart desires. The only function you need here is <a class="reference internal" href="#viscid.cython.streamline.streamlines" title="viscid.cython.streamline.streamlines"><code class="xref py py-meth docutils literal notranslate"><span class="pre">streamlines()</span></code></a>;
+everything else is for fused types (templates) or other cython
+performance considerations.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">When nr_procs &gt; 1, fields are shared to child processes using
+a global variable so that on *nix there is no need to picklel and
+copy the entire field. This will only work on *nix, and I have
+absolutely no idea what will happen on Windows.</p>
+</div>
+<dl class="function">
+<dt id="viscid.cython.streamline.calc_streamlines">
+<code class="descclassname">viscid.cython.streamline.</code><code class="descname">calc_streamlines</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#viscid.cython.streamline.calc_streamlines" title="Permalink to this definition">¶</a></dt>
+<dd><p>Trace streamlines</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">For streamlines that reach max_length or max_t, the line
+segments at the ends will be trimmed. This may be confusing
+when using a non-adaptive integrator (ds will be different
+for the 1st and last segments). Bear this in mind when doing
+math on the result.</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>vfield</strong> – A VectorField with 3 components,  If this field is not
+3D, then vfield.atleast_3d() is called</li>
+<li><strong>seed</strong> – can be a Seeds instance or a Coordinates instance, or
+anything that exposes an iter_points method</li>
+<li><strong>nr_procs</strong> – how many processes for streamlines (&gt;1 only works on
+*nix systems)</li>
+<li><strong>force_subprocess</strong> (<em>bool</em>) – always calc streamlines in a separate
+process, even if nr_procs == 1</li>
+<li><strong>chunk_factor</strong> (<em>int</em>) – Valid range is [1, nr_seeds // nr_procs]. 1
+indicates a single chunk per process; use this for
+perfectly balanced streamlines. nr_seeds // nr_procs
+indicates one chunk per seed; this solves load balancing,
+but the overhead of assembling results makes this
+undesirable. Start with 1 and bump this up if load
+balancing is still an issue.</li>
+<li><strong>wrap</strong> (<em>bool</em>) – if true, then call seed.wrap_field on topology</li>
+<li><strong>**kwargs</strong> – more arguments for streamlines</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><ul class="first simple">
+<li><strong>ds0</strong> (<em>float</em>) – initial spatial step for streamlines (if 0.0, it
+will be ds0_frac * the minimum d[xyz])</li>
+<li><strong>ds0_frac</strong> (<em>float</em>) – If an absolute spatial step <cite>ds0</cite> is
+not given, then it will be set to <cite>ds0_frac * min_dx</cite>
+where <cite>min_dx</cite> is the smallest dimenstion of the smallest
+grid cell of the <cite>vfield</cite>. Defaults to 0.5.</li>
+<li><strong>ibound</strong> (<em>float</em>) – Inner boundary as distance from (0, 0, 0)</li>
+<li><strong>obound0</strong> (<em>array-like</em>) – lower corner of outer boundary (x, y, z)</li>
+<li><strong>obound1</strong> (<em>array-like</em>) – upper corner of outer boundary (x, y, z)</li>
+<li><strong>obound_r</strong> (<em>float</em>) – Outer boundary as distance from (0, 0, 0)</li>
+<li><strong>maxit</strong> (<em>int</em>) – maximum number of line segments</li>
+<li><strong>max_length</strong> (<em>float</em>) – maximum streamline length (int ds)</li>
+<li><strong>max_t</strong> (<em>float</em>) – max value for t (int ds / v). I.e., stop a
+streamline after a fluid element travels dt along a
+streamline. This has no obvious use for mag field lines.</li>
+<li><strong>stream_dir</strong> (<em>int</em>) – one of DIR_FORWARD, DIR_BACKWARD, DIR_BOTH</li>
+<li><strong>output</strong> (<em>int</em>) – which output to provide, one of
+OUTPUT_STREAMLINE, OUTPUT_TOPOLOGY, or OUTPUT_BOTH</li>
+<li><strong>method</strong> (<em>int</em>) – integrator, one of EULER1, RK2, RK4,
+EULER1a (adaptive), RK12 (adaptive, midpoint),
+RK45 (adaptive, Fehlberg). Note that sometimes RK45
+is faster than lower order adaptive methods since it
+can take much larger step sizes</li>
+<li><strong>max_error</strong> (<em>float</em>) – max allowed error between methods for
+adaptive integrators. This should be as a fraction of ds
+(i.e., between 0 and 1). The default value is 4e-2 for
+euler1a, 1.5e-2 for rk12, and 1e-5 for rk45.</li>
+<li><strong>smallest_ds</strong> (<em>float</em>) – smallest absolute spatial step. If not set
+then <cite>smallest_ds = smallest_ds_frac * ds0</cite></li>
+<li><strong>largest_ds</strong> (<em>float</em>) – largest absolute spatial step. If not set
+then <cite>largest_ds = largest_ds_frac * ds0</cite></li>
+<li><strong>smallest_ds_frac</strong> (<em>float</em>) – smallest spatial step as fraction
+of ds0</li>
+<li><strong>largest_ds_frac</strong> (<em>float</em>) – largest spatial step as fraction
+of ds0</li>
+<li><strong>topo_style</strong> (<em>str</em>) – how to map end point bitmask to a topology.
+‘msphere’ means map to <code class="docutils literal notranslate"><span class="pre">TOPOLOGY_MS_*</span></code> and ‘generic’
+means leave topology as a bitmask of <code class="docutils literal notranslate"><span class="pre">END_*</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><p>(lines, topo), either can be <code class="docutils literal notranslate"><span class="pre">None</span></code> depending on <code class="docutils literal notranslate"><span class="pre">output</span></code></p>
+<ul class="simple">
+<li><cite>lines</cite>: list of nr_streams ndarrays, each ndarray has shape
+(3, nr_points_in_stream). The nr_points_in_stream can be
+different for each line</li>
+<li><cite>topo</cite>: ndarray with shape (nr_streams,) of topology
+bitmask with values depending on the topo_style</li>
+</ul>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.cython.streamline.streamlines">
+<code class="descclassname">viscid.cython.streamline.</code><code class="descname">streamlines</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#viscid.cython.streamline.streamlines" title="Permalink to this definition">¶</a></dt>
+<dd><p>Trace streamlines</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">For streamlines that reach max_length or max_t, the line
+segments at the ends will be trimmed. This may be confusing
+when using a non-adaptive integrator (ds will be different
+for the 1st and last segments). Bear this in mind when doing
+math on the result.</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>vfield</strong> – A VectorField with 3 components,  If this field is not
+3D, then vfield.atleast_3d() is called</li>
+<li><strong>seed</strong> – can be a Seeds instance or a Coordinates instance, or
+anything that exposes an iter_points method</li>
+<li><strong>nr_procs</strong> – how many processes for streamlines (&gt;1 only works on
+*nix systems)</li>
+<li><strong>force_subprocess</strong> (<em>bool</em>) – always calc streamlines in a separate
+process, even if nr_procs == 1</li>
+<li><strong>chunk_factor</strong> (<em>int</em>) – Valid range is [1, nr_seeds // nr_procs]. 1
+indicates a single chunk per process; use this for
+perfectly balanced streamlines. nr_seeds // nr_procs
+indicates one chunk per seed; this solves load balancing,
+but the overhead of assembling results makes this
+undesirable. Start with 1 and bump this up if load
+balancing is still an issue.</li>
+<li><strong>wrap</strong> (<em>bool</em>) – if true, then call seed.wrap_field on topology</li>
+<li><strong>**kwargs</strong> – more arguments for streamlines</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><ul class="first simple">
+<li><strong>ds0</strong> (<em>float</em>) – initial spatial step for streamlines (if 0.0, it
+will be ds0_frac * the minimum d[xyz])</li>
+<li><strong>ds0_frac</strong> (<em>float</em>) – If an absolute spatial step <cite>ds0</cite> is
+not given, then it will be set to <cite>ds0_frac * min_dx</cite>
+where <cite>min_dx</cite> is the smallest dimenstion of the smallest
+grid cell of the <cite>vfield</cite>. Defaults to 0.5.</li>
+<li><strong>ibound</strong> (<em>float</em>) – Inner boundary as distance from (0, 0, 0)</li>
+<li><strong>obound0</strong> (<em>array-like</em>) – lower corner of outer boundary (x, y, z)</li>
+<li><strong>obound1</strong> (<em>array-like</em>) – upper corner of outer boundary (x, y, z)</li>
+<li><strong>obound_r</strong> (<em>float</em>) – Outer boundary as distance from (0, 0, 0)</li>
+<li><strong>maxit</strong> (<em>int</em>) – maximum number of line segments</li>
+<li><strong>max_length</strong> (<em>float</em>) – maximum streamline length (int ds)</li>
+<li><strong>max_t</strong> (<em>float</em>) – max value for t (int ds / v). I.e., stop a
+streamline after a fluid element travels dt along a
+streamline. This has no obvious use for mag field lines.</li>
+<li><strong>stream_dir</strong> (<em>int</em>) – one of DIR_FORWARD, DIR_BACKWARD, DIR_BOTH</li>
+<li><strong>output</strong> (<em>int</em>) – which output to provide, one of
+OUTPUT_STREAMLINE, OUTPUT_TOPOLOGY, or OUTPUT_BOTH</li>
+<li><strong>method</strong> (<em>int</em>) – integrator, one of EULER1, RK2, RK4,
+EULER1a (adaptive), RK12 (adaptive, midpoint),
+RK45 (adaptive, Fehlberg). Note that sometimes RK45
+is faster than lower order adaptive methods since it
+can take much larger step sizes</li>
+<li><strong>max_error</strong> (<em>float</em>) – max allowed error between methods for
+adaptive integrators. This should be as a fraction of ds
+(i.e., between 0 and 1). The default value is 4e-2 for
+euler1a, 1.5e-2 for rk12, and 1e-5 for rk45.</li>
+<li><strong>smallest_ds</strong> (<em>float</em>) – smallest absolute spatial step. If not set
+then <cite>smallest_ds = smallest_ds_frac * ds0</cite></li>
+<li><strong>largest_ds</strong> (<em>float</em>) – largest absolute spatial step. If not set
+then <cite>largest_ds = largest_ds_frac * ds0</cite></li>
+<li><strong>smallest_ds_frac</strong> (<em>float</em>) – smallest spatial step as fraction
+of ds0</li>
+<li><strong>largest_ds_frac</strong> (<em>float</em>) – largest spatial step as fraction
+of ds0</li>
+<li><strong>topo_style</strong> (<em>str</em>) – how to map end point bitmask to a topology.
+‘msphere’ means map to <code class="docutils literal notranslate"><span class="pre">TOPOLOGY_MS_*</span></code> and ‘generic’
+means leave topology as a bitmask of <code class="docutils literal notranslate"><span class="pre">END_*</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><p>(lines, topo), either can be <code class="docutils literal notranslate"><span class="pre">None</span></code> depending on <code class="docutils literal notranslate"><span class="pre">output</span></code></p>
+<ul class="simple">
+<li><cite>lines</cite>: list of nr_streams ndarrays, each ndarray has shape
+(3, nr_points_in_stream). The nr_points_in_stream can be
+different for each line</li>
+<li><cite>topo</cite>: ndarray with shape (nr_streams,) of topology
+bitmask with values depending on the topo_style</li>
+</ul>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../_sources/api/viscid.cython.streamline.rst.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright 2017, Kristofor Maynard.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

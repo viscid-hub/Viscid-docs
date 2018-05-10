@@ -1,0 +1,1002 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Changes &#8212; Viscid 0.99.7.dev0 documentation</title>
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Installation" href="installation.html" />
+    <link rel="prev" title="Viscid: Visualizing Plasma Simulations in Python" href="index.html" />
+<link rel="icon" href="_static/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="_static/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon-precomposed" href="_static/Vicon_128.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          Viscid</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.99.7.dev0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+    <li class="dropdown">
+      <a role="button"
+         id="dLabelNavLinxToc"
+         data-toggle="dropdown"
+         data-target="#"
+         href="#">Tutorial <b class="caret"></b></a>
+      <ul class="dropdown-menu navlinktoc"
+          role="menu">
+          <li class="toctree-l1">
+            <a class="reference internal", href="installation.html">Installation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="tutorial/creating_fields.html">Creating Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="tutorial/slicing.html">Slicing Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="tutorial/plotting_scalars.html">Plotting Scalars</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="tutorial/plotting_vectors.html">Plotting Vectors</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="tutorial/mayavi.html">3D Plots (Mayavi)</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="tutorial/openggcm.html">OpenGGCM Specific</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="tutorial/ionosphere.html">Ionosphere</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="tutorial/stream_and_interp.html">Streamline and Interpolation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="tutorial/magnetic_topology.html">Magnetic Topology</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="tutorial/magnetopause.html">Magnetopause</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="tutorial/quasi_potential.html">Quasi Potential</a>
+          </li>
+      </ul>
+    </li>
+
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ChangeLog</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="philosophy.html">Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/index.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tips_and_tricks.html">Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Useful Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_options.html">Plot Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mpl_style_gallery.html">Matplotlib Style Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_behavior.html">Custom Behavior (rc file)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev_guide.html">Developer’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_readers.html">Extending Readers</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/viscid.html">API</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Changes</a><ul>
+<li><a class="reference internal" href="#dev0">0.99.7.dev0</a></li>
+<li><a class="reference internal" href="#id1">0.99.6</a></li>
+<li><a class="reference internal" href="#id2">0.99.5</a></li>
+<li><a class="reference internal" href="#id3">0.99.4</a></li>
+<li><a class="reference internal" href="#id4">0.99.3</a></li>
+<li><a class="reference internal" href="#id5">0.99.2</a></li>
+<li><a class="reference internal" href="#id6">0.99.1</a></li>
+<li><a class="reference internal" href="#id7">0.99.0</a></li>
+<li><a class="reference internal" href="#id8">0.98.9</a></li>
+<li><a class="reference internal" href="#id9">0.98.8</a></li>
+<li><a class="reference internal" href="#id10">0.98.7</a></li>
+<li><a class="reference internal" href="#id11">0.98.6</a></li>
+<li><a class="reference internal" href="#id12">0.98.5</a></li>
+<li><a class="reference internal" href="#id13">0.98.4</a></li>
+<li><a class="reference internal" href="#id14">0.98.3</a></li>
+<li><a class="reference internal" href="#id15">0.98.2</a></li>
+<li><a class="reference internal" href="#id16">0.98.1</a></li>
+<li><a class="reference internal" href="#id17">0.98.0</a></li>
+<li><a class="reference internal" href="#id18">0.97.0</a></li>
+<li><a class="reference internal" href="#id19">0.96.1</a></li>
+<li><a class="reference internal" href="#id20">0.96.0</a></li>
+<li><a class="reference internal" href="#id21">0.95.1</a></li>
+<li><a class="reference internal" href="#id22">0.95.0</a></li>
+<li><a class="reference internal" href="#id23">0.94.0</a></li>
+<li><a class="reference internal" href="#id24">0.91.3</a></li>
+<li><a class="reference internal" href="#id25">0.91.2</a></li>
+<li><a class="reference internal" href="#id26">0.91.0</a></li>
+<li><a class="reference internal" href="#id27">0.90.1</a></li>
+<li><a class="reference internal" href="#id28">0.90.0</a></li>
+<li><a class="reference internal" href="#id29">0.80.9</a></li>
+<li><a class="reference internal" href="#id30">0.80.8</a></li>
+<li><a class="reference internal" href="#id31">0.80.7</a></li>
+<li><a class="reference internal" href="#id32">0.80.6</a></li>
+<li><a class="reference internal" href="#id33">0.80.5</a></li>
+<li><a class="reference internal" href="#id34">0.80.4</a></li>
+<li><a class="reference internal" href="#id35">0.80.3</a></li>
+<li><a class="reference internal" href="#id36">0.80.2</a></li>
+<li><a class="reference internal" href="#id37">0.80.1</a></li>
+<li><a class="reference internal" href="#id38">0.80.0</a></li>
+<li><a class="reference internal" href="#id39">0.60.3</a></li>
+<li><a class="reference internal" href="#id40">0.60.2</a></li>
+<li><a class="reference internal" href="#id41">0.60.1</a></li>
+<li><a class="reference internal" href="#id42">0.60.0</a></li>
+<li><a class="reference internal" href="#id43">0.50.2</a></li>
+<li><a class="reference internal" href="#id44">0.50.1</a></li>
+<li><a class="reference internal" href="#release">0.50.0 Release</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="changes">
+<h1>Changes<a class="headerlink" href="#changes" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="dev0">
+<h2>0.99.7.dev0<a class="headerlink" href="#dev0" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="id1">
+<h2>0.99.6<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>enable installation using conda / pip</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id2">
+<h2>0.99.5<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>more pypi metadata fixes</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id3">
+<h2>0.99.4<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>implement <cite>visicd –version</cite> and <cite>python -m viscid –version</cite></li>
+<li>pypi metadata fixes</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id4">
+<h2>0.99.3<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>python-only install always works, even on windows</li>
+<li>only use equal axis by default if aspect ratio &lt;= 4; this may change plot appearance unexpectedly</li>
+<li>new tightlim option for 2d plots enabled by default; this may change plot appearance unexpectedly</li>
+<li>fix amr xl / xh</li>
+<li>merge new fluid tracer</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id5">
+<h2>0.99.2<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>Bugfixes and matplotlib workarounds</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id6">
+<h2>0.99.1<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Bugfixes:</dt>
+<dd><ul class="first last simple">
+<li>uneven amr slices (see #16)</li>
+<li>length-0 slices (see #16)</li>
+<li>slowness of vpic reader (see #20)</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="id7">
+<h2>0.99.0<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Changes:</dt>
+<dd><ul class="first last simple">
+<li>add max_t to streamlines</li>
+<li>streamlines are now truncated at max_length and max_t. This means ds can be non-uniform even for non-adaptive methods.</li>
+<li>Preliminary VPIC reader</li>
+<li>add seed.Spline</li>
+<li>seed.Points can now specipy custom local representation</li>
+<li>vpyplot: plt.axis(‘equal’) default changed to plt.axis(‘image’)</li>
+<li>vpyplot: by default, colorbars are now added using the axis1 toolkit</li>
+<li>Various Gkeyll reader enhancements</li>
+</ul>
+</dd>
+<dt>Bugfixes:</dt>
+<dd><ul class="first last simple">
+<li>Most libgfortran compile / runtime errors should now be gone</li>
+<li>Vector calculus on faux 2d fields works in more cases</li>
+<li>faux 2d AMR fields can now be sliced in invarient dimension</li>
+<li>lots of little fixes when slicing with newaxis / ellipsis</li>
+<li>lots of little fixes when slicing with datetimes</li>
+</ul>
+</dd>
+<dt>Refactors:</dt>
+<dd><ul class="first last simple">
+<li>viscid.multiplot.multiplot -&gt; viscid.multiplot.make_multiplot</li>
+<li>viscid.calculator.cluster.cluster -&gt; viscid.calculator.cluster.find_clusters</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="id8">
+<h2>0.98.9<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Changes:</dt>
+<dd><ul class="first last simple">
+<li>Misc. matplotlib 2d line plot bug fixes</li>
+<li>Reorganize html docs (more logical layout is better)</li>
+<li>Update revoked github token</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="id9">
+<h2>0.98.8<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Changes:</dt>
+<dd><ul class="first last simple">
+<li>refactor <cite>round_time</cite> -&gt; <cite>time_as_seconds</cite>, <cite>round_timedelta</cite> -&gt; <cite>timedelta_as_seconds</cite>, and <cite>round_datetime</cite> -&gt; <cite>datetime_as_seconds</cite></li>
+<li>add <cite>round_time()</cite> to round datetime64/timedelta64 to more coarse units</li>
+<li>add <cite>regularize_time()</cite> to put a list of datetime64s/timedelta64s in the same time unit</li>
+<li>add <cite>time_sum()</cite> and <cite>time_diff()</cite> to do add/subtract dates/times of any units and only raise exceptions if you explicitly ask for them</li>
+<li>remove <cite>most_precise_diff()</cite> - it has been superceeded by <cite>time_diff()</cite></li>
+<li>add <cite>extools</cite> and <cite>sliceutil</cite> to root level __all__, oops</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="id10">
+<h2>0.98.7<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Changes:</dt>
+<dd><ul class="first last simple">
+<li>calls to <cite>viscid.load_file</cite> and <cite>viscid.load_files</cite> automatically force reload by default</li>
+<li>various html doc fixes</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="id11">
+<h2>0.98.6<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Bugfix:</dt>
+<dd><ul class="first last simple">
+<li>Fix regression with colorbar axes (if the same colorbar dict was given to &gt; 1 call to <cite>viscid.plot.vpyplot.plot</cite>).</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="id12">
+<h2>0.98.5<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Bugfix:</dt>
+<dd><ul class="first last simple">
+<li>Colorbars added to incorrect axis after using <cite>plt.subplots</cite></li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="id13">
+<h2>0.98.4<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Changes:</dt>
+<dd><ul class="first last simple">
+<li>Moved <cite>viscid.plot.mpl</cite> -&gt; <cite>viscid.plot.vpyplot</cite> and <cite>viscid.plot.mvi</cite> -&gt; <cite>viscid.plot.vlab</cite>. The old names are too similar to shorthand names for matplotlib and mayavi. Importing mpl and mvi will still work, but a warning will appear suggesting a better import statement.</li>
+<li>Removed <cite>viscid.vlab</cite> and moved functions from <cite>viscid.vutil</cite> into more specific modules. Consider just using the top-level <cite>viscid</cite> namespace if this affects you.</li>
+<li>support jrrle files with &gt;= 10^9 grid cells</li>
+<li>simplify cotr / dipole interfaces</li>
+<li>mpl plotting 2d/3d lines now passes through the <cite>colors</cite> kwarg</li>
+<li>better streamline integrators (RK2, RK4, RK45)</li>
+<li>streamline test is now quantitative</li>
+<li>More numpy operations between scalar and vector fields now work. Before, scalar fields wouldn’t broadcast to the shape of interlaced vector fields.</li>
+</ul>
+</dd>
+<dt>Backward Incompatible Changes:</dt>
+<dd><ul class="first last simple">
+<li>reorder 1st two arguments of viscid.arrays2field</li>
+</ul>
+</dd>
+<dt>Bugfixes:</dt>
+<dd><ul class="first last simple">
+<li>install / uninstall without manifest</li>
+<li>no longer fall over when plotting lines with single vertex</li>
+<li>fix atleast_3d shape if data is already loaded</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="id14">
+<h2>0.98.3<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Changes:</dt>
+<dd><ul class="first last simple">
+<li>Improve performance on handling large jrrle/fortbin files</li>
+<li>install samples in <cite>make install</cite></li>
+<li>add attr <cite>viscid.sample_dir</cite> which should always return a valid dir</li>
+<li>doc examples all copy/paste/run-able</li>
+<li>make all tests run out of the box without a viscidrc file</li>
+</ul>
+</dd>
+<dt>Bugfixes:</dt>
+<dd><ul class="first last simple">
+<li>rlim on southern hemispheres</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="id15">
+<h2>0.98.2<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Changes:</dt>
+<dd><ul class="first last simple">
+<li>Interpolaton / Streamline code calls atleast_3d() on field if it thinks that might be necessary</li>
+<li>interp now accepts ‘linear’ as well as ‘trilin’ etc.</li>
+<li>add convenience glob2 function that wraps slice_globbed_filenames</li>
+<li>mapfield now accepts ‘n’ and ‘s’ for hemisphere</li>
+<li>add a provisional convenience mpl function plot_iono (automatically annotates CPCP etc on ionosphere plots)</li>
+<li>let user pass crd_type to easy-crd-constructors</li>
+<li>re-cython .pyx files with Cython 0.25.2</li>
+</ul>
+</dd>
+<dt>Bugfixes:</dt>
+<dd><ul class="first last simple">
+<li>extend_boundaries_ndarr was broken for flat vector arrays</li>
+<li>array dimensions in Cotr are now standardized and documented properly</li>
+<li>making vector masks (ie, of edge / face centered fields) now works</li>
+<li>slicing time by int was broken</li>
+<li>time formatting as seconds was broken</li>
+<li>mapfields were funny when show = True</li>
+<li>tests that use vtk 6.3 w/ Linux + MESA</li>
+<li>round_datetime straight up didn’t work</li>
+<li>fix external call to meshlabserver</li>
+<li>quiet a whole host of runtime warnings</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="id16">
+<h2>0.98.1<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Bugfixes:</dt>
+<dd><ul class="first last simple">
+<li>fix make_rotation_matrix new_x option</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="id17">
+<h2>0.98.0<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Changes:</dt>
+<dd><ul class="first last simple">
+<li>Support for Edge / Face centered fields (interpolate, streamline, fill_dipole, div, fc2cc, ec2cc)</li>
+<li>Spherical seeds now take crd_system argument that changes the meaning of phi=0 from the +x axis to midnight</li>
+<li>New cotr module to facilitate geophysical coordinate transformations</li>
+<li>dipole utilities use new cotr module</li>
+<li>div, grad, curl now work with both numpy and numexpr</li>
+<li>Allow an outer boundary radius for streamlines</li>
+<li>let make_rotation_matrix roll to a specific x axis</li>
+</ul>
+</dd>
+<dt>Bugfixes:</dt>
+<dd><ul class="first last simple">
+<li>fix cythonize errors for cython &gt;= 0.24</li>
+<li>misc. hdf5/xdmf bugs when saving fields</li>
+<li>getting shaped coordinates</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="id18">
+<h2>0.97.0<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Changes:</dt>
+<dd><ul class="first last simple">
+<li>Added Field.loc[…] for pandas-like slice by location</li>
+<li>add ‘viscid.as_mapfield’, ‘viscid.as_spherefield’, ‘as_polar_mapfield’, and ‘pts2polar_mapfield’ for converting between different representations for spherical fields (theta/phi &lt;-&gt; lat/lon)</li>
+<li>Spherical seed generators now plot on polar projection by default in MPL</li>
+<li>Switch all internals from Datetime to numpy.datetime64 and numpy.timedelta64</li>
+<li>Use of the new viscid.as_datetime64 and viscid.as_timedelta64 is HIGHLY recommended. This does the extra step of setting Zulu time if a tz is not specified for older versions of numpy (numpy &gt;= 1.11 is tz agnostic).</li>
+<li>Openggcm now correctly calls the simulation start time basetime and makes every attempt for this to be as precise as possible for hdf5/jrrle/etc and still be lazy.</li>
+<li>Viscid-colorblind defaults to viridis cmap</li>
+</ul>
+</dd>
+<dt>Preliminary:</dt>
+<dd><ul class="first last simple">
+<li>dipole tools</li>
+<li>gradient</li>
+</ul>
+</dd>
+<dt>Bugfixes:</dt>
+<dd><ul class="first last simple">
+<li>Sphere / Cap / Circle are now more standardized</li>
+</ul>
+</dd>
+<dt>Backward Incompatible Changes:</dt>
+<dd><ul class="first last simple">
+<li>Spherical coordinates now use theta/phi or lat/lon always as axis names</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="id19">
+<h2>0.96.1<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Changes:</dt>
+<dd><ul class="first last simple">
+<li>A lot of new Mayavi convenience wrappers in viscid.plot.mvi. Most things can now be done using viscid objects without much effort. See the improved Viscid/tests/test_mvi.py for examples of using the new wrappers.</li>
+<li>When using the viscid.plot.mvi convenience wrappers, the colormaps automatically pick up the matplotlib defaults, including the <cite>viscid.symmetric_cmap</cite> default.</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="id20">
+<h2>0.96.0<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Changes:</dt>
+<dd><ul class="first last simple">
+<li>Add developer’s guide to the docs</li>
+<li>Added <cite>mpl_style</cite> module to deprecate <cite>mpl_extra</cite> and <cite>vseaborn</cite></li>
+<li>Use nogil for streamlines and a threads option for lighterweight parallelism</li>
+<li>Added simple functions to find separators in topology Fields. Separator tracing is still preliminary and the interface may change in the future. Usage examples are available on the Examples/Calculator page of the docs.</li>
+<li>Added some untested minumum variance tools</li>
+<li>Added some magnetopause specific tools</li>
+</ul>
+</dd>
+<dt>Deprecated:</dt>
+<dd><ul class="first last simple">
+<li>setting <cite>mpl_extra</cite> attributes from the rc file</li>
+<li>seaborn styling can be completely done in matplotlib &gt;= 1.5.0</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="id21">
+<h2>0.95.1<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Changes:</dt>
+<dd><ul class="first last simple">
+<li>Add some mpl wrappers (clf, subplot, subplot2grid, savefig, show)</li>
+<li>Let jrrle files get current with ‘jx’, ‘jy’, ‘jz’</li>
+<li>Tests now exersize xdmf/jrrle files for 3d/2d/timeseries/iof the same way</li>
+<li>Always remove old plots when running make check</li>
+</ul>
+</dd>
+<dt>Bugfixes:</dt>
+<dd><ul class="first last simple">
+<li>Tests run on py3k again</li>
+<li>fix custom grids on jrrle files</li>
+<li>flip xjx, xjy when going mhd-&gt;gse</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="id22">
+<h2>0.95.0<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Changes</dt>
+<dd><ul class="first last simple">
+<li>Travis-CI builds upload test summaries to Github Pages</li>
+<li>Makefiles now have rules for all make / deploy steps</li>
+<li>Wrap savefig with offscreen rendering on linux</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="id23">
+<h2>0.94.0<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Changes:</dt>
+<dd><ul class="first last simple">
+<li>Change sample data</li>
+<li>add continuous integration tests (travis-ci)</li>
+<li>Makefiles can now be used for convenience</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="id24">
+<h2>0.91.3<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Changes:</dt>
+<dd><ul class="first last simple">
+<li>add workaround comment for fortran build on OS X El Capitain</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="id25">
+<h2>0.91.2<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Changes:</dt>
+<dd><ul class="first last simple">
+<li>bugfixes</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="id26">
+<h2>0.91.0<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Changes:</dt>
+<dd><ul class="first last simple">
+<li>Use LinearLocator for linear colorbars by default</li>
+<li>better error message when trying to mpl.plot vector fields</li>
+<li>enable ionosphere plots in mayavi, see test_mvi.py</li>
+<li>enable plotting meshes in mayavi, see test_mvi.py</li>
+</ul>
+</dd>
+<dt>Backward Incompatible Changes:</dt>
+<dd><ul class="first last simple">
+<li>Seeds now use a unified interface. If you use seeds, check out test_seed.py to see how things work now</li>
+<li>plot_lines (both matplotlib and mayavi) use a unified interface, check out test_streamline to see how things work now</li>
+</ul>
+</dd>
+<dt>Refactors:</dt>
+<dd><ul class="first last simple">
+<li>blocks -&gt; patches everywhere</li>
+<li>block -&gt; patch everywhere</li>
+<li>vlab.multiplot argument nprocs -&gt; nr_procs</li>
+<li>lots of names in <cite>viscid.plot.mvi</cite> and <cite>viscid.calculator.topology</cite></li>
+</ul>
+</dd>
+<dt>Bugfixes:</dt>
+<dd><ul class="first last simple">
+<li>ibound topology detection (north/south accidently became dayside/nightside in version 0.90.0)</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="id27">
+<h2>0.90.1<a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Changes:</dt>
+<dd><ul class="first last simple">
+<li>xl and xh properties added to Fields and AMRFields</li>
+<li>Fields now have get_slice_extent</li>
+</ul>
+</dd>
+<dt>Bugfixes:</dt>
+<dd><ul class="first last simple">
+<li>XDMF reading uniform crds was wrong; ggcm is using zyx order for O+dxdydz since that seems to work for Paraview, but the xdmf docs call for xyz order, so something isn’t kosher here but I guess this works for now</li>
+<li>xyz ordering for scalar_fields_to_vector</li>
+<li>TypeError on numpy reduction operations on ScalarFields</li>
+<li>fix Volume genr_points for xyz ordering</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="id28">
+<h2>0.90.0<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Backward Incompatible Changes:</dt>
+<dd><ul class="first last simple">
+<li>ALL indexing is now in the natural order (xyz as opposed to zyx). This means seeds, lines, fields… everything. Since this is such a big change that unavoidably breaks many things, this is the only feature of this release, so if you have code that depends on zyx ordering, stay at version 0.80.8.</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="id29">
+<h2>0.80.9<a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Bugfixes:</dt>
+<dd><ul class="first last simple">
+<li>vector -&gt; scalar numpy reduction operations</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="id30">
+<h2>0.80.8<a class="headerlink" href="#id30" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Changes:</dt>
+<dd><ul class="first last simple">
+<li>Files can now be unloaded (treating a file like a context manager will unload it on __exit__)</li>
+<li>jrrle readers can handle files with ascii in them</li>
+<li>hdf5 datawrappers can specify a component dimension / index</li>
+<li>preliminary gkeyll reader</li>
+<li>add <cite>mpl.auto_adjust_subplots()</cite> which is like tighen, but doesn’t change axes limits on you.</li>
+<li>All fields (regular + amr) now have an ‘interpolated_slice’ method</li>
+<li>Cython Interpolate and Streamline now work on AMR Fields</li>
+</ul>
+</dd>
+<dt>Bugfixes:</dt>
+<dd><ul class="first last simple">
+<li>calling ufuncs with AMR fields</li>
+<li>numpy broadcasting with Fields of different type / shape</li>
+<li>slicing by UT time was relative to 0 instead of the start of the simulation</li>
+</ul>
+</dd>
+<dt>Backward Incompatible Changes:</dt>
+<dd><ul class="first last simple">
+<li>Slices by value are now a string of ‘[0-9.]+f’. Slicing by floats prints a warning.</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="id31">
+<h2>0.80.7<a class="headerlink" href="#id31" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Backward Incompatible Changes:</dt>
+<dd><ul class="first last simple">
+<li>Arguments to viscid.field.wrap_field have changed</li>
+<li>typ arguments have been refactored to fldtype and crdtype</li>
+<li>add Field methods real, imag, astype</li>
+</ul>
+</dd>
+<dt>Changes:</dt>
+<dd><ul class="first last simple">
+<li>add support for calling <cite>python -im viscid pylab</cite></li>
+<li>add viscid.field.arrays2field and viscid.coordinates.arrays2crds</li>
+<li>viscid.field now has empty, ones, zeros, empty_like, ones_like, zeros_like that act roughly the same as the numpy functions, except that these create fields</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="id32">
+<h2>0.80.6<a class="headerlink" href="#id32" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Changes:</dt>
+<dd><ul class="first last simple">
+<li>Ascii dataset field names are now “c[0-9]+” where the number is the column number</li>
+<li>Add a way to generate your own cubehelix colormaps</li>
+<li>Sphinx has no more warnings</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="id33">
+<h2>0.80.5<a class="headerlink" href="#id33" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Features:</dt>
+<dd><ul class="first last simple">
+<li>add amr_field.patch_indices to lookup patch index at a location</li>
+</ul>
+</dd>
+<dt>Bugfixes:</dt>
+<dd><ul class="first last simple">
+<li>AMR slicing bugs</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="id34">
+<h2>0.80.4<a class="headerlink" href="#id34" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Bugfixes:</dt>
+<dd><ul class="first last simple">
+<li>./setup.py install wasn’t installing parsers</li>
+<li>command line utilities had bugs</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="id35">
+<h2>0.80.3<a class="headerlink" href="#id35" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Bugfixes:</dt>
+<dd><ul class="first last simple">
+<li>Fix size of earth in AMR files</li>
+<li>Fix matplotlib colorscale options</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="id36">
+<h2>0.80.2<a class="headerlink" href="#id36" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Features:</dt>
+<dd><ul class="first last simple">
+<li>RC file and plot_opts can be given in Yaml syntax if user has PyYaml, otherwise the rc file has to be JSON and the plot_opts have to use the weird comma/space syntax</li>
+</ul>
+</dd>
+<dt>Bugfixes:</dt>
+<dd><ul class="first last simple">
+<li>amr fields now work with command line utils</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="id37">
+<h2>0.80.1<a class="headerlink" href="#id37" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Bugfix:</dt>
+<dd><ul class="first last simple">
+<li>vjson not found</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="id38">
+<h2>0.80.0<a class="headerlink" href="#id38" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Features:</dt>
+<dd><ul class="first last simple">
+<li>preliminary amr support (1D and 2D matplotlib plots)</li>
+</ul>
+</dd>
+<dt>Backward Incompatible Changes:</dt>
+<dd><ul class="first last simple">
+<li>rc file is now in JSON format (in the future, this should change to YAML, but JSON is a subset of YAML, so it shouldn’t break in the future)</li>
+</ul>
+</dd>
+<dt>Changes:</dt>
+<dd><ul class="first last simple">
+<li>1:1 match between plot_opts and plot keyword arguments</li>
+</ul>
+</dd>
+<dt>Bugfixes:</dt>
+<dd><ul class="first last simple">
+<li>Ionosphere files wouldn’t plot with pcolormesh</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="id39">
+<h2>0.60.3<a class="headerlink" href="#id39" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Features:</dt>
+<dd><ul class="first last simple">
+<li>thousands of jrrle files load fast over sshfs</li>
+<li>when loading xdmf files, one can specify a root directory for hdf5 files
+so one can copy xdmf files locally and read the hdf5 files over sshfs</li>
+</ul>
+</dd>
+<dt>Changes:</dt>
+<dd><ul class="first last simple">
+<li>Lots of little bugfixes</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="id40">
+<h2>0.60.2<a class="headerlink" href="#id40" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Features:</dt>
+<dd><ul class="first last simple">
+<li>The attribute <cite>grid.Grid.longterm_field_caches</cite> controls how long caches hang around</li>
+<li>Athena binary / ascii / hst readers (doesn’t read SMR grids)</li>
+<li>Can hyperslice into xdmf/HDF5 datasets so only data that is needed is read</li>
+<li>Slicing in time can now take H:M:S styled times</li>
+<li>New ways to print / get the time of a Dataset/Grid/Field
+- <cite>format_time</cite>
+- <cite>time_as_datetime</cite></li>
+</ul>
+</dd>
+<dt>Changes:</dt>
+<dd><ul class="first last simple">
+<li>Spatial slices completely rewritten</li>
+<li>info dicts (for Datasets/Grids/Fields) are now private
+- <cite>get_info(key)</cite>: gets info from a specific object
+- <cite>find_info(key)</cite>: gets info from an object, or its parents
+- <cite>set_info(key)</cite>: sets info for an object
+- <cite>update_info(key)</cite>: updates info wherever in the tree it exists</li>
+</ul>
+</dd>
+<dt>Other:</dt>
+<dd><ul class="first last simple">
+<li>Customization attributes have their own sphinx page for easy lookup</li>
+<li>performance enhancements when globbing files on a remote server</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="id41">
+<h2>0.60.1<a class="headerlink" href="#id41" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Bugfix:</dt>
+<dd><ul class="first last simple">
+<li>Time slices were acting silly</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="id42">
+<h2>0.60.0<a class="headerlink" href="#id42" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Features:</dt>
+<dd><ul class="first last simple">
+<li>Implement Ionosphere reading / plotting</li>
+<li>Implement a Jrrle Openggcm Reader</li>
+</ul>
+</dd>
+<dt>Backward Incompatible Changes:</dt>
+<dd><ul class="first last simple">
+<li>CHANGE FIELD SLICING SYNTAX! No more trailing ‘i’ to slice by index. Instead, use an integer to mean an index. For slicing by coordinate value, the decimal now needs to be explicit, so all code that slices like “y=0” now needs to be refactored to “y=0.0”</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="id43">
+<h2>0.50.2<a class="headerlink" href="#id43" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Features:</dt>
+<dd><ul class="first last simple">
+<li>Support for custom grids (this allows for custom readers for GGCM / PSC / etc)</li>
+<li>Grids can supply derived fields by defining _get_varname</li>
+<li>Grids can supply generic transformations for fields / crds on load</li>
+<li>GGCM reader, can translate MHD coordinate system to GSE using <cite>viscid.readers.openggcm.GGCMGrid.mhd_to_gse_on_read = True</cite></li>
+<li>PSC reader can calculate psi (flux function)</li>
+</ul>
+</dd>
+<dt>Refactors:</dt>
+<dd><ul class="first last simple">
+<li>RectilinearCrds -&gt; NonuniformCartesianCrds</li>
+<li>“Rectilinear” -&gt; “nonuniform_cartesian”</li>
+</ul>
+</dd>
+<dt>Backward Incompatible Changes:</dt>
+<dd><ul class="first last simple">
+<li>kwargs to field constructors go to deep_meta dict if they start with a ‘_’, else they go to the info dict</li>
+</ul>
+</dd>
+<dt>Other:</dt>
+<dd><ul class="first last simple">
+<li>Precedence for auto-detecting classes is given to those more recently declared</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="id44">
+<h2>0.50.1<a class="headerlink" href="#id44" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Features:</dt>
+<dd><ul class="first last simple">
+<li>Field slicing semantics are now the same as numpy in terms of when dimensions get reduced. To enforce specific reductions, use Field.slice_reduce() or Field.slice_keep()</li>
+<li>crds accessible from grids / fields / crds using get_crd_[ncef]c or get_crds_[ncef]c for one or multiple crds respectively</li>
+<li>rewrite fields to a cleaner, unified interface</li>
+<li>stringy typed things should be case insensitive if compared with the provided methods (istype() and iscentered()), otherwise everything is lowercase</li>
+<li>field properties are now even lazier and cachier</li>
+<li>add reader for 1d gnuplot like files</li>
+<li>add reader for numpy binary npz files (can also save a list of fields)</li>
+<li>add super preliminary support for writing hdf5 files with companion xdmf file, still no direct hdf5 reading</li>
+<li>add pretty_name kwarg to field constructor, this is the name that will appear in plot labels</li>
+</ul>
+</dd>
+<dt>Refactors:</dt>
+<dd><ul class="first last simple">
+<li>filed.n_points -&gt; filed.nr_points</li>
+<li>filed.n_comps -&gt; filed.nr_comps</li>
+<li>grid / dataset n_times -&gt; nr_times</li>
+<li>trilin_interp -&gt; interp_trilin</li>
+<li>keyword arg cc_slice -&gt; cc</li>
+</ul>
+</dd>
+<dt>Backward Incompatible Changes:</dt>
+<dd><ul class="first last simple">
+<li>Coordinate.get_crd used to take a list, now that use case has to call Coordinate.get_crds</li>
+</ul>
+</dd>
+<dt>Deprecated:</dt>
+<dd><ul class="first last simple">
+<li>readers.load() -&gt; readers.load_file(“…”) or readers.load_files([“…”])</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="release">
+<h2>0.50.0 Release<a class="headerlink" href="#release" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Features:</dt>
+<dd><ul class="first last simple">
+<li>Remove lxml dependency</li>
+<li>Remove Cython dependency</li>
+<li>Works with the older Python 2.6</li>
+</ul>
+</dd>
+</dl>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="_sources/changes.rst.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright 2017, Kristofor Maynard.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

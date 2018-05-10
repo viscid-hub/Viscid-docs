@@ -1,0 +1,375 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>viscid.dipole module &#8212; Viscid 0.99.7.dev0 documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="viscid.extools module" href="viscid.extools.html" />
+    <link rel="prev" title="viscid.dataset module" href="viscid.dataset.html" />
+<link rel="icon" href="../_static/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../_static/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon-precomposed" href="../_static/Vicon_128.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Viscid</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.99.7.dev0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+    <li class="dropdown">
+      <a role="button"
+         id="dLabelNavLinxToc"
+         data-toggle="dropdown"
+         data-target="#"
+         href="#">Tutorial <b class="caret"></b></a>
+      <ul class="dropdown-menu navlinktoc"
+          role="menu">
+          <li class="toctree-l1">
+            <a class="reference internal", href="../installation.html">Installation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/creating_fields.html">Creating Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/slicing.html">Slicing Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/plotting_scalars.html">Plotting Scalars</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/plotting_vectors.html">Plotting Vectors</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/mayavi.html">3D Plots (Mayavi)</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/openggcm.html">OpenGGCM Specific</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/ionosphere.html">Ionosphere</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/stream_and_interp.html">Streamline and Interpolation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/magnetic_topology.html">Magnetic Topology</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/magnetopause.html">Magnetopause</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/quasi_potential.html">Quasi Potential</a>
+          </li>
+      </ul>
+    </li>
+
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../changes.html">ChangeLog</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../philosophy.html">Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tips_and_tricks.html">Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functions.html">Useful Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plot_options.html">Plot Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mpl_style_gallery.html">Matplotlib Style Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom_behavior.html">Custom Behavior (rc file)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev_guide.html">Developer’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extending_readers.html">Extending Readers</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="viscid.html">API</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">viscid.dipole module</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="module-viscid.dipole">
+<span id="viscid-dipole-module"></span><h1>viscid.dipole module<a class="headerlink" href="#module-viscid.dipole" title="Permalink to this headline">¶</a></h1>
+<p>A collection of tools for dipoles</p>
+<dl class="function">
+<dt id="viscid.dipole.guess_dipole_moment">
+<code class="descclassname">viscid.dipole.</code><code class="descname">guess_dipole_moment</code><span class="sig-paren">(</span><em>b</em>, <em>r=2.0</em>, <em>strength=32707.5292732387</em>, <em>cap_angle=40</em>, <em>cap_ntheta=121</em>, <em>cap_nphi=121</em>, <em>plot=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dipole.html#guess_dipole_moment"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dipole.guess_dipole_moment" title="Permalink to this definition">¶</a></dt>
+<dd><p>guess dipole moment from a B field</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.dipole.make_dipole">
+<code class="descclassname">viscid.dipole.</code><code class="descname">make_dipole</code><span class="sig-paren">(</span><em>m=(0</em>, <em>0</em>, <em>-32707.5292732387)</em>, <em>strength=None</em>, <em>l=None</em>, <em>h=None</em>, <em>n=None</em>, <em>center='cell'</em>, <em>dtype='f8'</em>, <em>twod=False</em>, <em>nonuniform=False</em>, <em>crd_system='gse'</em>, <em>name='b'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dipole.html#make_dipole"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dipole.make_dipole" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate a dipole field with magnetic moment m [x, y, z]</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.dipole.fill_dipole">
+<code class="descclassname">viscid.dipole.</code><code class="descname">fill_dipole</code><span class="sig-paren">(</span><em>B</em>, <em>m=(0</em>, <em>0</em>, <em>-32707.5292732387)</em>, <em>strength=None</em>, <em>mask=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dipole.html#fill_dipole"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dipole.fill_dipole" title="Permalink to this definition">¶</a></dt>
+<dd><p>set B to a dipole with magnetic moment m</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>B</strong> (<em>Field</em>) – Field to fill with a dipole</li>
+<li><strong>m</strong> (<em>ndarray</em><em>, or </em><em>datetime64-like</em>) – Description</li>
+<li><strong>strength</strong> (<em>float</em>) – if given, rescale the dipole moment
+even if it was given explicitly</li>
+<li><strong>mask</strong> (<em>Field</em>) – boolean field as mask, B will be filled where
+the mask is True</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">B</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Field</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.dipole.calc_dip">
+<code class="descclassname">viscid.dipole.</code><code class="descname">calc_dip</code><span class="sig-paren">(</span><em>pts</em>, <em>m=(0</em>, <em>0</em>, <em>-32707.5292732387)</em>, <em>strength=None</em>, <em>crd_system='gse'</em>, <em>dtype=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dipole.html#calc_dip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dipole.calc_dip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate a dipole field at various points</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pts</strong> (<em>ndarray</em>) – Nx3 array of points at which to calculate the
+dipole. Should use the same crd system as <cite>m</cite></li>
+<li><strong>m</strong> (<em>sequence</em><em>, </em><em>datetime</em>) – dipole moment</li>
+<li><strong>strength</strong> (<em>None</em><em>, </em><em>float</em>) – If given, rescale m to this magnitude</li>
+<li><strong>crd_system</strong> (<em>str</em>) – Something from which cotr can divine the
+coordinate system for both <cite>pts</cite> and <cite>m</cite>. This is only used
+if m is given as a datetime and we need to figure out the
+dipole moment at a given time in a given crd system</li>
+<li><strong>dtype</strong> (<em>str</em><em>, </em><em>np.dtype</em>) – dtype of the result, defaults to
+the same datatype as <cite>pts</cite></li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Nx3 dipole field vectors for N points</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.dipole.set_in_region">
+<code class="descclassname">viscid.dipole.</code><code class="descname">set_in_region</code><span class="sig-paren">(</span><em>a</em>, <em>b</em>, <em>alpha=1.0</em>, <em>beta=1.0</em>, <em>mask=None</em>, <em>out=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dipole.html#set_in_region"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dipole.set_in_region" title="Permalink to this definition">¶</a></dt>
+<dd><p>set <cite>ret = alpha * a + beta * b</cite> where mask is True</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.dipole.make_spherical_mask">
+<code class="descclassname">viscid.dipole.</code><code class="descname">make_spherical_mask</code><span class="sig-paren">(</span><em>fld</em>, <em>rmin=0.0</em>, <em>rmax=None</em>, <em>rsq=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dipole.html#make_spherical_mask"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dipole.make_spherical_mask" title="Permalink to this definition">¶</a></dt>
+<dd><p>make a mask that is True between rmin and rmax</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.dipole.xyz2lsrlp">
+<code class="descclassname">viscid.dipole.</code><code class="descname">xyz2lsrlp</code><span class="sig-paren">(</span><em>pts</em>, <em>cotr=None</em>, <em>crd_system='gse'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dipole.html#xyz2lsrlp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dipole.xyz2lsrlp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ceovert x, y, z -&gt; l-shell, r, lambda, phi [sm coords]</p>
+<blockquote>
+<div><ul class="simple">
+<li>r, theta, phi = viscid.cart2sph(pts in x, y, z)</li>
+<li>lambda = 90deg - theta</li>
+<li>r = L cos^2(lambda)</li>
+</ul>
+</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pts</strong> (<em>ndarray</em>) – 3xN for N (x, y, z) points</li>
+<li><strong>cotr</strong> (<em>None</em>) – if given, use cotr to perform mapping to / from sm</li>
+<li><strong>crd_system</strong> (<em>str</em>) – crd system of pts</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">4xN array of N (l-shell, r, lamda, phi) points</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.dipole.dipole_map">
+<code class="descclassname">viscid.dipole.</code><code class="descname">dipole_map</code><span class="sig-paren">(</span><em>pts</em>, <em>r=1.0</em>, <em>cotr=None</em>, <em>crd_system='gse'</em>, <em>as_spherical=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dipole.html#dipole_map"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dipole.dipole_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>Map pts along an ideal dipole to radius r</p>
+<p>lambda = 90deg - theta; r = L cos^2(lambda)</p>
+<p>cos^2(lambda) = cos^2(lambda_0) * (r / r_0)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pts</strong> (<em>ndarray</em>) – 3xN for N (x, y, z) points</li>
+<li><strong>r</strong> (<em>float</em>) – radius to map to</li>
+<li><strong>cotr</strong> (<em>None</em>) – if given, use cotr to perform mapping to / from sm</li>
+<li><strong>crd_system</strong> (<em>str</em>) – crd system of pts</li>
+<li><strong>as_spherical</strong> (<em>bool</em>) – if True, then the return array is
+(t, theta, phi) with theta in the range [0, 180] and phi
+[0, 360] (in degrees)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>3xN array of N (x, y, z) points all at a distance</dt>
+<dd><p class="first last">r_mapped from the center of the dipole</p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.dipole.dipole_map_value">
+<code class="descclassname">viscid.dipole.</code><code class="descname">dipole_map_value</code><span class="sig-paren">(</span><em>fld</em>, <em>pts</em>, <em>r=1.0</em>, <em>fillna=None</em>, <em>cotr=None</em>, <em>crd_system=None</em>, <em>interp_kind='linear'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dipole.html#dipole_map_value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dipole.dipole_map_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Map values assuming they’re constant along ideal dipole lines</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>fld</strong> (<em>Field</em>) – values to interpolate onto the mapped pts</li>
+<li><strong>pts</strong> (<em>ndarray</em>) – 3xN for N (x, y, z) points that will be mapped</li>
+<li><strong>r</strong> (<em>float</em>) – radius of resulting map</li>
+<li><strong>cotr</strong> (<em>None</em>) – if given, use cotr to perform mapping in sm</li>
+<li><strong>crd_system</strong> (<em>str</em>) – crd system of pts</li>
+<li><strong>interp_kind</strong> (<em>str</em>) – how to interpolate fld onto source points</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">ndarray of mapped values, one for each of the N points</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../_sources/api/viscid.dipole.rst.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright 2017, Kristofor Maynard.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

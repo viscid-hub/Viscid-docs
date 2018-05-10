@@ -1,0 +1,310 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>viscid.readers.ggcm_xdmf &#8212; Viscid 0.99.6 documentation</title>
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+<link rel="icon" href="../../../_static/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../../../_static/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon-precomposed" href="../../../_static/Vicon_128.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          Viscid</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.99.6</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+    <li class="dropdown">
+      <a role="button"
+         id="dLabelNavLinxToc"
+         data-toggle="dropdown"
+         data-target="#"
+         href="#">Tutorial <b class="caret"></b></a>
+      <ul class="dropdown-menu navlinktoc"
+          role="menu">
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../installation.html">Installation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/creating_fields.html">Creating Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/slicing.html">Slicing Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/plotting_scalars.html">Plotting Scalars</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/plotting_vectors.html">Plotting Vectors</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/mayavi.html">3D Plots (Mayavi)</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/openggcm.html">OpenGGCM Specific</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/ionosphere.html">Ionosphere</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/stream_and_interp.html">Streamline and Interpolation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/magnetic_topology.html">Magnetic Topology</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/magnetopause.html">Magnetopause</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/quasi_potential.html">Quasi Potential</a>
+          </li>
+      </ul>
+    </li>
+
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../changes.html">ChangeLog</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../philosophy.html">Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/index.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tips_and_tricks.html">Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../functions.html">Useful Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../plot_options.html">Plot Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mpl_style_gallery.html">Matplotlib Style Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../custom_behavior.html">Custom Behavior (rc file)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev_guide.html">Developer’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../extending_readers.html">Extending Readers</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/viscid.html">API</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"></ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <h1>Source code for viscid.readers.ggcm_xdmf</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="kn">from</span> <span class="nn">viscid</span> <span class="k">import</span> <span class="n">grid</span>
+<span class="kn">from</span> <span class="nn">viscid.readers</span> <span class="k">import</span> <span class="n">xdmf</span>
+<span class="kn">from</span> <span class="nn">viscid.readers</span> <span class="k">import</span> <span class="n">openggcm</span>
+
+<div class="viewcode-block" id="GGCMFileXDMF"><a class="viewcode-back" href="../../../api/viscid.readers.ggcm_xdmf.html#viscid.readers.ggcm_xdmf.GGCMFileXDMF">[docs]</a><span class="k">class</span> <span class="nc">GGCMFileXDMF</span><span class="p">(</span><span class="n">openggcm</span><span class="o">.</span><span class="n">GGCMFile</span><span class="p">,</span> <span class="n">xdmf</span><span class="o">.</span><span class="n">FileXDMF</span><span class="p">):</span>  <span class="c1"># pylint: disable=abstract-method</span>
+    <span class="sd">&quot;&quot;&quot;File type for GGCM style convenience stuff</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        read_log_file (bool): search for a log file to load some of the</span>
+<span class="sd">            libmrc runtime parameters. This does not read parameters</span>
+<span class="sd">            from all libmrc classes, but can be customized with</span>
+<span class="sd">            :py:const`viscid.readers.ggcm_logfile.GGCMLogFile.</span>
+<span class="sd">            watched_classes`. Defaults to False for performance.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_detector</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;^\s*(.*)\.(p[xyz]_[0-9]+|3d|3df)&quot;</span> \
+                <span class="sa">r</span><span class="s2">&quot;(?:\.([0-9]</span><span class="si">{6}</span><span class="s2">))?\.(xmf|xdmf)\s*$&quot;</span>
+
+    <span class="c1"># you can override this in your viscidrc file with:</span>
+    <span class="c1">#   &quot;readers.ggcm_xdmf.GGCMFileXDMF.assume_mhd_crds&quot;: true</span>
+    <span class="c1"># BUT, usually XDMF files have enough meta data so this isn&#39;t necessary,</span>
+    <span class="c1"># and then one day, you&#39;ll be trying to load a non-magnetosphere file,</span>
+    <span class="c1"># and be confused when the axes are flipped</span>
+    <span class="n">assume_mhd_crds</span> <span class="o">=</span> <span class="kc">False</span>
+
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="s1">&#39;assume_mhd_crds&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assume_mhd_crds</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;assume_mhd_crds&#39;</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;assume_mhd_crds&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">assume_mhd_crds</span>
+
+        <span class="nb">super</span><span class="p">(</span><span class="n">GGCMFileXDMF</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<div class="viewcode-block" id="GGCMFileXDMF.group_fnames"><a class="viewcode-back" href="../../../api/viscid.readers.ggcm_xdmf.html#viscid.readers.ggcm_xdmf.GGCMFileXDMF.group_fnames">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">group_fnames</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">fnames</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Group File names</span>
+
+<span class="sd">        The default implementation just returns fnames, but some file</span>
+<span class="sd">        types might do something fancy here</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            fnames (list): names that can be logically grouped, as in</span>
+<span class="sd">                a bunch of file names that are different time steps</span>
+<span class="sd">                of a given run</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A list of things that can be given to the constructor of</span>
+<span class="sd">            this class</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">openggcm</span><span class="o">.</span><span class="n">group_ggcm_files_common</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">_detector</span><span class="p">,</span> <span class="n">fnames</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="GGCMFileXDMF.collective_name_from_group"><a class="viewcode-back" href="../../../api/viscid.readers.ggcm_xdmf.html#viscid.readers.ggcm_xdmf.GGCMFileXDMF.collective_name_from_group">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">collective_name_from_group</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">fnames</span><span class="p">):</span>
+        <span class="n">fname0</span> <span class="o">=</span> <span class="n">fnames</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">basename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">fname0</span><span class="p">)</span>
+        <span class="n">run</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">_detector</span><span class="p">,</span> <span class="n">basename</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">fldtype</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">_detector</span><span class="p">,</span> <span class="n">basename</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">new_basename</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{0}</span><span class="s2">.</span><span class="si">{1}</span><span class="s2">.STAR.xdmf&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">run</span><span class="p">,</span> <span class="n">fldtype</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">fname0</span><span class="p">),</span> <span class="n">new_basename</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="GGCMFileXDMF.load"><a class="viewcode-back" href="../../../api/viscid.readers.ggcm_xdmf.html#viscid.readers.ggcm_xdmf.GGCMFileXDMF.load">[docs]</a>    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fname</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="n">fname</span> <span class="o">=</span> <span class="p">[</span><span class="n">fname</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_collection</span> <span class="o">=</span> <span class="n">fname</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_collection</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1"># HACKY- setting dirname is done in super().load, but we</span>
+        <span class="c1"># need it to read the log file, which needs to happen before</span>
+        <span class="c1"># parsing since it sets flags for data transformation and</span>
+        <span class="c1"># all that stuff</span>
+        <span class="n">_fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expandvars</span><span class="p">(</span><span class="n">fname</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+        <span class="n">basename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">_fname</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_info</span><span class="p">(</span><span class="s1">&#39;run&#39;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_detector</span><span class="p">,</span> <span class="n">basename</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dirname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">_fname</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">read_logfile</span><span class="p">()</span>
+
+        <span class="nb">super</span><span class="p">(</span><span class="n">GGCMFileXDMF</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">fname</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span></div>
+
+    <span class="k">def</span> <span class="nf">_parse</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_collection</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># assume we have a collection of temporal files, because why not</span>
+            <span class="n">data_temporal</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dset_type</span><span class="o">=</span><span class="s2">&quot;temporal&quot;</span><span class="p">,</span>
+                                               <span class="n">name</span><span class="o">=</span><span class="s2">&quot;GGCMXDMFTemporalCollection&quot;</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_collection</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_parse_file</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">data_temporal</span><span class="p">)</span>
+                <span class="c1"># grids = self._parse_file(fname, data_temporal)</span>
+                <span class="c1"># for _grid in grids:</span>
+                <span class="c1">#     data_temporal.add(_grid)</span>
+            <span class="n">data_temporal</span><span class="o">.</span><span class="n">activate</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">data_temporal</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">activate</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">super</span><span class="p">(</span><span class="n">GGCMFileXDMF</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">_parse</span><span class="p">()</span>
+
+        <span class="c1"># now this is a wicked hack :(</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_info</span><span class="p">(</span><span class="s1">&#39;basetime&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">timestr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_child_files</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">find_item</span><span class="p">(</span><span class="s1">&#39;openggcm*/time_str&#39;</span><span class="p">)</span>
+                <span class="n">basetime</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parse_timestring</span><span class="p">(</span><span class="n">timestr</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+            <span class="k">except</span> <span class="p">(</span><span class="ne">KeyError</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">):</span>
+                <span class="c1"># if no basetime found, then use the special no dip tilt time</span>
+                <span class="c1"># this is a selfish hack in that old files that I saved</span>
+                <span class="c1"># will usually use this as basetime</span>
+                <span class="n">basetime</span> <span class="o">=</span> <span class="n">openggcm</span><span class="o">.</span><span class="n">GGCM_NO_DIPTILT</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_info</span><span class="p">(</span><span class="s2">&quot;basetime&quot;</span><span class="p">,</span> <span class="n">basetime</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="GGCMIonoFileXDMF"><a class="viewcode-back" href="../../../api/viscid.readers.ggcm_xdmf.html#viscid.readers.ggcm_xdmf.GGCMIonoFileXDMF">[docs]</a><span class="k">class</span> <span class="nc">GGCMIonoFileXDMF</span><span class="p">(</span><span class="n">GGCMFileXDMF</span><span class="p">):</span>  <span class="c1"># pylint: disable=abstract-method</span>
+    <span class="sd">&quot;&quot;&quot;Ionosphere Files&quot;&quot;&quot;</span>
+    <span class="n">_detector</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;^\s*(.*)\.(iof)(?:\.([0-9]</span><span class="si">{6}</span><span class="s2">))?\.(xmf|xdmf)\s*$&quot;</span>
+    <span class="n">_iono</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">_grid_type</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">Grid</span></div>
+
+
+<div class="viewcode-block" id="GGCMAncFileXDMF"><a class="viewcode-back" href="../../../api/viscid.readers.ggcm_xdmf.html#viscid.readers.ggcm_xdmf.GGCMAncFileXDMF">[docs]</a><span class="k">class</span> <span class="nc">GGCMAncFileXDMF</span><span class="p">(</span><span class="n">GGCMFileXDMF</span><span class="p">):</span>  <span class="c1"># pylint: disable=abstract-method</span>
+    <span class="sd">&quot;&quot;&quot;Ancillary files; usually, these files have already been</span>
+<span class="sd">    converted to GSE&quot;&quot;&quot;</span>
+    <span class="n">_detector</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;^\s*(.*)\.(mp_info|topo)(?:\.([0-9]</span><span class="si">{6}</span><span class="s2">))?\.(xmf|xdmf)\s*$&quot;</span>
+    <span class="n">_grid_type</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">Grid</span></div>
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+      
+    </p>
+    <p>
+        &copy; Copyright 2017, Kristofor Maynard.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

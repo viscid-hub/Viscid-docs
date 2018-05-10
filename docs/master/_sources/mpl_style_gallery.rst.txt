@@ -1,0 +1,362 @@
+
+
+Matplotlib Style Gallery
+========================
+
+If you have Matplotlib 1.5 or higher, you really should use a style sheet
+for your plots. They are very easy to use as
+`explained here <http://matplotlib.org/users/style_sheets.html>`_. The gallery
+below summarizes all the styles provided by the recent versions of
+Matplotlib and Viscid. A default set of style sheets can be loaded
+using a viscidrc file as explained in :doc:`custom_behavior`.
+
+.. raw:: html
+
+    <style type="text/css">
+    .autogen.figure {
+        position: relative;
+        float: left;
+        margin: 10px;
+        width: 350px;
+        height: 230px;
+    }
+
+    .autogen.figure img {
+        position: absolute;
+        display: inline;
+        left: 0;
+        width: 330px;
+        height: 210px;
+        border: 2px solid #2C3E52;
+        opacity: 1.0;
+        filter:alpha(opacity=100); /* For IE8 and earlier */
+    }
+
+    .autogen.figure:hover img {
+        -webkit-filter: blur(3px);
+        -moz-filter: blur(3px);
+        -o-filter: blur(3px);
+        -ms-filter: blur(3px);
+        filter: blur(3px);
+        opacity: 1.0;
+        filter:alpha(opacity=100); /* For IE8 and earlier */
+    }
+
+    .autogen.figure span {
+        position: absolute;
+        display: inline;
+        left: 0;
+        width: 330px;
+        height: 210px;
+        background: #000;
+        color: #fff;
+        visibility: hidden;
+        opacity: 0;
+        z-index: 100;
+    }
+
+    .autogen.figure p {
+        position: absolute;
+        left: 0px;
+        top: 45%;
+        width: 240px;
+        margin-left: 45px;
+        margin-right: 45px;
+        font-size: 105%;
+        border-radius: 6px;
+        background-color: hsla(0, 0%, 8%, 0.6);
+        color: hsl(0, 0%, 96%);
+    }
+
+    .autogen.figure:hover span {
+        visibility: visible;
+        opacity: .4;
+    }
+
+    .autogen.caption {
+        position: absolue;
+        width: 330px;
+        top: 210px;
+        text-align: center !important;
+    }
+
+    .autogen a {
+    }
+
+    span.auto_title {
+        position: relative;
+        top: -10px;
+        color: #2C3E52;
+        font-size: 100%;
+        text-align: center !important;
+    }
+    </style>
+
+
+
+
+.. toctree::
+   :hidden:
+
+   styles/bmh
+   styles/classic
+   styles/dark_background
+   styles/fivethirtyeight
+   styles/ggplot
+   styles/grayscale
+   styles/seaborn-bright
+   styles/seaborn-colorblind
+   styles/seaborn-dark
+   styles/seaborn-dark-palette
+   styles/seaborn-darkgrid
+   styles/seaborn-deep
+   styles/seaborn-muted
+   styles/seaborn-notebook
+   styles/seaborn-paper
+   styles/seaborn-pastel
+   styles/seaborn-poster
+   styles/seaborn-talk
+   styles/seaborn-ticks
+   styles/seaborn-white
+   styles/seaborn-whitegrid
+   styles/viscid-colorblind
+   styles/viscid-default
+
+
+
+
+.. raw:: html
+
+    <div class='autogen figure align-center'>
+    <a class='autogen' href=./styles/bmh.html>
+    <img class='autogen' src=_static/bmh_thumb.png>
+    <span class='autogen figure-label'></span>
+    <p class='autogen'>bmh</p>
+    </a>
+    </div>
+
+.. raw:: html
+
+    <div class='autogen figure align-center'>
+    <a class='autogen' href=./styles/classic.html>
+    <img class='autogen' src=_static/classic_thumb.png>
+    <span class='autogen figure-label'></span>
+    <p class='autogen'>classic</p>
+    </a>
+    </div>
+
+.. raw:: html
+
+    <div class='autogen figure align-center'>
+    <a class='autogen' href=./styles/dark_background.html>
+    <img class='autogen' src=_static/dark_background_thumb.png>
+    <span class='autogen figure-label'></span>
+    <p class='autogen'>dark_background</p>
+    </a>
+    </div>
+
+.. raw:: html
+
+    <div class='autogen figure align-center'>
+    <a class='autogen' href=./styles/fivethirtyeight.html>
+    <img class='autogen' src=_static/fivethirtyeight_thumb.png>
+    <span class='autogen figure-label'></span>
+    <p class='autogen'>fivethirtyeight</p>
+    </a>
+    </div>
+
+.. raw:: html
+
+    <div class='autogen figure align-center'>
+    <a class='autogen' href=./styles/ggplot.html>
+    <img class='autogen' src=_static/ggplot_thumb.png>
+    <span class='autogen figure-label'></span>
+    <p class='autogen'>ggplot</p>
+    </a>
+    </div>
+
+.. raw:: html
+
+    <div class='autogen figure align-center'>
+    <a class='autogen' href=./styles/grayscale.html>
+    <img class='autogen' src=_static/grayscale_thumb.png>
+    <span class='autogen figure-label'></span>
+    <p class='autogen'>grayscale</p>
+    </a>
+    </div>
+
+.. raw:: html
+
+    <div class='autogen figure align-center'>
+    <a class='autogen' href=./styles/seaborn-bright.html>
+    <img class='autogen' src=_static/seaborn-bright_thumb.png>
+    <span class='autogen figure-label'></span>
+    <p class='autogen'>seaborn-bright</p>
+    </a>
+    </div>
+
+.. raw:: html
+
+    <div class='autogen figure align-center'>
+    <a class='autogen' href=./styles/seaborn-colorblind.html>
+    <img class='autogen' src=_static/seaborn-colorblind_thumb.png>
+    <span class='autogen figure-label'></span>
+    <p class='autogen'>seaborn-colorblind</p>
+    </a>
+    </div>
+
+.. raw:: html
+
+    <div class='autogen figure align-center'>
+    <a class='autogen' href=./styles/seaborn-dark.html>
+    <img class='autogen' src=_static/seaborn-dark_thumb.png>
+    <span class='autogen figure-label'></span>
+    <p class='autogen'>seaborn-dark</p>
+    </a>
+    </div>
+
+.. raw:: html
+
+    <div class='autogen figure align-center'>
+    <a class='autogen' href=./styles/seaborn-dark-palette.html>
+    <img class='autogen' src=_static/seaborn-dark-palette_thumb.png>
+    <span class='autogen figure-label'></span>
+    <p class='autogen'>seaborn-dark-palette</p>
+    </a>
+    </div>
+
+.. raw:: html
+
+    <div class='autogen figure align-center'>
+    <a class='autogen' href=./styles/seaborn-darkgrid.html>
+    <img class='autogen' src=_static/seaborn-darkgrid_thumb.png>
+    <span class='autogen figure-label'></span>
+    <p class='autogen'>seaborn-darkgrid</p>
+    </a>
+    </div>
+
+.. raw:: html
+
+    <div class='autogen figure align-center'>
+    <a class='autogen' href=./styles/seaborn-deep.html>
+    <img class='autogen' src=_static/seaborn-deep_thumb.png>
+    <span class='autogen figure-label'></span>
+    <p class='autogen'>seaborn-deep</p>
+    </a>
+    </div>
+
+.. raw:: html
+
+    <div class='autogen figure align-center'>
+    <a class='autogen' href=./styles/seaborn-muted.html>
+    <img class='autogen' src=_static/seaborn-muted_thumb.png>
+    <span class='autogen figure-label'></span>
+    <p class='autogen'>seaborn-muted</p>
+    </a>
+    </div>
+
+.. raw:: html
+
+    <div class='autogen figure align-center'>
+    <a class='autogen' href=./styles/seaborn-notebook.html>
+    <img class='autogen' src=_static/seaborn-notebook_thumb.png>
+    <span class='autogen figure-label'></span>
+    <p class='autogen'>seaborn-notebook</p>
+    </a>
+    </div>
+
+.. raw:: html
+
+    <div class='autogen figure align-center'>
+    <a class='autogen' href=./styles/seaborn-paper.html>
+    <img class='autogen' src=_static/seaborn-paper_thumb.png>
+    <span class='autogen figure-label'></span>
+    <p class='autogen'>seaborn-paper</p>
+    </a>
+    </div>
+
+.. raw:: html
+
+    <div class='autogen figure align-center'>
+    <a class='autogen' href=./styles/seaborn-pastel.html>
+    <img class='autogen' src=_static/seaborn-pastel_thumb.png>
+    <span class='autogen figure-label'></span>
+    <p class='autogen'>seaborn-pastel</p>
+    </a>
+    </div>
+
+.. raw:: html
+
+    <div class='autogen figure align-center'>
+    <a class='autogen' href=./styles/seaborn-poster.html>
+    <img class='autogen' src=_static/seaborn-poster_thumb.png>
+    <span class='autogen figure-label'></span>
+    <p class='autogen'>seaborn-poster</p>
+    </a>
+    </div>
+
+.. raw:: html
+
+    <div class='autogen figure align-center'>
+    <a class='autogen' href=./styles/seaborn-talk.html>
+    <img class='autogen' src=_static/seaborn-talk_thumb.png>
+    <span class='autogen figure-label'></span>
+    <p class='autogen'>seaborn-talk</p>
+    </a>
+    </div>
+
+.. raw:: html
+
+    <div class='autogen figure align-center'>
+    <a class='autogen' href=./styles/seaborn-ticks.html>
+    <img class='autogen' src=_static/seaborn-ticks_thumb.png>
+    <span class='autogen figure-label'></span>
+    <p class='autogen'>seaborn-ticks</p>
+    </a>
+    </div>
+
+.. raw:: html
+
+    <div class='autogen figure align-center'>
+    <a class='autogen' href=./styles/seaborn-white.html>
+    <img class='autogen' src=_static/seaborn-white_thumb.png>
+    <span class='autogen figure-label'></span>
+    <p class='autogen'>seaborn-white</p>
+    </a>
+    </div>
+
+.. raw:: html
+
+    <div class='autogen figure align-center'>
+    <a class='autogen' href=./styles/seaborn-whitegrid.html>
+    <img class='autogen' src=_static/seaborn-whitegrid_thumb.png>
+    <span class='autogen figure-label'></span>
+    <p class='autogen'>seaborn-whitegrid</p>
+    </a>
+    </div>
+
+.. raw:: html
+
+    <div class='autogen figure align-center'>
+    <a class='autogen' href=./styles/viscid-colorblind.html>
+    <img class='autogen' src=_static/viscid-colorblind_thumb.png>
+    <span class='autogen figure-label'></span>
+    <p class='autogen'>viscid-colorblind</p>
+    </a>
+    </div>
+
+.. raw:: html
+
+    <div class='autogen figure align-center'>
+    <a class='autogen' href=./styles/viscid-default.html>
+    <img class='autogen' src=_static/viscid-default_thumb.png>
+    <span class='autogen figure-label'></span>
+    <p class='autogen'>viscid-default</p>
+    </a>
+    </div>
+
+
+
+.. raw:: html
+
+    <div style="clear: both"></div>

@@ -1,0 +1,229 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Developer’s Guide &#8212; Viscid 0.99.6 documentation</title>
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Extending Readers" href="extending_readers.html" />
+    <link rel="prev" title="Custom Behavior (rc file)" href="custom_behavior.html" />
+<link rel="icon" href="_static/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="_static/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon-precomposed" href="_static/Vicon_128.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          Viscid</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.99.6</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+    <li class="dropdown">
+      <a role="button"
+         id="dLabelNavLinxToc"
+         data-toggle="dropdown"
+         data-target="#"
+         href="#">Tutorial <b class="caret"></b></a>
+      <ul class="dropdown-menu navlinktoc"
+          role="menu">
+          <li class="toctree-l1">
+            <a class="reference internal", href="installation.html">Installation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="tutorial/creating_fields.html">Creating Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="tutorial/slicing.html">Slicing Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="tutorial/plotting_scalars.html">Plotting Scalars</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="tutorial/plotting_vectors.html">Plotting Vectors</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="tutorial/mayavi.html">3D Plots (Mayavi)</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="tutorial/openggcm.html">OpenGGCM Specific</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="tutorial/ionosphere.html">Ionosphere</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="tutorial/stream_and_interp.html">Streamline and Interpolation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="tutorial/magnetic_topology.html">Magnetic Topology</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="tutorial/magnetopause.html">Magnetopause</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="tutorial/quasi_potential.html">Quasi Potential</a>
+          </li>
+      </ul>
+    </li>
+
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="changes.html">ChangeLog</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="philosophy.html">Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/index.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tips_and_tricks.html">Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Useful Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_options.html">Plot Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mpl_style_gallery.html">Matplotlib Style Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_behavior.html">Custom Behavior (rc file)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Developer’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_readers.html">Extending Readers</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/viscid.html">API</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Developer’s Guide</a><ul>
+<li><a class="reference internal" href="#style">Style</a></li>
+<li><a class="reference internal" href="#importing-matplotlib-pyplot">Importing matplotlib.pyplot</a></li>
+<li><a class="reference internal" href="#continuous-integration">Continuous Integration</a></li>
+<li><a class="reference internal" href="#git-structure">Git structure</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="developer-s-guide">
+<h1>Developer’s Guide<a class="headerlink" href="#developer-s-guide" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="style">
+<h2>Style<a class="headerlink" href="#style" title="Permalink to this headline">¶</a></h2>
+<p>Please, if you edit the code, use <a class="reference external" href="https://www.python.org/dev/peps/pep-0008">PEP 8</a> style. Poor style is more than just aesthetic; it tends to lead to bugs that are difficult to spot. Here are some aspects of PEP 8 that are ok to bend:</p>
+<ul class="simple">
+<li>Lines should be less than 92 characters long, but if you’re pushing over 80, then think about whether or not you’re doing too much on one line.</li>
+<li>Additional whitespace around parentheses and operators should be used to line up successive lines of math if that makes the math operation more clear. Note that this says additional, i.e., don’t start dropping spaces after commas. An example is doing cross products; the code should be written such that it’s visually clear that the lines calculating the components of the vector are cyclic permutations.</li>
+</ul>
+<p>Continuous integration will pass commits and pull requests through <a class="reference external" href="https://flake8.readthedocs.org/en/latest">Flake8</a> with a generous amount of ignored rules. See <code class="docutils literal notranslate"><span class="pre">Viscid/Makefile</span></code> for the list of rules that are ignored.</p>
+</div>
+<div class="section" id="importing-matplotlib-pyplot">
+<h2>Importing matplotlib.pyplot<a class="headerlink" href="#importing-matplotlib-pyplot" title="Permalink to this headline">¶</a></h2>
+<p>Modules should <strong>NEVER</strong> import <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code> or <code class="docutils literal notranslate"><span class="pre">viscid.plot.vpyplot</span></code> directly unless it’s obvious to <code class="docutils literal notranslate"><span class="pre">__main__</span></code> that pyplot is being loaded. The reason for this is that some matplotlib backends break completely break multiprocessing support. In practice, the monologue sounds something like, “Why does calculating streamlines in parallel now segfault? Why is pyplot loaded, I’m not using pyplot. Loading pyplot causes my streamline calculations to segfault?!”. So, in short, don’t implicitly import pyplot or vpyplot in library modules. Let the user do these imports themselves so they know what to expect.</p>
+<p>That all being said, there are a couple places where importing pyplot / vpyplot is acceptable. These are in <code class="docutils literal notranslate"><span class="pre">_main</span></code> functions (mind the underscore), and when guarded by a <code class="docutils literal notranslate"><span class="pre">make_plots</span></code> keyword argument. These cases are sufficiently guarded such that the user knows pyplot is loaded.</p>
+</div>
+<div class="section" id="continuous-integration">
+<h2>Continuous Integration<a class="headerlink" href="#continuous-integration" title="Permalink to this headline">¶</a></h2>
+<p>This project uses <a class="reference external" href="http://travis-ci.org">Travis-CI</a> for continuous integration. By default, tests run whenever commits are pushed or pull requests are made to the main git repository on GitHub. Test summary pages are automatically uploaded to GitHub Pages in the <code class="docutils literal notranslate"><span class="pre">summary</span></code> directory. In addition, commits to <code class="docutils literal notranslate"><span class="pre">master</span></code> and <code class="docutils literal notranslate"><span class="pre">dev</span></code> automatically update the html documentation and push the changes to GitHub Pages.</p>
+<p>Forks can use Travis-CI by enabling it for their own GitHub accounts. The caveat is that commits to <code class="docutils literal notranslate"><span class="pre">master</span></code> and <code class="docutils literal notranslate"><span class="pre">dev</span></code> from forked repositories will not update GitHub Pages.</p>
+</div>
+<div class="section" id="git-structure">
+<h2>Git structure<a class="headerlink" href="#git-structure" title="Permalink to this headline">¶</a></h2>
+<p>This project uses the <a class="reference external" href="https://github.com/nvie/gitflow">Git Flow</a> merge strategy for development / release cycles. Basically, changes should be made on <code class="docutils literal notranslate"><span class="pre">feature/*</span></code> branches and merged into the <code class="docutils literal notranslate"><span class="pre">dev</span></code> branch when ready. Releases should begin on a branch of dev named <code class="docutils literal notranslate"><span class="pre">release/version-number</span></code> which is pushed upstream. The push is important because it triggers CI tests. When the release branch instills confidence, it can be merged into both <code class="docutils literal notranslate"><span class="pre">master</span></code> and <code class="docutils literal notranslate"><span class="pre">dev</span></code>.</p>
+<p>Here are some things to remember when doing releases and the like:</p>
+<ul class="simple">
+<li>The first commit to a <code class="docutils literal notranslate"><span class="pre">release</span></code> branch should remove the word “dev” from both <code class="docutils literal notranslate"><span class="pre">viscid.__version__</span></code> and <code class="docutils literal notranslate"><span class="pre">Viscid/CHANGES.md</span></code>. This is checked by Travis-CI.</li>
+<li>The first commit to the <code class="docutils literal notranslate"><span class="pre">dev</span></code> branch after merging a <code class="docutils literal notranslate"><span class="pre">release</span></code> should be to bump the version number in both <code class="docutils literal notranslate"><span class="pre">viscid.__version__</span></code> and <code class="docutils literal notranslate"><span class="pre">Viscid/CHANGES.md</span></code>. Remember to put the word “dev” at the end of the version number. This is checked by Travis-CI.</li>
+<li>There shouldn’t be a need to explicitly generate the html docs since they’re recreated and pushed to GitHub Pages on pushes to the dev and master branches on the main GitHub repo.</li>
+</ul>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="_sources/dev_guide.rst.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright 2017, Kristofor Maynard.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,892 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>viscid.readers.vpic &#8212; Viscid 0.99.6 documentation</title>
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+<link rel="icon" href="../../../_static/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../../../_static/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon-precomposed" href="../../../_static/Vicon_128.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          Viscid</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.99.6</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+    <li class="dropdown">
+      <a role="button"
+         id="dLabelNavLinxToc"
+         data-toggle="dropdown"
+         data-target="#"
+         href="#">Tutorial <b class="caret"></b></a>
+      <ul class="dropdown-menu navlinktoc"
+          role="menu">
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../installation.html">Installation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/creating_fields.html">Creating Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/slicing.html">Slicing Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/plotting_scalars.html">Plotting Scalars</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/plotting_vectors.html">Plotting Vectors</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/mayavi.html">3D Plots (Mayavi)</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/openggcm.html">OpenGGCM Specific</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/ionosphere.html">Ionosphere</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/stream_and_interp.html">Streamline and Interpolation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/magnetic_topology.html">Magnetic Topology</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/magnetopause.html">Magnetopause</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/quasi_potential.html">Quasi Potential</a>
+          </li>
+      </ul>
+    </li>
+
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../changes.html">ChangeLog</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../philosophy.html">Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/index.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tips_and_tricks.html">Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../functions.html">Useful Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../plot_options.html">Plot Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mpl_style_gallery.html">Matplotlib Style Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../custom_behavior.html">Custom Behavior (rc file)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev_guide.html">Developer’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../extending_readers.html">Extending Readers</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/viscid.html">API</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"></ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <h1>Source code for viscid.readers.vpic</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;VPIC binary file reader</span>
+
+<span class="sd">Note:</span>
+<span class="sd">    Since this reader uses deferred datasets, you will need to use</span>
+<span class="sd">    the following to dump the available field names,</span>
+
+<span class="sd">    &gt;&gt;&gt; import viscid</span>
+<span class="sd">    &gt;&gt;&gt; f = viscid.load_file(os.path.join(sample_dir, &#39;vpic_sample&#39;,</span>
+<span class="sd">    &gt;&gt;&gt;                                   &#39;global.vpc&#39;))</span>
+<span class="sd">    &gt;&gt;&gt; f.get_grid().print_tree()</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">print_function</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">namedtuple</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">struct</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">viscid</span> <span class="k">import</span> <span class="n">amr_grid</span><span class="p">,</span> <span class="n">coordinate</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">grid</span>
+<span class="kn">from</span> <span class="nn">viscid.dataset</span> <span class="k">import</span> <span class="n">Dataset</span>
+<span class="kn">from</span> <span class="nn">viscid</span> <span class="k">import</span> <span class="n">glob2</span><span class="p">,</span> <span class="n">logger</span>
+<span class="kn">from</span> <span class="nn">viscid.readers</span> <span class="k">import</span> <span class="n">vfile</span>
+
+
+<div class="viewcode-block" id="VPIC_Grid"><a class="viewcode-back" href="../../../api/viscid.readers.vpic.html#viscid.readers.vpic.VPIC_Grid">[docs]</a><span class="k">class</span> <span class="nc">VPIC_Grid</span><span class="p">(</span><span class="n">grid</span><span class="o">.</span><span class="n">Grid</span><span class="p">):</span>
+    <span class="c1"># TODO: add any _get_* methods to make retrieving fields more natural</span>
+
+    <span class="k">def</span> <span class="nf">_get_ex</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;Electric Field X&#39;</span><span class="p">]</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">pretty_name</span> <span class="o">=</span> <span class="s2">&quot;$E_x$&quot;</span>
+        <span class="k">return</span> <span class="n">data</span>
+
+    <span class="k">def</span> <span class="nf">_get_ey</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;Electric Field Y&#39;</span><span class="p">]</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">pretty_name</span> <span class="o">=</span> <span class="s2">&quot;$E_y$&quot;</span>
+        <span class="k">return</span> <span class="n">data</span>
+
+    <span class="k">def</span> <span class="nf">_get_ez</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;Electric Field Z&#39;</span><span class="p">]</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">pretty_name</span> <span class="o">=</span> <span class="s2">&quot;$E_z$&quot;</span>
+        <span class="k">return</span> <span class="n">data</span>
+
+    <span class="k">def</span> <span class="nf">_get_e</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">ex</span><span class="p">,</span> <span class="n">ey</span><span class="p">,</span> <span class="n">ez</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;ex&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;ey&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;ez&#39;</span><span class="p">]</span>
+        <span class="n">opts</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">_force_layout</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">force_vector_layout</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">field</span><span class="o">.</span><span class="n">scalar_fields_to_vector</span><span class="p">([</span><span class="n">ex</span><span class="p">,</span> <span class="n">ey</span><span class="p">,</span> <span class="n">ez</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">opts</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_get_dive</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;Electric Field Divergence Error&#39;</span><span class="p">]</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">pretty_name</span> <span class="o">=</span> <span class="s2">&quot;$</span><span class="se">\\</span><span class="s2">nabla</span><span class="se">\\</span><span class="s2">cdot</span><span class="se">\\</span><span class="s2">mathbf</span><span class="si">{E}</span><span class="s2">$&quot;</span>
+        <span class="k">return</span> <span class="n">data</span>
+
+    <span class="k">def</span> <span class="nf">_get_bx</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;Magnetic Field X&#39;</span><span class="p">]</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">pretty_name</span> <span class="o">=</span> <span class="s2">&quot;$B_x$&quot;</span>
+        <span class="k">return</span> <span class="n">data</span>
+
+    <span class="k">def</span> <span class="nf">_get_by</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;Magnetic Field Y&#39;</span><span class="p">]</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">pretty_name</span> <span class="o">=</span> <span class="s2">&quot;$B_y$&quot;</span>
+        <span class="k">return</span> <span class="n">data</span>
+
+    <span class="k">def</span> <span class="nf">_get_bz</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;Magnetic Field Z&#39;</span><span class="p">]</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">pretty_name</span> <span class="o">=</span> <span class="s2">&quot;$B_z$&quot;</span>
+        <span class="k">return</span> <span class="n">data</span>
+
+    <span class="k">def</span> <span class="nf">_get_b</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">bx</span><span class="p">,</span> <span class="n">by</span><span class="p">,</span> <span class="n">bz</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;bx&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;by&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;bz&#39;</span><span class="p">]</span>
+        <span class="n">opts</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">_force_layout</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">force_vector_layout</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">field</span><span class="o">.</span><span class="n">scalar_fields_to_vector</span><span class="p">([</span><span class="n">bx</span><span class="p">,</span> <span class="n">by</span><span class="p">,</span> <span class="n">bz</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">opts</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_get_divb</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;Magnetic Field Divergence Error&#39;</span><span class="p">]</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">pretty_name</span> <span class="o">=</span> <span class="s2">&quot;$</span><span class="se">\\</span><span class="s2">nabla</span><span class="se">\\</span><span class="s2">cdot</span><span class="se">\\</span><span class="s2">mathbf</span><span class="si">{B}</span><span class="s2">$&quot;</span>
+        <span class="k">return</span> <span class="n">data</span>
+
+    <span class="k">def</span> <span class="nf">_get_n_q</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;Charge Density&#39;</span><span class="p">]</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">pretty_name</span> <span class="o">=</span> <span class="s2">&quot;$n_q$&quot;</span>
+        <span class="k">return</span> <span class="n">data</span>
+
+    <span class="c1"># electron</span>
+    <span class="k">def</span> <span class="nf">_get_jx_e</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;Current Density (ehydro) X&#39;</span><span class="p">]</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">pretty_name</span> <span class="o">=</span> <span class="s2">&quot;$J_{x,e}$&quot;</span>
+        <span class="k">return</span> <span class="n">data</span>
+
+    <span class="k">def</span> <span class="nf">_get_jy_e</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;Current Density (ehydro) Y&#39;</span><span class="p">]</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">pretty_name</span> <span class="o">=</span> <span class="s2">&quot;$J_{y,e}$&quot;</span>
+        <span class="k">return</span> <span class="n">data</span>
+
+    <span class="k">def</span> <span class="nf">_get_jz_e</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;Current Density (ehydro) Z&#39;</span><span class="p">]</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">pretty_name</span> <span class="o">=</span> <span class="s2">&quot;$J_{z,e}$&quot;</span>
+        <span class="k">return</span> <span class="n">data</span>
+
+    <span class="k">def</span> <span class="nf">_get_j_e</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">jx_e</span><span class="p">,</span> <span class="n">jy_e</span><span class="p">,</span> <span class="n">jz_e</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;jx_e&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;jy_e&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;jz_e&#39;</span><span class="p">]</span>
+        <span class="n">opts</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">_force_layout</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">force_vector_layout</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">field</span><span class="o">.</span><span class="n">scalar_fields_to_vector</span><span class="p">([</span><span class="n">jx_e</span><span class="p">,</span> <span class="n">jy_e</span><span class="p">,</span> <span class="n">jz_e</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;J_e&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">opts</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_get_rhovx_e</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;Momentum Density (ehydro) X&#39;</span><span class="p">]</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">pretty_name</span> <span class="o">=</span> <span class="s2">&quot;$</span><span class="se">\\</span><span class="s2">rho v_x,e}$&quot;</span>
+        <span class="k">return</span> <span class="n">data</span>
+
+    <span class="k">def</span> <span class="nf">_get_rhovy_e</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;Momentum Density (ehydro) Y&#39;</span><span class="p">]</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">pretty_name</span> <span class="o">=</span> <span class="s2">&quot;$</span><span class="se">\\</span><span class="s2">rho v_y,e}$&quot;</span>
+        <span class="k">return</span> <span class="n">data</span>
+
+    <span class="k">def</span> <span class="nf">_get_rhovz_e</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;Momentum Density (ehydro) Z&#39;</span><span class="p">]</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">pretty_name</span> <span class="o">=</span> <span class="s2">&quot;$</span><span class="se">\\</span><span class="s2">rho v_z,e}$&quot;</span>
+        <span class="k">return</span> <span class="n">data</span>
+
+    <span class="k">def</span> <span class="nf">_get_rhov_e</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">rhox_e</span><span class="p">,</span> <span class="n">rhoy_e</span><span class="p">,</span> <span class="n">rhoz_e</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;rhovx_e&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;rhovy_e&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;rhovz_e&#39;</span><span class="p">]</span>
+        <span class="n">opts</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">_force_layout</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">force_vector_layout</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">field</span><span class="o">.</span><span class="n">scalar_fields_to_vector</span><span class="p">([</span><span class="n">rhox_e</span><span class="p">,</span> <span class="n">rhoy_e</span><span class="p">,</span> <span class="n">rhoz_e</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;rhov_e&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">opts</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_get_n_e</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;Charge Density (ehydro)&#39;</span><span class="p">]</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">pretty_name</span> <span class="o">=</span> <span class="s2">&quot;$n_</span><span class="si">{e}</span><span class="s2">$&quot;</span>
+        <span class="k">return</span> <span class="n">data</span>
+
+    <span class="k">def</span> <span class="nf">_get_ek_e</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;Kinetic Energy Density (ehydro)&#39;</span><span class="p">]</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">pretty_name</span> <span class="o">=</span> <span class="s2">&quot;$e_{k,e}$&quot;</span>
+        <span class="k">return</span> <span class="n">data</span>
+
+    <span class="k">def</span> <span class="nf">_get_Pxx_e</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;Stress Tensor (ehydro) XX&#39;</span><span class="p">]</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">pretty_name</span> <span class="o">=</span> <span class="s2">&quot;$P_{xx,e}$&quot;</span>
+        <span class="k">return</span> <span class="n">data</span>
+
+    <span class="k">def</span> <span class="nf">_get_Pyy_e</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;Stress Tensor (ehydro) YY&#39;</span><span class="p">]</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">pretty_name</span> <span class="o">=</span> <span class="s2">&quot;$P_{yy,e}$&quot;</span>
+        <span class="k">return</span> <span class="n">data</span>
+
+    <span class="k">def</span> <span class="nf">_get_Pzz_e</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;Stress Tensor (ehydro) ZZ&#39;</span><span class="p">]</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">pretty_name</span> <span class="o">=</span> <span class="s2">&quot;$P_{zz,e}$&quot;</span>
+        <span class="k">return</span> <span class="n">data</span>
+
+    <span class="k">def</span> <span class="nf">_get_Pzx_e</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;Stress Tensor (ehydro) ZX&#39;</span><span class="p">]</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">pretty_name</span> <span class="o">=</span> <span class="s2">&quot;$P_{xz,e}$&quot;</span>
+        <span class="k">return</span> <span class="n">data</span>
+
+    <span class="k">def</span> <span class="nf">_get_Pxy_e</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;Stress Tensor (ehydro) XY&#39;</span><span class="p">]</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">pretty_name</span> <span class="o">=</span> <span class="s2">&quot;$P_{xy,e}$&quot;</span>
+        <span class="k">return</span> <span class="n">data</span>
+
+    <span class="k">def</span> <span class="nf">_get_Pyz_e</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;Stress Tensor (ehydro) YZ&#39;</span><span class="p">]</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">pretty_name</span> <span class="o">=</span> <span class="s2">&quot;$P_{yz,e}$&quot;</span>
+        <span class="k">return</span> <span class="n">data</span>
+
+    <span class="c1"># ion</span>
+    <span class="k">def</span> <span class="nf">_get_jx_i</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;Current Density (Hhydro) X&#39;</span><span class="p">]</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">pretty_name</span> <span class="o">=</span> <span class="s2">&quot;$J_{x,i}$&quot;</span>
+        <span class="k">return</span> <span class="n">data</span>
+
+    <span class="k">def</span> <span class="nf">_get_jy_i</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;Current Density (Hhydro) Y&#39;</span><span class="p">]</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">pretty_name</span> <span class="o">=</span> <span class="s2">&quot;$J_{y,i}$&quot;</span>
+        <span class="k">return</span> <span class="n">data</span>
+
+    <span class="k">def</span> <span class="nf">_get_jz_i</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;Current Density (Hhydro) Z&#39;</span><span class="p">]</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">pretty_name</span> <span class="o">=</span> <span class="s2">&quot;$J_{z,i}$&quot;</span>
+        <span class="k">return</span> <span class="n">data</span>
+
+    <span class="k">def</span> <span class="nf">_get_j_i</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">jx_i</span><span class="p">,</span> <span class="n">jy_i</span><span class="p">,</span> <span class="n">jz_i</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;jx_i&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;jy_i&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;jz_i&#39;</span><span class="p">]</span>
+        <span class="n">opts</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">_force_layout</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">force_vector_layout</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">field</span><span class="o">.</span><span class="n">scalar_fields_to_vector</span><span class="p">([</span><span class="n">jx_i</span><span class="p">,</span> <span class="n">jy_i</span><span class="p">,</span> <span class="n">jz_i</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;J_i&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">opts</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_get_rhovx_i</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;Momentum Density (Hhydro) X&#39;</span><span class="p">]</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">pretty_name</span> <span class="o">=</span> <span class="s2">&quot;$</span><span class="se">\\</span><span class="s2">rho v_x,i}$&quot;</span>
+        <span class="k">return</span> <span class="n">data</span>
+
+    <span class="k">def</span> <span class="nf">_get_rhovy_i</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;Momentum Density (Hhydro) Y&#39;</span><span class="p">]</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">pretty_name</span> <span class="o">=</span> <span class="s2">&quot;$</span><span class="se">\\</span><span class="s2">rho v_y,i}$&quot;</span>
+        <span class="k">return</span> <span class="n">data</span>
+
+    <span class="k">def</span> <span class="nf">_get_rhovz_i</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;Momentum Density (Hhydro) Z&#39;</span><span class="p">]</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">pretty_name</span> <span class="o">=</span> <span class="s2">&quot;$</span><span class="se">\\</span><span class="s2">rho v_z,i}$&quot;</span>
+        <span class="k">return</span> <span class="n">data</span>
+
+    <span class="k">def</span> <span class="nf">_get_rhov_i</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">rhox_i</span><span class="p">,</span> <span class="n">rhoy_i</span><span class="p">,</span> <span class="n">rhoz_i</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;rhovx_i&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;rhovy_i&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;rhovz_i&#39;</span><span class="p">]</span>
+        <span class="n">opts</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">_force_layout</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">force_vector_layout</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">field</span><span class="o">.</span><span class="n">scalar_fields_to_vector</span><span class="p">([</span><span class="n">rhox_i</span><span class="p">,</span> <span class="n">rhoy_i</span><span class="p">,</span> <span class="n">rhoz_i</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;rhov_i&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">opts</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_get_n_i</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;Charge Density (Hhydro)&#39;</span><span class="p">]</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">pretty_name</span> <span class="o">=</span> <span class="s2">&quot;$n_</span><span class="si">{i}</span><span class="s2">$&quot;</span>
+        <span class="k">return</span> <span class="n">data</span>
+
+    <span class="k">def</span> <span class="nf">_get_ek_i</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;Kinetic Energy Density (Hhydro)&#39;</span><span class="p">]</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">pretty_name</span> <span class="o">=</span> <span class="s2">&quot;$e_{k,i}$&quot;</span>
+        <span class="k">return</span> <span class="n">data</span>
+
+    <span class="k">def</span> <span class="nf">_get_Pxx_i</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;Stress Tensor (Hhydro) XX&#39;</span><span class="p">]</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">pretty_name</span> <span class="o">=</span> <span class="s2">&quot;$P_{xx,i}$&quot;</span>
+        <span class="k">return</span> <span class="n">data</span>
+
+    <span class="k">def</span> <span class="nf">_get_Pyy_i</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;Stress Tensor (Hhydro) YY&#39;</span><span class="p">]</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">pretty_name</span> <span class="o">=</span> <span class="s2">&quot;$P_{yy,i}$&quot;</span>
+        <span class="k">return</span> <span class="n">data</span>
+
+    <span class="k">def</span> <span class="nf">_get_Pzz_i</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;Stress Tensor (Hhydro) ZZ&#39;</span><span class="p">]</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">pretty_name</span> <span class="o">=</span> <span class="s2">&quot;$P_{zz,i}$&quot;</span>
+        <span class="k">return</span> <span class="n">data</span>
+
+    <span class="k">def</span> <span class="nf">_get_Pzx_i</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;Stress Tensor (Hhydro) ZX&#39;</span><span class="p">]</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">pretty_name</span> <span class="o">=</span> <span class="s2">&quot;$P_{xz,i}$&quot;</span>
+        <span class="k">return</span> <span class="n">data</span>
+
+    <span class="k">def</span> <span class="nf">_get_Pxy_i</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;Stress Tensor (Hhydro) XY&#39;</span><span class="p">]</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">pretty_name</span> <span class="o">=</span> <span class="s2">&quot;$P_{xy,i}$&quot;</span>
+        <span class="k">return</span> <span class="n">data</span>
+
+    <span class="k">def</span> <span class="nf">_get_Pyz_i</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;Stress Tensor (Hhydro) YZ&#39;</span><span class="p">]</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">pretty_name</span> <span class="o">=</span> <span class="s2">&quot;$P_{yz,i}$&quot;</span>
+        <span class="k">return</span> <span class="n">data</span></div>
+
+
+<span class="k">class</span> <span class="nc">_VPICGlobalFile</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="n">VPICFieldDescr</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s2">&quot;VPICFieldDescr&quot;</span><span class="p">,</span>
+                                <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;kind&quot;</span><span class="p">,</span> <span class="s2">&quot;n_comps&quot;</span><span class="p">,</span> <span class="s2">&quot;dtype&quot;</span><span class="p">,</span> <span class="s2">&quot;off&quot;</span><span class="p">])</span>
+    <span class="n">VPICFieldSet</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s2">&quot;VPICFieldSet&quot;</span><span class="p">,</span>
+                              <span class="p">[</span><span class="s2">&quot;dir&quot;</span><span class="p">,</span> <span class="s2">&quot;basename&quot;</span><span class="p">,</span> <span class="s2">&quot;descr&quot;</span><span class="p">])</span>
+
+    <span class="n">_keywords</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;DATA_HEADER_SIZE&quot;</span><span class="p">:</span> <span class="s2">&quot;i&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;GRID_DELTA_T&quot;</span><span class="p">:</span> <span class="s2">&quot;f&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;GRID_CVAC&quot;</span><span class="p">:</span> <span class="s2">&quot;f&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;GRID_EPS0&quot;</span><span class="p">:</span> <span class="s2">&quot;f&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;GRID_EXTENTS_X&quot;</span><span class="p">:</span> <span class="s2">&quot;f2&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;GRID_EXTENTS_Y&quot;</span><span class="p">:</span> <span class="s2">&quot;f2&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;GRID_EXTENTS_Z&quot;</span><span class="p">:</span> <span class="s2">&quot;f2&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;GRID_DELTA_X&quot;</span><span class="p">:</span> <span class="s2">&quot;f&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;GRID_DELTA_Y&quot;</span><span class="p">:</span> <span class="s2">&quot;f&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;GRID_DELTA_Z&quot;</span><span class="p">:</span> <span class="s2">&quot;f&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;GRID_TOPOLOGY_X&quot;</span><span class="p">:</span> <span class="s2">&quot;i&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;GRID_TOPOLOGY_Y&quot;</span><span class="p">:</span> <span class="s2">&quot;i&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;GRID_TOPOLOGY_Z&quot;</span><span class="p">:</span> <span class="s2">&quot;i&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;FIELD_DATA_DIRECTORY&quot;</span><span class="p">:</span> <span class="s2">&quot;s&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;FIELD_DATA_BASE_FILENAME&quot;</span><span class="p">:</span> <span class="s2">&quot;s&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">kw</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;#&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">line</span><span class="p">:</span>
+                    <span class="k">continue</span>
+                <span class="n">words</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+
+                <span class="n">funcname</span> <span class="o">=</span> <span class="s2">&quot;parse_&quot;</span> <span class="o">+</span> <span class="n">words</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">funcname</span><span class="p">):</span>
+                    <span class="n">parse</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">funcname</span><span class="p">)</span>
+                    <span class="n">parse</span><span class="p">(</span><span class="n">words</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">f</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">words</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_keywords</span><span class="p">:</span>
+                    <span class="n">descr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_keywords</span><span class="p">[</span><span class="n">words</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+                    <span class="k">if</span> <span class="n">descr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;i&#39;</span><span class="p">:</span>
+                        <span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">words</span><span class="p">[</span><span class="mi">1</span><span class="p">:]]</span>
+                    <span class="k">elif</span> <span class="n">descr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;f&#39;</span><span class="p">:</span>
+                        <span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">words</span><span class="p">[</span><span class="mi">1</span><span class="p">:]]</span>
+                    <span class="k">elif</span> <span class="n">descr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;s&#39;</span><span class="p">:</span>
+                        <span class="n">values</span> <span class="o">=</span> <span class="n">words</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;unhandled descr </span><span class="si">{0}</span><span class="s2">&quot;</span>
+                                                  <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">descr</span><span class="p">))</span>
+                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">descr</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                        <span class="n">n_values</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">descr</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+                        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span> <span class="o">==</span> <span class="n">n_values</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">values</span><span class="p">,</span> <span class="o">=</span> <span class="n">values</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">kw</span><span class="p">[</span><span class="n">words</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">values</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Parsing problem: </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">words</span><span class="p">))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_setup</span><span class="p">()</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">_parseFieldDescr</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">line</span><span class="p">,</span> <span class="n">off</span><span class="p">):</span>
+        <span class="n">name</span><span class="p">,</span> <span class="n">rest</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;&quot;&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span>
+        <span class="n">words</span> <span class="o">=</span> <span class="n">rest</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span>
+        <span class="n">kind</span> <span class="o">=</span> <span class="n">words</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">n_comps</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">words</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+        <span class="n">basic_type</span> <span class="o">=</span> <span class="p">(</span><span class="n">words</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="nb">int</span><span class="p">(</span><span class="n">words</span><span class="p">[</span><span class="mi">3</span><span class="p">]))</span>
+        <span class="k">if</span> <span class="n">basic_type</span> <span class="o">==</span> <span class="p">(</span><span class="s2">&quot;FLOATING_POINT&quot;</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
+            <span class="n">dtype</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span>
+        <span class="k">elif</span> <span class="n">basic_type</span> <span class="o">==</span> <span class="p">(</span><span class="s2">&quot;INTEGER&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+            <span class="n">dtype</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">int16</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;unhandled type </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">basic_type</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">VPICFieldDescr</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">kind</span><span class="p">,</span> <span class="n">n_comps</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">off</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">parse_VPIC_HEADER_VERSION</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">args</span> <span class="o">!=</span> <span class="p">[</span><span class="s2">&quot;1.0.0&quot;</span><span class="p">]:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Only know how to read version 1.0.0 files!&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">parse_FIELD_DATA_VARIABLES</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+        <span class="n">n_field_vars</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fields</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">VPICFieldSet</span><span class="p">(</span><span class="nb">dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">kw</span><span class="p">[</span><span class="s2">&quot;FIELD_DATA_DIRECTORY&quot;</span><span class="p">],</span>
+                                        <span class="n">basename</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">kw</span><span class="p">[</span><span class="s2">&quot;FIELD_DATA_BASE_FILENAME&quot;</span><span class="p">],</span>
+                                        <span class="n">descr</span><span class="o">=</span><span class="p">[])</span>
+        <span class="n">off</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_field_vars</span><span class="p">):</span>
+            <span class="n">line</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="o">.</span><span class="n">descr</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_parseFieldDescr</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">off</span><span class="o">=</span><span class="n">off</span><span class="p">))</span>
+            <span class="n">off</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="o">.</span><span class="n">descr</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">n_comps</span>
+
+    <span class="k">def</span> <span class="nf">parse_NUM_OUTPUT_SPECIES</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+        <span class="n">n_species</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">species</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_species</span><span class="p">):</span>
+            <span class="n">kw</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+            <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+                <span class="n">line</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;#&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">line</span><span class="p">:</span>
+                    <span class="k">continue</span>
+
+                <span class="n">words</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+                <span class="k">if</span> <span class="n">words</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;HYDRO_DATA_VARIABLES&quot;</span><span class="p">:</span>
+                    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span> <span class="o">==</span> <span class="mi">1</span>
+                    <span class="n">n_field_vars</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">words</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+                    <span class="n">fs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">VPICFieldSet</span><span class="p">(</span><span class="nb">dir</span><span class="o">=</span><span class="n">kw</span><span class="p">[</span><span class="s2">&quot;SPECIES_DATA_DIRECTORY&quot;</span><span class="p">],</span>
+                                           <span class="n">basename</span><span class="o">=</span><span class="n">kw</span><span class="p">[</span><span class="s2">&quot;SPECIES_DATA_BASE_FILENAME&quot;</span><span class="p">],</span>
+                                           <span class="n">descr</span><span class="o">=</span><span class="p">[])</span>
+                    <span class="n">off</span> <span class="o">=</span> <span class="mi">0</span>
+                    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_field_vars</span><span class="p">):</span>
+                        <span class="n">line</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                        <span class="n">fs</span><span class="o">.</span><span class="n">descr</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_parseFieldDescr</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">off</span><span class="p">))</span>
+                        <span class="n">off</span> <span class="o">+=</span> <span class="n">fs</span><span class="o">.</span><span class="n">descr</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">n_comps</span>
+
+                    <span class="c1"># We&#39;re done with this species</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">species</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fs</span><span class="p">)</span>
+                    <span class="k">break</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span> <span class="o">==</span> <span class="mi">1</span>
+                    <span class="n">kw</span><span class="p">[</span><span class="n">words</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">words</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">_makeFieldDict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_field_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">fs</span> <span class="ow">in</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">species</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">fs</span><span class="o">.</span><span class="n">descr</span><span class="p">:</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">name</span>
+                <span class="k">if</span> <span class="n">fs</span><span class="o">.</span><span class="n">basename</span> <span class="o">!=</span> <span class="s2">&quot;fields&quot;</span><span class="p">:</span>
+                    <span class="n">name</span> <span class="o">+=</span> <span class="s2">&quot; (</span><span class="si">{0}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fs</span><span class="o">.</span><span class="n">basename</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_field_dict</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">fs</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_setup</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_makeFieldDict</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">topology</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">kw</span><span class="p">[</span><span class="s2">&quot;GRID_TOPOLOGY_</span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">comp</span><span class="p">)]</span>
+                                  <span class="k">for</span> <span class="n">comp</span> <span class="ow">in</span> <span class="s1">&#39;XYZ&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_procs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">topology</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">dx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">kw</span><span class="p">[</span><span class="s2">&quot;GRID_DELTA_</span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">comp</span><span class="p">)]</span>
+                            <span class="k">for</span> <span class="n">comp</span> <span class="ow">in</span> <span class="s1">&#39;XYZ&#39;</span><span class="p">])</span>
+        <span class="c1"># low</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">xl</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">kw</span><span class="p">[</span><span class="s2">&quot;GRID_EXTENTS_</span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">comp</span><span class="p">)][</span><span class="mi">0</span><span class="p">]</span>
+                            <span class="k">for</span> <span class="n">comp</span> <span class="ow">in</span> <span class="s1">&#39;XYZ&#39;</span><span class="p">])</span>
+        <span class="c1"># high</span>
+        <span class="n">xh_local</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">kw</span><span class="p">[</span><span class="s2">&quot;GRID_EXTENTS_</span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">comp</span><span class="p">)][</span><span class="mi">1</span><span class="p">]</span>
+                             <span class="k">for</span> <span class="n">comp</span> <span class="ow">in</span> <span class="s1">&#39;XYZ&#39;</span><span class="p">])</span>
+        <span class="c1"># local domain size (extent)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">extent</span> <span class="o">=</span> <span class="n">xh_local</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">xl</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ldims</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">extent</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">dx</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int_</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gdims</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ldims</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">topology</span>
+
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">(</span><span class="si">%r</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;VPICGlobalFile:</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;fields:</span><span class="se">\n</span><span class="s2"> </span><span class="si">{0}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">)</span>
+        <span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;species:</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="k">for</span> <span class="n">sp</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">species</span><span class="p">:</span>
+            <span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;  </span><span class="si">{0}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sp</span><span class="p">)</span>
+        <span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;kw:</span><span class="se">\n</span><span class="s2"> </span><span class="si">{0}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kw</span><span class="p">)</span>
+        <span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;topology: </span><span class="si">{0}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">topology</span><span class="p">)</span>
+        <span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;n_procs: </span><span class="si">{0}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_procs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">s</span>
+
+
+<div class="viewcode-block" id="VPIC_File"><a class="viewcode-back" href="../../../api/viscid.readers.vpic.html#viscid.readers.vpic.VPIC_File">[docs]</a><span class="k">class</span> <span class="nc">VPIC_File</span><span class="p">(</span><span class="n">vfile</span><span class="o">.</span><span class="n">VFile</span><span class="p">):</span>  <span class="c1"># pylint: disable=abstract-method</span>
+    <span class="sd">&quot;&quot;&quot;An VPIC binary file reader&quot;&quot;&quot;</span>
+    <span class="n">_detector</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;^\s*(.*)\.(vpc)\s*$&quot;</span>
+    <span class="n">_grid_type</span> <span class="o">=</span> <span class="n">VPIC_Grid</span>
+
+    <span class="n">_fwrapper</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fname</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Keyword Arguments:</span>
+<span class="sd">            float_type_name (str): should be &#39;f4&#39; or &#39;f8&#39; if you know</span>
+<span class="sd">                the data type of the file&#39;s data.</span>
+<span class="sd">            var_type (str): either &#39;cons&#39; or &#39;prim&#39;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last_amr_skeleton</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">VPIC_File</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<div class="viewcode-block" id="VPIC_File.load"><a class="viewcode-back" href="../../../api/viscid.readers.vpic.html#viscid.readers.vpic.VPIC_File.load">[docs]</a>    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fname</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">VPIC_File</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">_parse</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">_gfile</span> <span class="o">=</span> <span class="n">_VPICGlobalFile</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fname</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_info</span><span class="p">(</span><span class="s1">&#39;run&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dirname</span><span class="p">))</span>
+        <span class="n">dir_to_list</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dirname</span><span class="p">,</span> <span class="n">_gfile</span><span class="o">.</span><span class="n">fields</span><span class="o">.</span><span class="n">dir</span><span class="p">)</span>
+        <span class="n">tframe_dirs</span> <span class="o">=</span> <span class="p">[</span><span class="n">d</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">dir_to_list</span><span class="p">)]</span>
+        <span class="n">re_matches</span> <span class="o">=</span> <span class="p">[</span><span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;.*\.([0-9]+)&#39;</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">tframe_dirs</span><span class="p">]</span>
+        <span class="n">time_list</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">re_matches</span> <span class="k">if</span> <span class="n">m</span><span class="p">]</span>
+        <span class="n">time_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">time_list</span><span class="p">)]</span>
+
+        <span class="n">data_temporal</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dset_type</span><span class="o">=</span><span class="s2">&quot;temporal&quot;</span><span class="p">,</span>
+                                           <span class="n">name</span><span class="o">=</span><span class="s2">&quot;VPIC_TemporalCollection&quot;</span><span class="p">)</span>
+
+        <span class="n">block_crds</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">_gfile</span><span class="o">.</span><span class="n">topology</span><span class="p">[</span><span class="mi">2</span><span class="p">]):</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">_gfile</span><span class="o">.</span><span class="n">topology</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">_gfile</span><span class="o">.</span><span class="n">topology</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+                    <span class="n">idx</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">]</span>
+                    <span class="n">xl</span> <span class="o">=</span> <span class="p">[</span><span class="n">_gfile</span><span class="o">.</span><span class="n">xl</span><span class="p">[</span><span class="n">d</span><span class="p">]</span> <span class="o">+</span> <span class="n">_gfile</span><span class="o">.</span><span class="n">ldims</span><span class="p">[</span><span class="n">d</span><span class="p">]</span> <span class="o">*</span> <span class="n">idx</span><span class="p">[</span><span class="n">d</span><span class="p">]</span> <span class="o">*</span> <span class="n">_gfile</span><span class="o">.</span><span class="n">dx</span><span class="p">[</span><span class="n">d</span><span class="p">]</span>
+                          <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
+                    <span class="n">xh</span> <span class="o">=</span> <span class="p">[</span><span class="n">_gfile</span><span class="o">.</span><span class="n">xl</span><span class="p">[</span><span class="n">d</span><span class="p">]</span> <span class="o">+</span> <span class="n">_gfile</span><span class="o">.</span><span class="n">ldims</span><span class="p">[</span><span class="n">d</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">idx</span><span class="p">[</span><span class="n">d</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">_gfile</span><span class="o">.</span><span class="n">dx</span><span class="p">[</span><span class="n">d</span><span class="p">]</span>
+                          <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
+                    <span class="n">arrs</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">_xl</span><span class="p">,</span> <span class="n">_xh</span><span class="p">,</span> <span class="n">_n</span><span class="p">)</span>
+                            <span class="k">for</span> <span class="n">_xl</span><span class="p">,</span> <span class="n">_xh</span><span class="p">,</span> <span class="n">_n</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">xl</span><span class="p">,</span> <span class="n">xh</span><span class="p">,</span> <span class="n">_gfile</span><span class="o">.</span><span class="n">ldims</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+                    <span class="n">block_crds</span> <span class="o">+=</span> <span class="p">[</span><span class="n">coordinate</span><span class="o">.</span><span class="n">arrays2crds</span><span class="p">(</span><span class="n">arrs</span><span class="p">)]</span>
+
+        <span class="n">file_wrapper_cls</span> <span class="o">=</span> <span class="n">VPIC_BinFileWrapper</span>
+        <span class="n">data_wrapper_cls</span> <span class="o">=</span> <span class="n">VPIC_DataWrapper</span>
+
+        <span class="c1"># normal grid creation would scale like</span>
+        <span class="c1"># n_patches * n_timesteps * n_fields, which could take a long while,</span>
+        <span class="c1"># so lets make a closure to defer grid creation</span>
+        <span class="n">parent_node</span> <span class="o">=</span> <span class="bp">self</span> <span class="c1"># FIXME: is this correct?</span>
+
+        <span class="k">def</span> <span class="nf">spatial_dset_callback</span><span class="p">(</span><span class="n">time</span><span class="p">):</span>
+            <span class="n">dset_spatial</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">()</span>
+            <span class="n">dset_spatial</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">time</span>
+
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">crds</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">block_crds</span><span class="p">):</span>
+                <span class="n">_grid</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_grid</span><span class="p">(</span><span class="n">parent_node</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;&lt;VPIC_Gridt </span><span class="si">{0}</span><span class="s2">&gt;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+                <span class="c1"># _grid = VPIC_Grid()</span>
+                <span class="n">_grid</span><span class="o">.</span><span class="n">set_crds</span><span class="p">(</span><span class="n">crds</span><span class="p">)</span>
+
+                <span class="k">for</span> <span class="n">fs</span> <span class="ow">in</span> <span class="p">[</span><span class="n">_gfile</span><span class="o">.</span><span class="n">fields</span><span class="p">]</span> <span class="o">+</span> <span class="n">_gfile</span><span class="o">.</span><span class="n">species</span><span class="p">:</span>
+                    <span class="n">bin_fname</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;</span><span class="si">{0}</span><span class="s2">/T.</span><span class="si">{1}</span><span class="s2">/</span><span class="si">{2}</span><span class="s2">.</span><span class="si">{3}</span><span class="s2">.</span><span class="si">{4}</span><span class="s2">&quot;</span>
+                                 <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fs</span><span class="o">.</span><span class="n">dir</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">fs</span><span class="o">.</span><span class="n">basename</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span>
+                    <span class="c1"># file_wrapper is a lazy proxy for the whole binary file...</span>
+                    <span class="c1"># ie, something that knows how to seek etc.</span>
+                    <span class="n">bin_fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dirname</span><span class="p">,</span> <span class="n">bin_fname</span><span class="p">)</span>
+                    <span class="n">file_wrapper</span> <span class="o">=</span> <span class="n">file_wrapper_cls</span><span class="p">(</span><span class="n">bin_fname</span><span class="p">)</span>
+
+                    <span class="k">for</span> <span class="n">descr</span> <span class="ow">in</span> <span class="n">fs</span><span class="o">.</span><span class="n">descr</span><span class="p">:</span>
+                        <span class="n">fld_name</span> <span class="o">=</span> <span class="n">descr</span><span class="o">.</span><span class="n">name</span>
+                        <span class="k">if</span> <span class="n">fs</span><span class="o">.</span><span class="n">basename</span> <span class="o">!=</span> <span class="s1">&#39;fields&#39;</span><span class="p">:</span>
+                            <span class="n">fld_name</span> <span class="o">+=</span> <span class="s2">&quot; (</span><span class="si">{0}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fs</span><span class="o">.</span><span class="n">basename</span><span class="p">)</span>
+
+                        <span class="k">for</span> <span class="n">icomp</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">descr</span><span class="o">.</span><span class="n">n_comps</span><span class="p">):</span>
+                            <span class="k">if</span> <span class="n">descr</span><span class="o">.</span><span class="n">n_comps</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                                <span class="n">_fld_name</span> <span class="o">=</span> <span class="n">fld_name</span>
+                            <span class="k">else</span><span class="p">:</span>
+                                <span class="k">if</span> <span class="n">descr</span><span class="o">.</span><span class="n">n_comps</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+                                    <span class="n">comps</span> <span class="o">=</span> <span class="s1">&#39;XYZ&#39;</span>
+                                <span class="k">elif</span> <span class="n">descr</span><span class="o">.</span><span class="n">n_comps</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span>
+                                    <span class="n">comps</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;XX&#39;</span><span class="p">,</span> <span class="s1">&#39;YY&#39;</span><span class="p">,</span> <span class="s1">&#39;ZZ&#39;</span><span class="p">,</span> <span class="s1">&#39;YZ&#39;</span><span class="p">,</span> <span class="s1">&#39;ZX&#39;</span><span class="p">,</span> <span class="s1">&#39;XY&#39;</span><span class="p">]</span>
+                                <span class="k">else</span><span class="p">:</span>
+                                    <span class="n">comps</span> <span class="o">=</span> <span class="s1">&#39;ABCDEFGHIJKLMN&#39;</span>
+                                <span class="n">_fld_name</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{0}</span><span class="s1"> </span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fld_name</span><span class="p">,</span> <span class="n">comps</span><span class="p">[</span><span class="n">icomp</span><span class="p">])</span>
+                            <span class="c1"># data is a lazy proxy for an ndarray</span>
+                            <span class="c1"># FIXME: the data type is in descr?</span>
+                            <span class="n">data</span> <span class="o">=</span> <span class="n">data_wrapper_cls</span><span class="p">(</span><span class="n">file_wrapper</span><span class="p">,</span> <span class="n">_fld_name</span><span class="p">,</span>
+                                                    <span class="n">_gfile</span><span class="o">.</span><span class="n">ldims</span><span class="p">,</span>
+                                                    <span class="n">icomp</span> <span class="o">+</span> <span class="n">descr</span><span class="o">.</span><span class="n">off</span><span class="p">,</span>
+                                                    <span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">))</span>
+                            <span class="c1"># FIXME: center actually varies depending on the variable</span>
+                            <span class="c1"># here cc is used for every field for convenience; perhaps</span>
+                            <span class="c1"># this can be done properly, i.e., setting center</span>
+                            <span class="c1"># differently for different variables.</span>
+                            <span class="n">_fld</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_field</span><span class="p">(</span><span class="n">_grid</span><span class="p">,</span> <span class="s2">&quot;Scalar&quot;</span><span class="p">,</span> <span class="n">_fld_name</span><span class="p">,</span>
+                                                    <span class="n">crds</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="n">time</span><span class="p">,</span>
+                                                    <span class="n">center</span><span class="o">=</span><span class="s1">&#39;cell&#39;</span><span class="p">)</span>
+                            <span class="n">_grid</span><span class="o">.</span><span class="n">add_field</span><span class="p">(</span><span class="n">_fld</span><span class="p">)</span>
+
+                <span class="n">dset_spatial</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">_grid</span><span class="p">)</span>
+
+            <span class="n">_amr_grid</span><span class="p">,</span> <span class="n">is_amr</span> <span class="o">=</span> <span class="n">amr_grid</span><span class="o">.</span><span class="n">dataset_to_amr_grid</span><span class="p">(</span><span class="n">dset_spatial</span><span class="p">,</span>
+                                                             <span class="bp">self</span><span class="o">.</span><span class="n">last_amr_skeleton</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">is_amr</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">last_amr_skeleton</span> <span class="o">=</span> <span class="n">_amr_grid</span><span class="o">.</span><span class="n">skeleton</span>
+
+            <span class="k">return</span> <span class="n">_amr_grid</span>
+
+        <span class="k">for</span> <span class="n">time</span> <span class="ow">in</span> <span class="n">time_list</span><span class="p">:</span>
+            <span class="n">data_temporal</span><span class="o">.</span><span class="n">add_deferred</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">spatial_dset_callback</span><span class="p">,</span>
+                                       <span class="n">callback_args</span><span class="o">=</span><span class="p">(</span><span class="n">time</span><span class="p">,))</span>
+
+        <span class="n">data_temporal</span><span class="o">.</span><span class="n">activate</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">data_temporal</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">activate</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="VPIC_BinFileWrapper"><a class="viewcode-back" href="../../../api/viscid.readers.vpic.html#viscid.readers.vpic.VPIC_BinFileWrapper">[docs]</a><span class="k">class</span> <span class="nc">VPIC_BinFileWrapper</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A File-like object for interfacing with VPIC binary files&quot;&quot;&quot;</span>
+    <span class="n">_file</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="n">filename</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">filename</span> <span class="o">=</span> <span class="n">filename</span>
+
+    <span class="k">def</span> <span class="nf">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<div class="viewcode-block" id="VPIC_BinFileWrapper.read_field"><a class="viewcode-back" href="../../../api/viscid.readers.vpic.html#viscid.readers.vpic.VPIC_BinFileWrapper.read_field">[docs]</a>    <span class="k">def</span> <span class="nf">read_field</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">comp</span><span class="p">,</span> <span class="n">slicex</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">),</span> <span class="n">slicey</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">),</span>
+                   <span class="n">slicez</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">):</span>
+        <span class="k">with</span> <span class="bp">self</span> <span class="k">as</span> <span class="n">_</span><span class="p">:</span>
+            <span class="n">f_in</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_file</span>
+            <span class="n">fmt_1</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">Struct</span><span class="p">(</span><span class="s1">&#39;=5b&#39;</span><span class="p">)</span>
+            <span class="n">CHAR_BITS</span><span class="p">,</span> <span class="n">sz_short_int</span><span class="p">,</span> <span class="n">sz_int</span><span class="p">,</span> <span class="n">sz_float</span><span class="p">,</span> \
+                <span class="n">sz_double</span> <span class="o">=</span> <span class="n">fmt_1</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="n">f_in</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">fmt_1</span><span class="o">.</span><span class="n">size</span><span class="p">))</span>
+            <span class="c1">#logger.debug(CHAR_BITS, sz_short_int, sz_int, sz_float, sz_double)</span>
+            <span class="k">assert</span> <span class="n">CHAR_BITS</span> <span class="o">==</span> <span class="mi">8</span> <span class="ow">and</span> <span class="n">sz_short_int</span> <span class="o">==</span> <span class="mi">2</span>
+            <span class="k">assert</span> <span class="n">sz_int</span> <span class="o">==</span> <span class="mi">4</span> <span class="ow">and</span> <span class="n">sz_float</span> <span class="o">==</span> <span class="mi">4</span> <span class="ow">and</span> <span class="n">sz_double</span> <span class="o">==</span> <span class="mi">8</span>
+
+            <span class="n">fmt_2</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">Struct</span><span class="p">(</span><span class="s1">&#39;=HIfd&#39;</span><span class="p">)</span>
+            <span class="n">cafe</span><span class="p">,</span> <span class="n">deadbeef</span><span class="p">,</span> <span class="n">float_1</span><span class="p">,</span> <span class="n">double_1</span> <span class="o">=</span> <span class="n">fmt_2</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="n">f_in</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">fmt_2</span><span class="o">.</span><span class="n">size</span><span class="p">))</span>
+            <span class="c1">#logger.debug(&quot;{:x} {:x}&quot;.format(cafe, deadbeef))</span>
+            <span class="k">assert</span> <span class="n">cafe</span> <span class="o">==</span> <span class="mh">0xcafe</span> <span class="ow">and</span> <span class="n">deadbeef</span> <span class="o">==</span> <span class="mh">0xdeadbeef</span>
+            <span class="k">assert</span> <span class="n">float_1</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">double_1</span> <span class="o">==</span> <span class="mi">1</span>
+
+            <span class="n">fmt_3</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">Struct</span><span class="p">(</span><span class="s1">&#39;=6i10f&#39;</span><span class="p">)</span>
+            <span class="n">version</span><span class="p">,</span> <span class="n">dump_type</span><span class="p">,</span> <span class="n">step</span><span class="p">,</span> <span class="n">nx_out</span><span class="p">,</span> <span class="n">ny_out</span><span class="p">,</span> <span class="n">nz_out</span><span class="p">,</span> \
+                <span class="n">dt</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">dz</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">z0</span><span class="p">,</span> \
+                <span class="n">cvac</span><span class="p">,</span> <span class="n">eps0</span><span class="p">,</span> <span class="n">damp</span> <span class="o">=</span> <span class="n">fmt_3</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="n">f_in</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">fmt_3</span><span class="o">.</span><span class="n">size</span><span class="p">))</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;version </span><span class="si">{0}</span><span class="s1"> dump_type </span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">version</span><span class="p">,</span> <span class="n">dump_type</span><span class="p">))</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;step </span><span class="si">{0}</span><span class="s1"> n_out </span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">step</span><span class="p">,</span> <span class="p">(</span><span class="n">nx_out</span><span class="p">,</span> <span class="n">ny_out</span><span class="p">,</span> <span class="n">nz_out</span><span class="p">)))</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;dt </span><span class="si">{0}</span><span class="s1"> dx </span><span class="si">{1}</span><span class="s1"> x0 </span><span class="si">{2}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="p">(</span><span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">dz</span><span class="p">),</span> <span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">z0</span><span class="p">)))</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;cvac </span><span class="si">{0}</span><span class="s1"> eps0 </span><span class="si">{1}</span><span class="s1"> damp </span><span class="si">{2}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cvac</span><span class="p">,</span> <span class="n">eps0</span><span class="p">,</span> <span class="n">damp</span><span class="p">))</span>
+
+            <span class="n">fmt_4</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">Struct</span><span class="p">(</span><span class="s1">&#39;=3i1f5i&#39;</span><span class="p">)</span>
+            <span class="n">rank</span><span class="p">,</span> <span class="n">nproc</span><span class="p">,</span> <span class="n">sp_id</span><span class="p">,</span> <span class="n">q_m</span><span class="p">,</span> <span class="n">sz_data</span><span class="p">,</span> <span class="n">ndim</span><span class="p">,</span> <span class="n">ghost_size_x</span><span class="p">,</span> \
+               <span class="n">ghost_size_y</span><span class="p">,</span> <span class="n">ghost_size_z</span> <span class="o">=</span> <span class="n">fmt_4</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="n">f_in</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">fmt_4</span><span class="o">.</span><span class="n">size</span><span class="p">))</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;rank </span><span class="si">{0}</span><span class="s2"> nproc </span><span class="si">{1}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">rank</span><span class="p">,</span> <span class="n">nproc</span><span class="p">))</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;sp_id </span><span class="si">{0}</span><span class="s2"> q_m </span><span class="si">{1}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sp_id</span><span class="p">,</span> <span class="n">q_m</span><span class="p">))</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;sz_data </span><span class="si">{0}</span><span class="s2"> ndim </span><span class="si">{1}</span><span class="s2"> ghost_size </span><span class="si">{2}</span><span class="s2">&quot;</span>
+                         <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sz_data</span><span class="p">,</span> <span class="n">ndim</span><span class="p">,</span> <span class="p">(</span><span class="n">ghost_size_x</span><span class="p">,</span> <span class="n">ghost_size_y</span><span class="p">,</span>
+                                                   <span class="n">ghost_size_z</span><span class="p">)))</span>
+
+            <span class="n">dim</span> <span class="o">=</span> <span class="p">(</span><span class="n">ghost_size_x</span><span class="p">,</span> <span class="n">ghost_size_y</span><span class="p">,</span> <span class="n">ghost_size_z</span><span class="p">)</span>
+            <span class="c1"># The material data are originally short ints</span>
+            <span class="c1"># but are written as uint_32_t (of size same</span>
+            <span class="c1"># as float32; see dump.cc:field_dump); this is</span>
+            <span class="c1"># perhaps for convnience.</span>
+            <span class="c1"># TODO: slice when reading?</span>
+            <span class="n">HEADER_SIZE</span> <span class="o">=</span> <span class="mi">123</span>
+            <span class="n">RECORD_SIZE</span> <span class="o">=</span> <span class="mi">4</span>
+            <span class="k">assert</span> <span class="n">f_in</span><span class="o">.</span><span class="n">tell</span><span class="p">()</span> <span class="o">==</span> <span class="n">HEADER_SIZE</span>
+
+            <span class="n">f_in</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="n">HEADER_SIZE</span> <span class="o">+</span> <span class="n">RECORD_SIZE</span> <span class="o">*</span> <span class="n">comp</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">dim</span><span class="p">))</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fromfile</span><span class="p">(</span><span class="n">f_in</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">dim</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+
+            <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">*</span><span class="n">dim</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;F&#39;</span><span class="p">)</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">data_sliced</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">slicez</span><span class="p">,</span> <span class="n">slicey</span><span class="p">,</span> <span class="n">slicex</span><span class="p">]</span>
+
+            <span class="k">return</span> <span class="n">data_sliced</span></div>
+
+    <span class="k">def</span> <span class="nf">_read_file_header</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;load up the file&#39;s meta data&quot;&quot;&quot;</span>
+        <span class="c1"># TODO: move the header stuff here so we only do it once</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="VPIC_BinFileWrapper.read_header"><a class="viewcode-back" href="../../../api/viscid.readers.vpic.html#viscid.readers.vpic.VPIC_BinFileWrapper.read_header">[docs]</a>    <span class="k">def</span> <span class="nf">read_header</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_endian</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">with</span> <span class="bp">self</span> <span class="k">as</span> <span class="n">_</span><span class="p">:</span>
+                <span class="c1"># just opening the file makes it read the header</span>
+                <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="VPIC_BinFileWrapper.open"><a class="viewcode-back" href="../../../api/viscid.readers.vpic.html#viscid.readers.vpic.VPIC_BinFileWrapper.open">[docs]</a>    <span class="k">def</span> <span class="nf">open</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_file</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">pass</span>
+                <span class="c1"># TODO: trigger _read_file_header()</span>
+                <span class="c1"># if self._endian is None:</span>
+                <span class="c1">#     self._read_file_header()</span>
+            <span class="k">except</span> <span class="ne">IOError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+                <span class="k">raise</span> <span class="n">e</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">isopen</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_file</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="VPIC_BinFileWrapper.close"><a class="viewcode-back" href="../../../api/viscid.readers.vpic.html#viscid.readers.vpic.VPIC_BinFileWrapper.close">[docs]</a>    <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_file</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_file</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_file</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+    <span class="k">def</span> <span class="nf">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">open</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="nf">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exc_type</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">traceback</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="VPIC_DataWrapper"><a class="viewcode-back" href="../../../api/viscid.readers.vpic.html#viscid.readers.vpic.VPIC_DataWrapper">[docs]</a><span class="k">class</span> <span class="nc">VPIC_DataWrapper</span><span class="p">(</span><span class="n">vfile</span><span class="o">.</span><span class="n">DataWrapper</span><span class="p">):</span>
+    <span class="n">file_wrapper</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">fld_name</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">expected_shape</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">fld_number</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_wrapper</span><span class="p">,</span> <span class="n">fld_name</span><span class="p">,</span> <span class="n">expected_shape</span><span class="p">,</span> <span class="n">fld_number</span><span class="p">,</span>
+                 <span class="n">dtype</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Lazy wrapper for a field in a Fortbin file</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            expected_shape (tuple): shape of data in the file (zyx)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">VPIC_DataWrapper</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">file_wrapper</span> <span class="o">=</span> <span class="n">file_wrapper</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">filename</span> <span class="o">=</span> <span class="n">file_wrapper</span><span class="o">.</span><span class="n">filename</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fld_name</span> <span class="o">=</span> <span class="n">fld_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">expected_shape</span> <span class="o">=</span> <span class="n">expected_shape</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fld_number</span> <span class="o">=</span> <span class="n">fld_number</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dtype</span> <span class="o">=</span> <span class="n">dtype</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">shape</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            zyx shape since that&#39;s the shape __array__ returns</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">expected_shape</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">dtype</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dtype</span>
+
+    <span class="k">def</span> <span class="nf">__array__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">file_wrapper</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">arr</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read_field</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fld_number</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">expected_shape</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">arr</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+
+<div class="viewcode-block" id="VPIC_DataWrapper.read_direct"><a class="viewcode-back" href="../../../api/viscid.readers.vpic.html#viscid.readers.vpic.VPIC_DataWrapper.read_direct">[docs]</a>    <span class="k">def</span> <span class="nf">read_direct</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__array__</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="VPIC_DataWrapper.len"><a class="viewcode-back" href="../../../api/viscid.readers.vpic.html#viscid.readers.vpic.VPIC_DataWrapper.len">[docs]</a>    <span class="k">def</span> <span class="nf">len</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span></div>
+
+    <span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__array__</span><span class="p">()</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="n">item</span><span class="p">)</span></div>
+
+
+<span class="k">def</span> <span class="nf">_main</span><span class="p">():</span>
+    <span class="kn">import</span> <span class="nn">viscid</span>
+    <span class="kn">from</span> <span class="nn">viscid</span> <span class="k">import</span> <span class="n">sample_dir</span>
+    <span class="kn">from</span> <span class="nn">viscid.plot</span> <span class="k">import</span> <span class="n">vpyplot</span> <span class="k">as</span> <span class="n">vlt</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">viscid</span><span class="o">.</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+
+    <span class="n">f</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">load_file</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sample_dir</span><span class="p">,</span> <span class="s1">&#39;vpic_sample&#39;</span><span class="p">,</span> <span class="s1">&#39;global.vpc&#39;</span><span class="p">))</span>
+    <span class="n">vlt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="o">-</span><span class="n">f</span><span class="p">[</span><span class="s1">&#39;n_e&#39;</span><span class="p">][</span><span class="s1">&#39;y=0f&#39;</span><span class="p">],</span> <span class="n">logscale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">_main</span><span class="p">())</span>
+
+<span class="c1">##</span>
+<span class="c1">## EOF</span>
+<span class="c1">##</span>
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+      
+    </p>
+    <p>
+        &copy; Copyright 2017, Kristofor Maynard.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

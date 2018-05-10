@@ -1,0 +1,666 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>viscid.compat package &#8212; Viscid 0.99.7.dev0 documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="viscid.compat.element_tree module" href="viscid.compat.element_tree.html" />
+    <link rel="prev" title="viscid.calculator.topology module" href="viscid.calculator.topology.html" />
+<link rel="icon" href="../_static/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../_static/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon-precomposed" href="../_static/Vicon_128.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Viscid</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.99.7.dev0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+    <li class="dropdown">
+      <a role="button"
+         id="dLabelNavLinxToc"
+         data-toggle="dropdown"
+         data-target="#"
+         href="#">Tutorial <b class="caret"></b></a>
+      <ul class="dropdown-menu navlinktoc"
+          role="menu">
+          <li class="toctree-l1">
+            <a class="reference internal", href="../installation.html">Installation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/creating_fields.html">Creating Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/slicing.html">Slicing Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/plotting_scalars.html">Plotting Scalars</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/plotting_vectors.html">Plotting Vectors</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/mayavi.html">3D Plots (Mayavi)</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/openggcm.html">OpenGGCM Specific</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/ionosphere.html">Ionosphere</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/stream_and_interp.html">Streamline and Interpolation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/magnetic_topology.html">Magnetic Topology</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/magnetopause.html">Magnetopause</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/quasi_potential.html">Quasi Potential</a>
+          </li>
+      </ul>
+    </li>
+
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../changes.html">ChangeLog</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../philosophy.html">Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tips_and_tricks.html">Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functions.html">Useful Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plot_options.html">Plot Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mpl_style_gallery.html">Matplotlib Style Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom_behavior.html">Custom Behavior (rc file)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev_guide.html">Developer’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extending_readers.html">Extending Readers</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="viscid.html">API</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">viscid.compat package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-viscid.compat">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="viscid-compat-package">
+<h1>viscid.compat package<a class="headerlink" href="#viscid-compat-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="viscid.compat.element_tree.html">viscid.compat.element_tree module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="viscid.compat.vimportlib.html">viscid.compat.vimportlib module</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="module-viscid.compat">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-viscid.compat" title="Permalink to this headline">¶</a></h2>
+<p>Compatability modules… at the moment, this only contains the ordered dict
+backport that’s posted to active state</p>
+<dl class="class">
+<dt id="viscid.compat.OrderedDict">
+<em class="property">class </em><code class="descclassname">viscid.compat.</code><code class="descname">OrderedDict</code><span class="sig-paren">(</span><em>**kwds</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/collections.html#OrderedDict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.compat.OrderedDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
+<p>Dictionary that remembers insertion order</p>
+<dl class="method">
+<dt id="viscid.compat.OrderedDict.clear">
+<code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; None.  Remove all items from od.<a class="reference internal" href="../_modules/collections.html#OrderedDict.clear"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.compat.OrderedDict.clear" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="viscid.compat.OrderedDict.copy">
+<code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; a shallow copy of od<a class="reference internal" href="../_modules/collections.html#OrderedDict.copy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.compat.OrderedDict.copy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="viscid.compat.OrderedDict.fromkeys">
+<em class="property">classmethod </em><code class="descname">fromkeys</code><span class="sig-paren">(</span><em>S</em><span class="optional">[</span>, <em>v</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; New ordered dictionary with keys from S.<a class="reference internal" href="../_modules/collections.html#OrderedDict.fromkeys"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.compat.OrderedDict.fromkeys" title="Permalink to this definition">¶</a></dt>
+<dd><p>If not specified, the value defaults to None.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="viscid.compat.OrderedDict.items">
+<code class="descname">items</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; list of (key, value) pairs in od<a class="reference internal" href="../_modules/collections.html#OrderedDict.items"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.compat.OrderedDict.items" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="viscid.compat.OrderedDict.iteritems">
+<code class="descname">iteritems</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/collections.html#OrderedDict.iteritems"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.compat.OrderedDict.iteritems" title="Permalink to this definition">¶</a></dt>
+<dd><p>od.iteritems -&gt; an iterator over the (key, value) pairs in od</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="viscid.compat.OrderedDict.iterkeys">
+<code class="descname">iterkeys</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; an iterator over the keys in od<a class="reference internal" href="../_modules/collections.html#OrderedDict.iterkeys"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.compat.OrderedDict.iterkeys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="viscid.compat.OrderedDict.itervalues">
+<code class="descname">itervalues</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/collections.html#OrderedDict.itervalues"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.compat.OrderedDict.itervalues" title="Permalink to this definition">¶</a></dt>
+<dd><p>od.itervalues -&gt; an iterator over the values in od</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="viscid.compat.OrderedDict.keys">
+<code class="descname">keys</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; list of keys in od<a class="reference internal" href="../_modules/collections.html#OrderedDict.keys"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.compat.OrderedDict.keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="viscid.compat.OrderedDict.pop">
+<code class="descname">pop</code><span class="sig-paren">(</span><em>k</em><span class="optional">[</span>, <em>d</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; v, remove specified key and return the corresponding<a class="reference internal" href="../_modules/collections.html#OrderedDict.pop"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.compat.OrderedDict.pop" title="Permalink to this definition">¶</a></dt>
+<dd><p>value.  If key is not found, d is returned if given, otherwise KeyError
+is raised.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="viscid.compat.OrderedDict.popitem">
+<code class="descname">popitem</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; (k, v), return and remove a (key, value) pair.<a class="reference internal" href="../_modules/collections.html#OrderedDict.popitem"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.compat.OrderedDict.popitem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pairs are returned in LIFO order if last is true or FIFO order if false.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="viscid.compat.OrderedDict.setdefault">
+<code class="descname">setdefault</code><span class="sig-paren">(</span><em>k</em><span class="optional">[</span>, <em>d</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; od.get(k,d), also set od[k]=d if k not in od<a class="reference internal" href="../_modules/collections.html#OrderedDict.setdefault"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.compat.OrderedDict.setdefault" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="viscid.compat.OrderedDict.update">
+<code class="descname">update</code><span class="sig-paren">(</span><span class="optional">[</span><em>E</em>, <span class="optional">]</span><em>**F</em><span class="sig-paren">)</span> &#x2192; None.  Update D from mapping/iterable E and F.<a class="headerlink" href="#viscid.compat.OrderedDict.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>If E present and has a .keys() method, does:     for k in E: D[k] = E[k]
+If E present and lacks .keys() method, does:     for (k, v) in E: D[k] = v
+In either case, this is followed by: for k, v in F.items(): D[k] = v</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="viscid.compat.OrderedDict.values">
+<code class="descname">values</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; list of values in od<a class="reference internal" href="../_modules/collections.html#OrderedDict.values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.compat.OrderedDict.values" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="viscid.compat.OrderedDict.viewitems">
+<code class="descname">viewitems</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; a set-like object providing a view on od's items<a class="reference internal" href="../_modules/collections.html#OrderedDict.viewitems"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.compat.OrderedDict.viewitems" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="viscid.compat.OrderedDict.viewkeys">
+<code class="descname">viewkeys</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; a set-like object providing a view on od's keys<a class="reference internal" href="../_modules/collections.html#OrderedDict.viewkeys"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.compat.OrderedDict.viewkeys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="viscid.compat.OrderedDict.viewvalues">
+<code class="descname">viewvalues</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; an object providing a view on od's values<a class="reference internal" href="../_modules/collections.html#OrderedDict.viewvalues"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.compat.OrderedDict.viewvalues" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="viscid.compat.izip">
+<em class="property">class </em><code class="descclassname">viscid.compat.</code><code class="descname">izip</code><a class="headerlink" href="#viscid.compat.izip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>izip(iter1 [,iter2 […]]) –&gt; izip object</p>
+<p>Return a izip object whose .next() method returns a tuple where
+the i-th element comes from the i-th iterable argument.  The .next()
+method continues until the shortest iterable in the argument sequence
+is exhausted and then it raises StopIteration.  Works like the zip()
+function but consumes less memory by returning an iterator instead of
+a list.</p>
+<dl class="attribute">
+<dt id="viscid.compat.izip.next">
+<code class="descname">next</code><a class="headerlink" href="#viscid.compat.izip.next" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="viscid.compat.izip_longest">
+<em class="property">class </em><code class="descclassname">viscid.compat.</code><code class="descname">izip_longest</code><a class="headerlink" href="#viscid.compat.izip_longest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>izip_longest(iter1 [,iter2 […]], [fillvalue=None]) –&gt; izip_longest object</p>
+<p>Return an izip_longest object whose .next() method returns a tuple where
+the i-th element comes from the i-th iterable argument.  The .next()
+method continues until the longest iterable in the argument sequence
+is exhausted and then it raises StopIteration.  When the shorter iterables
+are exhausted, the fillvalue is substituted in their place.  The fillvalue
+defaults to None or can be specified by a keyword argument.</p>
+<dl class="attribute">
+<dt id="viscid.compat.izip_longest.next">
+<code class="descname">next</code><a class="headerlink" href="#viscid.compat.izip_longest.next" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="viscid.compat.unicode">
+<em class="property">class </em><code class="descclassname">viscid.compat.</code><code class="descname">unicode</code><span class="sig-paren">(</span><em>object=''</em><span class="sig-paren">)</span> &#x2192; unicode object<a class="headerlink" href="#viscid.compat.unicode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">basestring</span></code></p>
+<p>unicode(string[, encoding[, errors]]) -&gt; unicode object</p>
+<p>Create a new Unicode object from the given encoded string.
+encoding defaults to the current default string encoding.
+errors can be ‘strict’, ‘replace’ or ‘ignore’ and defaults to ‘strict’.</p>
+<dl class="method">
+<dt id="viscid.compat.unicode.capitalize">
+<code class="descname">capitalize</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; unicode<a class="headerlink" href="#viscid.compat.unicode.capitalize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a capitalized version of S, i.e. make the first character
+have upper case and the rest lower case.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="viscid.compat.unicode.center">
+<code class="descname">center</code><span class="sig-paren">(</span><em>width</em><span class="optional">[</span>, <em>fillchar</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; unicode<a class="headerlink" href="#viscid.compat.unicode.center" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return S centered in a Unicode string of length width. Padding is
+done using the specified fill character (default is a space)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="viscid.compat.unicode.count">
+<code class="descname">count</code><span class="sig-paren">(</span><em>sub</em><span class="optional">[</span>, <em>start</em><span class="optional">[</span>, <em>end</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#viscid.compat.unicode.count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the number of non-overlapping occurrences of substring sub in
+Unicode string S[start:end].  Optional arguments start and end are
+interpreted as in slice notation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="viscid.compat.unicode.decode">
+<code class="descname">decode</code><span class="sig-paren">(</span><span class="optional">[</span><em>encoding</em><span class="optional">[</span>, <em>errors</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; string or unicode<a class="headerlink" href="#viscid.compat.unicode.decode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decodes S using the codec registered for encoding. encoding defaults
+to the default encoding. errors may be given to set a different error
+handling scheme. Default is ‘strict’ meaning that encoding errors raise
+a UnicodeDecodeError. Other possible values are ‘ignore’ and ‘replace’
+as well as any other name registered with codecs.register_error that is
+able to handle UnicodeDecodeErrors.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="viscid.compat.unicode.encode">
+<code class="descname">encode</code><span class="sig-paren">(</span><span class="optional">[</span><em>encoding</em><span class="optional">[</span>, <em>errors</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; string or unicode<a class="headerlink" href="#viscid.compat.unicode.encode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Encodes S using the codec registered for encoding. encoding defaults
+to the default encoding. errors may be given to set a different error
+handling scheme. Default is ‘strict’ meaning that encoding errors raise
+a UnicodeEncodeError. Other possible values are ‘ignore’, ‘replace’ and
+‘xmlcharrefreplace’ as well as any other name registered with
+codecs.register_error that can handle UnicodeEncodeErrors.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="viscid.compat.unicode.endswith">
+<code class="descname">endswith</code><span class="sig-paren">(</span><em>suffix</em><span class="optional">[</span>, <em>start</em><span class="optional">[</span>, <em>end</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#viscid.compat.unicode.endswith" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if S ends with the specified suffix, False otherwise.
+With optional start, test S beginning at that position.
+With optional end, stop comparing S at that position.
+suffix can also be a tuple of strings to try.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="viscid.compat.unicode.expandtabs">
+<code class="descname">expandtabs</code><span class="sig-paren">(</span><span class="optional">[</span><em>tabsize</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; unicode<a class="headerlink" href="#viscid.compat.unicode.expandtabs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a copy of S where all tab characters are expanded using spaces.
+If tabsize is not given, a tab size of 8 characters is assumed.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="viscid.compat.unicode.find">
+<code class="descname">find</code><span class="sig-paren">(</span><em>sub</em><span class="optional">[</span>, <em>start</em><span class="optional">[</span>, <em>end</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#viscid.compat.unicode.find" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the lowest index in S where substring sub is found,
+such that sub is contained within S[start:end].  Optional
+arguments start and end are interpreted as in slice notation.</p>
+<p>Return -1 on failure.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="viscid.compat.unicode.format">
+<code class="descname">format</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span> &#x2192; unicode<a class="headerlink" href="#viscid.compat.unicode.format" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a formatted version of S, using substitutions from args and kwargs.
+The substitutions are identified by braces (‘{‘ and ‘}’).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="viscid.compat.unicode.index">
+<code class="descname">index</code><span class="sig-paren">(</span><em>sub</em><span class="optional">[</span>, <em>start</em><span class="optional">[</span>, <em>end</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#viscid.compat.unicode.index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Like S.find() but raise ValueError when the substring is not found.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="viscid.compat.unicode.isalnum">
+<code class="descname">isalnum</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#viscid.compat.unicode.isalnum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if all characters in S are alphanumeric
+and there is at least one character in S, False otherwise.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="viscid.compat.unicode.isalpha">
+<code class="descname">isalpha</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#viscid.compat.unicode.isalpha" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if all characters in S are alphabetic
+and there is at least one character in S, False otherwise.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="viscid.compat.unicode.isdecimal">
+<code class="descname">isdecimal</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#viscid.compat.unicode.isdecimal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if there are only decimal characters in S,
+False otherwise.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="viscid.compat.unicode.isdigit">
+<code class="descname">isdigit</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#viscid.compat.unicode.isdigit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if all characters in S are digits
+and there is at least one character in S, False otherwise.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="viscid.compat.unicode.islower">
+<code class="descname">islower</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#viscid.compat.unicode.islower" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if all cased characters in S are lowercase and there is
+at least one cased character in S, False otherwise.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="viscid.compat.unicode.isnumeric">
+<code class="descname">isnumeric</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#viscid.compat.unicode.isnumeric" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if there are only numeric characters in S,
+False otherwise.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="viscid.compat.unicode.isspace">
+<code class="descname">isspace</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#viscid.compat.unicode.isspace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if all characters in S are whitespace
+and there is at least one character in S, False otherwise.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="viscid.compat.unicode.istitle">
+<code class="descname">istitle</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#viscid.compat.unicode.istitle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if S is a titlecased string and there is at least one
+character in S, i.e. upper- and titlecase characters may only
+follow uncased characters and lowercase characters only cased ones.
+Return False otherwise.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="viscid.compat.unicode.isupper">
+<code class="descname">isupper</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#viscid.compat.unicode.isupper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if all cased characters in S are uppercase and there is
+at least one cased character in S, False otherwise.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="viscid.compat.unicode.join">
+<code class="descname">join</code><span class="sig-paren">(</span><em>iterable</em><span class="sig-paren">)</span> &#x2192; unicode<a class="headerlink" href="#viscid.compat.unicode.join" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a string which is the concatenation of the strings in the
+iterable.  The separator between elements is S.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="viscid.compat.unicode.ljust">
+<code class="descname">ljust</code><span class="sig-paren">(</span><em>width</em><span class="optional">[</span>, <em>fillchar</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#viscid.compat.unicode.ljust" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return S left-justified in a Unicode string of length width. Padding is
+done using the specified fill character (default is a space).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="viscid.compat.unicode.lower">
+<code class="descname">lower</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; unicode<a class="headerlink" href="#viscid.compat.unicode.lower" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a copy of the string S converted to lowercase.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="viscid.compat.unicode.lstrip">
+<code class="descname">lstrip</code><span class="sig-paren">(</span><span class="optional">[</span><em>chars</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; unicode<a class="headerlink" href="#viscid.compat.unicode.lstrip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a copy of the string S with leading whitespace removed.
+If chars is given and not None, remove characters in chars instead.
+If chars is a str, it will be converted to unicode before stripping</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="viscid.compat.unicode.partition">
+<code class="descname">partition</code><span class="sig-paren">(</span><em>sep) -&gt; (head</em>, <em>sep</em>, <em>tail</em><span class="sig-paren">)</span><a class="headerlink" href="#viscid.compat.unicode.partition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Search for the separator sep in S, and return the part before it,
+the separator itself, and the part after it.  If the separator is not
+found, return S and two empty strings.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="viscid.compat.unicode.replace">
+<code class="descname">replace</code><span class="sig-paren">(</span><em>old</em>, <em>new</em><span class="optional">[</span>, <em>count</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; unicode<a class="headerlink" href="#viscid.compat.unicode.replace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a copy of S with all occurrences of substring
+old replaced by new.  If the optional argument count is
+given, only the first count occurrences are replaced.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="viscid.compat.unicode.rfind">
+<code class="descname">rfind</code><span class="sig-paren">(</span><em>sub</em><span class="optional">[</span>, <em>start</em><span class="optional">[</span>, <em>end</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#viscid.compat.unicode.rfind" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the highest index in S where substring sub is found,
+such that sub is contained within S[start:end].  Optional
+arguments start and end are interpreted as in slice notation.</p>
+<p>Return -1 on failure.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="viscid.compat.unicode.rindex">
+<code class="descname">rindex</code><span class="sig-paren">(</span><em>sub</em><span class="optional">[</span>, <em>start</em><span class="optional">[</span>, <em>end</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#viscid.compat.unicode.rindex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Like S.rfind() but raise ValueError when the substring is not found.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="viscid.compat.unicode.rjust">
+<code class="descname">rjust</code><span class="sig-paren">(</span><em>width</em><span class="optional">[</span>, <em>fillchar</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; unicode<a class="headerlink" href="#viscid.compat.unicode.rjust" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return S right-justified in a Unicode string of length width. Padding is
+done using the specified fill character (default is a space).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="viscid.compat.unicode.rpartition">
+<code class="descname">rpartition</code><span class="sig-paren">(</span><em>sep) -&gt; (head</em>, <em>sep</em>, <em>tail</em><span class="sig-paren">)</span><a class="headerlink" href="#viscid.compat.unicode.rpartition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Search for the separator sep in S, starting at the end of S, and return
+the part before it, the separator itself, and the part after it.  If the
+separator is not found, return two empty strings and S.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="viscid.compat.unicode.rsplit">
+<code class="descname">rsplit</code><span class="sig-paren">(</span><span class="optional">[</span><em>sep</em><span class="optional">[</span>, <em>maxsplit</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; list of strings<a class="headerlink" href="#viscid.compat.unicode.rsplit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of the words in S, using sep as the
+delimiter string, starting at the end of the string and
+working to the front.  If maxsplit is given, at most maxsplit
+splits are done. If sep is not specified, any whitespace string
+is a separator.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="viscid.compat.unicode.rstrip">
+<code class="descname">rstrip</code><span class="sig-paren">(</span><span class="optional">[</span><em>chars</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; unicode<a class="headerlink" href="#viscid.compat.unicode.rstrip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a copy of the string S with trailing whitespace removed.
+If chars is given and not None, remove characters in chars instead.
+If chars is a str, it will be converted to unicode before stripping</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="viscid.compat.unicode.split">
+<code class="descname">split</code><span class="sig-paren">(</span><span class="optional">[</span><em>sep</em><span class="optional">[</span>, <em>maxsplit</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; list of strings<a class="headerlink" href="#viscid.compat.unicode.split" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of the words in S, using sep as the
+delimiter string.  If maxsplit is given, at most maxsplit
+splits are done. If sep is not specified or is None, any
+whitespace string is a separator and empty strings are
+removed from the result.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="viscid.compat.unicode.splitlines">
+<code class="descname">splitlines</code><span class="sig-paren">(</span><em>keepends=False</em><span class="sig-paren">)</span> &#x2192; list of strings<a class="headerlink" href="#viscid.compat.unicode.splitlines" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of the lines in S, breaking at line boundaries.
+Line breaks are not included in the resulting list unless keepends
+is given and true.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="viscid.compat.unicode.startswith">
+<code class="descname">startswith</code><span class="sig-paren">(</span><em>prefix</em><span class="optional">[</span>, <em>start</em><span class="optional">[</span>, <em>end</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#viscid.compat.unicode.startswith" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if S starts with the specified prefix, False otherwise.
+With optional start, test S beginning at that position.
+With optional end, stop comparing S at that position.
+prefix can also be a tuple of strings to try.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="viscid.compat.unicode.strip">
+<code class="descname">strip</code><span class="sig-paren">(</span><span class="optional">[</span><em>chars</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; unicode<a class="headerlink" href="#viscid.compat.unicode.strip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a copy of the string S with leading and trailing
+whitespace removed.
+If chars is given and not None, remove characters in chars instead.
+If chars is a str, it will be converted to unicode before stripping</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="viscid.compat.unicode.swapcase">
+<code class="descname">swapcase</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; unicode<a class="headerlink" href="#viscid.compat.unicode.swapcase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a copy of S with uppercase characters converted to lowercase
+and vice versa.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="viscid.compat.unicode.title">
+<code class="descname">title</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; unicode<a class="headerlink" href="#viscid.compat.unicode.title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a titlecased version of S, i.e. words start with title case
+characters, all remaining cased characters have lower case.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="viscid.compat.unicode.translate">
+<code class="descname">translate</code><span class="sig-paren">(</span><em>table</em><span class="sig-paren">)</span> &#x2192; unicode<a class="headerlink" href="#viscid.compat.unicode.translate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a copy of the string S, where all characters have been mapped
+through the given translation table, which must be a mapping of
+Unicode ordinals to Unicode ordinals, Unicode strings or None.
+Unmapped characters are left untouched. Characters mapped to None
+are deleted.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="viscid.compat.unicode.upper">
+<code class="descname">upper</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; unicode<a class="headerlink" href="#viscid.compat.unicode.upper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a copy of S converted to uppercase.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="viscid.compat.unicode.zfill">
+<code class="descname">zfill</code><span class="sig-paren">(</span><em>width</em><span class="sig-paren">)</span> &#x2192; unicode<a class="headerlink" href="#viscid.compat.unicode.zfill" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pad a numeric string S with zeros on the left, to fill a field
+of the specified width. The string S is never truncated.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../_sources/api/viscid.compat.rst.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright 2017, Kristofor Maynard.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

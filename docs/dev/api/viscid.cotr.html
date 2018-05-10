@@ -1,0 +1,888 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>viscid.cotr module &#8212; Viscid 0.99.7.dev0 documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="viscid.dataset module" href="viscid.dataset.html" />
+    <link rel="prev" title="viscid.coordinate module" href="viscid.coordinate.html" />
+<link rel="icon" href="../_static/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../_static/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon-precomposed" href="../_static/Vicon_128.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Viscid</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.99.7.dev0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+    <li class="dropdown">
+      <a role="button"
+         id="dLabelNavLinxToc"
+         data-toggle="dropdown"
+         data-target="#"
+         href="#">Tutorial <b class="caret"></b></a>
+      <ul class="dropdown-menu navlinktoc"
+          role="menu">
+          <li class="toctree-l1">
+            <a class="reference internal", href="../installation.html">Installation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/creating_fields.html">Creating Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/slicing.html">Slicing Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/plotting_scalars.html">Plotting Scalars</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/plotting_vectors.html">Plotting Vectors</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/mayavi.html">3D Plots (Mayavi)</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/openggcm.html">OpenGGCM Specific</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/ionosphere.html">Ionosphere</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/stream_and_interp.html">Streamline and Interpolation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/magnetic_topology.html">Magnetic Topology</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/magnetopause.html">Magnetopause</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/quasi_potential.html">Quasi Potential</a>
+          </li>
+      </ul>
+    </li>
+
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../changes.html">ChangeLog</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../philosophy.html">Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tips_and_tricks.html">Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functions.html">Useful Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plot_options.html">Plot Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mpl_style_gallery.html">Matplotlib Style Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom_behavior.html">Custom Behavior (rc file)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev_guide.html">Developer’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extending_readers.html">Extending Readers</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="viscid.html">API</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">viscid.cotr module</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="module-viscid.cotr">
+<span id="viscid-cotr-module"></span><h1>viscid.cotr module<a class="headerlink" href="#module-viscid.cotr" title="Permalink to this headline">¶</a></h1>
+<p>Numpy implementation of space physics coordinate transformations</p>
+<dl class="docutils">
+<dt>The abbreviations and equations in this module follow <a class="reference internal" href="#hapgood1992" id="id1">[Hapgood1992]</a>,</dt>
+<dd><ul class="first last simple">
+<li><dl class="first docutils">
+<dt>gei: Geocentric equatorial inertial</dt>
+<dd><ul class="first last">
+<li>X = First Point of Aries</li>
+<li>Z = Geographic North Pole</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>geo: Geographic</dt>
+<dd><ul class="first last">
+<li>X = Intersection of Greenwich meridian and geographic equator</li>
+<li>Z = Geographic North Pole</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>gse: Geocentric solar ecliptic</dt>
+<dd><ul class="first last">
+<li>X = Earth-Sun line (points toward Sun)</li>
+<li>Z = Ecliptic North Pole</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>gsm: Geocentric solar magnetospheric</dt>
+<dd><ul class="first last">
+<li>X = Earth-Sun line (points toward Sun)</li>
+<li>Z = Projection of dipole axis on GSE Y-Z plane</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>sm: Solar magnetic</dt>
+<dd><ul class="first last">
+<li>Y = Perpendicular to plane containing Earth-Sun line and
+dipole axis. Positive is opposite to Earth’s orbital motion</li>
+<li>Z = Earth’s dipole axis</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>mag: Geomagnetic</dt>
+<dd><ul class="first last">
+<li>Y = Intersection between geographic equator and the
+geographic meridian 90deg East of the meditian containing
+the dipole axis</li>
+<li>Z = Earth’s dipole axis</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>mhd: OpenGGCM’s native coordinate system (based on GSE)</dt>
+<dd><ul class="first last">
+<li>X = Sun-Earth line (points AWAY from Sun)</li>
+<li>Z = Ecliptic North Pole</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>hae: Heliocentric Aries ecliptic</dt>
+<dd><ul class="first last">
+<li>X = First Point of Aries</li>
+<li>Z = Ecliptic North Pole</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>hee: Heliocentric Earth ecliptic</dt>
+<dd><ul class="first last">
+<li>X = Sun-Earth line</li>
+<li>Z = Ecliptic North Pole</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>heeq: Heliocentric Earth equatorial</dt>
+<dd><ul class="first last">
+<li>X = Intersection between solar equator and solar central
+meridian as seen from Earth</li>
+<li>Z = North Pole of solar rotation</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+<dt>Dipole info between 2010-01-01 00:00 and 2010-06-20 23:59,</dt>
+<dd><ul class="first last simple">
+<li>Smallest dipole tilt angle: 0.00639 deg &#64; 2010-04-16 05:10</li>
+<li>Largest dipole tilt angle: 33.5 deg &#64; 2010-06-19 16:59</li>
+<li>Smallest angle between dip and GSE-Z: 13.3 deg &#64; 2010-01-03 15:54</li>
+<li>Largest angle between dip and GSE-Z: 33.6 deg &#64; 2010-01-13 03:19</li>
+</ul>
+</dd>
+<dt>Dipole info between 1952-01-01 00:00 and 1955-12-31 23:59,</dt>
+<dd><ul class="first last simple">
+<li>Smallest dipole tilt angle: -0.00145 deg &#64; 1952-09-01 01:35</li>
+<li>Largest dipole tilt angle: 35.2 deg &#64; 1954-06-21 16:38</li>
+<li>Smallest angle between dip and GSE-Z: 11.7 deg &#64; 1954-12-14 17:05</li>
+<li>Largest angle between dip and GSE-Z: 35.2 deg &#64; 1955-01-02 03:53</li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">IGRF coefficients are taken from <a class="reference internal" href="#igrf" id="id2">[IGRF]</a>, and coefficients are
+assumed constant outside of the given range. This means every 5
+years, the new coefficients should be added manually.</p>
+</div>
+<p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="igrf" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[IGRF]</a></td><td>&lt;<a class="reference external" href="http://wdc.kugi.kyoto-u.ac.jp/igrf/coef/igrf12coeffs.txt">http://wdc.kugi.kyoto-u.ac.jp/igrf/coef/igrf12coeffs.txt</a>&gt;</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="hapgood1992" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[Hapgood1992]</a></td><td>Hapgood, M. A., 2011, “Space Physics Coordinate
+Transformations: A User Guide”, Planet. Space Sci. Vol 40,
+No. 5. pp. 711-717, 1992.
+&lt;<a class="reference external" href="http://www.igpp.ucla.edu/public/vassilis/ESS261/Lecture03/Hapgood_sdarticle.pdf">http://www.igpp.ucla.edu/public/vassilis/ESS261/Lecture03/Hapgood_sdarticle.pdf</a>&gt;</td></tr>
+</tbody>
+</table>
+<p>This module only depends on npdatetime, which is itself orthogonal to
+Viscid, so these two modules can be ripped out and used more generally.
+Please note that Viscid is MIT licensed, which requires attribution.</p>
+<p>The MIT License (MIT)
+Copyright (c) 2017 Kristofor Maynard</p>
+<dl class="function">
+<dt id="viscid.cotr.as_nvec">
+<code class="descclassname">viscid.cotr.</code><code class="descname">as_nvec</code><span class="sig-paren">(</span><em>arr</em>, <em>ndim=4</em>, <em>init_vals=(0</em>, <em>0</em>, <em>0</em>, <em>1)</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/cotr.html#as_nvec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.cotr.as_nvec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extend vectors to <cite>ndim</cite> dimensions</p>
+<p>The first dimension or arr that is the one that is extended. If the
+last dimension has shape &gt;= 4, leave arr unchanged</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>arr</strong> (<em>sequence</em>) – array with shape (3,) or (3, N) for N vectors</li>
+<li><strong>ndim</strong> (<em>int</em>) – extend arr to this many dimensions</li>
+<li><strong>init_vals</strong> (<em>sequence</em>) – initialized values for new dimensions,
+note that init_vals[i] is the initialization for the ith
+dimension of the result. (0, 0, 0, 1) is useful for 4x4
+rotation+translation matrices</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">(ndim,) or (ndim, N) depending on input</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.cotr.make_rotation">
+<code class="descclassname">viscid.cotr.</code><code class="descname">make_rotation</code><span class="sig-paren">(</span><em>theta</em>, <em>axis='z'</em>, <em>rdim=3</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/cotr.html#make_rotation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.cotr.make_rotation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make rotation matrix of theta degrees around axis</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">The Hapgood paper uses the convention that rotations around y
+are right-handed, but rotations around x and z are left handed!</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>theta</strong> (<em>float</em>) – angle (degrees)</li>
+<li><strong>axis</strong> (<em>int</em><em>, </em><em>str</em>) – one of (0, ‘x’, 1, ‘y’, 2, ‘z’)</li>
+<li><strong>rdim</strong> (<em>int</em>) – 3 to make 3x3 matrices, or 4 to make 4x4 where
+<cite>mat[:, 3] == mat[3, :] == [0, 0, 0, 1]</cite>. 4x4 matrices are
+useful for performing translations.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> – On invalid axis</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.cotr.make_translation">
+<code class="descclassname">viscid.cotr.</code><code class="descname">make_translation</code><span class="sig-paren">(</span><em>v</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/cotr.html#make_translation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.cotr.make_translation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a 4x4 translation matrix to act on [x, y, z, 1] vectors</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>v</strong> (<em>sequence</em>) – Translation vector, must have at least 3 entries</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="docutils">
+<dt>mat will translate an [x, y, z, 1] vector, and</dt>
+<dd>imat will do the inverse translation</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">(mat, imat)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.cotr.get_rotation_wxyz">
+<code class="descclassname">viscid.cotr.</code><code class="descname">get_rotation_wxyz</code><span class="sig-paren">(</span><em>mat</em>, <em>check_inverse=True</em>, <em>quick=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/cotr.html#get_rotation_wxyz"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.cotr.get_rotation_wxyz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find rotation axis and angle of a rotation matrix</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>mat</strong> (<em>ndarray</em>) – 3x3 rotation matrix with determinant +1</li>
+<li><strong>check_inverse</strong> (<em>bool</em>) – check if mat.T == inverse(mat)</li>
+<li><strong>quick</strong> (<em>bool</em>) – Try a quicker, less well tested method first</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>[w (rotation angle), ux, uy, uz] where u is the</dt>
+<dd><p class="first last">normalized axis vector</p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.cotr.as_crd_system">
+<code class="descclassname">viscid.cotr.</code><code class="descname">as_crd_system</code><span class="sig-paren">(</span><em>thing</em>, <em>default=&lt;class 'viscid.cotr._NOT_GIVEN'&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/cotr.html#as_crd_system"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.cotr.as_crd_system" title="Permalink to this definition">¶</a></dt>
+<dd><p>Try to figure out a crd_system for thing</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>thing</strong> – Either a string with a crd_system abbreviation, or
+something that that can do thing.find_info(‘crd_system’)</li>
+<li><strong>default</strong> (<em>str</em>) – fallback value</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">crd system abbreviation, stripped and lower case</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">str</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code> – if no default supplied and thing can’t be turned
+into a crd_system</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="viscid.cotr.Cotr">
+<em class="property">class </em><code class="descclassname">viscid.cotr.</code><code class="descname">Cotr</code><span class="sig-paren">(</span><em>time='1967-01-01'</em>, <em>dip_tilt=None</em>, <em>dip_gsm=None</em>, <em>rdim=3</em>, <em>notilt1967=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/cotr.html#Cotr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.cotr.Cotr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Transform geocentric vectors between crd systems &#64; a given UTC</p>
+<dl class="attribute">
+<dt id="viscid.cotr.Cotr.GEOCENTRIC">
+<code class="descname">GEOCENTRIC</code><em class="property"> = ['gei', 'geo', 'gse', 'gsm', 'sm', 'mag', 'mhd']</em><a class="headerlink" href="#viscid.cotr.Cotr.GEOCENTRIC" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="viscid.cotr.Cotr.HELIOCENTRIC">
+<code class="descname">HELIOCENTRIC</code><em class="property"> = ['hea', 'hee', 'heeq']</em><a class="headerlink" href="#viscid.cotr.Cotr.HELIOCENTRIC" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="viscid.cotr.Cotr.Q_e">
+<code class="descname">Q_e</code><a class="headerlink" href="#viscid.cotr.Cotr.Q_e" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="viscid.cotr.Cotr.Q_g">
+<code class="descname">Q_g</code><a class="headerlink" href="#viscid.cotr.Cotr.Q_g" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="viscid.cotr.Cotr.XFORM_LOOKUP">
+<code class="descname">XFORM_LOOKUP</code><em class="property"> = {'gei-&gt;gei': (0,), 'geo-&gt;gei': (-1,), 'geo-&gt;geo': (0,), 'gse-&gt;gei': (-2,), 'gse-&gt;geo': (1, -2), 'gse-&gt;gse': (0,), 'gsm-&gt;gei': (-2, -3), 'gsm-&gt;geo': (1, -2, -3), 'gsm-&gt;gse': (-3,), 'gsm-&gt;gsm': (0,), 'hae-&gt;hae': 0, 'hee-&gt;hae': -11, 'hee-&gt;hee': 0, 'heeq-&gt;hae': -12, 'heeq-&gt;heeq': 0, 'mag-&gt;gei': (-1, -5), 'mag-&gt;geo': (-5,), 'mag-&gt;gse': (2, -1, -5), 'mag-&gt;gsm': (3, 2, -1, -5), 'mag-&gt;mag': (0,), 'mag-&gt;sm': (4, 3, 2, -1, -5), 'mhd-&gt;gei': (-2, 6), 'mhd-&gt;geo': (1, -2, 6), 'mhd-&gt;gse': (6,), 'mhd-&gt;gsm': (3, 6), 'mhd-&gt;mag': (5, 1, -2, 6), 'mhd-&gt;mhd': (0,), 'mhd-&gt;sm': (4, 3, 6), 'sm-&gt;gei': (-2, -3, -4), 'sm-&gt;geo': (1, -2, -3, -4), 'sm-&gt;gse': (-3, -4), 'sm-&gt;gsm': (-4,), 'sm-&gt;sm': (0,)}</em><a class="headerlink" href="#viscid.cotr.Cotr.XFORM_LOOKUP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="viscid.cotr.Cotr.dip_geolat">
+<code class="descname">dip_geolat</code><a class="headerlink" href="#viscid.cotr.Cotr.dip_geolat" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="viscid.cotr.Cotr.dip_geolat_rad">
+<code class="descname">dip_geolat_rad</code><a class="headerlink" href="#viscid.cotr.Cotr.dip_geolat_rad" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="viscid.cotr.Cotr.dip_geolon">
+<code class="descname">dip_geolon</code><a class="headerlink" href="#viscid.cotr.Cotr.dip_geolon" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="viscid.cotr.Cotr.dip_geolon_rad">
+<code class="descname">dip_geolon_rad</code><a class="headerlink" href="#viscid.cotr.Cotr.dip_geolon_rad" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="viscid.cotr.Cotr.dip_gsm">
+<code class="descname">dip_gsm</code><a class="headerlink" href="#viscid.cotr.Cotr.dip_gsm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Angle psi between GSE-Z and dipole projected into GSE-YZ</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">SM -&gt; GSE, rotation is &lt;-mu, Y&gt; * &lt;-psi, X&gt; which is
+equivalent to &lt;psi, X&gt; * &lt;mu, Y&gt;</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="viscid.cotr.Cotr.dip_mu">
+<code class="descname">dip_mu</code><a class="headerlink" href="#viscid.cotr.Cotr.dip_mu" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dipole tilt angle mu (angle between GSM-Z and dipole)</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">SM -&gt; GSE, rotation is &lt;-mu, Y&gt; * &lt;-psi, X&gt; which is
+equivalent to &lt;psi, X&gt; * &lt;mu, Y&gt;</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="viscid.cotr.Cotr.dip_psi">
+<code class="descname">dip_psi</code><a class="headerlink" href="#viscid.cotr.Cotr.dip_psi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Angle psi between GSE-Z and dipole projected into GSE-YZ</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">SM -&gt; GSE, rotation is &lt;-mu, Y&gt; * &lt;-psi, X&gt; which is
+equivalent to &lt;psi, X&gt; * &lt;mu, Y&gt;</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="viscid.cotr.Cotr.dip_tilt">
+<code class="descname">dip_tilt</code><a class="headerlink" href="#viscid.cotr.Cotr.dip_tilt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dipole tilt angle mu (angle between GSM-Z and dipole)</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">SM -&gt; GSE, rotation is &lt;-mu, Y&gt; * &lt;-psi, X&gt; which is
+equivalent to &lt;psi, X&gt; * &lt;mu, Y&gt;</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="viscid.cotr.Cotr.get_dipole_angles">
+<code class="descname">get_dipole_angles</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/cotr.html#Cotr.get_dipole_angles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.cotr.Cotr.get_dipole_angles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get rotation angles between dipole and GSE</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><cite>psi</cite> refers to the angle between GSE and GSM, while <cite>mu</cite>
+is the dipole tilt angle.</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="docutils">
+<dt>The SM -&gt; GSE, rotation is &lt;-mu, Y&gt; * &lt;-psi, X&gt;</dt>
+<dd>which is equivalent to &lt;psi, X&gt; * &lt;mu, Y&gt;</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">(tilt, gsm)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="viscid.cotr.Cotr.get_dipole_moment">
+<code class="descname">get_dipole_moment</code><span class="sig-paren">(</span><em>crd_system='gse'</em>, <em>strength=32707.5292732387</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/cotr.html#Cotr.get_dipole_moment"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.cotr.Cotr.get_dipole_moment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get Earth’s dipole moment</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>crd_system</strong> (<em>str</em>) – crd_system of resulting moment</li>
+<li><strong>strength</strong> (<em>float</em>) – magnitude of dipole moment</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">3-vector of dipole tilt in crd_system</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="viscid.cotr.Cotr.get_rotation_wxyz">
+<code class="descname">get_rotation_wxyz</code><span class="sig-paren">(</span><em>from_system</em>, <em>to_system</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/cotr.html#Cotr.get_rotation_wxyz"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.cotr.Cotr.get_rotation_wxyz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get rotation axis and angle for a transformation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>from_system</strong> (<em>str</em>) – abbreviation of crd_system</li>
+<li><strong>to_system</strong> (<em>str</em>) – abbreviation of crd_system</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>[w, x, y, z] where w is the angle around the axis</dt>
+<dd><p class="first last">vector [x, y, z]</p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="viscid.cotr.Cotr.get_transform_matrix">
+<code class="descname">get_transform_matrix</code><span class="sig-paren">(</span><em>from_system</em>, <em>to_system</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/cotr.html#Cotr.get_transform_matrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.cotr.Cotr.get_transform_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a transformation matrix from one system to another</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>from_system</strong> (<em>str</em>) – abbreviation of crd_system</li>
+<li><strong>to_system</strong> (<em>str</em>) – abbreviation of crd_system</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">self.rdim x self.rdim transformation matrix</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="viscid.cotr.Cotr.sun_ecliptic_longitude">
+<code class="descname">sun_ecliptic_longitude</code><a class="headerlink" href="#viscid.cotr.Cotr.sun_ecliptic_longitude" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="viscid.cotr.Cotr.transform">
+<code class="descname">transform</code><span class="sig-paren">(</span><em>from_system</em>, <em>to_system</em>, <em>vec</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/cotr.html#Cotr.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.cotr.Cotr.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transform a vector from one system to another</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>from_system</strong> (<em>str</em>) – abbreviation of crd_system</li>
+<li><strong>to_system</strong> (<em>str</em>) – abbreviation of crd_system</li>
+<li><strong>vec</strong> (<em>ndarray</em>) – should have shape (3, ) or (3, N) to
+transform N vectors at once</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>vec in new crd system shaped either (3, ) or</dt>
+<dd><p class="first last">(3, N) mirroring the shape of vec</p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.cotr.as_cotr">
+<code class="descclassname">viscid.cotr.</code><code class="descname">as_cotr</code><span class="sig-paren">(</span><em>thing=None</em>, <em>default=&lt;class 'viscid.cotr._NOT_GIVEN'&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/cotr.html#as_cotr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.cotr.as_cotr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Try to make cotr into a Cotr instance</p>
+<dl class="docutils">
+<dt>Inputs understood are:</dt>
+<dd><ul class="first last simple">
+<li>None for North-South dipole</li>
+<li>anything with a <cite>__cotr__</cite> property</li>
+<li>datetimes or similar, specifies the time for finding dip angles</li>
+<li>mapping (dict or similar), passed to Cotr constructor as kwargs</li>
+</ul>
+</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>thing</strong> (<em>obj</em>) – something to turn into a Cotr</li>
+<li><strong>default</strong> (<em>None</em><em>, </em><em>obj</em>) – fallback value</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Cotr instance</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code> – if no default supplied and thing can’t be turned
+into a Cotr instance</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.cotr.cotr_transform">
+<code class="descclassname">viscid.cotr.</code><code class="descname">cotr_transform</code><span class="sig-paren">(</span><em>date_time</em>, <em>from_system</em>, <em>to_system</em>, <em>vec</em>, <em>notilt1967=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/cotr.html#cotr_transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.cotr.cotr_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transform a vector from one system to another</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>date_time</strong> (<em>str</em><em>, </em><em>datetime64</em>) – datetime of transformation</li>
+<li><strong>from_system</strong> (<em>str</em>) – abbreviation of crd_system</li>
+<li><strong>to_system</strong> (<em>str</em>) – abbreviation of crd_system</li>
+<li><strong>vec</strong> (<em>ndarray</em>) – should have shape (3, ) or (N, 3) to
+transform N vectors at once</li>
+<li><strong>notilt1967</strong> (<em>bool</em>) – is 1 Jan 1967 the special notilt time?</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">vec in new crd system</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.cotr.get_dipole_moment">
+<code class="descclassname">viscid.cotr.</code><code class="descname">get_dipole_moment</code><span class="sig-paren">(</span><em>date_time</em>, <em>crd_system='gse'</em>, <em>strength=32707.5292732387</em>, <em>notilt1967=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/cotr.html#get_dipole_moment"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.cotr.get_dipole_moment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get Earth’s dipole moment at datetime</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>date_time</strong> (<em>str</em><em>, </em><em>datetime64</em>) – datetime to get dipole</li>
+<li><strong>crd_system</strong> (<em>str</em>) – crd_system of resulting moment</li>
+<li><strong>strength</strong> (<em>float</em>) – magnitude of dipole moment</li>
+<li><strong>notilt1967</strong> (<em>bool</em>) – is 1 Jan 1967 the special notilt time?</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">3-vector of dipole tilt in crd_system</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.cotr.get_dipole_moment_ang">
+<code class="descclassname">viscid.cotr.</code><code class="descname">get_dipole_moment_ang</code><span class="sig-paren">(</span><em>dip_tilt=0.0</em>, <em>dip_gsm=0.0</em>, <em>crd_system='gse'</em>, <em>strength=32707.5292732387</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/cotr.html#get_dipole_moment_ang"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.cotr.get_dipole_moment_ang" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get dipole moment from tilt and gsm angles</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>dip_tilt</strong> (<em>float</em>) – if given, override the dipole tilt angle
+(mu degrees, positive points north pole sunward)</li>
+<li><strong>dip_gsm</strong> (<em>float</em>) – if given, override the dipole gse-&gt;gsm
+angle (psi in degrees, positive points north pole
+duskward)</li>
+<li><strong>crd_system</strong> (<em>str</em>) – coordinate system of the result</li>
+<li><strong>strength</strong> (<em>float</em>) – magnitude of the dipole moment</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">dipole moment [mx, my, mz]</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.cotr.get_dipole_angles">
+<code class="descclassname">viscid.cotr.</code><code class="descname">get_dipole_angles</code><span class="sig-paren">(</span><em>date_time</em>, <em>notilt1967=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/cotr.html#get_dipole_angles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.cotr.get_dipole_angles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get rotation angles between dipole and GSE</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>date_time</strong> (<em>str</em><em>, </em><em>datetime64</em>) – datetime to get dipole</li>
+<li><strong>notilt1967</strong> (<em>bool</em>) – is 1 Jan 1967 the special notilt time?</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><cite>psi</cite> refers to the angle between GSE and GSM, while <cite>mu</cite>
+is the dipole tilt angle.</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="docutils">
+<dt>The SM -&gt; GSE, rotation is &lt;-mu, Y&gt; * &lt;-psi, X&gt;</dt>
+<dd>which is equivalent to &lt;psi, X&gt; * &lt;mu, Y&gt;</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">(tilt, gsm)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.cotr.dipole_moment2cotr">
+<code class="descclassname">viscid.cotr.</code><code class="descname">dipole_moment2cotr</code><span class="sig-paren">(</span><em>m</em>, <em>crd_system='gse'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/cotr.html#dipole_moment2cotr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.cotr.dipole_moment2cotr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Turn dipole moment vector into a Cotr instance</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>m</strong> (<em>sequence</em>) – dipole moment as sequence with length 3</li>
+<li><strong>crd_system</strong> (<em>str</em>) – crd_system of m</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Cotr instance</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../_sources/api/viscid.cotr.rst.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright 2017, Kristofor Maynard.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

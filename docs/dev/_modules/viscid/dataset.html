@@ -1,0 +1,717 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>viscid.dataset &#8212; Viscid 0.99.7.dev0 documentation</title>
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+<link rel="icon" href="../../_static/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../../_static/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon-precomposed" href="../../_static/Vicon_128.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          Viscid</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.99.7.dev0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+    <li class="dropdown">
+      <a role="button"
+         id="dLabelNavLinxToc"
+         data-toggle="dropdown"
+         data-target="#"
+         href="#">Tutorial <b class="caret"></b></a>
+      <ul class="dropdown-menu navlinktoc"
+          role="menu">
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../installation.html">Installation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/creating_fields.html">Creating Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/slicing.html">Slicing Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/plotting_scalars.html">Plotting Scalars</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/plotting_vectors.html">Plotting Vectors</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/mayavi.html">3D Plots (Mayavi)</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/openggcm.html">OpenGGCM Specific</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/ionosphere.html">Ionosphere</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/stream_and_interp.html">Streamline and Interpolation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/magnetic_topology.html">Magnetic Topology</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/magnetopause.html">Magnetopause</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/quasi_potential.html">Quasi Potential</a>
+          </li>
+      </ul>
+    </li>
+
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../changes.html">ChangeLog</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../philosophy.html">Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/index.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tips_and_tricks.html">Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../functions.html">Useful Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plot_options.html">Plot Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mpl_style_gallery.html">Matplotlib Style Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../custom_behavior.html">Custom Behavior (rc file)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev_guide.html">Developer’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extending_readers.html">Extending Readers</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/viscid.html">API</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"></ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <h1>Source code for viscid.dataset</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="sd">&quot;&quot;&quot; test docstring &quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">print_function</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="k">import</span> <span class="n">chain</span>
+<span class="kn">from</span> <span class="nn">operator</span> <span class="k">import</span> <span class="n">itemgetter</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">import</span> <span class="nn">viscid</span>
+<span class="kn">from</span> <span class="nn">viscid</span> <span class="k">import</span> <span class="n">logger</span>
+<span class="kn">from</span> <span class="nn">viscid.compat</span> <span class="k">import</span> <span class="n">string_types</span>
+<span class="kn">from</span> <span class="nn">viscid.bucket</span> <span class="k">import</span> <span class="n">Bucket</span>
+<span class="kn">from</span> <span class="nn">viscid</span> <span class="k">import</span> <span class="n">tree</span>
+<span class="kn">from</span> <span class="nn">viscid</span> <span class="k">import</span> <span class="n">vutil</span>
+<span class="kn">from</span> <span class="nn">viscid.vutil</span> <span class="k">import</span> <span class="n">tree_prefix</span>
+<span class="kn">from</span> <span class="nn">viscid.sliceutil</span> <span class="k">import</span> <span class="n">to_slice</span><span class="p">,</span> <span class="n">selection2values</span>
+
+
+<div class="viewcode-block" id="DeferredChild"><a class="viewcode-back" href="../../api/viscid.dataset.html#viscid.dataset.DeferredChild">[docs]</a><span class="k">class</span> <span class="nc">DeferredChild</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">,</span> <span class="n">callback_args</span><span class="p">,</span> <span class="n">callback_kwargs</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">name</span><span class="o">=</span><span class="s1">&#39;NoName&#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">callback</span> <span class="o">=</span> <span class="n">callback</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">callback_args</span> <span class="o">=</span> <span class="n">callback_args</span> <span class="k">if</span> <span class="n">callback_args</span> <span class="k">else</span> <span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">callback_kwargs</span> <span class="o">=</span> <span class="n">callback_kwargs</span> <span class="k">if</span> <span class="n">callback_kwargs</span> <span class="k">else</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parents</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="n">parent</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parents</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">time</span>
+
+<div class="viewcode-block" id="DeferredChild.resolve"><a class="viewcode-back" href="../../api/viscid.dataset.html#viscid.dataset.DeferredChild.resolve">[docs]</a>    <span class="k">def</span> <span class="nf">resolve</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">callback</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">callback_args</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">callback_kwargs</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">parents</span><span class="p">:</span>
+            <span class="c1"># this is a little kludgy, but at the moment, prepare_child</span>
+            <span class="c1"># is only used to add the parent to the list of a child&#39;s parents</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parents</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">prepare_child</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ret</span></div>
+
+<div class="viewcode-block" id="DeferredChild.clear_cache"><a class="viewcode-back" href="../../api/viscid.dataset.html#viscid.dataset.DeferredChild.clear_cache">[docs]</a>    <span class="k">def</span> <span class="nf">clear_cache</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="DeferredChild.remove_all_items"><a class="viewcode-back" href="../../api/viscid.dataset.html#viscid.dataset.DeferredChild.remove_all_items">[docs]</a>    <span class="k">def</span> <span class="nf">remove_all_items</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="DeferredChild.print_tree"><a class="viewcode-back" href="../../api/viscid.dataset.html#viscid.dataset.DeferredChild.print_tree">[docs]</a>    <span class="k">def</span> <span class="nf">print_tree</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">depth</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{0}{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">prefix</span><span class="p">,</span> <span class="bp">self</span><span class="p">))</span></div></div>
+
+
+<div class="viewcode-block" id="Dataset"><a class="viewcode-back" href="../../api/viscid.dataset.html#viscid.dataset.Dataset">[docs]</a><span class="k">class</span> <span class="nc">Dataset</span><span class="p">(</span><span class="n">tree</span><span class="o">.</span><span class="n">Node</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Datasets contain grids or other datasets</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        Datasets should probably be created using a vfile&#39;s</span>
+<span class="sd">        `_make_dataset` to make sure the info dict is propogated</span>
+<span class="sd">        appropriately</span>
+
+<span class="sd">    It is the programmer&#39;s responsibility to ensure objects added to a AOEUIDH</span>
+<span class="sd">    dataset have __getitem__ and get_fields methods, this is not</span>
+<span class="sd">    enforced</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">children</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Bucket or (time, grid)</span>
+    <span class="n">active_child</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="n">topology_info</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">geometry_info</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">crds</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;info is for information that is shared for a whole</span>
+<span class="sd">        tree, from vfile all the way down to fields</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Dataset</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">children</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">children</span> <span class="o">=</span> <span class="n">Bucket</span><span class="p">(</span><span class="n">ordered</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">active_child</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Dataset.add"><a class="viewcode-back" href="../../api/viscid.dataset.html#viscid.dataset.Dataset.add">[docs]</a>    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">child</span><span class="p">,</span> <span class="n">set_active</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">prepare_child</span><span class="p">(</span><span class="n">child</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="p">[</span><span class="n">child</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">child</span>
+        <span class="k">if</span> <span class="n">set_active</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">active_child</span> <span class="o">=</span> <span class="n">child</span></div>
+
+<div class="viewcode-block" id="Dataset.add_deferred"><a class="viewcode-back" href="../../api/viscid.dataset.html#viscid.dataset.Dataset.add_deferred">[docs]</a>    <span class="k">def</span> <span class="nf">add_deferred</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">callback</span><span class="p">,</span> <span class="n">callback_args</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                     <span class="n">callback_kwargs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">set_active</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="n">child</span> <span class="o">=</span> <span class="n">DeferredChild</span><span class="p">(</span><span class="n">callback</span><span class="p">,</span> <span class="n">callback_args</span><span class="o">=</span><span class="n">callback_args</span><span class="p">,</span>
+                              <span class="n">callback_kwargs</span><span class="o">=</span><span class="n">callback_kwargs</span><span class="p">,</span>
+                              <span class="n">parent</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">key</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">child</span><span class="p">,</span> <span class="n">set_active</span><span class="o">=</span><span class="n">set_active</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">_clear_cache</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="p">:</span>
+            <span class="n">child</span><span class="o">.</span><span class="n">clear_cache</span><span class="p">()</span>
+
+<div class="viewcode-block" id="Dataset.clear_cache"><a class="viewcode-back" href="../../api/viscid.dataset.html#viscid.dataset.Dataset.clear_cache">[docs]</a>    <span class="k">def</span> <span class="nf">clear_cache</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Clear all childrens&#39; caches&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_clear_cache</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Dataset.remove_all_items"><a class="viewcode-back" href="../../api/viscid.dataset.html#viscid.dataset.Dataset.remove_all_items">[docs]</a>    <span class="k">def</span> <span class="nf">remove_all_items</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tear_down_child</span><span class="p">(</span><span class="n">child</span><span class="p">)</span>
+            <span class="n">child</span><span class="o">.</span><span class="n">remove_all_items</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">children</span> <span class="o">=</span> <span class="n">Bucket</span><span class="p">(</span><span class="n">ordered</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Dataset.activate"><a class="viewcode-back" href="../../api/viscid.dataset.html#viscid.dataset.Dataset.activate">[docs]</a>    <span class="k">def</span> <span class="nf">activate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">child_handle</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; it may not look like it, but this will recursively look</span>
+<span class="sd">        in my active child for the handle because it uses getitem &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">active_child</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="p">[</span><span class="n">child_handle</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="Dataset.activate_time"><a class="viewcode-back" href="../../api/viscid.dataset.html#viscid.dataset.Dataset.activate_time">[docs]</a>    <span class="k">def</span> <span class="nf">activate_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; this is basically &#39;activate&#39; except it specifically picks out</span>
+<span class="sd">        temporal datasets, and does all children, not just the active child &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">child</span><span class="o">.</span><span class="n">activate_time</span><span class="p">(</span><span class="n">time</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+                <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="Dataset.nr_times"><a class="viewcode-back" href="../../api/viscid.dataset.html#viscid.dataset.Dataset.nr_times">[docs]</a>    <span class="k">def</span> <span class="nf">nr_times</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">slc</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">),</span> <span class="n">val_endpoint</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">interior</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">tdunit</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">child</span><span class="o">.</span><span class="n">nr_times</span><span class="p">(</span><span class="n">slc</span><span class="o">=</span><span class="n">slc</span><span class="p">,</span> <span class="n">val_endpoint</span><span class="o">=</span><span class="n">val_endpoint</span><span class="p">,</span>
+                                      <span class="n">interior</span><span class="o">=</span><span class="n">interior</span><span class="p">,</span> <span class="n">tdunit</span><span class="o">=</span><span class="n">tdunit</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="n">tol</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+                <span class="k">pass</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;I find no temporal datasets&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Dataset.iter_times"><a class="viewcode-back" href="../../api/viscid.dataset.html#viscid.dataset.Dataset.iter_times">[docs]</a>    <span class="k">def</span> <span class="nf">iter_times</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">slc</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">),</span> <span class="n">val_endpoint</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">interior</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                   <span class="n">tdunit</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">resolved</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">iter_resolved_children</span><span class="p">():</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">child</span><span class="o">.</span><span class="n">iter_times</span><span class="p">(</span><span class="n">slc</span><span class="o">=</span><span class="n">slc</span><span class="p">,</span> <span class="n">val_endpoint</span><span class="o">=</span><span class="n">val_endpoint</span><span class="p">,</span>
+                                        <span class="n">interior</span><span class="o">=</span><span class="n">interior</span><span class="p">,</span> <span class="n">tdunit</span><span class="o">=</span><span class="n">tdunit</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="n">tol</span><span class="p">,</span>
+                                        <span class="n">resolved</span><span class="o">=</span><span class="n">resolved</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+                <span class="k">pass</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;I find no temporal datasets&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Dataset.tslc_range"><a class="viewcode-back" href="../../api/viscid.dataset.html#viscid.dataset.Dataset.tslc_range">[docs]</a>    <span class="k">def</span> <span class="nf">tslc_range</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">selection</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">),</span> <span class="n">tdunit</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Find endpoints for a time slice selection</span>
+
+<span class="sd">        Note:</span>
+<span class="sd">            If the selection is slice-by-value, the values are not</span>
+<span class="sd">            adjusted to the nearest frame. For this functionality,</span>
+<span class="sd">            you will want to use :py:func:`get_times` and pull out the</span>
+<span class="sd">            first and last values.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">child</span><span class="o">.</span><span class="n">tslc_range</span><span class="p">(</span><span class="n">selection</span><span class="o">=</span><span class="n">selection</span><span class="p">,</span> <span class="n">tdunit</span><span class="o">=</span><span class="n">tdunit</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+                <span class="k">pass</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;I find no temporal datasets&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Dataset.get_times"><a class="viewcode-back" href="../../api/viscid.dataset.html#viscid.dataset.Dataset.get_times">[docs]</a>    <span class="k">def</span> <span class="nf">get_times</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">slc</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">),</span> <span class="n">val_endpoint</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">interior</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                  <span class="n">tdunit</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">iter_times</span><span class="p">(</span><span class="n">slc</span><span class="o">=</span><span class="n">slc</span><span class="p">,</span> <span class="n">val_endpoint</span><span class="o">=</span><span class="n">val_endpoint</span><span class="p">,</span>
+                                    <span class="n">interior</span><span class="o">=</span><span class="n">interior</span><span class="p">,</span> <span class="n">tdunit</span><span class="o">=</span><span class="n">tdunit</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="n">tol</span><span class="p">,</span>
+                                    <span class="n">resolved</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Dataset.get_time"><a class="viewcode-back" href="../../api/viscid.dataset.html#viscid.dataset.Dataset.get_time">[docs]</a>    <span class="k">def</span> <span class="nf">get_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">slc</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">),</span> <span class="n">val_endpoint</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">interior</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">tdunit</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">iter_times</span><span class="p">(</span><span class="n">slc</span><span class="o">=</span><span class="n">slc</span><span class="p">,</span> <span class="n">val_endpoint</span><span class="o">=</span><span class="n">val_endpoint</span><span class="p">,</span>
+                                        <span class="n">interior</span><span class="o">=</span><span class="n">interior</span><span class="p">,</span> <span class="n">tdunit</span><span class="o">=</span><span class="n">tdunit</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="n">tol</span><span class="p">))</span>
+        <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Dataset has no time slices&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Dataset.iter_fields"><a class="viewcode-back" href="../../api/viscid.dataset.html#viscid.dataset.Dataset.iter_fields">[docs]</a>    <span class="k">def</span> <span class="nf">iter_fields</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">named</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; generator for fields in the active dataset,</span>
+<span class="sd">        this will recurse down to a grid &quot;&quot;&quot;</span>
+        <span class="n">child</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">active_child</span>
+
+        <span class="k">if</span> <span class="n">child</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Could not get appropriate child...&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">child</span><span class="o">.</span><span class="n">iter_fields</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">time</span><span class="p">,</span> <span class="n">named</span><span class="o">=</span><span class="n">named</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Dataset.print_tree"><a class="viewcode-back" href="../../api/viscid.dataset.html#viscid.dataset.Dataset.print_tree">[docs]</a>    <span class="k">def</span> <span class="nf">print_tree</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">depth</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">prefix</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+            <span class="n">prefix</span> <span class="o">+=</span> <span class="n">tree_prefix</span>
+
+        <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="p">:</span>
+            <span class="n">suffix</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+            <span class="k">if</span> <span class="n">child</span> <span class="ow">is</span> <span class="bp">self</span><span class="o">.</span><span class="n">active_child</span><span class="p">:</span>
+                <span class="n">suffix</span> <span class="o">=</span> <span class="s2">&quot; &lt;-- active&quot;</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{0}{1}{2}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">prefix</span><span class="p">,</span> <span class="n">child</span><span class="p">,</span> <span class="n">suffix</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">depth</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">child</span><span class="o">.</span><span class="n">print_tree</span><span class="p">(</span><span class="n">depth</span><span class="o">=</span><span class="n">depth</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span> <span class="o">+</span> <span class="n">tree_prefix</span><span class="p">)</span></div>
+
+    <span class="c1"># def get_non_dataset(self):</span>
+    <span class="c1">#     &quot;&quot;&quot; recurse down datasets until active_grid is not a subclass</span>
+    <span class="c1">#         of Dataset &quot;&quot;&quot;</span>
+    <span class="c1">#     if isinstance(self.activate_grid, Dataset):</span>
+    <span class="c1">#         return self.active_grid.get_non_dataset()</span>
+    <span class="c1">#     else:</span>
+    <span class="c1">#         return self.active_grid</span>
+
+<div class="viewcode-block" id="Dataset.get_field"><a class="viewcode-back" href="../../api/viscid.dataset.html#viscid.dataset.Dataset.get_field">[docs]</a>    <span class="k">def</span> <span class="nf">get_field</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fldname</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">slc</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; recurse down active children to get a field &quot;&quot;&quot;</span>
+        <span class="n">child</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">active_child</span>
+
+        <span class="k">if</span> <span class="n">child</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Could not get appropriate child...&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">child</span><span class="o">.</span><span class="n">get_field</span><span class="p">(</span><span class="n">fldname</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="n">time</span><span class="p">,</span> <span class="n">slc</span><span class="o">=</span><span class="n">slc</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Dataset.get_grid"><a class="viewcode-back" href="../../api/viscid.dataset.html#viscid.dataset.Dataset.get_grid">[docs]</a>    <span class="k">def</span> <span class="nf">get_grid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; recurse down active children to get a field &quot;&quot;&quot;</span>
+        <span class="n">child</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">active_child</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">child</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Could not get appropriate child...&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">child</span><span class="o">.</span><span class="n">get_grid</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">time</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Dataset.get_child"><a class="viewcode-back" href="../../api/viscid.dataset.html#viscid.dataset.Dataset.get_child">[docs]</a>    <span class="k">def</span> <span class="nf">get_child</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; get a child from this Dataset,  &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="p">[</span><span class="n">item</span><span class="p">]</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span></div>
+
+    <span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; if a child exists with handle, return it, else ask</span>
+<span class="sd">        the active child if it knows what you want &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_child</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">active_child</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">active_child</span><span class="p">[</span><span class="n">item</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">__delitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+        <span class="c1"># FIXME, is it possable to de-resolve item to a DeferredChild?</span>
+        <span class="n">child</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_child</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="n">child</span><span class="o">.</span><span class="n">clear_cache</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="o">.</span><span class="n">remove_item</span><span class="p">(</span><span class="n">child</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="o">.</span><span class="fm">__len__</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">child</span><span class="p">):</span>
+        <span class="c1"># um... is this kosher??</span>
+        <span class="n">child</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">child</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__contains__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+        <span class="c1"># FIXME, is it possable to de-resolve item to a DeferredChild?</span>
+        <span class="k">if</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="c1"># FIXME: this might cause a bug somewhere someday</span>
+        <span class="k">if</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">active_child</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">def</span> <span class="nf">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="nf">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exc_type</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">traceback</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clear_cache</span><span class="p">()</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">iter_resolved_children</span><span class="p">()</span></div>
+
+    <span class="c1"># def __next__(self):</span>
+    <span class="c1">#     raise NotImplementedError()</span>
+
+
+<div class="viewcode-block" id="DatasetTemporal"><a class="viewcode-back" href="../../api/viscid.dataset.html#viscid.dataset.DatasetTemporal">[docs]</a><span class="k">class</span> <span class="nc">DatasetTemporal</span><span class="p">(</span><span class="n">Dataset</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Note:</span>
+<span class="sd">        Datasets should probably be created using a vfile&#39;s</span>
+<span class="sd">        `_make_dataset` to make sure the info dict is propogated</span>
+<span class="sd">        appropriately</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_last_ind</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="c1"># _all_times = None</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="c1"># ok, i want more control over my childen than a bucket can give</span>
+        <span class="c1"># FIXME: this is kind of not cool since children is a public</span>
+        <span class="c1"># attribute yet it&#39;s a different type here</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">children</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">DatasetTemporal</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<div class="viewcode-block" id="DatasetTemporal.add"><a class="viewcode-back" href="../../api/viscid.dataset.html#viscid.dataset.DatasetTemporal.add">[docs]</a>    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">child</span><span class="p">,</span> <span class="n">set_active</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">child</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">child</span><span class="o">.</span><span class="n">time</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">child</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="mf">0.0</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;A child with no time? Something is strange...&quot;</span><span class="p">)</span>
+        <span class="c1"># this keeps the children in time order</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">prepare_child</span><span class="p">(</span><span class="n">child</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">child</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="n">child</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">itemgetter</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+        <span class="c1"># binary in sorting... maybe more efficient?</span>
+        <span class="c1"># bisect.insort(self.children, (child.time, child))</span>
+        <span class="k">if</span> <span class="n">set_active</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">active_child</span> <span class="o">=</span> <span class="n">child</span></div>
+
+<div class="viewcode-block" id="DatasetTemporal.add_deferred"><a class="viewcode-back" href="../../api/viscid.dataset.html#viscid.dataset.DatasetTemporal.add_deferred">[docs]</a>    <span class="k">def</span> <span class="nf">add_deferred</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">callback</span><span class="p">,</span> <span class="n">callback_args</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                     <span class="n">callback_kwargs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">set_active</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="n">child</span> <span class="o">=</span> <span class="n">DeferredChild</span><span class="p">(</span><span class="n">callback</span><span class="p">,</span> <span class="n">callback_args</span><span class="o">=</span><span class="n">callback_args</span><span class="p">,</span>
+                              <span class="n">callback_kwargs</span><span class="o">=</span><span class="n">callback_kwargs</span><span class="p">,</span>
+                              <span class="n">parent</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="n">time</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">child</span><span class="p">,</span> <span class="n">set_active</span><span class="o">=</span><span class="n">set_active</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="DatasetTemporal.remove_all_items"><a class="viewcode-back" href="../../api/viscid.dataset.html#viscid.dataset.DatasetTemporal.remove_all_items">[docs]</a>    <span class="k">def</span> <span class="nf">remove_all_items</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tear_down_child</span><span class="p">(</span><span class="n">child</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">child</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">remove_all_items</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">children</span> <span class="o">=</span> <span class="p">[]</span></div>
+
+<div class="viewcode-block" id="DatasetTemporal.clear_cache"><a class="viewcode-back" href="../../api/viscid.dataset.html#viscid.dataset.DatasetTemporal.clear_cache">[docs]</a>    <span class="k">def</span> <span class="nf">clear_cache</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Clear all childrens&#39; caches&quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="p">:</span>
+            <span class="n">child</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">clear_cache</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="DatasetTemporal.activate"><a class="viewcode-back" href="../../api/viscid.dataset.html#viscid.dataset.DatasetTemporal.activate">[docs]</a>    <span class="k">def</span> <span class="nf">activate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">active_child</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_child</span><span class="p">(</span><span class="n">time</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="DatasetTemporal.activate_time"><a class="viewcode-back" href="../../api/viscid.dataset.html#viscid.dataset.DatasetTemporal.activate_time">[docs]</a>    <span class="k">def</span> <span class="nf">activate_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; this is basically &#39;activate&#39; except it specifically picks out</span>
+<span class="sd">        temporal datasets &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">activate</span><span class="p">(</span><span class="n">time</span><span class="p">)</span></div>
+
+    <span class="c1">#############################################################################</span>
+    <span class="c1">## here begins a slew of functions that make specifying a time / time slice</span>
+    <span class="c1">## super general</span>
+    <span class="k">def</span> <span class="nf">_slice_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">slc</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">),</span> <span class="n">val_endpoint</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">interior</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                    <span class="n">tdunit</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Args:</span>
+<span class="sd">            slc (str, slice, list): can be a single string containing</span>
+<span class="sd">                slices, slices, ints, floats, datetime objects, or a</span>
+<span class="sd">                list of any of the above.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            list of slices (containing integers only) or ints</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># print(&quot;SLC::&quot;, slc)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">slc</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
+            <span class="n">slc</span> <span class="o">=</span> <span class="p">[</span><span class="n">slc</span><span class="p">]</span>
+
+        <span class="c1"># expand strings that are comma separated lists of strings</span>
+        <span class="n">_slc</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">slc</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">string_types</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">):</span>
+                    <span class="n">_slc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">_slc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+        <span class="n">slc</span> <span class="o">=</span> <span class="n">_slc</span>
+
+        <span class="n">ret</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">child</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="p">])</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">basetime</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">basetime</span>
+        <span class="k">except</span> <span class="n">viscid</span><span class="o">.</span><span class="n">NoBasetimeError</span><span class="p">:</span>
+            <span class="n">basetime</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">slc</span><span class="p">:</span>
+            <span class="n">ret</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">to_slice</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">val_endpoint</span><span class="o">=</span><span class="n">val_endpoint</span><span class="p">,</span>
+                                <span class="n">interior</span><span class="o">=</span><span class="n">interior</span><span class="p">,</span> <span class="n">epoch</span><span class="o">=</span><span class="n">basetime</span><span class="p">,</span> <span class="n">tdunit</span><span class="o">=</span><span class="n">tdunit</span><span class="p">,</span>
+                                <span class="n">tol</span><span class="o">=</span><span class="n">tol</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="n">ret</span>
+
+    <span class="k">def</span> <span class="nf">_time_slice_to_iterator</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">slc</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Args:</span>
+<span class="sd">            slc: a slice (containing ints only) or an int, or a list</span>
+<span class="sd">                of any of the above</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            a flat iterator of self.children of all the slices chained</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">slc</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
+            <span class="n">slc</span> <span class="o">=</span> <span class="p">[</span><span class="n">slc</span><span class="p">]</span>
+
+        <span class="n">child_iter_lst</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">slc</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="nb">slice</span><span class="p">):</span>
+                <span class="n">inds</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="p">))[</span><span class="n">s</span><span class="p">]</span>
+                <span class="n">it</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">inds</span><span class="p">)</span>
+                <span class="n">child_iter_lst</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">child_iter_lst</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="p">[</span><span class="n">s</span><span class="p">]])</span>
+        <span class="k">return</span> <span class="n">chain</span><span class="p">(</span><span class="o">*</span><span class="n">child_iter_lst</span><span class="p">)</span>
+
+<div class="viewcode-block" id="DatasetTemporal.nr_times"><a class="viewcode-back" href="../../api/viscid.dataset.html#viscid.dataset.DatasetTemporal.nr_times">[docs]</a>    <span class="k">def</span> <span class="nf">nr_times</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">slc</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">),</span> <span class="n">val_endpoint</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">interior</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">tdunit</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+        <span class="n">slc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_slice_time</span><span class="p">(</span><span class="n">slc</span><span class="o">=</span><span class="n">slc</span><span class="p">,</span> <span class="n">val_endpoint</span><span class="o">=</span><span class="n">val_endpoint</span><span class="p">,</span>
+                               <span class="n">interior</span><span class="o">=</span><span class="n">interior</span><span class="p">,</span> <span class="n">tdunit</span><span class="o">=</span><span class="n">tdunit</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="n">tol</span><span class="p">)</span>
+        <span class="n">child_iterator</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_time_slice_to_iterator</span><span class="p">(</span><span class="n">slc</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">child_iterator</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="DatasetTemporal.iter_times"><a class="viewcode-back" href="../../api/viscid.dataset.html#viscid.dataset.DatasetTemporal.iter_times">[docs]</a>    <span class="k">def</span> <span class="nf">iter_times</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">slc</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">),</span> <span class="n">val_endpoint</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">interior</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                   <span class="n">tdunit</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">resolved</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="n">slc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_slice_time</span><span class="p">(</span><span class="n">slc</span><span class="o">=</span><span class="n">slc</span><span class="p">,</span> <span class="n">val_endpoint</span><span class="o">=</span><span class="n">val_endpoint</span><span class="p">,</span>
+                               <span class="n">interior</span><span class="o">=</span><span class="n">interior</span><span class="p">,</span> <span class="n">tdunit</span><span class="o">=</span><span class="n">tdunit</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="n">tol</span><span class="p">)</span>
+        <span class="n">child_iterator</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_time_slice_to_iterator</span><span class="p">(</span><span class="n">slc</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">child_iterator</span><span class="p">:</span>
+            <span class="c1"># FIXME: this isn&#39;t general, but so far the only files we&#39;re</span>
+            <span class="c1"># read have only contained one Grid / AMRGrid. Without get_grid()</span>
+            <span class="c1"># here, the context manager will unload the file when done, but</span>
+            <span class="c1"># that&#39;s not what we wanted here, we wanted to just clear caches</span>
+            <span class="k">if</span> <span class="n">resolved</span><span class="p">:</span>
+                <span class="n">what</span> <span class="o">=</span> <span class="n">child</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span><span class="o">.</span><span class="n">get_grid</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">what</span> <span class="o">=</span> <span class="n">child</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+            <span class="k">with</span> <span class="n">what</span> <span class="k">as</span> <span class="n">target</span><span class="p">:</span>
+                <span class="k">yield</span> <span class="n">target</span></div>
+
+<div class="viewcode-block" id="DatasetTemporal.get_times"><a class="viewcode-back" href="../../api/viscid.dataset.html#viscid.dataset.DatasetTemporal.get_times">[docs]</a>    <span class="k">def</span> <span class="nf">get_times</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">slc</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">),</span> <span class="n">val_endpoint</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">interior</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                  <span class="n">tdunit</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">iter_times</span><span class="p">(</span><span class="n">slc</span><span class="o">=</span><span class="n">slc</span><span class="p">,</span> <span class="n">val_endpoint</span><span class="o">=</span><span class="n">val_endpoint</span><span class="p">,</span>
+                                    <span class="n">interior</span><span class="o">=</span><span class="n">interior</span><span class="p">,</span> <span class="n">tdunit</span><span class="o">=</span><span class="n">tdunit</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="n">tol</span><span class="p">,</span>
+                                    <span class="n">resolved</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="DatasetTemporal.get_time"><a class="viewcode-back" href="../../api/viscid.dataset.html#viscid.dataset.DatasetTemporal.get_time">[docs]</a>    <span class="k">def</span> <span class="nf">get_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">slc</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">),</span> <span class="n">val_endpoint</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">interior</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">tdunit</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_times</span><span class="p">(</span><span class="n">slc</span><span class="o">=</span><span class="n">slc</span><span class="p">,</span> <span class="n">val_endpoint</span><span class="o">=</span><span class="n">val_endpoint</span><span class="p">,</span>
+                              <span class="n">interior</span><span class="o">=</span><span class="n">interior</span><span class="p">,</span> <span class="n">tdunit</span><span class="o">=</span><span class="n">tdunit</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="n">tol</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="DatasetTemporal.tslc_range"><a class="viewcode-back" href="../../api/viscid.dataset.html#viscid.dataset.DatasetTemporal.tslc_range">[docs]</a>    <span class="k">def</span> <span class="nf">tslc_range</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">selection</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">),</span> <span class="n">tdunit</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Find endpoints for a time slice selection</span>
+
+<span class="sd">        Note:</span>
+<span class="sd">            If the selection is slice-by-value, the values are not</span>
+<span class="sd">            adjusted to the nearest frame. For this functionality,</span>
+<span class="sd">            you will want to use :py:func:`get_times` and pull out the</span>
+<span class="sd">            first and last values.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">child</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="p">])</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">basetime</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">basetime</span>
+        <span class="k">except</span> <span class="n">viscid</span><span class="o">.</span><span class="n">NoBasetimeError</span><span class="p">:</span>
+            <span class="n">basetime</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="k">return</span> <span class="n">selection2values</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">selection</span><span class="p">,</span> <span class="n">epoch</span><span class="o">=</span><span class="n">basetime</span><span class="p">,</span> <span class="n">tdunit</span><span class="o">=</span><span class="n">tdunit</span><span class="p">)</span></div>
+
+    <span class="c1">## ok, that&#39;s enough for the time stuff</span>
+    <span class="c1">########################################</span>
+
+<div class="viewcode-block" id="DatasetTemporal.iter_fields"><a class="viewcode-back" href="../../api/viscid.dataset.html#viscid.dataset.DatasetTemporal.iter_fields">[docs]</a>    <span class="k">def</span> <span class="nf">iter_fields</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">named</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; generator for fields in the active dataset,</span>
+<span class="sd">        this will recurse down to a grid &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">time</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">child</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_child</span><span class="p">(</span><span class="n">time</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">child</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">active_child</span>
+
+        <span class="k">if</span> <span class="n">child</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Could not get appropriate child...&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">child</span><span class="o">.</span><span class="n">iter_fields</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">time</span><span class="p">,</span> <span class="n">named</span><span class="o">=</span><span class="n">named</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="DatasetTemporal.print_tree"><a class="viewcode-back" href="../../api/viscid.dataset.html#viscid.dataset.DatasetTemporal.print_tree">[docs]</a>    <span class="k">def</span> <span class="nf">print_tree</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">depth</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">prefix</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+            <span class="n">prefix</span> <span class="o">+=</span> <span class="n">tree_prefix</span>
+
+        <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="p">:</span>
+            <span class="n">suffix</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+            <span class="k">if</span> <span class="n">child</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">is</span> <span class="bp">self</span><span class="o">.</span><span class="n">active_child</span><span class="p">:</span>
+                <span class="n">suffix</span> <span class="o">=</span> <span class="s2">&quot; &lt;-- active&quot;</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{0}{1}</span><span class="s2"> (t=</span><span class="si">{2}</span><span class="s2">)</span><span class="si">{3}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">prefix</span><span class="p">,</span> <span class="n">child</span><span class="p">,</span> <span class="n">child</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">suffix</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">depth</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">child</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">print_tree</span><span class="p">(</span><span class="n">depth</span><span class="o">=</span><span class="n">depth</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span> <span class="o">+</span> <span class="n">tree_prefix</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="DatasetTemporal.get_field"><a class="viewcode-back" href="../../api/viscid.dataset.html#viscid.dataset.DatasetTemporal.get_field">[docs]</a>    <span class="k">def</span> <span class="nf">get_field</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fldname</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">slc</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; recurse down active children to get a field &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">time</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">child</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_child</span><span class="p">(</span><span class="n">time</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">child</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">active_child</span>
+
+        <span class="k">if</span> <span class="n">child</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Could not get appropriate child...&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">child</span><span class="o">.</span><span class="n">get_field</span><span class="p">(</span><span class="n">fldname</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="n">time</span><span class="p">,</span> <span class="n">slc</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="DatasetTemporal.get_grid"><a class="viewcode-back" href="../../api/viscid.dataset.html#viscid.dataset.DatasetTemporal.get_grid">[docs]</a>    <span class="k">def</span> <span class="nf">get_grid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; recurse down active children to get a field &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">time</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">child</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_child</span><span class="p">(</span><span class="n">time</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">child</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">active_child</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">child</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Could not get appropriate child...&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">child</span><span class="o">.</span><span class="n">get_grid</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">time</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="DatasetTemporal.get_child"><a class="viewcode-back" href="../../api/viscid.dataset.html#viscid.dataset.DatasetTemporal.get_child">[docs]</a>    <span class="k">def</span> <span class="nf">get_child</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; if item is an int and &lt; len(children), it is an index in a list,</span>
+<span class="sd">        else I will find the cloest time to float(item) &quot;&quot;&quot;</span>
+        <span class="c1"># print(&quot;&gt;&gt; get_child:&quot;, item)</span>
+        <span class="c1"># print(&quot;&gt;&gt; slice is:&quot;, self._slice_time(item))</span>
+        <span class="c1"># always just return the first slice&#39;s child... is this wrong?</span>
+        <span class="n">child</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_slice_time</span><span class="p">(</span><span class="n">item</span><span class="p">)[</span><span class="mi">0</span><span class="p">]][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">child</span></div>
+
+    <span class="k">def</span> <span class="nf">__contains__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">and</span> <span class="n">item</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">item</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">string_types</span><span class="p">)</span> <span class="ow">and</span> <span class="n">item</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;f&#39;</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">val</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">item</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+                <span class="k">if</span> <span class="n">val</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="ow">and</span> <span class="n">val</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]:</span>
+                    <span class="k">return</span> <span class="kc">True</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="kc">False</span>
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                <span class="k">pass</span>
+        <span class="k">return</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">active_child</span>
+
+<div class="viewcode-block" id="DatasetTemporal.iter_resolved_children"><a class="viewcode-back" href="../../api/viscid.dataset.html#viscid.dataset.DatasetTemporal.iter_resolved_children">[docs]</a>    <span class="k">def</span> <span class="nf">iter_resolved_children</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">child</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span> <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="p">)</span></div></div>
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+      
+    </p>
+    <p>
+        &copy; Copyright 2017, Kristofor Maynard.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

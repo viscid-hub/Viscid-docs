@@ -1,0 +1,496 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>viscid.mapfield module &#8212; Viscid 0.99.7.dev0 documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="viscid.multiplot module" href="viscid.multiplot.html" />
+    <link rel="prev" title="viscid.grid module" href="viscid.grid.html" />
+<link rel="icon" href="../_static/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../_static/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon-precomposed" href="../_static/Vicon_128.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Viscid</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.99.7.dev0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+    <li class="dropdown">
+      <a role="button"
+         id="dLabelNavLinxToc"
+         data-toggle="dropdown"
+         data-target="#"
+         href="#">Tutorial <b class="caret"></b></a>
+      <ul class="dropdown-menu navlinktoc"
+          role="menu">
+          <li class="toctree-l1">
+            <a class="reference internal", href="../installation.html">Installation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/creating_fields.html">Creating Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/slicing.html">Slicing Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/plotting_scalars.html">Plotting Scalars</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/plotting_vectors.html">Plotting Vectors</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/mayavi.html">3D Plots (Mayavi)</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/openggcm.html">OpenGGCM Specific</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/ionosphere.html">Ionosphere</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/stream_and_interp.html">Streamline and Interpolation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/magnetic_topology.html">Magnetic Topology</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/magnetopause.html">Magnetopause</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/quasi_potential.html">Quasi Potential</a>
+          </li>
+      </ul>
+    </li>
+
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../changes.html">ChangeLog</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../philosophy.html">Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tips_and_tricks.html">Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functions.html">Useful Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plot_options.html">Plot Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mpl_style_gallery.html">Matplotlib Style Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom_behavior.html">Custom Behavior (rc file)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev_guide.html">Developer’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extending_readers.html">Extending Readers</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="viscid.html">API</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">viscid.mapfield module</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="module-viscid.mapfield">
+<span id="viscid-mapfield-module"></span><h1>viscid.mapfield module<a class="headerlink" href="#module-viscid.mapfield" title="Permalink to this headline">¶</a></h1>
+<p>utility for translating spherical fields (theta, phi) &lt;-&gt; (lat, lon)</p>
+<dl class="function">
+<dt id="viscid.mapfield.as_mapfield">
+<code class="descclassname">viscid.mapfield.</code><code class="descname">as_mapfield</code><span class="sig-paren">(</span><em>fld</em>, <em>order=('lon'</em>, <em>'lat')</em>, <em>units=''</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/mapfield.html#as_mapfield"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.mapfield.as_mapfield" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make sure a field has (lon, lat) coordinates</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>fld</strong> (<em>Field</em>) – some field to transform</li>
+<li><strong>order</strong> (<em>tuple</em><em>, </em><em>optional</em>) – Desired axes of the result</li>
+<li><strong>units</strong> (<em>str</em><em>, </em><em>optional</em>) – units of the result (deg/rad)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a field with (lon, lat) coordinates. The data
+will be loaded into memory if not already.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Viscid.Field</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.mapfield.as_spherefield">
+<code class="descclassname">viscid.mapfield.</code><code class="descname">as_spherefield</code><span class="sig-paren">(</span><em>fld</em>, <em>order=('phi'</em>, <em>'theta')</em>, <em>units=''</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/mapfield.html#as_spherefield"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.mapfield.as_spherefield" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make sure fld has (phi, theta) coordinates</p>
+<blockquote>
+<div>fld (Field): some field to transform
+order (tuple, optional): Desired axes of the result
+units (str, optional): units of the result (deg/rad)</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a field with (lon, lat) coordinates. The data
+will be loaded into memory if not already.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Viscid.Field</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.mapfield.as_polar_mapfield">
+<code class="descclassname">viscid.mapfield.</code><code class="descname">as_polar_mapfield</code><span class="sig-paren">(</span><em>fld</em>, <em>bounding_lat=40.0</em>, <em>hemisphere='north'</em>, <em>make_periodic=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/mapfield.html#as_polar_mapfield"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.mapfield.as_polar_mapfield" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prepare a theta/phi or lat/lon field for polar projection</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>fld</strong> (<em>Field</em>) – Some scalar or vector field</li>
+<li><strong>bounding_lat</strong> (<em>float</em><em>, </em><em>optional</em>) – Used to slice the field, i.e.,
+gives data from the pole to bounding_lat degrees
+equator-ward of the pole</li>
+<li><strong>hemisphere</strong> (<em>str</em><em>, </em><em>optional</em>) – ‘north’ or ‘south’</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a field that can be mapfield plotted on polar axes</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">Field</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> – on bad hemisphere</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.mapfield.pts2polar_mapfield">
+<code class="descclassname">viscid.mapfield.</code><code class="descname">pts2polar_mapfield</code><span class="sig-paren">(</span><em>pts</em>, <em>pts_axes</em>, <em>pts_unit='deg'</em>, <em>hemisphere='north'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/mapfield.html#pts2polar_mapfield"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.mapfield.pts2polar_mapfield" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prepare theta/phi or lat/lon points for a polar plot</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pts</strong> (<em>ndarray</em>) – A 2xN array of N points where the spatial
+dimensions encode phi, theta, lat, or lon.</li>
+<li><strong>pts_axes</strong> (<em>sequence</em>) – sequence of strings that say what each
+axis of pts encodes, i.e., (‘theta’, ‘phi’).</li>
+<li><strong>pts_unit</strong> (<em>str</em><em>, </em><em>optional</em>) – units of pts (‘deg’ or ‘rad’)</li>
+<li><strong>hemisphere</strong> (<em>str</em><em>, </em><em>optional</em>) – ‘north’ or ‘south’</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">2xN array of N points in radians where the axes
+are (‘lon’, ‘lat’), such that they can be given straight to
+matplotlib.pyplot.plot()</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">ndarray</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> – On bad pts_axes</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Example</p>
+<p>This example plots total field align currents in the northern
+hemisphere, then plots a curve onto the same plot</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">load_file</span><span class="p">(</span><span class="s2">&quot;$SRC/Viscid/sample/*_xdmf.iof.*.xdmf&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vlt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mf">1e9</span> <span class="o">*</span> <span class="n">f</span><span class="p">[</span><span class="s1">&#39;fac_tot&#39;</span><span class="p">],</span> <span class="n">symmetric</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># now make a curve from dawn to dusk spanning 20deg in lat</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">N</span> <span class="o">=</span> <span class="mi">64</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">90</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="n">N</span><span class="p">),</span>
+<span class="go">                     np.linspace(10, 30, N)])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pts_polar</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">pts2polar_mapfield</span><span class="p">(</span><span class="n">pts</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;phi&#39;</span><span class="p">,</span> <span class="s1">&#39;theta&#39;</span><span class="p">),</span>
+<span class="go">                                          pts_unit=&#39;deg&#39;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pts_polar</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">pts_polar</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vlt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.mapfield.convert_coordinates">
+<code class="descclassname">viscid.mapfield.</code><code class="descname">convert_coordinates</code><span class="sig-paren">(</span><em>fld</em>, <em>order</em>, <em>crd_mapping</em>, <em>units=''</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/mapfield.html#convert_coordinates"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.mapfield.convert_coordinates" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert a Field’s coordinates</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>fld</strong> (<em>Field</em>) – Description</li>
+<li><strong>order</strong> (<em>sequence</em>) – target coordinates</li>
+<li><strong>crd_mapping</strong> (<em>dict</em>) – summarizes functions that go from
+base -&gt; target</li>
+<li><strong>units</strong> (<em>str</em><em>, </em><em>optional</em>) – Additional info if you need to convert
+units too</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal notranslate"><span class="pre">RuntimeError</span></code> – If no mapping is found to go base -&gt; target</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.mapfield.lat2theta">
+<code class="descclassname">viscid.mapfield.</code><code class="descname">lat2theta</code><span class="sig-paren">(</span><em>lat</em>, <em>unit='deg'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/mapfield.html#lat2theta"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.mapfield.lat2theta" title="Permalink to this definition">¶</a></dt>
+<dd><p>spherical latitude -&gt; theta transformation</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.mapfield.lon2phi">
+<code class="descclassname">viscid.mapfield.</code><code class="descname">lon2phi</code><span class="sig-paren">(</span><em>lon</em>, <em>unit='deg'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/mapfield.html#lon2phi"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.mapfield.lon2phi" title="Permalink to this definition">¶</a></dt>
+<dd><p>spherical longitude -&gt; phi transform; currently a no-op</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.mapfield.phi2lon">
+<code class="descclassname">viscid.mapfield.</code><code class="descname">phi2lon</code><span class="sig-paren">(</span><em>phi</em>, <em>unit='deg'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/mapfield.html#phi2lon"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.mapfield.phi2lon" title="Permalink to this definition">¶</a></dt>
+<dd><p>spherical phi -&gt; longitude transform; currently a no-op</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.mapfield.theta2lat">
+<code class="descclassname">viscid.mapfield.</code><code class="descname">theta2lat</code><span class="sig-paren">(</span><em>theta</em>, <em>unit='deg'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/mapfield.html#theta2lat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.mapfield.theta2lat" title="Permalink to this definition">¶</a></dt>
+<dd><p>spherical theta -&gt; latitude transformation</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.mapfield.cart2sph">
+<code class="descclassname">viscid.mapfield.</code><code class="descname">cart2sph</code><span class="sig-paren">(</span><em>arr</em>, <em>deg=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/mapfield.html#cart2sph"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.mapfield.cart2sph" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert cartesian points to spherical (rad by default)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>arr</strong> (<em>sequence</em>) – shaped (3, ) or (3, N) for N xyz points</li>
+<li><strong>deg</strong> (<em>bool</em>) – if result should be in degrees</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>shaped (3, ) or (3, N) r, theta, phi points in radians</dt>
+<dd><p class="first last">by default</p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.mapfield.cart2latlon">
+<code class="descclassname">viscid.mapfield.</code><code class="descname">cart2latlon</code><span class="sig-paren">(</span><em>arr</em>, <em>deg=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/mapfield.html#cart2latlon"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.mapfield.cart2latlon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert latitude longitude (deg by default) to cartesian</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>arr</strong> (<em>sequence</em>) – shaped (3, ) or (3, N) for N r, theta, phi
+points in radians by default</li>
+<li><strong>deg</strong> (<em>bool</em>) – if arr is in dergrees</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">shaped (2, ) or (2, N) xyz</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.mapfield.sph2cart">
+<code class="descclassname">viscid.mapfield.</code><code class="descname">sph2cart</code><span class="sig-paren">(</span><em>arr</em>, <em>deg=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/mapfield.html#sph2cart"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.mapfield.sph2cart" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert cartesian points to spherical (rad by default)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>arr</strong> (<em>sequence</em>) – shaped (3, ) or (3, N) for N r, theta, phi
+points in radians by default</li>
+<li><strong>deg</strong> (<em>bool</em>) – if arr is in dergrees</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">shaped (3, ) or (3, N) xyz</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.mapfield.latlon2cart">
+<code class="descclassname">viscid.mapfield.</code><code class="descname">latlon2cart</code><span class="sig-paren">(</span><em>arr</em>, <em>r=1.0</em>, <em>deg=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/mapfield.html#latlon2cart"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.mapfield.latlon2cart" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert cartesian points to latitude longitude (deg by default)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>arr</strong> (<em>sequence</em>) – shaped (2, ) or (2, N) for N r, theta, phi
+points in radians by default</li>
+<li><strong>deg</strong> (<em>bool</em>) – if arr is in dergrees</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">shaped (3, ) or (3, N) xyz</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.mapfield.great_circle">
+<code class="descclassname">viscid.mapfield.</code><code class="descname">great_circle</code><span class="sig-paren">(</span><em>p1</em>, <em>p2</em>, <em>origin=(0</em>, <em>0</em>, <em>0)</em>, <em>n=32</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/mapfield.html#great_circle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.mapfield.great_circle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get great circle path between two points in 3d</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>p1</strong> (<em>sequence</em>) – first point as [x, y, z]</li>
+<li><strong>p2</strong> (<em>sequence</em>) – second point as [x, y, z]</li>
+<li><strong>origin</strong> (<em>sequence</em>) – origin of the sphere</li>
+<li><strong>n</strong> (<em>int</em>) – Number of line segments along the great circle</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">3xN ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../_sources/api/viscid.mapfield.rst.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright 2017, Kristofor Maynard.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

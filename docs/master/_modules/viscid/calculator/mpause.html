@@ -1,0 +1,611 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>viscid.calculator.mpause &#8212; Viscid 0.99.6 documentation</title>
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+<link rel="icon" href="../../../_static/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../../../_static/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon-precomposed" href="../../../_static/Vicon_128.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          Viscid</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.99.6</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+    <li class="dropdown">
+      <a role="button"
+         id="dLabelNavLinxToc"
+         data-toggle="dropdown"
+         data-target="#"
+         href="#">Tutorial <b class="caret"></b></a>
+      <ul class="dropdown-menu navlinktoc"
+          role="menu">
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../installation.html">Installation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/creating_fields.html">Creating Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/slicing.html">Slicing Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/plotting_scalars.html">Plotting Scalars</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/plotting_vectors.html">Plotting Vectors</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/mayavi.html">3D Plots (Mayavi)</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/openggcm.html">OpenGGCM Specific</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/ionosphere.html">Ionosphere</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/stream_and_interp.html">Streamline and Interpolation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/magnetic_topology.html">Magnetic Topology</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/magnetopause.html">Magnetopause</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/quasi_potential.html">Quasi Potential</a>
+          </li>
+      </ul>
+    </li>
+
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../changes.html">ChangeLog</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../philosophy.html">Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/index.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tips_and_tricks.html">Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../functions.html">Useful Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../plot_options.html">Plot Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mpl_style_gallery.html">Matplotlib Style Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../custom_behavior.html">Custom Behavior (rc file)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev_guide.html">Developer’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../extending_readers.html">Extending Readers</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/viscid.html">API</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"></ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <h1>Source code for viscid.calculator.mpause</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="sd">&quot;&quot;&quot;Minimum Variance Analysis and boundary normal crd tools&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">print_function</span><span class="p">,</span> <span class="n">division</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">viscid</span>
+
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;paraboloid&quot;</span><span class="p">,</span> <span class="s2">&quot;paraboloid_normal&quot;</span><span class="p">,</span> <span class="s2">&quot;fit_paraboloid&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;get_mp_info&quot;</span><span class="p">,</span> <span class="s2">&quot;find_mp_edges&quot;</span><span class="p">]</span>
+
+<span class="n">_dtf</span> <span class="o">=</span> <span class="s1">&#39;f8&#39;</span>
+<span class="n">_paraboloid_dt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">([(</span><span class="s1">&#39;x0&#39;</span><span class="p">,</span> <span class="n">_dtf</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;y0&#39;</span><span class="p">,</span> <span class="n">_dtf</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;z0&#39;</span><span class="p">,</span> <span class="n">_dtf</span><span class="p">),</span>
+                           <span class="p">(</span><span class="s1">&#39;ax&#39;</span><span class="p">,</span> <span class="n">_dtf</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;ay&#39;</span><span class="p">,</span> <span class="n">_dtf</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;az&#39;</span><span class="p">,</span> <span class="n">_dtf</span><span class="p">)])</span>
+
+
+<div class="viewcode-block" id="paraboloid"><a class="viewcode-back" href="../../../api/viscid.calculator.mpause.html#viscid.paraboloid">[docs]</a><span class="k">def</span> <span class="nf">paraboloid</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">z0</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">ay</span><span class="p">,</span> <span class="n">az</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Generic paraboloid function&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">ax</span> <span class="o">*</span> <span class="p">(((</span><span class="n">y</span> <span class="o">-</span> <span class="n">y0</span><span class="p">)</span> <span class="o">/</span> <span class="n">ay</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">((</span><span class="n">z</span> <span class="o">-</span> <span class="n">z0</span><span class="p">)</span> <span class="o">/</span> <span class="n">az</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">x0</span></div>
+
+<div class="viewcode-block" id="paraboloid_normal"><a class="viewcode-back" href="../../../api/viscid.calculator.mpause.html#viscid.paraboloid_normal">[docs]</a><span class="k">def</span> <span class="nf">paraboloid_normal</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">z0</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">ay</span><span class="p">,</span> <span class="n">az</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>  <span class="c1"># pylint: disable=unused-argument</span>
+    <span class="sd">&quot;&quot;&quot;Normal vector of a generic paraboloid&quot;&quot;&quot;</span>
+    <span class="n">dyF</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">y0</span><span class="p">)</span> <span class="o">/</span> <span class="n">ay</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">dzF</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="p">(</span><span class="n">z</span> <span class="o">-</span> <span class="n">z0</span><span class="p">)</span> <span class="o">/</span> <span class="n">az</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">dxF</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mf">1.0</span> <span class="o">/</span> <span class="n">ax</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">dyF</span><span class="p">)</span>
+
+    <span class="n">normal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">dxF</span><span class="p">,</span> <span class="n">dyF</span><span class="p">,</span> <span class="n">dzF</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">normalize</span><span class="p">:</span>
+        <span class="n">normal</span> <span class="o">=</span> <span class="n">normal</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">normal</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">normal</span></div>
+
+<div class="viewcode-block" id="fit_paraboloid"><a class="viewcode-back" href="../../../api/viscid.calculator.mpause.html#viscid.fit_paraboloid">[docs]</a><span class="k">def</span> <span class="nf">fit_paraboloid</span><span class="p">(</span><span class="n">fld</span><span class="p">,</span> <span class="n">p0</span><span class="o">=</span><span class="p">(</span><span class="mf">9.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">),</span> <span class="n">tolerance</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Fit paraboloid it GSE coordinates x ~ y**2 + z**2</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        fld (:py:class:`viscid.field.ScalarField`): field of x values</span>
+<span class="sd">        p0 (sequence): initial guess for parabaloid</span>
+<span class="sd">            (x0, y0, z0, ax, ay, az), where (x0, y0, z0) is the nose</span>
+<span class="sd">            location (should be subsolar for 0 dipole tilt), and the</span>
+<span class="sd">            ay, az, and az coefficients determine the curvature</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        numpy.recarray: record array of parameters with length 2; the</span>
+<span class="sd">            1st value is the fit value, and the 2nd is one sigma of</span>
+<span class="sd">            the fit</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="k">import</span> <span class="n">curve_fit</span>
+
+    <span class="k">def</span> <span class="nf">paraboloid_yz</span><span class="p">(</span><span class="n">yz</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">z0</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">ay</span><span class="p">,</span> <span class="n">az</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">paraboloid</span><span class="p">(</span><span class="n">yz</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">yz</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">z0</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">ay</span><span class="p">,</span> <span class="n">az</span><span class="p">)</span>
+
+    <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span> <span class="o">=</span> <span class="n">fld</span><span class="o">.</span><span class="n">meshgrid_flat</span><span class="p">(</span><span class="n">prune</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">popt</span><span class="p">,</span> <span class="n">pcov</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">paraboloid_yz</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">)),</span>
+                           <span class="n">fld</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">p0</span><span class="o">=</span><span class="n">p0</span><span class="p">)</span>
+    <span class="n">perr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">pcov</span><span class="p">))</span>
+    <span class="n">parab</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">recarray</span><span class="p">([</span><span class="mi">2</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">_paraboloid_dt</span><span class="p">)</span>
+    <span class="c1"># wow.. needing a nested loop to fill a recarray is stooopid,</span>
+    <span class="c1"># am i missing something about recarrays?</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">vals</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">parab</span><span class="p">)),</span> <span class="p">[</span><span class="n">popt</span><span class="p">,</span> <span class="n">perr</span><span class="p">]):</span>
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">parab</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">names</span><span class="p">,</span> <span class="n">vals</span><span class="p">):</span>
+            <span class="n">parab</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
+    <span class="k">if</span> <span class="n">tolerance</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">parab</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">names</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">n</span> <span class="o">!=</span> <span class="s2">&quot;ax&quot;</span> <span class="ow">and</span>  <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">parab</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">n</span><span class="p">]</span> <span class="o">/</span> <span class="n">parab</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">n</span><span class="p">])</span> <span class="o">&gt;</span> <span class="n">tolerance</span><span class="p">:</span>
+                <span class="n">viscid</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;paraboloid parameter </span><span class="si">{0}</span><span class="s2"> didn&#39;t converge to &quot;</span>
+                                      <span class="s2">&quot;within </span><span class="si">{1:g}</span><span class="s2">%</span><span class="se">\n</span><span class="si">{0}</span><span class="s2"> = </span><span class="si">{2:g}</span><span class="s2"> +/- </span><span class="si">{3:g}</span><span class="s2">&quot;</span>
+                                      <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">tolerance</span><span class="p">,</span> <span class="n">parab</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">n</span><span class="p">],</span>
+                                                <span class="n">parab</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">n</span><span class="p">]))</span>
+    <span class="k">return</span> <span class="n">parab</span></div>
+
+<div class="viewcode-block" id="get_mp_info"><a class="viewcode-back" href="../../../api/viscid.calculator.mpause.html#viscid.get_mp_info">[docs]</a><span class="k">def</span> <span class="nf">get_mp_info</span><span class="p">(</span><span class="n">pp</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">cache</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cache_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="n">slc</span><span class="o">=</span><span class="s2">&quot;x=5.5f:11.0f, y=-4.0f:4.0f, z=-3.6f:3.6f&quot;</span><span class="p">,</span>
+                <span class="n">fit</span><span class="o">=</span><span class="s2">&quot;mp_xloc&quot;</span><span class="p">,</span> <span class="n">fit_p0</span><span class="o">=</span><span class="p">(</span><span class="mf">9.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)):</span>
+    <span class="sd">&quot;&quot;&quot;Get info about m-pause as flattened fields</span>
+
+<span class="sd">    Notes:</span>
+<span class="sd">        The first thing this function does is mask locations where</span>
+<span class="sd">        the GSE-y current density &lt; 1e-4. This masks out the bow</span>
+<span class="sd">        shock and current free regions. This works for southward IMF,</span>
+<span class="sd">        but it is not very general.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        pp (ScalarcField): pressure</span>
+<span class="sd">        b (VectorField): magnetic field</span>
+<span class="sd">        j (VectorField): current density</span>
+<span class="sd">        e (VectorField, None): electric field (same centering as b). If</span>
+<span class="sd">            None, then the info that requires E will be filled with NaN</span>
+<span class="sd">        cache (bool, str): Save to and load from cache, if &quot;force&quot;,</span>
+<span class="sd">            then don&#39;t load from cache if it exists, but do save a</span>
+<span class="sd">            cache at the end</span>
+<span class="sd">        cache_dir (str): Directory for cache, if None, same directory</span>
+<span class="sd">            as that file to which the grid belongs</span>
+<span class="sd">        slc (str): slice that gives a box that contains the m-pause</span>
+<span class="sd">        fit (str): to which resulting field should the paraboloid be fit,</span>
+<span class="sd">            defaults to mp_xloc, but pp_max_xloc might be useful in some</span>
+<span class="sd">            circumstances</span>
+<span class="sd">        fit_p0 (tuple): Initial guess vector for paraboloid fit</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        dict: Unless otherwise noted, the entiries are 2D (y-z) fields</span>
+
+<span class="sd">          - **mp_xloc** location of minimum abs(Bz), this works</span>
+<span class="sd">            better than max of J^2 for FTEs</span>
+<span class="sd">          - **mp_sheath_edge** location where Jy &gt; 0.1 * Jy when</span>
+<span class="sd">            coming in from the sheath side</span>
+<span class="sd">          - **mp_sphere_edge** location where Jy &gt; 0.1 * Jy when</span>
+<span class="sd">            coming in from the sphere side</span>
+<span class="sd">          - **mp_width** difference between m-sheath edge and</span>
+<span class="sd">            msphere edge</span>
+<span class="sd">          - **mp_shear** magnetic shear taken 6 grid points into</span>
+<span class="sd">            the m-sheath / m-sphere</span>
+<span class="sd">          - **pp_max** max pp</span>
+<span class="sd">          - **pp_max_xloc** location of max pp</span>
+<span class="sd">          - **epar_max** max e parallel</span>
+<span class="sd">          - **epar_max_xloc** location of max e parallel</span>
+<span class="sd">          - **paraboloid** numpy.recarray of paraboloid fit. The</span>
+<span class="sd">            parameters are given in the 0th element, and</span>
+<span class="sd">            the 1st element contains the 1-sigma values for the fit</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        RuntimeError: if using MHD crds instead of GSE crds</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">cache_dir</span><span class="p">:</span>
+        <span class="n">cache_dir</span> <span class="o">=</span> <span class="n">pp</span><span class="o">.</span><span class="n">find_info</span><span class="p">(</span><span class="s2">&quot;_viscid_dirname&quot;</span><span class="p">,</span> <span class="s2">&quot;./&quot;</span><span class="p">)</span>
+    <span class="n">run_name</span> <span class="o">=</span> <span class="n">pp</span><span class="o">.</span><span class="n">find_info</span><span class="p">(</span><span class="s2">&quot;run&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">cache</span> <span class="ow">and</span> <span class="n">run_name</span><span class="p">:</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">pp</span><span class="o">.</span><span class="n">time</span>
+        <span class="n">mp_fname</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{0}</span><span class="s2">/</span><span class="si">{1}</span><span class="s2">.mpause.</span><span class="si">{2:06.0f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cache_dir</span><span class="p">,</span> <span class="n">run_name</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">mp_fname</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">force</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;force&quot;</span>
+    <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+        <span class="n">force</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">force</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">mp_fname</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">mp_fname</span> <span class="o">+</span> <span class="s2">&quot;.xdmf&quot;</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">IOError</span><span class="p">()</span>
+
+        <span class="n">mp_info</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">with</span> <span class="n">viscid</span><span class="o">.</span><span class="n">load_file</span><span class="p">(</span><span class="n">mp_fname</span> <span class="o">+</span> <span class="s2">&quot;.xdmf&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">dat</span><span class="p">:</span>
+            <span class="n">fld_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;mp_xloc&quot;</span><span class="p">,</span> <span class="s2">&quot;mp_sheath_edge&quot;</span><span class="p">,</span> <span class="s2">&quot;mp_sphere_edge&quot;</span><span class="p">,</span>
+                         <span class="s2">&quot;mp_width&quot;</span><span class="p">,</span> <span class="s2">&quot;mp_shear&quot;</span><span class="p">,</span> <span class="s2">&quot;pp_max&quot;</span><span class="p">,</span> <span class="s2">&quot;pp_max_xloc&quot;</span><span class="p">,</span>
+                         <span class="s2">&quot;epar_max&quot;</span><span class="p">,</span> <span class="s2">&quot;epar_max_xloc&quot;</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">fld_name</span> <span class="ow">in</span> <span class="n">fld_names</span><span class="p">:</span>
+                <span class="n">mp_info</span><span class="p">[</span><span class="n">fld_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">dat</span><span class="p">[</span><span class="n">fld_name</span><span class="p">][</span><span class="s2">&quot;x=0&quot;</span><span class="p">]</span>
+
+    <span class="k">except</span> <span class="p">(</span><span class="ne">IOError</span><span class="p">,</span> <span class="ne">KeyError</span><span class="p">):</span>
+        <span class="n">mp_info</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="n">crd_system</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">as_crd_system</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">crd_system</span> <span class="o">!=</span> <span class="s1">&#39;gse&#39;</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;get_mp_info can&#39;t work in MHD crds, &quot;</span>
+                               <span class="s2">&quot;switch to GSE please&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">j</span><span class="o">.</span><span class="n">nr_patches</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">pp_block</span> <span class="o">=</span> <span class="n">pp</span><span class="p">[</span><span class="n">slc</span><span class="p">]</span>
+            <span class="n">b_block</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="n">slc</span><span class="p">]</span>
+            <span class="n">j_block</span> <span class="o">=</span> <span class="n">j</span><span class="p">[</span><span class="n">slc</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">e</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">e_block</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span> <span class="o">*</span> <span class="n">viscid</span><span class="o">.</span><span class="n">empty_like</span><span class="p">(</span><span class="n">j_block</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">e_block</span> <span class="o">=</span> <span class="n">e</span><span class="p">[</span><span class="n">slc</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># interpolate an amr grid so we can proceed</span>
+            <span class="n">obnd</span> <span class="o">=</span> <span class="n">pp</span><span class="o">.</span><span class="n">get_slice_extent</span><span class="p">(</span><span class="n">slc</span><span class="p">)</span>
+            <span class="n">dx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">pp</span><span class="o">.</span><span class="n">skeleton</span><span class="o">.</span><span class="n">L</span> <span class="o">/</span> <span class="n">pp</span><span class="o">.</span><span class="n">skeleton</span><span class="o">.</span><span class="n">n</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">nx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">((</span><span class="n">obnd</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">obnd</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="n">dx</span><span class="p">)</span>
+            <span class="n">vol</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">seed</span><span class="o">.</span><span class="n">Volume</span><span class="p">(</span><span class="n">obnd</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">obnd</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">nx</span><span class="p">,</span> <span class="n">cache</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">pp_block</span> <span class="o">=</span> <span class="n">vol</span><span class="o">.</span><span class="n">wrap_field</span><span class="p">(</span><span class="n">viscid</span><span class="o">.</span><span class="n">interp_trilin</span><span class="p">(</span><span class="n">pp</span><span class="p">,</span> <span class="n">vol</span><span class="p">),</span>
+                                      <span class="n">name</span><span class="o">=</span><span class="s2">&quot;P&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">as_cell_centered</span><span class="p">()</span>
+            <span class="n">b_block</span> <span class="o">=</span> <span class="n">vol</span><span class="o">.</span><span class="n">wrap_field</span><span class="p">(</span><span class="n">viscid</span><span class="o">.</span><span class="n">interp_trilin</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">vol</span><span class="p">),</span>
+                                     <span class="n">name</span><span class="o">=</span><span class="s2">&quot;B&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">as_cell_centered</span><span class="p">()</span>
+            <span class="n">j_block</span> <span class="o">=</span> <span class="n">vol</span><span class="o">.</span><span class="n">wrap_field</span><span class="p">(</span><span class="n">viscid</span><span class="o">.</span><span class="n">interp_trilin</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">vol</span><span class="p">),</span>
+                                     <span class="n">name</span><span class="o">=</span><span class="s2">&quot;J&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">as_cell_centered</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">e</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">e_block</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span> <span class="o">*</span> <span class="n">viscid</span><span class="o">.</span><span class="n">empty_like</span><span class="p">(</span><span class="n">j_block</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">e_block</span> <span class="o">=</span> <span class="n">vol</span><span class="o">.</span><span class="n">wrap_field</span><span class="p">(</span><span class="n">viscid</span><span class="o">.</span><span class="n">interp_trilin</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">vol</span><span class="p">),</span>
+                                         <span class="n">name</span><span class="o">=</span><span class="s2">&quot;E&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">as_cell_centered</span><span class="p">()</span>
+
+        <span class="c1"># jsq = viscid.dot(j_block, j_block)</span>
+        <span class="n">bsq</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">b_block</span><span class="p">,</span> <span class="n">b_block</span><span class="p">)</span>
+
+        <span class="c1"># extract ndarrays and mask out bow shock / current free regions</span>
+        <span class="n">maskval</span> <span class="o">=</span> <span class="mf">1e-4</span>
+        <span class="n">jy_mask</span> <span class="o">=</span> <span class="n">j_block</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span> <span class="o">&lt;</span> <span class="n">maskval</span>
+        <span class="n">masked_bsq</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">*</span> <span class="n">bsq</span>
+        <span class="n">masked_bsq</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_where</span><span class="p">(</span><span class="n">jy_mask</span><span class="p">,</span> <span class="n">bsq</span><span class="p">)</span>
+
+        <span class="n">xcc</span> <span class="o">=</span> <span class="n">j_block</span><span class="o">.</span><span class="n">get_crd_cc</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+        <span class="n">nx</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">xcc</span><span class="p">)</span>
+
+        <span class="n">mp_xloc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">masked_bsq</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># indices</span>
+        <span class="n">mp_xloc</span> <span class="o">=</span> <span class="n">mp_xloc</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">xcc</span><span class="p">[</span><span class="n">mp_xloc</span><span class="o">.</span><span class="n">data</span><span class="p">])</span>  <span class="c1"># location</span>
+
+        <span class="n">pp_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">pp_block</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">pp_max_xloc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">pp_block</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># indices</span>
+        <span class="n">pp_max_xloc</span> <span class="o">=</span> <span class="n">pp_max_xloc</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">xcc</span><span class="p">[</span><span class="n">pp_max_xloc</span><span class="o">.</span><span class="n">data</span><span class="p">])</span>  <span class="c1"># location</span>
+
+        <span class="n">epar</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">project</span><span class="p">(</span><span class="n">e_block</span><span class="p">,</span> <span class="n">b_block</span><span class="p">)</span>
+        <span class="n">epar_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">epar</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">epar_max_xloc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">epar</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># indices</span>
+        <span class="n">epar_max_xloc</span> <span class="o">=</span> <span class="n">pp_max_xloc</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">xcc</span><span class="p">[</span><span class="n">epar_max_xloc</span><span class="o">.</span><span class="n">data</span><span class="p">])</span>  <span class="c1"># location</span>
+
+        <span class="n">_ret</span> <span class="o">=</span> <span class="n">find_mp_edges</span><span class="p">(</span><span class="n">j_block</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">maskval</span><span class="o">=</span><span class="n">maskval</span><span class="p">)</span>
+        <span class="n">sheath_edge</span><span class="p">,</span> <span class="n">msphere_edge</span><span class="p">,</span> <span class="n">mp_width</span><span class="p">,</span> <span class="n">sheath_ind</span><span class="p">,</span> <span class="n">sphere_ind</span> <span class="o">=</span> <span class="n">_ret</span>
+
+        <span class="c1"># extract b and b**2 at sheath + 6 grid points and sphere - 6 grid pointns</span>
+        <span class="c1"># clipping cases where things go outside the block. clipped ponints are</span>
+        <span class="c1"># set to nan</span>
+        <span class="n">step</span> <span class="o">=</span> <span class="mi">6</span>
+        <span class="c1"># extract b</span>
+        <span class="k">if</span> <span class="n">b_block</span><span class="o">.</span><span class="n">layout</span> <span class="o">==</span> <span class="s2">&quot;flat&quot;</span><span class="p">:</span>
+            <span class="n">comp_axis</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">ic</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">iy</span><span class="p">,</span> <span class="n">iz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ix_</span><span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">si</span><span class="p">)</span> <span class="k">for</span> <span class="n">si</span> <span class="ow">in</span> <span class="n">b_block</span><span class="o">.</span><span class="n">shape</span><span class="p">])</span>
+            <span class="n">ix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">sheath_ind</span> <span class="o">+</span> <span class="n">step</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">nx</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">b_sheath</span> <span class="o">=</span> <span class="n">b_block</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">ic</span><span class="p">,</span> <span class="n">ix</span><span class="p">,</span> <span class="n">iy</span><span class="p">,</span> <span class="n">iz</span><span class="p">]</span>
+            <span class="n">ix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">sheath_ind</span> <span class="o">-</span> <span class="n">step</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">nx</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">b_sphere</span> <span class="o">=</span> <span class="n">b_block</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">ic</span><span class="p">,</span> <span class="n">ix</span><span class="p">,</span> <span class="n">iy</span><span class="p">,</span> <span class="n">iz</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="n">b_block</span><span class="o">.</span><span class="n">layout</span> <span class="o">==</span> <span class="s2">&quot;interlaced&quot;</span><span class="p">:</span>
+            <span class="n">comp_axis</span> <span class="o">=</span> <span class="mi">3</span>
+            <span class="n">_</span><span class="p">,</span> <span class="n">iy</span><span class="p">,</span> <span class="n">iz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ix_</span><span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">si</span><span class="p">)</span> <span class="k">for</span> <span class="n">si</span> <span class="ow">in</span> <span class="n">b_block</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+            <span class="n">ix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">sheath_ind</span> <span class="o">+</span> <span class="n">step</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">nx</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">b_sheath</span> <span class="o">=</span> <span class="n">b_block</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">ix</span><span class="p">,</span> <span class="n">iy</span><span class="p">,</span> <span class="n">iz</span><span class="p">]</span>
+            <span class="n">ix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">sheath_ind</span> <span class="o">-</span> <span class="n">step</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">nx</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">b_sphere</span> <span class="o">=</span> <span class="n">b_block</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">ix</span><span class="p">,</span> <span class="n">iy</span><span class="p">,</span> <span class="n">iz</span><span class="p">]</span>
+        <span class="c1"># extract b**2</span>
+        <span class="n">bmag_sheath</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">b_sheath</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">comp_axis</span><span class="p">))</span>
+        <span class="n">bmag_sphere</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">b_sphere</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">comp_axis</span><span class="p">))</span>
+        <span class="n">costheta</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">b_sheath</span> <span class="o">*</span> <span class="n">b_sphere</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">comp_axis</span><span class="p">)</span> <span class="o">/</span>
+                    <span class="p">(</span><span class="n">bmag_sphere</span> <span class="o">*</span> <span class="n">bmag_sheath</span><span class="p">))</span>
+        <span class="n">costheta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="n">sheath_ind</span> <span class="o">+</span> <span class="n">step</span> <span class="o">&lt;</span> <span class="n">nx</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">sphere_ind</span> <span class="o">-</span> <span class="n">step</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">),</span>
+                            <span class="n">costheta</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+        <span class="n">mp_shear</span> <span class="o">=</span> <span class="n">mp_width</span><span class="o">.</span><span class="n">wrap</span><span class="p">((</span><span class="mf">180.0</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span><span class="n">costheta</span><span class="p">))</span>
+
+        <span class="c1"># don&#39;t bother with pretty name since it&#39;s not written to file</span>
+        <span class="c1"># plane_crds = b_block.crds.slice_keep(&#39;x=0&#39;, cc=True)</span>
+        <span class="c1"># fld_kwargs = dict(center=&quot;Cell&quot;, time=b.time)</span>
+        <span class="n">mp_width</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;mp_width&quot;</span>
+        <span class="n">mp_xloc</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;mp_xloc&quot;</span>
+        <span class="n">sheath_edge</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;mp_sheath_edge&quot;</span>
+        <span class="n">msphere_edge</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;mp_sphere_edge&quot;</span>
+        <span class="n">mp_shear</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;mp_shear&quot;</span>
+        <span class="n">pp_max</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;pp_max&quot;</span>
+        <span class="n">pp_max_xloc</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;pp_max_xloc&quot;</span>
+        <span class="n">epar_max</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;epar_max&quot;</span>
+        <span class="n">epar_max_xloc</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;epar_max_xloc&quot;</span>
+
+        <span class="n">mp_info</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">mp_info</span><span class="p">[</span><span class="s2">&quot;mp_width&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mp_width</span>
+        <span class="n">mp_info</span><span class="p">[</span><span class="s2">&quot;mp_xloc&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mp_xloc</span>
+        <span class="n">mp_info</span><span class="p">[</span><span class="s2">&quot;mp_sheath_edge&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sheath_edge</span>
+        <span class="n">mp_info</span><span class="p">[</span><span class="s2">&quot;mp_sphere_edge&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">msphere_edge</span>
+        <span class="n">mp_info</span><span class="p">[</span><span class="s2">&quot;mp_shear&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mp_shear</span>
+        <span class="n">mp_info</span><span class="p">[</span><span class="s2">&quot;pp_max&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pp_max</span>
+        <span class="n">mp_info</span><span class="p">[</span><span class="s2">&quot;pp_max_xloc&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pp_max_xloc</span>
+        <span class="n">mp_info</span><span class="p">[</span><span class="s2">&quot;epar_max&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">epar_max</span>
+        <span class="n">mp_info</span><span class="p">[</span><span class="s2">&quot;epar_max_xloc&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">epar_max_xloc</span>
+
+        <span class="c1"># cache new fields to disk</span>
+        <span class="k">if</span> <span class="n">mp_fname</span><span class="p">:</span>
+            <span class="n">viscid</span><span class="o">.</span><span class="n">save_fields</span><span class="p">(</span><span class="n">mp_fname</span> <span class="o">+</span> <span class="s2">&quot;.h5&quot;</span><span class="p">,</span> <span class="n">mp_info</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">_paraboloid_params</span> <span class="o">=</span> <span class="n">fit_paraboloid</span><span class="p">(</span><span class="n">mp_info</span><span class="p">[</span><span class="n">fit</span><span class="p">],</span> <span class="n">p0</span><span class="o">=</span><span class="n">fit_p0</span><span class="p">)</span>
+        <span class="n">mp_info</span><span class="p">[</span><span class="s2">&quot;paraboloid&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_paraboloid_params</span>
+    <span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">_exception</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="n">_exception</span><span class="o">.</span><span class="n">message</span>
+        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="n">_exception</span><span class="o">.</span><span class="n">msg</span>
+        <span class="n">mp_info</span><span class="p">[</span><span class="s2">&quot;paraboloid&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">DeferredImportError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+    <span class="n">mp_info</span><span class="p">[</span><span class="s2">&quot;mp_width&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">pretty_name</span> <span class="o">=</span> <span class="s2">&quot;Magnetopause Width&quot;</span>
+    <span class="n">mp_info</span><span class="p">[</span><span class="s2">&quot;mp_xloc&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">pretty_name</span> <span class="o">=</span> <span class="s2">&quot;Magnetopause $X_</span><span class="si">{gse}</span><span class="s2">$ Location&quot;</span>
+    <span class="n">mp_info</span><span class="p">[</span><span class="s2">&quot;mp_sheath_edge&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">pretty_name</span> <span class="o">=</span> <span class="s2">&quot;Magnetosheath Edge&quot;</span>
+    <span class="n">mp_info</span><span class="p">[</span><span class="s2">&quot;mp_sphere_edge&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">pretty_name</span> <span class="o">=</span> <span class="s2">&quot;Magnetosphere Edge&quot;</span>
+    <span class="n">mp_info</span><span class="p">[</span><span class="s2">&quot;mp_shear&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">pretty_name</span> <span class="o">=</span> <span class="s2">&quot;Magnetic Shear&quot;</span>
+    <span class="n">mp_info</span><span class="p">[</span><span class="s2">&quot;pp_max&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">pretty_name</span> <span class="o">=</span> <span class="s2">&quot;Max Pressure&quot;</span>
+    <span class="n">mp_info</span><span class="p">[</span><span class="s2">&quot;pp_max_xloc&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">pretty_name</span> <span class="o">=</span> <span class="s2">&quot;Max Pressure Location&quot;</span>
+    <span class="n">mp_info</span><span class="p">[</span><span class="s2">&quot;epar_max&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">pretty_name</span> <span class="o">=</span> <span class="s2">&quot;Max E Parallel&quot;</span>
+    <span class="n">mp_info</span><span class="p">[</span><span class="s2">&quot;epar_max_xloc&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">pretty_name</span> <span class="o">=</span> <span class="s2">&quot;Max E Parallel Location&quot;</span>
+
+    <span class="k">return</span> <span class="n">mp_info</span></div>
+
+<div class="viewcode-block" id="find_mp_edges"><a class="viewcode-back" href="../../../api/viscid.calculator.mpause.html#viscid.find_mp_edges">[docs]</a><span class="k">def</span> <span class="nf">find_mp_edges</span><span class="p">(</span><span class="n">j_block</span><span class="p">,</span> <span class="n">msphere_thresh</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">sheath_thresh</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+                  <span class="n">maskval</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Find x location of msphere and msheath edges using current (J)</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        GSE coordinates only please</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        j_block (VectorField): Current density containing the whole</span>
+<span class="sd">            magnetopause</span>
+<span class="sd">        msphere_thresh (float): thereshold of current on the</span>
+<span class="sd">            magnetosphere side as a fraction of the maximum</span>
+<span class="sd">            current density, i.e., 0.1 is 10% of the max</span>
+<span class="sd">        sheath_thresh (float): thereshold of current on the</span>
+<span class="sd">            magnetosheath side as a fraction of the maximum</span>
+<span class="sd">            current density, i.e., 0.1 is 10% of the max</span>
+<span class="sd">        maskval (float, None): if not None, then mask out J values</span>
+<span class="sd">            less than maskval; useful for masking out bowshock, and</span>
+<span class="sd">            current free regions</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        tuple: sheath and sphere fields / values</span>
+
+<span class="sd">          - **sheath_edge**: float or 2D ScalarField of x values</span>
+<span class="sd">          - **msphere_edge**: float or 2D ScalarField of x values</span>
+<span class="sd">          - **mp_width**: **sheath_edge** - **msphere_edge**</span>
+<span class="sd">          - **sheath_ind**: index of sheath_edge x location</span>
+<span class="sd">          - **sphere_ind**: index of msphere_edge x location</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">maskval</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">jy_mask</span> <span class="o">=</span> <span class="n">j_block</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span> <span class="o">&lt;</span> <span class="n">maskval</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">jy_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">j_block</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;bool&#39;</span><span class="p">)</span>
+
+    <span class="n">xcc</span> <span class="o">=</span> <span class="n">j_block</span><span class="o">.</span><span class="n">get_crd_cc</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+    <span class="n">nx</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">xcc</span><span class="p">)</span>
+
+    <span class="n">masked_jy</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">*</span> <span class="n">j_block</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span>
+    <span class="n">masked_jy</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_where</span><span class="p">(</span><span class="n">jy_mask</span><span class="p">,</span> <span class="n">j_block</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">])</span>
+
+    <span class="n">jy_absmax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">masked_jy</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">msphere_mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">masked_jy</span> <span class="o">&gt;</span> <span class="n">msphere_thresh</span> <span class="o">*</span> <span class="n">jy_absmax</span><span class="p">)</span>
+    <span class="n">sheath_mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">masked_jy</span> <span class="o">&gt;</span> <span class="n">sheath_thresh</span> <span class="o">*</span> <span class="n">jy_absmax</span><span class="p">)</span>
+    <span class="n">jy_absmax</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="n">sphere_ind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">msphere_mask</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">sphere_ind</span><span class="p">,</span> <span class="n">viscid</span><span class="o">.</span><span class="n">field</span><span class="o">.</span><span class="n">Field</span><span class="p">):</span>
+        <span class="n">msphere_edge</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">sphere_ind</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">xcc</span><span class="p">[</span><span class="n">sphere_ind</span><span class="o">.</span><span class="n">data</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+        <span class="n">msphere_edge</span> <span class="o">=</span> <span class="n">sphere_ind</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">msphere_edge</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">msphere_edge</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">sphere_ind</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">xcc</span><span class="p">[</span><span class="n">sphere_ind</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+
+    <span class="c1"># reverse it to go from the other direction</span>
+    <span class="n">sheath_ind</span> <span class="o">=</span> <span class="n">nx</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">sheath_mask</span><span class="p">[</span><span class="s1">&#39;x=::-1&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">sheath_ind</span><span class="p">,</span> <span class="n">viscid</span><span class="o">.</span><span class="n">field</span><span class="o">.</span><span class="n">Field</span><span class="p">):</span>
+        <span class="n">sheath_edge</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">sheath_ind</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">nx</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="n">xcc</span><span class="p">[</span><span class="n">sheath_ind</span><span class="o">.</span><span class="n">data</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+        <span class="n">sheath_edge</span> <span class="o">=</span> <span class="n">sheath_ind</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">sheath_edge</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">sheath_edge</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">sheath_ind</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">nx</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="n">xcc</span><span class="p">[</span><span class="n">sheath_ind</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+
+    <span class="c1"># in MHD crds, it my be sufficient to swap msp and msh at this point</span>
+    <span class="n">mp_width</span> <span class="o">=</span> <span class="n">sheath_edge</span> <span class="o">-</span> <span class="n">msphere_edge</span>
+    <span class="k">return</span> <span class="n">sheath_edge</span><span class="p">,</span> <span class="n">msphere_edge</span><span class="p">,</span> <span class="n">mp_width</span><span class="p">,</span> <span class="n">sheath_ind</span><span class="p">,</span> <span class="n">sphere_ind</span></div>
+
+<span class="k">def</span> <span class="nf">_main</span><span class="p">():</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">load_file</span><span class="p">(</span><span class="s2">&quot;$WORK/xi_fte_001/*.3d.[4050f].xdmf&quot;</span><span class="p">)</span>
+    <span class="n">mp</span> <span class="o">=</span> <span class="n">get_mp_info</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="s1">&#39;pp&#39;</span><span class="p">],</span> <span class="n">f</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">],</span> <span class="n">f</span><span class="p">[</span><span class="s1">&#39;j&#39;</span><span class="p">],</span> <span class="n">f</span><span class="p">[</span><span class="s1">&#39;e_cc&#39;</span><span class="p">],</span> <span class="n">fit</span><span class="o">=</span><span class="s1">&#39;mp_xloc&#39;</span><span class="p">,</span>
+                     <span class="n">slc</span><span class="o">=</span><span class="s2">&quot;x=6.5f:10.5f, y=-4f:4f, z=-4.8f:3f&quot;</span><span class="p">,</span> <span class="n">cache</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">mp</span><span class="p">[</span><span class="s1">&#39;pp_max_xloc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">meshgrid_flat</span><span class="p">(</span><span class="n">prune</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">mp</span><span class="p">[</span><span class="s1">&#39;pp_max_xloc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span> <span class="o">=</span> <span class="n">mp</span><span class="p">[</span><span class="s1">&#39;pp_max_xloc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">prune</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">x2</span> <span class="o">=</span> <span class="n">paraboloid</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="o">*</span><span class="n">mp</span><span class="p">[</span><span class="s1">&#39;paraboloid&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="n">skip</span> <span class="o">=</span> <span class="mi">117</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">paraboloid_normal</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="o">*</span><span class="n">mp</span><span class="p">[</span><span class="s1">&#39;paraboloid&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)[:,</span> <span class="p">::</span><span class="n">skip</span><span class="p">]</span>
+
+    <span class="n">minvar_y</span> <span class="o">=</span> <span class="n">Y</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)[::</span><span class="n">skip</span><span class="p">]</span>
+    <span class="n">minvar_z</span> <span class="o">=</span> <span class="n">Z</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)[::</span><span class="n">skip</span><span class="p">]</span>
+    <span class="n">minvar_n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">minvar_y</span><span class="p">)])</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">minvar_n</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="n">p0</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">minvar_y</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">minvar_z</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+        <span class="n">p0</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">mp</span><span class="p">[</span><span class="s1">&#39;pp_max_xloc&#39;</span><span class="p">][</span><span class="s1">&#39;y=</span><span class="si">{0[0]}</span><span class="s1">f, z=</span><span class="si">{0[1]}</span><span class="s1">f&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p0</span><span class="p">)]</span>
+        <span class="n">minvar_n</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">find_minvar_lmn_around</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">],</span> <span class="n">p0</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">64</span><span class="p">)[</span><span class="mi">2</span><span class="p">,</span> <span class="p">:]</span>
+
+    <span class="c1"># 2d plots, normals don&#39;t look normal in the matplotlib projection</span>
+    <span class="k">if</span> <span class="kc">False</span><span class="p">:</span>  <span class="c1"># pylint: disable=using-constant-test</span>
+        <span class="kn">from</span> <span class="nn">viscid.plot</span> <span class="k">import</span> <span class="n">vpyplot</span> <span class="k">as</span> <span class="n">vlt</span>
+        <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+        <span class="n">normals</span> <span class="o">=</span> <span class="n">paraboloid_normal</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="o">*</span><span class="n">mp</span><span class="p">[</span><span class="s1">&#39;paraboloid&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">p0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x2</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">p1</span> <span class="o">=</span> <span class="n">p0</span> <span class="o">+</span> <span class="n">normals</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="n">vlt</span><span class="o">.</span><span class="n">scatter_3d</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">])[:,</span> <span class="p">::</span><span class="n">skip</span><span class="p">],</span> <span class="n">equal</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">p0</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">skip</span><span class="p">):</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">p0</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span><span class="p">],</span> <span class="n">p1</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span><span class="p">]],</span>
+                               <span class="p">[</span><span class="n">p0</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">],</span> <span class="n">p1</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">]],</span>
+                               <span class="p">[</span><span class="n">p0</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="n">i</span><span class="p">],</span> <span class="n">p1</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="n">i</span><span class="p">]],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;c&#39;</span><span class="p">)</span>
+        <span class="c1"># z2 = _ellipsiod(X, Y, *popt)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+        <span class="n">vlt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+    <span class="c1"># mayavi 3d plots, normals look better here</span>
+    <span class="k">if</span> <span class="kc">True</span><span class="p">:</span>  <span class="c1"># pylint: disable=using-constant-test</span>
+        <span class="kn">from</span> <span class="nn">viscid.plot</span> <span class="k">import</span> <span class="n">vlab</span>
+        <span class="n">vlab</span><span class="o">.</span><span class="n">points3d</span><span class="p">(</span><span class="n">x</span><span class="p">[::</span><span class="n">skip</span><span class="p">],</span> <span class="n">y</span><span class="p">[::</span><span class="n">skip</span><span class="p">],</span> <span class="n">z</span><span class="p">[::</span><span class="n">skip</span><span class="p">],</span> <span class="n">scale_factor</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span>
+                      <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">))</span>
+
+        <span class="n">mp_width</span> <span class="o">=</span> <span class="n">mp</span><span class="p">[</span><span class="s1">&#39;mp_width&#39;</span><span class="p">][</span><span class="s1">&#39;x=0&#39;</span><span class="p">]</span>
+        <span class="n">mp_sheath_edge</span> <span class="o">=</span> <span class="n">mp</span><span class="p">[</span><span class="s1">&#39;mp_sheath_edge&#39;</span><span class="p">][</span><span class="s1">&#39;x=0&#39;</span><span class="p">]</span>
+        <span class="n">mp_sphere_edge</span> <span class="o">=</span> <span class="n">mp_sheath_edge</span> <span class="o">-</span> <span class="n">mp_width</span>
+
+        <span class="n">vlab</span><span class="o">.</span><span class="n">mesh</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">scalars</span><span class="o">=</span><span class="n">mp_width</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">vlab</span><span class="o">.</span><span class="n">mesh</span><span class="p">(</span><span class="n">mp_sheath_edge</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mf">0.75</span><span class="p">,</span> <span class="p">)</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="n">vlab</span><span class="o">.</span><span class="n">mesh</span><span class="p">(</span><span class="n">mp_sphere_edge</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mf">0.75</span><span class="p">,</span> <span class="p">)</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span>
+
+        <span class="n">n</span> <span class="o">=</span> <span class="n">paraboloid_normal</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="o">*</span><span class="n">mp</span><span class="p">[</span><span class="s1">&#39;paraboloid&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)[:,</span> <span class="p">::</span><span class="n">skip</span><span class="p">]</span>
+        <span class="n">vlab</span><span class="o">.</span><span class="n">quiver3d</span><span class="p">(</span><span class="n">x2</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)[::</span><span class="n">skip</span><span class="p">],</span>
+                      <span class="n">Y</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)[::</span><span class="n">skip</span><span class="p">],</span>
+                      <span class="n">Z</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)[::</span><span class="n">skip</span><span class="p">],</span>
+                      <span class="n">n</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">n</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">n</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+        <span class="n">vlab</span><span class="o">.</span><span class="n">quiver3d</span><span class="p">(</span><span class="n">x2</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)[::</span><span class="n">skip</span><span class="p">],</span>
+                      <span class="n">Y</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)[::</span><span class="n">skip</span><span class="p">],</span>
+                      <span class="n">Z</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)[::</span><span class="n">skip</span><span class="p">],</span>
+                      <span class="n">minvar_n</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">minvar_n</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">minvar_n</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+        <span class="n">vlab</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">sys</span>  <span class="c1"># pylint: disable=wrong-import-position,wrong-import-order</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">_main</span><span class="p">())</span>
+
+
+<span class="c1">##</span>
+<span class="c1">## EOF</span>
+<span class="c1">##</span>
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+      
+    </p>
+    <p>
+        &copy; Copyright 2017, Kristofor Maynard.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

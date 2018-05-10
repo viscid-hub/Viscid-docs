@@ -1,0 +1,726 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>viscid.calculator.separator &#8212; Viscid 0.99.7.dev0 documentation</title>
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+<link rel="icon" href="../../../_static/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../../../_static/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon-precomposed" href="../../../_static/Vicon_128.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          Viscid</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.99.7.dev0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+    <li class="dropdown">
+      <a role="button"
+         id="dLabelNavLinxToc"
+         data-toggle="dropdown"
+         data-target="#"
+         href="#">Tutorial <b class="caret"></b></a>
+      <ul class="dropdown-menu navlinktoc"
+          role="menu">
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../installation.html">Installation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/creating_fields.html">Creating Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/slicing.html">Slicing Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/plotting_scalars.html">Plotting Scalars</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/plotting_vectors.html">Plotting Vectors</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/mayavi.html">3D Plots (Mayavi)</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/openggcm.html">OpenGGCM Specific</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/ionosphere.html">Ionosphere</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/stream_and_interp.html">Streamline and Interpolation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/magnetic_topology.html">Magnetic Topology</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/magnetopause.html">Magnetopause</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../../tutorial/quasi_potential.html">Quasi Potential</a>
+          </li>
+      </ul>
+    </li>
+
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../changes.html">ChangeLog</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../philosophy.html">Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/index.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tips_and_tricks.html">Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../functions.html">Useful Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../plot_options.html">Plot Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mpl_style_gallery.html">Matplotlib Style Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../custom_behavior.html">Custom Behavior (rc file)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev_guide.html">Developer’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../extending_readers.html">Extending Readers</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/viscid.html">API</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"></ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <h1>Source code for viscid.calculator.separator</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python</span>
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="k">import</span> <span class="n">count</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">viscid</span>
+<span class="kn">from</span> <span class="nn">viscid.compat</span> <span class="k">import</span> <span class="n">string_types</span>
+<span class="kn">from</span> <span class="nn">viscid.cython</span> <span class="k">import</span> <span class="n">streamline</span>
+
+
+<span class="n">UNEVEN_MASK</span> <span class="o">=</span> <span class="mb">0b1000</span>
+<span class="n">UNEVEN_HALF</span> <span class="o">=</span> <span class="mf">0.65</span>
+
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;trace_separator&quot;</span><span class="p">,</span> <span class="s2">&quot;topology_bitor_clusters&quot;</span><span class="p">,</span> <span class="s2">&quot;get_sep_pts_bitor&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;get_sep_pts_bisect&quot;</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="trace_separator"><a class="viewcode-back" href="../../../api/viscid.calculator.separator.html#viscid.trace_separator">[docs]</a><span class="k">def</span> <span class="nf">trace_separator</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">b_slcstr</span><span class="o">=</span><span class="s2">&quot;x=-25f:15f, y=-30f:30f, z=-15f:15f&quot;</span><span class="p">,</span>
+                    <span class="n">r</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">trace_opts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cache</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                    <span class="n">cache_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Trace a separator line from most dawnward null</span>
+
+<span class="sd">    **Still in testing** Uses the bisection algorithm.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        grid (Grid): A grid that has a &quot;b&quot; field</span>
+<span class="sd">        b_slcstr (str): Some valid slice for B field</span>
+<span class="sd">        r (float): spatial step of separator line</span>
+<span class="sd">        plot (bool): make debugging plots</span>
+<span class="sd">        trace_opts (dict): passed to streamline function</span>
+<span class="sd">        cache (bool, str): Save to and load from cache, if &quot;force&quot;,</span>
+<span class="sd">            then don&#39;t load from cache if it exists, but do save a</span>
+<span class="sd">            cache at the end</span>
+<span class="sd">        cache_dir (str): Directory for cache, if None, same directory</span>
+<span class="sd">            as that file to which the grid belongs</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        IOError: Description</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        tuple: (separator_lines, nulls)</span>
+
+<span class="sd">          - **separator_lines** (list): list of M 3xN ndarrays that</span>
+<span class="sd">            represent M separator lines with N points</span>
+<span class="sd">          - **nulls** (ndarray): 3xN array of N null points</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">cache_dir</span><span class="p">:</span>
+        <span class="n">cache_dir</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">find_info</span><span class="p">(</span><span class="s2">&quot;_viscid_dirname&quot;</span><span class="p">,</span> <span class="s2">&quot;./&quot;</span><span class="p">)</span>
+    <span class="n">run_name</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">find_info</span><span class="p">(</span><span class="s2">&quot;run&quot;</span><span class="p">)</span>
+    <span class="n">sep_fname</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{0}</span><span class="s2">/</span><span class="si">{1}</span><span class="s2">.sep.</span><span class="si">{2:06.0f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cache_dir</span><span class="p">,</span> <span class="n">run_name</span><span class="p">,</span> <span class="n">grid</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">cache</span><span class="p">,</span> <span class="n">string_types</span><span class="p">)</span> <span class="ow">and</span> <span class="n">cache</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;force&quot;</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">IOError</span><span class="p">()</span>
+        <span class="k">with</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">sep_fname</span> <span class="o">+</span> <span class="s2">&quot;.npz&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">dat</span><span class="p">:</span>
+            <span class="n">sep_iter</span> <span class="o">=</span> <span class="p">(</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">dat</span><span class="o">.</span><span class="n">files</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;arr_&quot;</span><span class="p">))</span>
+            <span class="n">_it</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">sep_iter</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="s2">&quot;arr_&quot;</span><span class="p">):]))</span>
+            <span class="n">seps</span> <span class="o">=</span> <span class="p">[</span><span class="n">dat</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">_it</span><span class="p">]</span>
+            <span class="n">nulls</span> <span class="o">=</span> <span class="n">dat</span><span class="p">[</span><span class="s1">&#39;nulls&#39;</span><span class="p">]</span>
+    <span class="k">except</span> <span class="ne">IOError</span><span class="p">:</span>
+        <span class="n">_b</span> <span class="o">=</span> <span class="n">grid</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">][</span><span class="n">b_slcstr</span><span class="p">]</span>
+
+        <span class="n">_</span><span class="p">,</span> <span class="n">nulls</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">find_nulls</span><span class="p">(</span><span class="n">_b</span><span class="p">[</span><span class="s1">&#39;x=-30f:15f&#39;</span><span class="p">],</span> <span class="n">ibound</span><span class="o">=</span><span class="mf">5.0</span><span class="p">)</span>
+
+        <span class="c1"># get most dawnward null, nulls2 is all nulls except p0</span>
+        <span class="n">nullind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">nulls</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:])</span>
+        <span class="n">p0</span> <span class="o">=</span> <span class="n">nulls</span><span class="p">[:,</span> <span class="n">nullind</span><span class="p">]</span>
+        <span class="n">nulls2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">nulls</span><span class="p">[:,</span> <span class="p">:</span><span class="n">nullind</span><span class="p">],</span> <span class="n">nulls</span><span class="p">[:,</span> <span class="p">(</span><span class="n">nullind</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):]],</span>
+                                <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">plot</span><span class="p">:</span>
+            <span class="kn">from</span> <span class="nn">viscid.plot</span> <span class="k">import</span> <span class="n">vlab</span>
+            <span class="n">vlab</span><span class="o">.</span><span class="n">plot_earth_3d</span><span class="p">(</span><span class="n">crd_system</span><span class="o">=</span><span class="s1">&#39;gse&#39;</span><span class="p">)</span>
+            <span class="n">vlab</span><span class="o">.</span><span class="n">points3d</span><span class="p">(</span><span class="n">nulls2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">nulls2</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">nulls2</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+                          <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">scale_factor</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+            <span class="n">vlab</span><span class="o">.</span><span class="n">points3d</span><span class="p">(</span><span class="n">nulls</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">nullind</span><span class="p">],</span> <span class="n">nulls</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">nullind</span><span class="p">],</span> <span class="n">nulls</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="n">nullind</span><span class="p">],</span>
+                          <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">scale_factor</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+
+        <span class="n">seed</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">Sphere</span><span class="p">(</span><span class="n">p0</span><span class="o">=</span><span class="n">p0</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="n">r</span><span class="p">,</span> <span class="n">ntheta</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">nphi</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span>
+                             <span class="n">theta_endpoint</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">phi_endpoint</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">p1</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">get_sep_pts_bisect</span><span class="p">(</span><span class="n">_b</span><span class="p">,</span> <span class="n">seed</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="n">plot</span><span class="p">,</span>
+                                       <span class="n">trace_opts</span><span class="o">=</span><span class="n">trace_opts</span><span class="p">)</span>
+        <span class="c1"># print(&quot;p1 shape&quot;, p1.shape)</span>
+
+        <span class="c1"># if p1.shape[1] &gt; 2:</span>
+        <span class="c1">#     raise RuntimeError(&quot;Invalid B field, should be no branch @ null&quot;)</span>
+
+        <span class="n">seps</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">sep_stubs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+            <span class="n">sep_stubs</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">p0</span><span class="p">,</span> <span class="n">p1</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]])</span>
+
+        <span class="c1"># print(&quot;??&quot;, sep_stubs)</span>
+
+        <span class="k">while</span> <span class="n">sep_stubs</span><span class="p">:</span>
+            <span class="n">sep</span> <span class="o">=</span> <span class="n">sep_stubs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="c1"># print(&quot;!!! new stub&quot;)</span>
+
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">count</span><span class="p">():</span>
+                <span class="c1"># print(&quot;::&quot;, i)</span>
+                <span class="n">seed</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">SphericalPatch</span><span class="p">(</span><span class="n">p0</span><span class="o">=</span><span class="n">sep</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">p1</span><span class="o">=</span><span class="n">sep</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">sep</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span>
+                                             <span class="n">r</span><span class="o">=</span><span class="n">r</span><span class="p">,</span> <span class="n">nalpha</span><span class="o">=</span><span class="mi">240</span><span class="p">,</span> <span class="n">nbeta</span><span class="o">=</span><span class="mi">240</span><span class="p">)</span>
+                <span class="n">pn</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">get_sep_pts_bisect</span><span class="p">(</span><span class="n">_b</span><span class="p">,</span> <span class="n">seed</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="n">plot</span><span class="p">,</span>
+                                               <span class="n">trace_opts</span><span class="o">=</span><span class="n">trace_opts</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">pn</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="c1"># print(&quot;END: pn.shape[1] == 0&quot;)</span>
+                    <span class="k">break</span>
+                <span class="c1"># print(&quot;++&quot;, nulls2.shape, pn.shape)</span>
+                <span class="n">closest_null_dist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">nulls2</span> <span class="o">-</span> <span class="n">pn</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">1</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+                <span class="c1"># print(&quot;closest_null_dist:&quot;, closest_null_dist)</span>
+                <span class="k">if</span> <span class="n">closest_null_dist</span> <span class="o">&lt;</span> <span class="mf">1.01</span> <span class="o">*</span> <span class="n">r</span><span class="p">:</span>
+                    <span class="c1"># print(&quot;END: within 1.01 of a null&quot;)</span>
+                    <span class="k">break</span>
+
+                <span class="c1"># print(&quot;??&quot;, pn)</span>
+                <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">pn</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+                    <span class="c1"># print(&quot;inserting new stub&quot;)</span>
+                    <span class="n">sep_stubs</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">[</span><span class="n">sep</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">pn</span><span class="p">[:,</span> <span class="n">j</span><span class="p">]])</span>
+                <span class="n">sep</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pn</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>
+
+            <span class="c1"># print(&quot;sep&quot;, sep)</span>
+            <span class="n">seps</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">sep</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="n">cache</span><span class="p">:</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">savez_compressed</span><span class="p">(</span><span class="n">sep_fname</span><span class="p">,</span> <span class="o">*</span><span class="n">seps</span><span class="p">,</span> <span class="n">nulls</span><span class="o">=</span><span class="n">nulls</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">seps</span><span class="p">,</span> <span class="n">nulls</span></div>
+
+<div class="viewcode-block" id="topology_bitor_clusters"><a class="viewcode-back" href="../../../api/viscid.calculator.separator.html#viscid.topology_bitor_clusters">[docs]</a><span class="k">def</span> <span class="nf">topology_bitor_clusters</span><span class="p">(</span><span class="n">fld</span><span class="p">,</span> <span class="n">min_depth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">multiple</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                            <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sep_val</span><span class="o">=</span><span class="n">streamline</span><span class="o">.</span><span class="n">TOPOLOGY_MS_SEPARATOR</span><span class="p">,</span>
+                            <span class="n">mask_limit</span><span class="o">=</span><span class="mb">0b1111</span><span class="p">,</span> <span class="n">periodic</span><span class="o">=</span><span class="s2">&quot;00&quot;</span><span class="p">,</span> <span class="n">pt_bnds</span><span class="o">=</span><span class="p">()):</span>
+    <span class="sd">&quot;&quot;&quot;Find separator as intersection of all global topologies</span>
+
+<span class="sd">    Neighbors are bitwise ORed until at least one value matches</span>
+<span class="sd">    `sep_val` which is presumably (Close | Open N | Open S | SW).</span>
+<span class="sd">    This happens between min_depth and max_depth times,</span>
+<span class="sd">    where the resolution of each iteration is reduced by a factor</span>
+<span class="sd">    of two, ie, worst case 2**(max_depth).</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        fld (Field): Topology (bitmask) as a field</span>
+<span class="sd">        min_depth (int): Iterate at least this many times</span>
+<span class="sd">        max_depth (int): Iterate at most this many times</span>
+<span class="sd">        multiple (bool): passed to :py:func:`viscid.cluster`</span>
+<span class="sd">        sep_val (int): Value of bitmask that indicates a separator</span>
+<span class="sd">        plot (bool): Make a 2D plot of Fld and the sep candidates</span>
+<span class="sd">        mask_limit (int): if &gt; 0, then bitmask fld with mask_limit,</span>
+<span class="sd">            i.e., fld = fld &amp; mask_limit (bitwise and)</span>
+<span class="sd">        periodic (sequence): indicate whether that direction is</span>
+<span class="sd">            periodic, and if so, whether the coordinate arrays are</span>
+<span class="sd">            overlapped or not. Values can be True, False, or &#39;+&#39;. &#39;+&#39;</span>
+<span class="sd">            indicates that x[0] and x[-1] are not colocated, so assume</span>
+<span class="sd">            they&#39;re dx apart where dx = x[-1] - x[-2].</span>
+<span class="sd">        pt_bnd (sequence): Boundaries that come to a point, i.e., all</span>
+<span class="sd">            values along that boundary are neighbors such as the poles</span>
+<span class="sd">            of a sphere. Specified like &quot;0-&quot; for lower boundary of</span>
+<span class="sd">            dimension 0 or &quot;1+&quot; for the upper boundary of dimension 1.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        ndarray: 2xN for N clusters of separator points in the same</span>
+<span class="sd">        coordinates as `fld`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">pd</span> <span class="o">=</span> <span class="p">[</span><span class="kc">False</span> <span class="k">if</span> <span class="n">pi</span> <span class="o">==</span> <span class="s2">&quot;0&quot;</span> <span class="k">else</span> <span class="nb">bool</span><span class="p">(</span><span class="n">pi</span><span class="p">)</span> <span class="k">for</span> <span class="n">pi</span> <span class="ow">in</span> <span class="n">periodic</span><span class="p">]</span>
+    <span class="n">fld</span> <span class="o">=</span> <span class="n">fld</span><span class="o">.</span><span class="n">slice_reduce</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">mask_limit</span><span class="p">:</span>
+        <span class="n">fld</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">bitwise_and</span><span class="p">(</span><span class="n">fld</span><span class="p">,</span> <span class="n">mask_limit</span><span class="p">)</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">fld</span><span class="o">.</span><span class="n">data</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">fld</span><span class="o">.</span><span class="n">get_crds</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_depth</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">pd</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+            <span class="n">a</span><span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="p">:]</span> <span class="o">|=</span> <span class="n">a</span><span class="p">[(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">:]</span>
+        <span class="k">if</span> <span class="n">pd</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="n">a</span><span class="p">[:,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)]</span> <span class="o">|=</span> <span class="n">a</span><span class="p">[:,</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]</span>
+
+        <span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="p">[</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span>  <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">|</span> <span class="n">a</span><span class="p">[</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span>  <span class="p">]</span> <span class="o">|</span>  <span class="c1"># pylint: disable=bad-whitespace</span>
+             <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span>  <span class="p">,</span>  <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">|</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span>  <span class="p">,</span> <span class="mi">1</span><span class="p">:</span>  <span class="p">])</span>   <span class="c1"># pylint: disable=bad-whitespace</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">y</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+        <span class="c1"># bitwise_or an entire bounary if all points are neighbors, like</span>
+        <span class="c1"># at the poles of a sphere</span>
+        <span class="k">for</span> <span class="n">bnd</span> <span class="ow">in</span> <span class="n">pt_bnds</span><span class="p">:</span>
+            <span class="n">slc</span> <span class="o">=</span> <span class="p">[</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">),</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">)]</span>
+            <span class="n">slc</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">bnd</span><span class="p">[</span><span class="mi">0</span><span class="p">])]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="k">if</span> <span class="n">bnd</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;+&quot;</span> <span class="k">else</span> <span class="mi">0</span>
+            <span class="n">a</span><span class="p">[</span><span class="n">slc</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">bitwise_or</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">slc</span><span class="p">])</span>
+
+        <span class="n">indx</span><span class="p">,</span> <span class="n">indy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">sep_val</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&gt;=</span> <span class="n">min_depth</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">indx</span><span class="p">):</span>
+            <span class="k">break</span>
+
+    <span class="n">pts</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">find_clusters</span><span class="p">(</span><span class="n">indx</span><span class="p">,</span> <span class="n">indy</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">multiple</span><span class="o">=</span><span class="n">multiple</span><span class="p">,</span>
+                               <span class="n">periodic</span><span class="o">=</span><span class="n">periodic</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">plot</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">viscid.plot</span> <span class="k">import</span> <span class="n">vpyplot</span> <span class="k">as</span> <span class="n">vlt</span>
+        <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+        <span class="n">vlt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+        <span class="n">ax0</span> <span class="o">=</span> <span class="n">vlt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+        <span class="n">vlt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fld</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="n">vlt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="n">ax0</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="n">ax0</span><span class="p">)</span>
+        <span class="n">or_fld</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">arrays2field</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="n">a</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;OR&quot;</span><span class="p">)</span>
+        <span class="n">vlt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">or_fld</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="n">_x</span><span class="p">,</span> <span class="n">_y</span> <span class="o">=</span> <span class="n">or_fld</span><span class="o">.</span><span class="n">get_crds</span><span class="p">()</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">_x</span><span class="p">[</span><span class="n">indx</span><span class="p">],</span> <span class="n">_y</span><span class="p">[</span><span class="n">indy</span><span class="p">],</span> <span class="s1">&#39;ko&#39;</span><span class="p">)</span>
+
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pts</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">pts</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;y^&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">pts</span></div>
+
+<span class="k">def</span> <span class="nf">_prep_trace_opt_defaults</span><span class="p">(</span><span class="n">trace_opts</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">trace_opts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">trace_opts</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">trace_opts</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">trace_opts</span><span class="p">)</span>
+    <span class="n">trace_opts</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s1">&#39;ibound&#39;</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">)</span>
+    <span class="n">trace_opts</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s1">&#39;output&#39;</span><span class="p">,</span> <span class="n">viscid</span><span class="o">.</span><span class="n">OUTPUT_TOPOLOGY</span><span class="p">)</span>
+    <span class="n">trace_opts</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s1">&#39;max_length&#39;</span><span class="p">,</span> <span class="mf">300.0</span><span class="p">)</span>
+    <span class="n">trace_opts</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s1">&#39;topo_style&#39;</span><span class="p">,</span> <span class="s1">&#39;msphere&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">trace_opts</span>
+
+<div class="viewcode-block" id="get_sep_pts_bitor"><a class="viewcode-back" href="../../../api/viscid.calculator.separator.html#viscid.get_sep_pts_bitor">[docs]</a><span class="k">def</span> <span class="nf">get_sep_pts_bitor</span><span class="p">(</span><span class="n">fld</span><span class="p">,</span> <span class="n">seed</span><span class="p">,</span> <span class="n">trace_opts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">make_3d</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;bitor topologies to find separator points in uv map from seed</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        fld (VectorField): Magnetic Field</span>
+<span class="sd">        seed (viscid.seed.SeedGen): Any Seed generator with a 2d local</span>
+<span class="sd">            representation</span>
+<span class="sd">        trace_opts (dict): kwargs for calc_streamlines</span>
+<span class="sd">        make_3d (bool): convert result from uv to 3d space</span>
+<span class="sd">        **kwargs: passed to :py:func:`topology_bitor_clusters`</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        3xN ndarray of N separator points in uv space or 3d space</span>
+<span class="sd">        depending on the `make_3d` kwarg</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">trace_opts</span> <span class="o">=</span> <span class="n">_prep_trace_opt_defaults</span><span class="p">(</span><span class="n">trace_opts</span><span class="p">)</span>
+    <span class="n">topo</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">calc_streamlines</span><span class="p">(</span><span class="n">fld</span><span class="p">,</span> <span class="n">seed</span><span class="p">,</span> <span class="o">**</span><span class="n">trace_opts</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">pt_bnds</span> <span class="o">=</span> <span class="n">seed</span><span class="o">.</span><span class="n">pt_bnds</span>
+    <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+        <span class="n">pt_bnds</span> <span class="o">=</span> <span class="p">()</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">periodic</span> <span class="o">=</span> <span class="n">seed</span><span class="o">.</span><span class="n">periodic</span>
+    <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+        <span class="n">periodic</span> <span class="o">=</span> <span class="s2">&quot;00&quot;</span>
+
+    <span class="n">kwargs</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s1">&#39;pt_bnds&#39;</span><span class="p">,</span> <span class="n">pt_bnds</span><span class="p">)</span>
+    <span class="n">kwargs</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s1">&#39;periodic&#39;</span><span class="p">,</span> <span class="n">periodic</span><span class="p">)</span>
+
+    <span class="n">pts</span> <span class="o">=</span> <span class="n">topology_bitor_clusters</span><span class="p">(</span><span class="n">topo</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">make_3d</span><span class="p">:</span>
+        <span class="n">pts</span> <span class="o">=</span> <span class="n">seed</span><span class="o">.</span><span class="n">uv_to_3d</span><span class="p">(</span><span class="n">pts</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">pts</span></div>
+
+<span class="k">def</span> <span class="nf">perimeter_check_bitwise_or</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Does perimeter of arr topologies contain a separator?</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        bool</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">bitwise_or</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="o">==</span> <span class="n">streamline</span><span class="o">.</span><span class="n">TOPOLOGY_MS_SEPARATOR</span><span class="p">)</span>
+
+<div class="viewcode-block" id="get_sep_pts_bisect"><a class="viewcode-back" href="../../../api/viscid.calculator.separator.html#viscid.get_sep_pts_bisect">[docs]</a><span class="k">def</span> <span class="nf">get_sep_pts_bisect</span><span class="p">(</span><span class="n">fld</span><span class="p">,</span> <span class="n">seed</span><span class="p">,</span> <span class="n">trace_opts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">min_depth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>
+                       <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">perimeter_check</span><span class="o">=</span><span class="n">perimeter_check_bitwise_or</span><span class="p">,</span>
+                       <span class="n">make_3d</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;bisect uv map of seed to find separator points</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        fld (VectorField): Magnetic Field</span>
+<span class="sd">        seed (viscid.seed.SeedGen): Any Seed generator with a 2d local</span>
+<span class="sd">            representation</span>
+<span class="sd">        trace_opts (dict): kwargs for calc_streamlines</span>
+<span class="sd">        min_depth (int): Min allowable bisection depth</span>
+<span class="sd">        max_depth (int): Max bisection depth</span>
+<span class="sd">        plot (bool): Useful for debugging the algorithm</span>
+<span class="sd">        perimeter_check (func): Some func that returns a bool with the</span>
+<span class="sd">            same signature as :py:func:`perimeter_check_bitwise_or`</span>
+<span class="sd">        make_3d (bool): convert result from uv to 3d space</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        3xN ndarray of N separator points in uv space or 3d space</span>
+<span class="sd">        depending on the `make_3d` kwarg</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">trace_opts</span> <span class="o">=</span> <span class="n">_prep_trace_opt_defaults</span><span class="p">(</span><span class="n">trace_opts</span><span class="p">)</span>
+    <span class="n">pts_even</span> <span class="o">=</span> <span class="n">_get_sep_pts_bisect</span><span class="p">(</span><span class="n">fld</span><span class="p">,</span> <span class="n">seed</span><span class="p">,</span> <span class="n">trace_opts</span><span class="o">=</span><span class="n">trace_opts</span><span class="p">,</span>
+                                   <span class="n">min_depth</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                                   <span class="n">perimeter_check</span><span class="o">=</span><span class="n">perimeter_check</span><span class="p">,</span>
+                                   <span class="n">make_3d</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">pts_uneven</span> <span class="o">=</span> <span class="n">_get_sep_pts_bisect</span><span class="p">(</span><span class="n">fld</span><span class="p">,</span> <span class="n">seed</span><span class="p">,</span> <span class="n">trace_opts</span><span class="o">=</span><span class="n">trace_opts</span><span class="p">,</span>
+                                     <span class="n">min_depth</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                                     <span class="n">perimeter_check</span><span class="o">=</span><span class="n">perimeter_check</span><span class="p">,</span>
+                                     <span class="n">make_3d</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">start_uneven</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">pts_uneven</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">pts_even</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+        <span class="n">start_uneven</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">start_uneven</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="c1"># start_uneven = True</span>
+    <span class="k">return</span> <span class="n">_get_sep_pts_bisect</span><span class="p">(</span><span class="n">fld</span><span class="p">,</span> <span class="n">seed</span><span class="p">,</span> <span class="n">trace_opts</span><span class="o">=</span><span class="n">trace_opts</span><span class="p">,</span>
+                               <span class="n">min_depth</span><span class="o">=</span><span class="n">min_depth</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="n">max_depth</span><span class="p">,</span>
+                               <span class="n">plot</span><span class="o">=</span><span class="n">plot</span><span class="p">,</span> <span class="n">start_uneven</span><span class="o">=</span><span class="n">start_uneven</span><span class="p">,</span>
+                               <span class="n">perimeter_check</span><span class="o">=</span><span class="n">perimeter_check</span><span class="p">,</span>
+                               <span class="n">make_3d</span><span class="o">=</span><span class="n">make_3d</span><span class="p">)</span></div>
+
+<span class="k">def</span> <span class="nf">_get_sep_pts_bisect</span><span class="p">(</span><span class="n">fld</span><span class="p">,</span> <span class="n">seed</span><span class="p">,</span> <span class="n">trace_opts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">min_depth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>
+                        <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">perimeter_check</span><span class="o">=</span><span class="n">perimeter_check_bitwise_or</span><span class="p">,</span>
+                        <span class="n">make_3d</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">start_uneven</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">_base_quadrent</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+                        <span class="n">_uneven_mask</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">_first_recurse</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">_base_quadrent</span><span class="p">)</span> <span class="o">==</span> <span class="n">max_depth</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">_base_quadrent</span><span class="p">]</span>  <span class="c1"># causes pylint to complain</span>
+    <span class="k">if</span> <span class="n">trace_opts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">trace_opts</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+
+    <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span> <span class="o">=</span> <span class="n">seed</span><span class="o">.</span><span class="n">uv_shape</span>
+    <span class="p">(</span><span class="n">xlim</span><span class="p">,</span> <span class="n">ylim</span><span class="p">)</span> <span class="o">=</span> <span class="n">seed</span><span class="o">.</span><span class="n">uv_extent</span>
+
+    <span class="k">if</span> <span class="n">_first_recurse</span> <span class="ow">and</span> <span class="n">start_uneven</span><span class="p">:</span>
+        <span class="n">_uneven_mask</span> <span class="o">=</span> <span class="n">UNEVEN_MASK</span>
+
+    <span class="k">if</span> <span class="n">_first_recurse</span> <span class="ow">and</span> <span class="n">plot</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">viscid.plot</span> <span class="k">import</span> <span class="n">vlab</span>
+        <span class="kn">from</span> <span class="nn">viscid.plot</span> <span class="k">import</span> <span class="n">vpyplot</span> <span class="k">as</span> <span class="n">vlt</span>
+        <span class="n">vlt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">all_topo</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">calc_streamlines</span><span class="p">(</span><span class="n">fld</span><span class="p">,</span> <span class="n">seed</span><span class="p">,</span> <span class="o">**</span><span class="n">trace_opts</span><span class="p">)</span>
+        <span class="n">vlt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">bitwise_and</span><span class="p">(</span><span class="n">all_topo</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">verts</span><span class="p">,</span> <span class="n">arr</span> <span class="o">=</span> <span class="n">seed</span><span class="o">.</span><span class="n">wrap_mesh</span><span class="p">(</span><span class="n">all_topo</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">vlab</span><span class="o">.</span><span class="n">mesh</span><span class="p">(</span><span class="n">verts</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">verts</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">verts</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">scalars</span><span class="o">=</span><span class="n">arr</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span>
+
+    <span class="c1"># quadrents and lines are indexed as follows...</span>
+    <span class="c1"># directions are counter clackwise around the quadrent with</span>
+    <span class="c1"># lower index (which matters for lines which are shared among</span>
+    <span class="c1"># more than one quadrent, aka, lines 1,2,6,7). Notice that even</span>
+    <span class="c1"># numbered lines are horizontal, like the interstate system :)</span>
+    <span class="c1"># -&lt;--10-----&lt;-8---</span>
+    <span class="c1"># |       ^       ^</span>
+    <span class="c1"># 11  2   9   3   7</span>
+    <span class="c1"># \/      |       |</span>
+    <span class="c1"># --&lt;-2-----&lt;-6----</span>
+    <span class="c1"># |       ^       ^</span>
+    <span class="c1"># 3   0   1   1   5</span>
+    <span class="c1"># \/      |       |</span>
+    <span class="c1"># ----0-&gt;-----4-&gt;--</span>
+
+    <span class="c1"># find low(left), mid(center), and high(right) crds in x and y</span>
+    <span class="n">low_quad</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{0}{1:x}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">_base_quadrent</span><span class="p">,</span> <span class="mi">0</span> <span class="o">|</span> <span class="n">_uneven_mask</span><span class="p">)</span>
+    <span class="n">high_quad</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{0}{1:x}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">_base_quadrent</span><span class="p">,</span> <span class="mi">3</span> <span class="o">|</span> <span class="n">_uneven_mask</span><span class="p">)</span>
+    <span class="n">xl</span><span class="p">,</span> <span class="n">xm</span><span class="p">,</span> <span class="n">yl</span><span class="p">,</span> <span class="n">ym</span> <span class="o">=</span> <span class="n">_quadrent_limits</span><span class="p">(</span><span class="n">low_quad</span><span class="p">,</span> <span class="n">xlim</span><span class="p">,</span> <span class="n">ylim</span><span class="p">)</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">xh</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">yh</span> <span class="o">=</span> <span class="n">_quadrent_limits</span><span class="p">(</span><span class="n">high_quad</span><span class="p">,</span> <span class="n">xlim</span><span class="p">,</span> <span class="n">ylim</span><span class="p">)</span>
+    <span class="n">segsx</span><span class="p">,</span> <span class="n">segsy</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="mi">12</span><span class="p">,</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="mi">12</span>
+    <span class="n">topo</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="mi">12</span>
+    <span class="n">nxm</span><span class="p">,</span> <span class="n">nym</span> <span class="o">=</span> <span class="n">nx</span> <span class="o">//</span><span class="mi">2</span><span class="p">,</span> <span class="n">ny</span> <span class="o">//</span> <span class="mi">2</span>
+
+    <span class="c1"># make all the line segments</span>
+    <span class="n">segsx</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">segsy</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">xl</span><span class="p">,</span> <span class="n">xm</span><span class="p">,</span> <span class="n">nxm</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">yl</span><span class="p">,</span> <span class="n">yl</span><span class="p">,</span> <span class="n">nxm</span><span class="p">)</span>
+    <span class="n">segsx</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">segsy</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">xm</span><span class="p">,</span> <span class="n">xm</span><span class="p">,</span> <span class="n">nym</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">yl</span><span class="p">,</span> <span class="n">ym</span><span class="p">,</span> <span class="n">nym</span><span class="p">)</span>
+    <span class="n">segsx</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">segsy</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">xm</span><span class="p">,</span> <span class="n">xl</span><span class="p">,</span> <span class="n">nxm</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">ym</span><span class="p">,</span> <span class="n">ym</span><span class="p">,</span> <span class="n">nxm</span><span class="p">)</span>
+    <span class="n">segsx</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">segsy</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">xl</span><span class="p">,</span> <span class="n">xl</span><span class="p">,</span> <span class="n">nym</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">ym</span><span class="p">,</span> <span class="n">yl</span><span class="p">,</span> <span class="n">nym</span><span class="p">)</span>
+
+    <span class="n">segsx</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">segsy</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">xm</span><span class="p">,</span> <span class="n">xh</span><span class="p">,</span> <span class="n">nxm</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">yl</span><span class="p">,</span> <span class="n">yl</span><span class="p">,</span> <span class="n">nxm</span><span class="p">)</span>
+    <span class="n">segsx</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">segsy</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">xh</span><span class="p">,</span> <span class="n">xh</span><span class="p">,</span> <span class="n">nym</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">yl</span><span class="p">,</span> <span class="n">ym</span><span class="p">,</span> <span class="n">nym</span><span class="p">)</span>
+    <span class="n">segsx</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">segsy</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">xh</span><span class="p">,</span> <span class="n">xm</span><span class="p">,</span> <span class="n">nxm</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">ym</span><span class="p">,</span> <span class="n">ym</span><span class="p">,</span> <span class="n">nxm</span><span class="p">)</span>
+
+    <span class="n">segsx</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">segsy</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">xh</span><span class="p">,</span> <span class="n">xh</span><span class="p">,</span> <span class="n">nym</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">ym</span><span class="p">,</span> <span class="n">yh</span><span class="p">,</span> <span class="n">nym</span><span class="p">)</span>
+    <span class="n">segsx</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">segsy</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">xh</span><span class="p">,</span> <span class="n">xm</span><span class="p">,</span> <span class="n">nxm</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">yh</span><span class="p">,</span> <span class="n">yh</span><span class="p">,</span> <span class="n">nxm</span><span class="p">)</span>
+    <span class="n">segsx</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">segsy</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">xm</span><span class="p">,</span> <span class="n">xm</span><span class="p">,</span> <span class="n">nym</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">ym</span><span class="p">,</span> <span class="n">yh</span><span class="p">,</span> <span class="n">nym</span><span class="p">)</span>
+
+    <span class="n">segsx</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">segsy</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">xm</span><span class="p">,</span> <span class="n">xl</span><span class="p">,</span> <span class="n">nxm</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">yh</span><span class="p">,</span> <span class="n">yh</span><span class="p">,</span> <span class="n">nxm</span><span class="p">)</span>
+    <span class="n">segsx</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">segsy</span><span class="p">[</span><span class="mi">11</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">xl</span><span class="p">,</span> <span class="n">xl</span><span class="p">,</span> <span class="n">nym</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">yh</span><span class="p">,</span> <span class="n">ym</span><span class="p">,</span> <span class="n">nym</span><span class="p">)</span>
+
+    <span class="n">allx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">segsx</span><span class="p">)</span>
+    <span class="n">ally</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">segsy</span><span class="p">)</span>
+
+    <span class="c1"># print(&quot;plot::&quot;, _base_quadrent, &#39;|&#39;, _uneven_mask, &#39;|&#39;, len(allx), len(ally))</span>
+
+    <span class="n">pts3d</span> <span class="o">=</span> <span class="n">seed</span><span class="o">.</span><span class="n">to_3d</span><span class="p">(</span><span class="n">seed</span><span class="o">.</span><span class="n">uv_to_local</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">allx</span><span class="p">,</span> <span class="n">ally</span><span class="p">])))</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">all_topo</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">calc_streamlines</span><span class="p">(</span><span class="n">fld</span><span class="p">,</span> <span class="n">pts3d</span><span class="p">,</span> <span class="o">**</span><span class="n">trace_opts</span><span class="p">)</span>
+
+    <span class="n">topo</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">all_topo</span><span class="p">[:</span><span class="nb">len</span><span class="p">(</span><span class="n">segsx</span><span class="p">[</span><span class="mi">0</span><span class="p">])]</span>
+    <span class="n">cnt</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">topo</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">segx</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">count</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">segsx</span><span class="p">[</span><span class="mi">1</span><span class="p">:]):</span>
+        <span class="n">topo</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">all_topo</span><span class="p">[</span><span class="n">cnt</span><span class="p">:</span><span class="n">cnt</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">segx</span><span class="p">)]</span>
+        <span class="c1"># print(&quot;??&quot;, i, cnt, cnt + len(segx), np.bitwise_and.reduce(topo[i]))</span>
+        <span class="n">cnt</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">topo</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+    <span class="c1"># assemble the lines into the four quadrents</span>
+    <span class="n">quad_topo</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="mi">4</span>
+
+    <span class="c1"># all arrays snip off the last element since those are</span>
+    <span class="c1"># duplicated by the next line... reversed arrays do the</span>
+    <span class="c1"># snipping with -1:0:-1</span>
+    <span class="n">quad_topo</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">topo</span><span class="p">[</span><span class="mi">0</span><span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">topo</span><span class="p">[</span><span class="mi">1</span><span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+                                   <span class="n">topo</span><span class="p">[</span><span class="mi">2</span><span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">topo</span><span class="p">[</span><span class="mi">3</span><span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+
+    <span class="n">quad_topo</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">topo</span><span class="p">[</span><span class="mi">4</span><span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">topo</span><span class="p">[</span><span class="mi">5</span><span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+                                   <span class="n">topo</span><span class="p">[</span><span class="mi">6</span><span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">topo</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+
+    <span class="n">quad_topo</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">topo</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">topo</span><span class="p">[</span><span class="mi">9</span><span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+                                   <span class="n">topo</span><span class="p">[</span><span class="mi">10</span><span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">topo</span><span class="p">[</span><span class="mi">11</span><span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+
+    <span class="n">quad_topo</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">topo</span><span class="p">[</span><span class="mi">6</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">topo</span><span class="p">[</span><span class="mi">7</span><span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+                                   <span class="n">topo</span><span class="p">[</span><span class="mi">8</span><span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">topo</span><span class="p">[</span><span class="mi">9</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+
+    <span class="c1"># now that the quad arrays are populated, decide which quadrents</span>
+    <span class="c1"># still contain the separator (could be &gt; 1)</span>
+    <span class="n">required_uneven_subquads</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">perimeter_check</span><span class="p">(</span><span class="n">quad_topo</span><span class="p">[</span><span class="n">i</span><span class="p">]):</span>
+            <span class="n">next_quad</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{0}{1:x}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">_base_quadrent</span><span class="p">,</span> <span class="n">i</span> <span class="o">|</span> <span class="n">_uneven_mask</span><span class="p">)</span>
+            <span class="n">subquads</span> <span class="o">=</span> <span class="n">_get_sep_pts_bisect</span><span class="p">(</span><span class="n">fld</span><span class="p">,</span> <span class="n">seed</span><span class="p">,</span> <span class="n">trace_opts</span><span class="o">=</span><span class="n">trace_opts</span><span class="p">,</span>
+                                           <span class="n">min_depth</span><span class="o">=</span><span class="n">min_depth</span><span class="p">,</span>
+                                           <span class="n">max_depth</span><span class="o">=</span><span class="n">max_depth</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="n">plot</span><span class="p">,</span>
+                                           <span class="n">_base_quadrent</span><span class="o">=</span><span class="n">next_quad</span><span class="p">,</span>
+                                           <span class="n">_uneven_mask</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                                           <span class="n">_first_recurse</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">ret</span> <span class="o">+=</span> <span class="n">subquads</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">perimeter</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">topo</span><span class="p">[</span><span class="mi">0</span><span class="p">][::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">topo</span><span class="p">[</span><span class="mi">4</span><span class="p">][::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+                                    <span class="n">topo</span><span class="p">[</span><span class="mi">5</span><span class="p">][::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">topo</span><span class="p">[</span><span class="mi">7</span><span class="p">][::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+                                    <span class="n">topo</span><span class="p">[</span><span class="mi">8</span><span class="p">][::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">topo</span><span class="p">[</span><span class="mi">10</span><span class="p">][::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+                                    <span class="n">topo</span><span class="p">[</span><span class="mi">11</span><span class="p">][::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">topo</span><span class="p">[</span><span class="mi">3</span><span class="p">][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+        <span class="k">if</span> <span class="n">_uneven_mask</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">_base_quadrent</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">min_depth</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;sep trace issue, but min depth reached: </span><span class="si">{0}</span><span class="s2"> &gt; </span><span class="si">{1}</span><span class="s2">&quot;</span>
+                      <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">_base_quadrent</span><span class="p">),</span> <span class="n">min_depth</span><span class="p">))</span>
+                <span class="n">ret</span> <span class="o">=</span> <span class="p">[</span><span class="n">_base_quadrent</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;sep trace issue, the separator ended prematurely&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">perimeter_check</span><span class="p">(</span><span class="n">perimeter</span><span class="p">):</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="n">_get_sep_pts_bisect</span><span class="p">(</span><span class="n">fld</span><span class="p">,</span> <span class="n">seed</span><span class="p">,</span> <span class="n">trace_opts</span><span class="o">=</span><span class="n">trace_opts</span><span class="p">,</span>
+                                      <span class="n">min_depth</span><span class="o">=</span><span class="n">min_depth</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="n">max_depth</span><span class="p">,</span>
+                                      <span class="n">plot</span><span class="o">=</span><span class="n">plot</span><span class="p">,</span> <span class="n">_base_quadrent</span><span class="o">=</span><span class="n">_base_quadrent</span><span class="p">,</span>
+                                      <span class="n">_uneven_mask</span><span class="o">=</span><span class="n">UNEVEN_MASK</span><span class="p">,</span>
+                                      <span class="n">_first_recurse</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">required_uneven_subquads</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">if</span> <span class="n">plot</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">required_uneven_subquads</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">viscid.plot</span> <span class="k">import</span> <span class="n">vlab</span>
+        <span class="kn">from</span> <span class="nn">viscid.plot</span> <span class="k">import</span> <span class="n">vpyplot</span> <span class="k">as</span> <span class="n">vlt</span>
+        <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+        <span class="n">_pts3d</span> <span class="o">=</span> <span class="n">seed</span><span class="o">.</span><span class="n">to_3d</span><span class="p">(</span><span class="n">seed</span><span class="o">.</span><span class="n">uv_to_local</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">allx</span><span class="p">,</span> <span class="n">ally</span><span class="p">])))</span>
+        <span class="n">vlab</span><span class="o">.</span><span class="n">points3d</span><span class="p">(</span><span class="n">_pts3d</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">_pts3d</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">_pts3d</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+                      <span class="n">all_topo</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">scale_mode</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span>
+                      <span class="n">scale_factor</span><span class="o">=</span><span class="mf">0.02</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">allx</span><span class="p">,</span> <span class="n">ally</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">bitwise_and</span><span class="p">(</span><span class="n">all_topo</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span>
+                        <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">_first_recurse</span><span class="p">:</span>
+        <span class="c1"># turn quadrent strings into locations</span>
+        <span class="n">xc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ret</span><span class="p">))</span>
+        <span class="n">yc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ret</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ret</span><span class="p">):</span>
+            <span class="n">xc</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">yc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">_quadrent_center</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">xlim</span><span class="p">,</span> <span class="n">ylim</span><span class="p">)</span>
+        <span class="n">pts_uv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">xc</span><span class="p">,</span> <span class="n">yc</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">plot</span><span class="p">:</span>
+            <span class="kn">from</span> <span class="nn">viscid.plot</span> <span class="k">import</span> <span class="n">vlab</span>
+            <span class="kn">from</span> <span class="nn">viscid.plot</span> <span class="k">import</span> <span class="n">vpyplot</span> <span class="k">as</span> <span class="n">vlt</span>
+            <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pts_uv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">pts_uv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;y*&quot;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+                         <span class="n">markeredgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">markeredgewidth</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+            <span class="n">vlt</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">block</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">vlab</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">stop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="c1"># return seed.to_3d(seed.uv_to_local(pts_uv))</span>
+        <span class="c1"># if pts_uv.size == 0:</span>
+        <span class="c1">#     return None</span>
+        <span class="k">if</span> <span class="n">make_3d</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">seed</span><span class="o">.</span><span class="n">uv_to_3d</span><span class="p">(</span><span class="n">pts_uv</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">pts_uv</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">ret</span>
+
+<span class="k">def</span> <span class="nf">_quadrent_limits</span><span class="p">(</span><span class="n">quad_str</span><span class="p">,</span> <span class="n">xlim</span><span class="p">,</span> <span class="n">ylim</span><span class="p">):</span>
+    <span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span> <span class="o">=</span> <span class="n">xlim</span>
+    <span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span> <span class="o">=</span> <span class="n">ylim</span>
+    <span class="n">xl</span><span class="p">,</span> <span class="n">xh</span> <span class="o">=</span> <span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span>
+    <span class="n">yl</span><span class="p">,</span> <span class="n">yh</span> <span class="o">=</span> <span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span>
+
+    <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">quad</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">quad_str</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">quadi</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">quad</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+            <span class="k">raise</span>
+        <span class="n">midpt</span> <span class="o">=</span> <span class="n">UNEVEN_HALF</span> <span class="k">if</span> <span class="n">quadi</span> <span class="o">&amp;</span> <span class="n">UNEVEN_MASK</span> <span class="k">else</span> <span class="mf">0.5</span>
+
+        <span class="n">xm</span> <span class="o">=</span> <span class="n">xl</span> <span class="o">+</span> <span class="n">midpt</span> <span class="o">*</span> <span class="p">(</span><span class="n">xh</span> <span class="o">-</span> <span class="n">xl</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">quadi</span> <span class="o">&amp;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">xl</span> <span class="o">=</span> <span class="n">xm</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">xh</span> <span class="o">=</span> <span class="n">xm</span>
+
+        <span class="n">ym</span> <span class="o">=</span> <span class="n">yl</span> <span class="o">+</span> <span class="n">midpt</span> <span class="o">*</span> <span class="p">(</span><span class="n">yh</span> <span class="o">-</span> <span class="n">yl</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">quadi</span> <span class="o">&amp;</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">yl</span> <span class="o">=</span> <span class="n">ym</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">yh</span> <span class="o">=</span> <span class="n">ym</span>
+
+    <span class="k">return</span> <span class="n">xl</span><span class="p">,</span> <span class="n">xh</span><span class="p">,</span> <span class="n">yl</span><span class="p">,</span> <span class="n">yh</span>
+
+<span class="k">def</span> <span class="nf">_quadrent_center</span><span class="p">(</span><span class="n">quad_str</span><span class="p">,</span> <span class="n">xlim</span><span class="p">,</span> <span class="n">ylim</span><span class="p">):</span>
+    <span class="n">xl</span><span class="p">,</span> <span class="n">xh</span><span class="p">,</span> <span class="n">yl</span><span class="p">,</span> <span class="n">yh</span> <span class="o">=</span> <span class="n">_quadrent_limits</span><span class="p">(</span><span class="n">quad_str</span><span class="p">,</span> <span class="n">xlim</span><span class="p">,</span> <span class="n">ylim</span><span class="p">)</span>
+    <span class="n">midpt</span> <span class="o">=</span> <span class="n">UNEVEN_HALF</span> <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">quad_str</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">base</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">UNEVEN_MASK</span> <span class="k">else</span> <span class="mf">0.5</span>
+    <span class="n">xm</span> <span class="o">=</span> <span class="n">xl</span> <span class="o">+</span> <span class="n">midpt</span> <span class="o">*</span> <span class="p">(</span><span class="n">xh</span> <span class="o">-</span> <span class="n">xl</span><span class="p">)</span>
+    <span class="n">ym</span> <span class="o">=</span> <span class="n">yl</span> <span class="o">+</span> <span class="n">midpt</span> <span class="o">*</span> <span class="p">(</span><span class="n">yh</span> <span class="o">-</span> <span class="n">yl</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">xm</span><span class="p">,</span> <span class="n">ym</span>
+
+<span class="k">def</span> <span class="nf">_make_square_segments</span><span class="p">(</span><span class="n">xl</span><span class="p">,</span> <span class="n">xh</span><span class="p">,</span> <span class="n">yl</span><span class="p">,</span> <span class="n">yh</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">xl</span><span class="p">,</span> <span class="n">xh</span><span class="p">,</span> <span class="n">nx</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">yl</span><span class="p">,</span> <span class="n">yh</span><span class="p">,</span> <span class="n">ny</span><span class="p">)</span>
+    <span class="n">bottom</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="p">[</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">*</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+    <span class="n">right</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(([</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span> <span class="o">*</span> <span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="p">))</span>
+    <span class="n">top</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">x</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span> <span class="o">*</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+    <span class="n">left</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(([</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">*</span> <span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="n">y</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+    <span class="k">return</span> <span class="n">bottom</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">top</span><span class="p">,</span> <span class="n">left</span>
+
+<span class="k">def</span> <span class="nf">_make_square</span><span class="p">(</span><span class="n">xl</span><span class="p">,</span> <span class="n">xh</span><span class="p">,</span> <span class="n">yl</span><span class="p">,</span> <span class="n">yh</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">):</span>
+    <span class="n">bottom</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">top</span><span class="p">,</span> <span class="n">left</span> <span class="o">=</span> <span class="n">_make_square_segments</span><span class="p">(</span><span class="n">xl</span><span class="p">,</span> <span class="n">xh</span><span class="p">,</span> <span class="n">yl</span><span class="p">,</span> <span class="n">yh</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">bottom</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">top</span><span class="p">,</span> <span class="n">left</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+
+<span class="c1"># def perimeter_check_pattern(arr):</span>
+<span class="c1">#     &quot;&quot;&quot;Does perimeter of arr topologies contain a separator?</span>
+<span class="c1">#     Returns:</span>
+<span class="c1">#         bool</span>
+<span class="c1">#     &quot;&quot;&quot;</span>
+<span class="c1">#     cyc = np.array([x[0] for x in groupby(arr)])</span>
+<span class="c1">#     cyc = np.roll(cyc, -1 * np.argmin(cyc))</span>
+<span class="c1">#     cyc_rev = np.roll(cyc[::-1], -1 * (len(cyc) - 1))</span>
+<span class="c1">#     watch_list = [(0, 1, 2, 4)]</span>
+<span class="c1">#     return bool(cyc in watch_list or cyc_rev in watch_list)</span>
+
+<span class="c1">##</span>
+<span class="c1">## EOF</span>
+<span class="c1">##</span>
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+      
+    </p>
+    <p>
+        &copy; Copyright 2017, Kristofor Maynard.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

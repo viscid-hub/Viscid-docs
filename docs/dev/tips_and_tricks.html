@@ -1,0 +1,277 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Tips &amp; Tricks &#8212; Viscid 0.99.7.dev0 documentation</title>
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Useful Functions" href="functions.html" />
+    <link rel="prev" title="Command Line Utilities" href="tutorial/command_line.html" />
+<link rel="icon" href="_static/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="_static/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon-precomposed" href="_static/Vicon_128.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          Viscid</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.99.7.dev0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+    <li class="dropdown">
+      <a role="button"
+         id="dLabelNavLinxToc"
+         data-toggle="dropdown"
+         data-target="#"
+         href="#">Tutorial <b class="caret"></b></a>
+      <ul class="dropdown-menu navlinktoc"
+          role="menu">
+          <li class="toctree-l1">
+            <a class="reference internal", href="installation.html">Installation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="tutorial/creating_fields.html">Creating Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="tutorial/slicing.html">Slicing Fields</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="tutorial/plotting_scalars.html">Plotting Scalars</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="tutorial/plotting_vectors.html">Plotting Vectors</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="tutorial/mayavi.html">3D Plots (Mayavi)</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="tutorial/openggcm.html">OpenGGCM Specific</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="tutorial/ionosphere.html">Ionosphere</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="tutorial/stream_and_interp.html">Streamline and Interpolation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="tutorial/magnetic_topology.html">Magnetic Topology</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="tutorial/magnetopause.html">Magnetopause</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="tutorial/quasi_potential.html">Quasi Potential</a>
+          </li>
+      </ul>
+    </li>
+
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="changes.html">ChangeLog</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="philosophy.html">Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/index.html">Tutorial</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Useful Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_options.html">Plot Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mpl_style_gallery.html">Matplotlib Style Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_behavior.html">Custom Behavior (rc file)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev_guide.html">Developer’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_readers.html">Extending Readers</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/viscid.html">API</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Tips &amp; Tricks</a><ul>
+<li><a class="reference internal" href="#loading-files">Loading Files</a><ul>
+<li><a class="reference internal" href="#loading-a-glob-as-a-single-file">Loading a Glob as a Single File</a></li>
+<li><a class="reference internal" href="#loading-a-slice-of-a-time-series">Loading a Slice of a Time Series</a></li>
+<li><a class="reference internal" href="#reloading-files">Reloading Files</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="tips-tricks">
+<h1>Tips &amp; Tricks<a class="headerlink" href="#tips-tricks" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#loading-files" id="id1">Loading Files</a><ul>
+<li><a class="reference internal" href="#loading-a-glob-as-a-single-file" id="id2">Loading a Glob as a Single File</a></li>
+<li><a class="reference internal" href="#loading-a-slice-of-a-time-series" id="id3">Loading a Slice of a Time Series</a></li>
+<li><a class="reference internal" href="#reloading-files" id="id4">Reloading Files</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="loading-files">
+<h2><a class="toc-backref" href="#id1">Loading Files</a><a class="headerlink" href="#loading-files" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="loading-a-glob-as-a-single-file">
+<h3><a class="toc-backref" href="#id2">Loading a Glob as a Single File</a><a class="headerlink" href="#loading-a-glob-as-a-single-file" title="Permalink to this headline">¶</a></h3>
+<p>Multiple files that make up a single time series can be loaded as a single file, here’s how,</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">os</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">viscid</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">()</span>
+<span class="go">[&#39;run.3df.005&#39;, &#39;run.3df.010&#39;, &#39;run.3df.015&#39;]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">load_file</span><span class="p">(</span><span class="s2">&quot;run.3df.*&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">grid</span><span class="o">.</span><span class="n">time</span> <span class="k">for</span> <span class="n">grid</span> <span class="ow">in</span> <span class="n">f</span><span class="o">.</span><span class="n">iter_times</span><span class="p">()]</span>
+<span class="go">[5.0, 10.0, 15.0]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="loading-a-slice-of-a-time-series">
+<h3><a class="toc-backref" href="#id3">Loading a Slice of a Time Series</a><a class="headerlink" href="#loading-a-slice-of-a-time-series" title="Permalink to this headline">¶</a></h3>
+<p>Sometimes you might have a single XDMF file that points to multiple XDMF files to make a time series. But, if you are loading a long time series, this might take a while just to parse XDMF files. Who has the time. To this end, you can load a slice of the time series by either index or value using the same conventions as slicing fields (bare int to slice by index, or number followed by ‘f’ to slice by location). This works using <a class="reference internal" href="api/viscid.html#viscid.glob2" title="viscid.glob2"><code class="xref py py-func docutils literal notranslate"><span class="pre">viscid.glob2()</span></code></a>. Here are a couple examples,</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">os</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">viscid</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">()</span>
+<span class="go">[&#39;run.3d.005.xdmf&#39;, &#39;run.3d.010.xdmf&#39;, &#39;run.3d.015.xdmf&#39;, &#39;run.3d.020.xdmf&#39;]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># lets just load the first two files (by index)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">load_file</span><span class="p">(</span><span class="s2">&quot;*.3d.[:2].xdmf&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">grid</span><span class="o">.</span><span class="n">time</span> <span class="k">for</span> <span class="n">grid</span> <span class="ow">in</span> <span class="n">f</span><span class="o">.</span><span class="n">iter_times</span><span class="p">()]</span>
+<span class="go">[5.0, 10.0]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># what about just the tail...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">load_file</span><span class="p">(</span><span class="s2">&quot;*.3d.[-2:].xdmf&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">grid</span><span class="o">.</span><span class="n">time</span> <span class="k">for</span> <span class="n">grid</span> <span class="ow">in</span> <span class="n">f</span><span class="o">.</span><span class="n">iter_times</span><span class="p">()]</span>
+<span class="go">[15.0, 20.0]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># every other file?</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">load_file</span><span class="p">(</span><span class="s2">&quot;*.3d.[::2].xdmf&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">grid</span><span class="o">.</span><span class="n">time</span> <span class="k">for</span> <span class="n">grid</span> <span class="ow">in</span> <span class="n">f</span><span class="o">.</span><span class="n">iter_times</span><span class="p">()]</span>
+<span class="go">[5.0, 15.0]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># let&#39;s load files after and including t = 10</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">load_file</span><span class="p">(</span><span class="s2">&quot;*.3d.[10f:].xdmf&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">grid</span><span class="o">.</span><span class="n">time</span> <span class="k">for</span> <span class="n">grid</span> <span class="ow">in</span> <span class="n">f</span><span class="o">.</span><span class="n">iter_times</span><span class="p">()]</span>
+<span class="go">[10.0, 15.0, 20.0]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># every other file after and including t = 10</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">load_file</span><span class="p">(</span><span class="s2">&quot;*.3d.[10f::2].xdmf&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">grid</span><span class="o">.</span><span class="n">time</span> <span class="k">for</span> <span class="n">grid</span> <span class="ow">in</span> <span class="n">f</span><span class="o">.</span><span class="n">iter_times</span><span class="p">()]</span>
+<span class="go">[10.0, 20.0]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="reloading-files">
+<h3><a class="toc-backref" href="#id4">Reloading Files</a><a class="headerlink" href="#reloading-files" title="Permalink to this headline">¶</a></h3>
+<p>When debugging a simulation, it’s sometimes convenient to keep Viscid open interactively in either IPython or a Jupyter Notebook. Unfortunately, Viscid doesn’t appreciate if files are modified after they’ve been loaded. To fix this, you can just use,</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">viscid</span><span class="o">.</span><span class="n">load_file</span><span class="p">(</span><span class="s2">&quot;...&quot;</span><span class="p">,</span> <span class="n">force_reload</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If forcing a reload doesn’t help, then you can always hammer-of-Thor the whole cache,</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">viscid</span><span class="o">.</span><span class="n">unload_all_files</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="_sources/tips_and_tricks.rst.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright 2017, Kristofor Maynard.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
