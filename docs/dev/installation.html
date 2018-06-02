@@ -8,7 +8,7 @@
     <title>Installation &#8212; Viscid 0.99.7.dev0 documentation</title>
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
@@ -199,10 +199,11 @@ img {
 </ul>
 </li>
 <li>Highly Recommended<ul>
+<li>IPython (better interactive interpreter)</li>
 <li>Matplotlib &gt;= 1.4 (if you want to make 2d plots using viscid.plot.vpyplot)</li>
-<li>Scipy (gives Viscid special powers :))</li>
-<li>Numexpr (for the calculator.necalc module)</li>
-<li>H5py (if reading hdf5 files)</li>
+<li>Scipy (gives Viscid special powers)</li>
+<li>Numexpr (for faster math on large grids)</li>
+<li>H5py (enables hdf5 reader)</li>
 </ul>
 </li>
 <li>Truly Optional<ul>
@@ -220,8 +221,7 @@ img {
 </li>
 </ul>
 <p>The optional calculator modules (necalc and cycalc) are all dispatched through
-calculator.calc, and it is intelligent enough not to use a library that is not
-installed.</p>
+calculator.calc, and it gracefully falls back to numpy implementations if more advanced libraries are not installed.</p>
 </div>
 <div class="section" id="installing-anaconda-optional-but-recommended">
 <h2>Installing Anaconda (optional but recommended)<a class="headerlink" href="#installing-anaconda-optional-but-recommended" title="Permalink to this headline">¶</a></h2>
@@ -272,10 +272,10 @@ conda update -q conda
 </ul>
 <div class="section" id="choice-1-anaconda">
 <h3>Choice 1: <a class="reference external" href="http://anaconda.org">Anaconda</a><a class="headerlink" href="#choice-1-anaconda" title="Permalink to this headline">¶</a></h3>
-<a class="reference external image-reference" href="https://anaconda.org/kristoformaynard/viscid"><img alt="Anaconda Version" src="https://anaconda.org/kristoformaynard/viscid/badges/version.svg" /></a>
-<a class="reference external image-reference" href="https://anaconda.org/kristoformaynard/viscid"><img alt="Anaconda Platforms" src="https://anaconda.org/kristoformaynard/viscid/badges/platforms.svg" /></a>
+<a class="reference external image-reference" href="https://anaconda.org/viscid-hub/viscid"><img alt="Anaconda Version" src="https://anaconda.org/viscid-hub/viscid/badges/version.svg" /></a>
+<a class="reference external image-reference" href="https://anaconda.org/viscid-hub/viscid"><img alt="Anaconda Platforms" src="https://anaconda.org/viscid-hub/viscid/badges/platforms.svg" /></a>
 <p>If you have Anaconda, then installing Viscid and all the recommended dependancies happens with one command,</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install -c kristoformaynard viscid
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install -c viscid-hub viscid
 </pre></div>
 </div>
 <p>You can check that the install succeeded by running,</p>
@@ -302,7 +302,7 @@ conda update -q conda
 <div class="section" id="choice-3-source">
 <h3>Choice 3: Source<a class="headerlink" href="#choice-3-source" title="Permalink to this headline">¶</a></h3>
 <p>First, you’ll have to clone the Viscit git repository. This should be done in whatever directory you want to store the Viscid source code. I use <code class="docutils literal notranslate"><span class="pre">~/src</span></code> myself.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/KristoforMaynard/Viscid.git
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/viscid-hub/Viscid.git
 mkdir -p ~/.config/matplotlib
 cp Viscid/resources/viscidrc ~/.viscidrc
 </pre></div>
@@ -420,8 +420,8 @@ python setup.py build_ext -i
       
     </p>
     <p>
-        &copy; Copyright 2017, Kristofor Maynard.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.<br/>
+        &copy; Copyright 2018, Kristofor Maynard.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
     </p>
   </div>
 </footer>
