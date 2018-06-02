@@ -35,7 +35,7 @@ Dependencies
 
 + Optional for developers
 
-  + Cython > 0.17 (if you change pyx / pxd files)
+  + Cython > 0.28 (if you change pyx / pxd files)
   + Sphinx
   + sphinx_rtd_theme
   + sphinxcontrib-napoleon (if Sphinx is <= version 1.2)
