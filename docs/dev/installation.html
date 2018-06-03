@@ -213,7 +213,7 @@ img {
 </ul>
 </li>
 <li>Optional for developers<ul>
-<li>Cython &gt; 0.28 (if you change pyx / pxd files)</li>
+<li>Cython &gt;= 0.28 (if you change pyx / pxd files)</li>
 <li>Sphinx</li>
 <li>sphinx_rtd_theme</li>
 <li>sphinxcontrib-napoleon (if Sphinx is &lt;= version 1.2)</li>
@@ -248,14 +248,14 @@ conda update -q conda
 <li><strong>+</strong>  Install with a single command</li>
 <li><strong>+</strong>  No compiler needed</li>
 <li><strong>+</strong>  Available for macOS, Linux, and Windows</li>
-<li><strong>+</strong>  Automatically installs dependancies</li>
+<li><strong>+</strong>  Automatically installs dependencies</li>
 <li><strong>-</strong>  Lacks jrrle file support</li>
 </ul>
 </li>
 <li>PyPI (pip)<ul>
 <li><strong>+</strong>  Install with a single command</li>
 <li><strong>+</strong>  No compiler needed for pure python functionality</li>
-<li><strong>-</strong>  Recommended dependancies must be installed by hand</li>
+<li><strong>-</strong>  Recommended dependencies must be installed by hand</li>
 <li><strong>-</strong>  Requires a C compiler for interpolation and streamline functions</li>
 <li><strong>-</strong>  Requires a Fortran compiler for jrrle file support</li>
 </ul>
@@ -264,7 +264,7 @@ conda update -q conda
 <li><strong>+</strong>  Most flexable</li>
 <li><strong>+</strong>  Only way to use a development version</li>
 <li><strong>-</strong>  Requires a few commands and some knowledge about PATH and PYTHONPATH (but don’t let this scare you, it’s fairly straight forward)</li>
-<li><strong>-</strong>  Recommended dependancies must be installed by hand</li>
+<li><strong>-</strong>  Recommended dependencies must be installed by hand</li>
 <li><strong>-</strong>  Requires a C compiler for interpolation and streamline functions</li>
 <li><strong>-</strong>  Requires a Fortran compiler for jrrle file support</li>
 </ul>
@@ -274,7 +274,7 @@ conda update -q conda
 <h3>Choice 1: <a class="reference external" href="http://anaconda.org">Anaconda</a><a class="headerlink" href="#choice-1-anaconda" title="Permalink to this headline">¶</a></h3>
 <a class="reference external image-reference" href="https://anaconda.org/viscid-hub/viscid"><img alt="Anaconda Version" src="https://anaconda.org/viscid-hub/viscid/badges/version.svg" /></a>
 <a class="reference external image-reference" href="https://anaconda.org/viscid-hub/viscid"><img alt="Anaconda Platforms" src="https://anaconda.org/viscid-hub/viscid/badges/platforms.svg" /></a>
-<p>If you have Anaconda, then installing Viscid and all the recommended dependancies happens with one command,</p>
+<p>If you have Anaconda, then installing Viscid and all the recommended dependencies happens with one command,</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install -c viscid-hub viscid
 </pre></div>
 </div>
@@ -290,7 +290,7 @@ conda update -q conda
 <div class="section" id="choice-2-pypi-pip">
 <h3>Choice 2: PyPI (pip)<a class="headerlink" href="#choice-2-pypi-pip" title="Permalink to this headline">¶</a></h3>
 <a class="reference external image-reference" href="https://pypi.org/project/Viscid/"><img alt="PyPI" src="https://img.shields.io/pypi/v/Viscid.svg" /></a>
-<p>You can install from source using pip with a single command, but the functionality depends on what compilers are available. Most of Viscid is pure python, but interpolation and streamline calculation requires a C compiler, and the jrrle reader requires a Fortran compiler. Also, Viscid only lists Numpy as a dependancy in pip so that installation will succeed on even the most bare-bones systems. This means you will want to install any of the recommended / optional dependancies yourself.</p>
+<p>You can install from source using pip with a single command, but the functionality depends on what compilers are available. Most of Viscid is pure python, but interpolation and streamline calculation requires a C compiler, and the jrrle reader requires a Fortran compiler. Also, Viscid only lists Numpy as a dependency in pip so that installation will succeed on even the most bare-bones systems. This means you will want to install any of the recommended / optional dependencies yourself.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install viscid
 </pre></div>
 </div>
