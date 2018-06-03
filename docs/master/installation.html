@@ -5,10 +5,10 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Installation &#8212; Viscid 0.99.6 documentation</title>
+    <title>Installation &#8212; Viscid 0.99.7 documentation</title>
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
@@ -39,7 +39,7 @@
         </button>
         <a class="navbar-brand" href="index.html">
           Viscid</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.99.6</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.99.7</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -199,10 +199,11 @@ img {
 </ul>
 </li>
 <li>Highly Recommended<ul>
+<li>IPython (better interactive interpreter)</li>
 <li>Matplotlib &gt;= 1.4 (if you want to make 2d plots using viscid.plot.vpyplot)</li>
-<li>Scipy (gives Viscid special powers :))</li>
-<li>Numexpr (for the calculator.necalc module)</li>
-<li>H5py (if reading hdf5 files)</li>
+<li>Scipy (gives Viscid special powers)</li>
+<li>Numexpr (for faster math on large grids)</li>
+<li>H5py (enables hdf5 reader)</li>
 </ul>
 </li>
 <li>Truly Optional<ul>
@@ -212,7 +213,7 @@ img {
 </ul>
 </li>
 <li>Optional for developers<ul>
-<li>Cython &gt; 0.17 (if you change pyx / pxd files)</li>
+<li>Cython &gt;= 0.28 (if you change pyx / pxd files)</li>
 <li>Sphinx</li>
 <li>sphinx_rtd_theme</li>
 <li>sphinxcontrib-napoleon (if Sphinx is &lt;= version 1.2)</li>
@@ -220,16 +221,15 @@ img {
 </li>
 </ul>
 <p>The optional calculator modules (necalc and cycalc) are all dispatched through
-calculator.calc, and it is intelligent enough not to use a library that is not
-installed.</p>
+calculator.calc, and it gracefully falls back to numpy implementations if more advanced libraries are not installed.</p>
 </div>
 <div class="section" id="installing-anaconda-optional-but-recommended">
 <h2>Installing Anaconda (optional but recommended)<a class="headerlink" href="#installing-anaconda-optional-but-recommended" title="Permalink to this headline">¶</a></h2>
 <p>The <a class="reference external" href="https://www.anaconda.com/distribution/">Anaconda Python Distribution</a> makes managing dependencies and virtual environments wicked straight forward (and almost pleasant). You can download the full distribution, but it’s laden with packages you probably don’t need. Also, since <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code> is so easy to use, I recommend the lightweight miniconda:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="k">$(</span>uname -s<span class="k">)</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;Linux&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-  wget -O miniconda.sh https://repo.anaconda.com/miniconda/Miniconda2-latest-Linux-x86_64.sh
+  wget -O miniconda.sh https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 <span class="k">elif</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="k">$(</span>uname -s<span class="k">)</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;Darwin&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-  curl -o miniconda.sh https://repo.anaconda.com/miniconda/Miniconda2-latest-MacOSX-x86_64.sh
+  curl -o miniconda.sh https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
 <span class="k">fi</span>
 bash miniconda.sh -b -p <span class="nv">$HOME</span>/local/anaconda
 rm miniconda.sh
@@ -248,14 +248,14 @@ conda update -q conda
 <li><strong>+</strong>  Install with a single command</li>
 <li><strong>+</strong>  No compiler needed</li>
 <li><strong>+</strong>  Available for macOS, Linux, and Windows</li>
-<li><strong>+</strong>  Automatically installs dependancies</li>
+<li><strong>+</strong>  Automatically installs dependencies</li>
 <li><strong>-</strong>  Lacks jrrle file support</li>
 </ul>
 </li>
 <li>PyPI (pip)<ul>
 <li><strong>+</strong>  Install with a single command</li>
 <li><strong>+</strong>  No compiler needed for pure python functionality</li>
-<li><strong>-</strong>  Recommended dependancies must be installed by hand</li>
+<li><strong>-</strong>  Recommended dependencies must be installed by hand</li>
 <li><strong>-</strong>  Requires a C compiler for interpolation and streamline functions</li>
 <li><strong>-</strong>  Requires a Fortran compiler for jrrle file support</li>
 </ul>
@@ -264,7 +264,7 @@ conda update -q conda
 <li><strong>+</strong>  Most flexable</li>
 <li><strong>+</strong>  Only way to use a development version</li>
 <li><strong>-</strong>  Requires a few commands and some knowledge about PATH and PYTHONPATH (but don’t let this scare you, it’s fairly straight forward)</li>
-<li><strong>-</strong>  Recommended dependancies must be installed by hand</li>
+<li><strong>-</strong>  Recommended dependencies must be installed by hand</li>
 <li><strong>-</strong>  Requires a C compiler for interpolation and streamline functions</li>
 <li><strong>-</strong>  Requires a Fortran compiler for jrrle file support</li>
 </ul>
@@ -272,10 +272,10 @@ conda update -q conda
 </ul>
 <div class="section" id="choice-1-anaconda">
 <h3>Choice 1: <a class="reference external" href="http://anaconda.org">Anaconda</a><a class="headerlink" href="#choice-1-anaconda" title="Permalink to this headline">¶</a></h3>
-<a class="reference external image-reference" href="https://anaconda.org/kristoformaynard/viscid"><img alt="Anaconda Version" src="https://anaconda.org/kristoformaynard/viscid/badges/version.svg" /></a>
-<a class="reference external image-reference" href="https://anaconda.org/kristoformaynard/viscid"><img alt="Anaconda Platforms" src="https://anaconda.org/kristoformaynard/viscid/badges/platforms.svg" /></a>
-<p>If you have Anaconda, then installing Viscid and all the recommended dependancies happens with one command,</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install -c kristoformaynard viscid
+<a class="reference external image-reference" href="https://anaconda.org/viscid-hub/viscid"><img alt="Anaconda Version" src="https://anaconda.org/viscid-hub/viscid/badges/version.svg" /></a>
+<a class="reference external image-reference" href="https://anaconda.org/viscid-hub/viscid"><img alt="Anaconda Platforms" src="https://anaconda.org/viscid-hub/viscid/badges/platforms.svg" /></a>
+<p>If you have Anaconda, then installing Viscid and all the recommended dependencies happens with one command,</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install -c viscid-hub viscid
 </pre></div>
 </div>
 <p>You can check that the install succeeded by running,</p>
@@ -290,7 +290,7 @@ conda update -q conda
 <div class="section" id="choice-2-pypi-pip">
 <h3>Choice 2: PyPI (pip)<a class="headerlink" href="#choice-2-pypi-pip" title="Permalink to this headline">¶</a></h3>
 <a class="reference external image-reference" href="https://pypi.org/project/Viscid/"><img alt="PyPI" src="https://img.shields.io/pypi/v/Viscid.svg" /></a>
-<p>You can install from source using pip with a single command, but the functionality depends on what compilers are available. Most of Viscid is pure python, but interpolation and streamline calculation requires a C compiler, and the jrrle reader requires a Fortran compiler. Also, Viscid only lists Numpy as a dependancy in pip so that installation will succeed on even the most bare-bones systems. This means you will want to install any of the recommended / optional dependancies yourself.</p>
+<p>You can install from source using pip with a single command, but the functionality depends on what compilers are available. Most of Viscid is pure python, but interpolation and streamline calculation requires a C compiler, and the jrrle reader requires a Fortran compiler. Also, Viscid only lists Numpy as a dependency in pip so that installation will succeed on even the most bare-bones systems. This means you will want to install any of the recommended / optional dependencies yourself.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install viscid
 </pre></div>
 </div>
@@ -302,7 +302,7 @@ conda update -q conda
 <div class="section" id="choice-3-source">
 <h3>Choice 3: Source<a class="headerlink" href="#choice-3-source" title="Permalink to this headline">¶</a></h3>
 <p>First, you’ll have to clone the Viscit git repository. This should be done in whatever directory you want to store the Viscid source code. I use <code class="docutils literal notranslate"><span class="pre">~/src</span></code> myself.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/KristoforMaynard/Viscid.git
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/viscid-hub/Viscid.git
 mkdir -p ~/.config/matplotlib
 cp Viscid/resources/viscidrc ~/.viscidrc
 </pre></div>
@@ -420,8 +420,8 @@ python setup.py build_ext -i
       
     </p>
     <p>
-        &copy; Copyright 2017, Kristofor Maynard.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.<br/>
+        &copy; Copyright 2018, Kristofor Maynard.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
     </p>
   </div>
 </footer>
