@@ -198,30 +198,34 @@ img {
 <li>Numpy &gt;= 1.9</li>
 </ul>
 </li>
-<li>Highly Recommended<ul>
-<li>IPython (better interactive interpreter)</li>
-<li>Matplotlib &gt;= 1.4 (if you want to make 2d plots using viscid.plot.vpyplot)</li>
-<li>Scipy (gives Viscid special powers)</li>
-<li>Numexpr (for faster math on large grids)</li>
-<li>H5py (enables hdf5 reader)</li>
+<li>Recommended<ul>
+<li>IPython <em>(better interactive interpreter)</em></li>
+<li>Matplotlib &gt;= 1.4 <em>(if you want to make 2d plots using viscid.plot.vpyplot)</em></li>
+<li>Scipy <em>(enables nonlinear interpolation and curve fitting)</em></li>
+<li>Numexpr <em>(for faster math on large grids)</em></li>
+<li>H5py <em>(enables hdf5 reader)</em></li>
 </ul>
 </li>
-<li>Truly Optional<ul>
+<li>Optional<ul>
 <li>Seaborn</li>
-<li>Mayavi2 (if you want to make 3d plots using viscid.plot.vlab)</li>
-<li>PyYaml (rc file and plot options can parse using yaml)</li>
+<li>Mayavi2 <em>(if you want to make 3d plots using viscid.plot.vlab)</em></li>
+<li>PyYaml <em>(rc file and plot options can parse using yaml)</em></li>
 </ul>
 </li>
 <li>Optional for developers<ul>
-<li>Cython &gt;= 0.28 (if you change pyx / pxd files)</li>
+<li>Cython &gt;= 0.28 <em>(if you change pyx / pxd files)</em></li>
 <li>Sphinx</li>
 <li>sphinx_rtd_theme</li>
-<li>sphinxcontrib-napoleon (if Sphinx is &lt;= version 1.2)</li>
+<li>sphinxcontrib-napoleon <em>(if Sphinx is &lt;= version 1.2)</em></li>
 </ul>
 </li>
 </ul>
 <p>The optional calculator modules (necalc and cycalc) are all dispatched through
-calculator.calc, and it gracefully falls back to numpy implementations if more advanced libraries are not installed.</p>
+calculator.calc. This dispatch gracefully falls back to numpy implementations if more advanced libraries are not installed.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">To install mayavi, I <em>strongly</em> suggest using the viscid-hub anaconda channel. This solves some vtk / pyqt issues with the current anaconda and conda-forge binaries. To install, just run <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">viscid-hub</span> <span class="pre">mayavi</span></code>. Also, note that mayavi on python3 requires vtk &gt;= 7, which requires OpenGL 3.2 or MESA &gt;= 11.2. If you have older drivers, you must install mayavi with python2.7 and vtk5.</p>
+</div>
 </div>
 <div class="section" id="installing-anaconda-optional-but-recommended">
 <h2>Installing Anaconda (optional but recommended)<a class="headerlink" href="#installing-anaconda-optional-but-recommended" title="Permalink to this headline">¶</a></h2>
@@ -242,17 +246,18 @@ conda update -q conda
 </div>
 <div class="section" id="installing-viscid">
 <h2>Installing Viscid<a class="headerlink" href="#installing-viscid" title="Permalink to this headline">¶</a></h2>
-<p>You have a few choices for installing Viscid. Here is a quick breakdown of why you might choose one method over the another,</p>
+<p>You have a few choices for installing Viscid. Here is a quick breakdown of why you might choose one method over the another.</p>
 <ul class="simple">
-<li><a class="reference external" href="http://anaconda.org">Anaconda</a><ul>
+<li><a class="reference internal" href="#choice1-conda"><span class="std std-ref">Anaconda</span></a><ul>
 <li><strong>+</strong>  Install with a single command</li>
 <li><strong>+</strong>  No compiler needed</li>
 <li><strong>+</strong>  Available for macOS, Linux, and Windows</li>
-<li><strong>+</strong>  Automatically installs dependencies</li>
-<li><strong>-</strong>  Lacks jrrle file support</li>
+<li><strong>+</strong>  Automatically installs recommended dependencies</li>
+<li><strong>+</strong>  Optional dependencies are equally easy to install</li>
+<li><strong>-</strong>  You won’t be able to edit Viscid’s source code. You might naively edit the modules in site-packages, but this will confuse the conda package manager beyond repair.</li>
 </ul>
 </li>
-<li>PyPI (pip)<ul>
+<li><a class="reference internal" href="#choice2-pypi"><span class="std std-ref">PyPI (pip)</span></a><ul>
 <li><strong>+</strong>  Install with a single command</li>
 <li><strong>+</strong>  No compiler needed for pure python functionality</li>
 <li><strong>-</strong>  Recommended dependencies must be installed by hand</li>
@@ -260,8 +265,8 @@ conda update -q conda
 <li><strong>-</strong>  Requires a Fortran compiler for jrrle file support</li>
 </ul>
 </li>
-<li>Source<ul>
-<li><strong>+</strong>  Most flexable</li>
+<li><a class="reference internal" href="#choice3-source"><span class="std std-ref">Source</span></a><ul>
+<li><strong>+</strong>  Most flexible</li>
 <li><strong>+</strong>  Only way to use a development version</li>
 <li><strong>-</strong>  Requires a few commands and some knowledge about PATH and PYTHONPATH (but don’t let this scare you, it’s fairly straight forward)</li>
 <li><strong>-</strong>  Recommended dependencies must be installed by hand</li>
@@ -271,7 +276,7 @@ conda update -q conda
 </li>
 </ul>
 <div class="section" id="choice-1-anaconda">
-<h3>Choice 1: <a class="reference external" href="http://anaconda.org">Anaconda</a><a class="headerlink" href="#choice-1-anaconda" title="Permalink to this headline">¶</a></h3>
+<span id="choice1-conda"></span><h3>Choice 1: <a class="reference external" href="http://anaconda.org/viscid-hub/viscid">Anaconda</a><a class="headerlink" href="#choice-1-anaconda" title="Permalink to this headline">¶</a></h3>
 <a class="reference external image-reference" href="https://anaconda.org/viscid-hub/viscid"><img alt="Anaconda Version" src="https://anaconda.org/viscid-hub/viscid/badges/version.svg" /></a>
 <a class="reference external image-reference" href="https://anaconda.org/viscid-hub/viscid"><img alt="Anaconda Platforms" src="https://anaconda.org/viscid-hub/viscid/badges/platforms.svg" /></a>
 <p>If you have Anaconda, then installing Viscid and all the recommended dependencies happens with one command,</p>
@@ -282,15 +287,11 @@ conda update -q conda
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m viscid --check
 </pre></div>
 </div>
-<div class="admonition attention">
-<p class="first admonition-title">Attention</p>
-<p class="last">The binaries unloaded to anaconda lack support for reading jrrle files. If you need this, you will need to install from source (using pip or otherwise) and have a Fortran compiler.</p>
-</div>
 </div>
 <div class="section" id="choice-2-pypi-pip">
-<h3>Choice 2: PyPI (pip)<a class="headerlink" href="#choice-2-pypi-pip" title="Permalink to this headline">¶</a></h3>
+<span id="choice2-pypi"></span><h3>Choice 2: <a class="reference external" href="http://pypi.org/project/viscid/">PyPI</a> (pip)<a class="headerlink" href="#choice-2-pypi-pip" title="Permalink to this headline">¶</a></h3>
 <a class="reference external image-reference" href="https://pypi.org/project/Viscid/"><img alt="PyPI" src="https://img.shields.io/pypi/v/Viscid.svg" /></a>
-<p>You can install from source using pip with a single command, but the functionality depends on what compilers are available. Most of Viscid is pure python, but interpolation and streamline calculation requires a C compiler, and the jrrle reader requires a Fortran compiler. Also, Viscid only lists Numpy as a dependency in pip so that installation will succeed on even the most bare-bones systems. This means you will want to install any of the recommended / optional dependencies yourself.</p>
+<p>You can install from source using pip with a single command, but the runtime functionality depends on which compilers are available. Most of Viscid is pure python, but interpolation and streamline calculation requires a C compiler, and the jrrle reader requires a Fortran compiler. Also, Viscid only lists Numpy as a dependency in pip so that installation will succeed on even the most bare-bones systems. This means you will want to install any of the recommended / optional dependencies yourself.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install viscid
 </pre></div>
 </div>
@@ -300,32 +301,42 @@ conda update -q conda
 </div>
 </div>
 <div class="section" id="choice-3-source">
-<h3>Choice 3: Source<a class="headerlink" href="#choice-3-source" title="Permalink to this headline">¶</a></h3>
-<p>First, you’ll have to clone the Viscit git repository. This should be done in whatever directory you want to store the Viscid source code. I use <code class="docutils literal notranslate"><span class="pre">~/src</span></code> myself.</p>
+<span id="choice3-source"></span><h3>Choice 3: Source<a class="headerlink" href="#choice-3-source" title="Permalink to this headline">¶</a></h3>
+<p>First, you’ll have to clone the Viscid git repository. This should be done in whatever directory you want to store the Viscid source code. I use <code class="docutils literal notranslate"><span class="pre">~/src</span></code> myself.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/viscid-hub/Viscid.git
 mkdir -p ~/.config/matplotlib
 cp Viscid/resources/viscidrc ~/.viscidrc
 </pre></div>
 </div>
 <p>If you are using Anaconda to manage your dependencies, you can use the default Viscid environment to automatically install all Viscid’s dependencies,</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda env create -f Viscid/resources/viscid27.yml
-<span class="c1"># for the more adventurous, you can try python 3.5</span>
-conda env create -f Viscid/resources/viscid35mayavi.yml
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda env create -f Viscid/resources/viscid36mayavi.yml
+
+<span class="c1"># if you need mayavi, but don&#39;t have OpenGL 3.2, you</span>
+<span class="c1"># will have to use python2.7 (Viscid/resources/viscid27.yml)</span>
 </pre></div>
 </div>
 <p>Note that in order to use Viscid, you will need to activate the virtual environment that we just created (this needs to be done for each new terminal session),</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> activate viscid27  <span class="c1"># or viscid35mayavi, etc.</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda activate viscid36mayavi  <span class="c1"># or viscid27, etc.</span>
 </pre></div>
 </div>
-<p>An alternative to activating this environment for each session is to prepend PATH in your profile with</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">profile</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/.bashrc&quot;</span>
-<span class="nb">echo</span> <span class="s2">&quot;export PATH=~/local/anaconda/envs/viscid27:&quot;</span><span class="s1">&#39;${PATH}&#39;</span> &gt;&gt; <span class="si">${</span><span class="nv">profile</span><span class="si">}</span>
-<span class="nb">echo</span> <span class="s1">&#39;export CONDA_DEFAULT_ENV=&quot;$(basename &quot;$(cd &quot;$(dirname &quot;$(which python)&quot;)/..&quot;; pwd)&quot;)&quot;&#39;</span> &gt;&gt; <span class="si">${</span><span class="nv">profile</span><span class="si">}</span>
-<span class="nb">echo</span> <span class="s1">&#39;export CONDA_PREFIX=&quot;$(cd &quot;$(dirname &quot;$(which python)&quot;)/..&quot;; pwd)&quot;&#39;</span> &gt;&gt; <span class="si">${</span><span class="nv">profile</span><span class="si">}</span>
-<span class="nb">source</span> <span class="si">${</span><span class="nv">profile</span><span class="si">}</span>
+<p>If you don’t want to run <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">...</span></code> for every virtual terminal, you can place the following in your bashrc or profile,</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">_CONDA_ROOT_PREFIX</span><span class="o">=</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/local/anaconda  <span class="c1"># &lt;- point to anaconda install location</span>
+<span class="nb">export</span> <span class="nv">CONDA_DEFAULT_ENV</span><span class="o">=</span>base  <span class="c1"># &lt;- edit this to taste</span>
+<span class="c1"># there is no need to edit the following conda stuff directly</span>
+<span class="nb">source</span> <span class="si">${</span><span class="nv">_CONDA_ROOT_PREFIX</span><span class="si">}</span>/etc/profile.d/conda.sh
+<span class="nb">export</span> <span class="nv">CONDA_SHLVL</span><span class="o">=</span><span class="m">1</span>
+<span class="nb">export</span> <span class="nv">CONDA_EXE</span><span class="o">=</span><span class="si">${</span><span class="nv">_CONDA_ROOT_PREFIX</span><span class="si">}</span>/bin/conda
+<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">CONDA_DEFAULT_ENV</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;base&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+  <span class="nb">export</span> <span class="nv">CONDA_PREFIX</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">_CONDA_ROOT_PREFIX</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">else</span>
+  <span class="nb">export</span> <span class="nv">CONDA_PREFIX</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">_CONDA_ROOT_PREFIX</span><span class="si">}</span><span class="s2">/envs/</span><span class="si">${</span><span class="nv">CONDA_DEFAULT_ENV</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">fi</span>
+<span class="nb">export</span> <span class="nv">CONDA_PROMPT_MODIFIER</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+<span class="nb">export</span> <span class="nv">CONDA_PYTHON_EXE</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">_CONDA_ROOT_PREFIX</span><span class="si">}</span><span class="s2">/bin/python&quot;</span>
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">CONDA_PREFIX</span><span class="si">}</span><span class="s2">/bin:</span><span class="si">${</span><span class="nv">PATH</span><span class="si">}</span><span class="s2">&quot;</span>
 </pre></div>
 </div>
-<p>Now you have two choices about how you want to use Viscid. If you intend to edit viscid then I recommend using it inplace. Otherwise, it probably makes more sense to simply install viscid into your python distribution.</p>
+<p>Now you have a choice about how you want to use Viscid. If you intend to edit viscid then I recommend using it inplace. Otherwise, it probably makes more sense to simply install viscid into your python distribution.</p>
 <div class="section" id="choice-3a-installed">
 <h4>Choice 3a: installed<a class="headerlink" href="#choice-3a-installed" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> Viscid

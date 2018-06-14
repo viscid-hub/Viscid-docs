@@ -219,6 +219,10 @@
            <span class="s1">&#39;readers&#39;</span><span class="p">,</span>
           <span class="p">]</span>
 
+<span class="c1"># weird windows fortran build artifact that has to be in the path</span>
+<span class="n">extra_dll_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="s2">&quot;.libs&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">extra_dll_dir</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;PATH&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">os</span><span class="o">.</span><span class="n">pathsep</span> <span class="o">+</span> <span class="n">extra_dll_dir</span>
 
 <span class="c1">#########################################</span>
 <span class="c1"># setup logger for use throughout viscid</span>
