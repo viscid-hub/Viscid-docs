@@ -173,7 +173,7 @@ best reference for all quirky options is <a class="reference internal" href="#vi
 </div>
 <dl class="function">
 <dt id="viscid.plot.vpyplot.apply_labels">
-<code class="descclassname">viscid.plot.vpyplot.</code><code class="descname">apply_labels</code><span class="sig-paren">(</span><em>labels=None</em>, <em>colors=None</em>, <em>ax=None</em>, <em>magnet=(0.5</em>, <em>0.75)</em>, <em>magnetcoords=u'axes fraction'</em>, <em>padding=None</em>, <em>paddingcoords=u'offset points'</em>, <em>choices=u'00:02:20:22'</em>, <em>n_candidates=32</em>, <em>ignore_filling=False</em>, <em>_debug=False</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/plot/mpl_direct_label.html#apply_labels"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.plot.vpyplot.apply_labels" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">viscid.plot.vpyplot.</code><code class="descname">apply_labels</code><span class="sig-paren">(</span><em>labels=None</em>, <em>colors=None</em>, <em>ax=None</em>, <em>magnet=(0.5</em>, <em>0.75)</em>, <em>magnetcoords=u'axes fraction'</em>, <em>padding=None</em>, <em>paddingcoords=u'offset points'</em>, <em>choices=u'00:02:20:22'</em>, <em>n_candidates=32</em>, <em>ignore_filling=False</em>, <em>spacing=u'linear'</em>, <em>_debug=False</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/plot/mpl_direct_label.html#apply_labels"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.plot.vpyplot.apply_labels" title="Permalink to this definition">¶</a></dt>
 <dd><p>Apply labels directly to series in liu of a legend</p>
 <p>The <cite>choices</cite> offsets are as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---------------------</span>
@@ -208,6 +208,10 @@ to 1.0 to make text visible. Set to <cite>None</cite> to use the
 underlying alpha from the handle’s color.</li>
 <li><strong>n_candidates</strong> (<em>int</em>) – number of potential label locations to
 consider for each data series.</li>
+<li><strong>ignore_filling</strong> (<em>bool</em>) – if True, then assume it’s ok to place
+labels inside paths that are filled with color</li>
+<li><strong>spacing</strong> (<em>str</em>) – one of ‘linear’ or ‘random’ to specify how far
+apart candidate locations are spaced along path segments</li>
 <li><strong>_debug</strong> (<em>bool</em>) – Mark up all possible label locations</li>
 <li><strong>**kwargs</strong> – passed to plt.annotate</li>
 </ul>
