@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Plot Options &#8212; Viscid 0.99.7 documentation</title>
+    <title>Plot Options &#8212; Viscid 0.99.8 documentation</title>
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -39,7 +39,7 @@
         </button>
         <a class="navbar-brand" href="index.html">
           Viscid</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.99.7</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.99.8</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -173,7 +173,12 @@
   <div class="section" id="plot-options">
 <h1>Plot Options<a class="headerlink" href="#plot-options" title="Permalink to this headline">¶</a></h1>
 <p>Plot options are given to <a class="reference internal" href="api/viscid.plot.vpyplot.html#viscid.plot.vpyplot.plot" title="viscid.plot.vpyplot.plot"><code class="xref py py-func docutils literal notranslate"><span class="pre">viscid.plot.vpyplot.plot()</span></code></a> as either keyword arguments, or as a string called <cite>plot_opts</cite>. For the various plot types, what follows should be a comprehensive list of the available options.</p>
-<div class="contents local topic" id="contents">
+<style type="text/css">
+div.topic {
+    border-style: none;
+    padding-bottom: 6pt;
+}
+</style><div class="contents local topic" id="contents">
 <ul class="simple">
 <li><a class="reference internal" href="#known-issues" id="id1">Known Issues</a></li>
 <li><a class="reference internal" href="#universal" id="id2">Universal</a></li>
@@ -207,7 +212,7 @@
 </div>
 <div class="section" id="known-issues">
 <h2><a class="toc-backref" href="#id1">Known Issues</a><a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h2>
-<p>Since Viscid switched to using image axes by default, it has exposed some undesired behavior in matplotlib. Namely, if you call tight_layout, tighten, or auto_adjust_subplots more than once for a figure, then some of the subplots dissapear. The solution is to only call tight_layout once per figure.</p>
+<p>Since Viscid switched to using image axes by default, it has exposed some undesired behavior in matplotlib. Namely, if you call <code class="xref py py-func docutils literal notranslate"><span class="pre">pyplot.tight_layout()</span></code>, <a class="reference internal" href="api/viscid.plot.vpyplot.html#viscid.plot.vpyplot.tighten" title="viscid.plot.vpyplot.tighten"><code class="xref py py-func docutils literal notranslate"><span class="pre">viscid.plot.vpyplot.tighten()</span></code></a>, or <a class="reference internal" href="api/viscid.plot.vpyplot.html#viscid.plot.vpyplot.auto_adjust_subplots" title="viscid.plot.vpyplot.auto_adjust_subplots"><code class="xref py py-func docutils literal notranslate"><span class="pre">viscid.plot.vpyplot.auto_adjust_subplots()</span></code></a> more than once for a figure, then some of the subplots dissapear. The solution is to <strong>only call these functions once per figure</strong>.</p>
 </div>
 <div class="section" id="universal">
 <h2><a class="toc-backref" href="#id2">Universal</a><a class="headerlink" href="#universal" title="Permalink to this headline">¶</a></h2>

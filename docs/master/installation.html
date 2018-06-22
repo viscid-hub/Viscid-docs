@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Installation &#8212; Viscid 0.99.7 documentation</title>
+    <title>Installation &#8212; Viscid 0.99.8 documentation</title>
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -39,7 +39,7 @@
         </button>
         <a class="navbar-brand" href="index.html">
           Viscid</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.99.7</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.99.8</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -134,7 +134,7 @@
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Installation</a><ul>
 <li><a class="reference internal" href="#dependencies">Dependencies</a></li>
-<li><a class="reference internal" href="#installing-anaconda-optional-but-recommended">Installing Anaconda (optional but recommended)</a></li>
+<li><a class="reference internal" href="#installing-anaconda-optional">Installing Anaconda (optional)</a></li>
 <li><a class="reference internal" href="#installing-viscid">Installing Viscid</a><ul>
 <li><a class="reference internal" href="#choice-1-anaconda">Choice 1: Anaconda</a></li>
 <li><a class="reference internal" href="#choice-2-pypi-pip">Choice 2: PyPI (pip)</a></li>
@@ -146,7 +146,8 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#verify-installation">Verify Installation</a></li>
-<li><a class="reference internal" href="#known-workarounds">Known Workarounds</a><ul>
+<li><a class="reference internal" href="#installing-mayavi-optional">Installing Mayavi (optional)</a></li>
+<li><a class="reference internal" href="#workarounds">Workarounds</a><ul>
 <li><a class="reference internal" href="#ubuntu">Ubuntu</a></li>
 <li><a class="reference internal" href="#os-x">OS X</a></li>
 </ul>
@@ -189,42 +190,71 @@ img {
     padding-top: 10pt;
     padding-bottom: 12pt;
 }
-</style><div class="section" id="dependencies">
-<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+</style><style type="text/css">
+div.topic {
+    border-style: none;
+}
+</style><div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#dependencies" id="id2">Dependencies</a></li>
+<li><a class="reference internal" href="#installing-anaconda-optional" id="id3">Installing Anaconda (optional)</a></li>
+<li><a class="reference internal" href="#installing-viscid" id="id4">Installing Viscid</a><ul>
+<li><a class="reference internal" href="#choice-1-anaconda" id="id5">Choice 1: Anaconda</a></li>
+<li><a class="reference internal" href="#choice-2-pypi-pip" id="id6">Choice 2: PyPI (pip)</a></li>
+<li><a class="reference internal" href="#choice-3-source" id="id7">Choice 3: Source</a><ul>
+<li><a class="reference internal" href="#choice-3a-installed" id="id8">Choice 3a: installed</a></li>
+<li><a class="reference internal" href="#choice-3b-inplace" id="id9">Choice 3b: inplace</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#verify-installation" id="id10">Verify Installation</a></li>
+<li><a class="reference internal" href="#installing-mayavi-optional" id="id11">Installing Mayavi (optional)</a></li>
+<li><a class="reference internal" href="#workarounds" id="id12">Workarounds</a><ul>
+<li><a class="reference internal" href="#ubuntu" id="id13">Ubuntu</a></li>
+<li><a class="reference internal" href="#os-x" id="id14">OS X</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="dependencies">
+<h2><a class="toc-backref" href="#id2">Dependencies</a><a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Required<ul>
-<li>Python 2.7+ or 3.3+</li>
-<li>Python 2.6 and argparse</li>
-<li>Numpy &gt;= 1.9</li>
+<li>Python 2.6, 2.7, or 3.3+</li>
+<li>Numpy 1.9+</li>
+<li>Argparse (Python 2.6 only)</li>
 </ul>
 </li>
-<li>Highly Recommended<ul>
-<li>IPython (better interactive interpreter)</li>
-<li>Matplotlib &gt;= 1.4 (if you want to make 2d plots using viscid.plot.vpyplot)</li>
-<li>Scipy (gives Viscid special powers)</li>
-<li>Numexpr (for faster math on large grids)</li>
-<li>H5py (enables hdf5 reader)</li>
+<li>Recommended<ul>
+<li>IPython <em>(better interactive interpreter)</em></li>
+<li>Matplotlib 1.4+ <em>(if you want to make 2d plots using viscid.plot.vpyplot)</em></li>
+<li>Scipy <em>(enables nonlinear interpolation and curve fitting)</em></li>
+<li>Numexpr <em>(for faster math on large grids)</em></li>
+<li>H5py <em>(enables hdf5 reader)</em></li>
 </ul>
 </li>
-<li>Truly Optional<ul>
+<li>Optional<ul>
 <li>Seaborn</li>
-<li>Mayavi2 (if you want to make 3d plots using viscid.plot.vlab)</li>
-<li>PyYaml (rc file and plot options can parse using yaml)</li>
+<li>Mayavi2 <a class="footnote-reference" href="#f1" id="id1">[1]</a> <em>(if you want to make 3d plots using viscid.plot.vlab)</em></li>
+<li>PyYaml <em>(rc file and plot options can parse using yaml)</em></li>
 </ul>
 </li>
 <li>Optional for developers<ul>
-<li>Cython &gt;= 0.28 (if you change pyx / pxd files)</li>
-<li>Sphinx</li>
-<li>sphinx_rtd_theme</li>
-<li>sphinxcontrib-napoleon (if Sphinx is &lt;= version 1.2)</li>
+<li>Cython 0.28+ <em>(if you change pyx / pxd files)</em></li>
+<li>Sphinx 1.3+</li>
 </ul>
 </li>
 </ul>
-<p>The optional calculator modules (necalc and cycalc) are all dispatched through
-calculator.calc, and it gracefully falls back to numpy implementations if more advanced libraries are not installed.</p>
+<table class="docutils footnote" frame="void" id="f1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Installing Mayavi can be tricky. Please <a class="reference internal" href="#installing-mayavi"><span class="std std-ref">read this section</span></a> before attempting to install it.</td></tr>
+</tbody>
+</table>
 </div>
-<div class="section" id="installing-anaconda-optional-but-recommended">
-<h2>Installing Anaconda (optional but recommended)<a class="headerlink" href="#installing-anaconda-optional-but-recommended" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="installing-anaconda-optional">
+<h2><a class="toc-backref" href="#id3">Installing Anaconda (optional)</a><a class="headerlink" href="#installing-anaconda-optional" title="Permalink to this headline">¶</a></h2>
 <p>The <a class="reference external" href="https://www.anaconda.com/distribution/">Anaconda Python Distribution</a> makes managing dependencies and virtual environments wicked straight forward (and almost pleasant). You can download the full distribution, but it’s laden with packages you probably don’t need. Also, since <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code> is so easy to use, I recommend the lightweight miniconda:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="k">$(</span>uname -s<span class="k">)</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;Linux&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
   wget -O miniconda.sh https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
@@ -233,45 +263,62 @@ calculator.calc, and it gracefully falls back to numpy implementations if more a
 <span class="k">fi</span>
 bash miniconda.sh -b -p <span class="nv">$HOME</span>/local/anaconda
 rm miniconda.sh
-<span class="nb">source</span> ~/.bashrc
-<span class="nb">hash</span> -r
+<span class="nb">source</span> <span class="nv">$HOME</span>/local/anaconda/etc/profile.d/conda.sh
 conda config --set changeps1 no
 conda update -q conda
+conda activate
+</pre></div>
+</div>
+<p>You can now add something like this to your bashrc or profile,</p>
+<div class="highlight-bash notranslate" id="conda-bashrc-blurb"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">_CONDA_ROOT_PREFIX</span><span class="o">=</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/local/anaconda  <span class="c1"># &lt;- point to anaconda</span>
+<span class="nb">export</span> <span class="nv">CONDA_DEFAULT_ENV</span><span class="o">=</span>base  <span class="c1"># &lt;- edit this to taste</span>
+<span class="c1"># there is no need to edit the following lines directly</span>
+<span class="nb">source</span> <span class="si">${</span><span class="nv">_CONDA_ROOT_PREFIX</span><span class="si">}</span>/etc/profile.d/conda.sh
+<span class="nb">export</span> <span class="nv">CONDA_SHLVL</span><span class="o">=</span><span class="m">1</span>
+<span class="nb">export</span> <span class="nv">CONDA_EXE</span><span class="o">=</span><span class="si">${</span><span class="nv">_CONDA_ROOT_PREFIX</span><span class="si">}</span>/bin/conda
+<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">CONDA_DEFAULT_ENV</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;base&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+  <span class="nb">export</span> <span class="nv">CONDA_PREFIX</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">_CONDA_ROOT_PREFIX</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">else</span>
+  <span class="nb">export</span> <span class="nv">CONDA_PREFIX</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">_CONDA_ROOT_PREFIX</span><span class="si">}</span><span class="s2">/envs/</span><span class="si">${</span><span class="nv">CONDA_DEFAULT_ENV</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">fi</span>
+<span class="nb">export</span> <span class="nv">CONDA_PROMPT_MODIFIER</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+<span class="nb">export</span> <span class="nv">CONDA_PYTHON_EXE</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">_CONDA_ROOT_PREFIX</span><span class="si">}</span><span class="s2">/bin/python&quot;</span>
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">CONDA_PREFIX</span><span class="si">}</span><span class="s2">/bin:</span><span class="si">${</span><span class="nv">PATH</span><span class="si">}</span><span class="s2">&quot;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="installing-viscid">
-<h2>Installing Viscid<a class="headerlink" href="#installing-viscid" title="Permalink to this headline">¶</a></h2>
-<p>You have a few choices for installing Viscid. Here is a quick breakdown of why you might choose one method over the another,</p>
+<h2><a class="toc-backref" href="#id4">Installing Viscid</a><a class="headerlink" href="#installing-viscid" title="Permalink to this headline">¶</a></h2>
+<p>You have a few choices for installing Viscid. Here is a quick breakdown of why you might choose one method over another.</p>
 <ul class="simple">
-<li><a class="reference external" href="http://anaconda.org">Anaconda</a><ul>
-<li><strong>+</strong>  Install with a single command</li>
+<li><a class="reference internal" href="#choice1-conda"><span class="std std-ref">Anaconda</span></a><ul>
+<li><strong>+</strong>  Installs with a single command</li>
 <li><strong>+</strong>  No compiler needed</li>
 <li><strong>+</strong>  Available for macOS, Linux, and Windows</li>
-<li><strong>+</strong>  Automatically installs dependencies</li>
-<li><strong>-</strong>  Lacks jrrle file support</li>
+<li><strong>+</strong>  Automatically installs recommended dependencies</li>
+<li><strong>+</strong>  Optional dependencies are equally easy to install</li>
+<li><strong>-</strong>  You won’t be able to edit Viscid’s source code. You might naively edit the modules in site-packages, but this will confuse the conda package manager beyond repair.</li>
 </ul>
 </li>
-<li>PyPI (pip)<ul>
-<li><strong>+</strong>  Install with a single command</li>
+<li><a class="reference internal" href="#choice2-pypi"><span class="std std-ref">PyPI (pip)</span></a><ul>
+<li><strong>+</strong>  Installs with a single command</li>
 <li><strong>+</strong>  No compiler needed for pure python functionality</li>
-<li><strong>-</strong>  Recommended dependencies must be installed by hand</li>
-<li><strong>-</strong>  Requires a C compiler for interpolation and streamline functions</li>
+<li><strong>-</strong>  Recommended dependencies must be explicitly installed</li>
+<li><strong>-</strong>  Requires a C compiler for interpolation and streamline support</li>
 <li><strong>-</strong>  Requires a Fortran compiler for jrrle file support</li>
 </ul>
 </li>
-<li>Source<ul>
-<li><strong>+</strong>  Most flexable</li>
-<li><strong>+</strong>  Only way to use a development version</li>
-<li><strong>-</strong>  Requires a few commands and some knowledge about PATH and PYTHONPATH (but don’t let this scare you, it’s fairly straight forward)</li>
-<li><strong>-</strong>  Recommended dependencies must be installed by hand</li>
+<li><a class="reference internal" href="#choice3-source"><span class="std std-ref">Source</span></a><ul>
+<li><strong>+</strong>  Only method that lets you edit Viscid’s source code</li>
+<li><strong>-</strong>  Requires some knowledge about PATH and PYTHONPATH (but don’t let this scare you, it’s fairly straight forward)</li>
+<li><strong>-</strong>  Dependencies must be explicitly installed</li>
 <li><strong>-</strong>  Requires a C compiler for interpolation and streamline functions</li>
 <li><strong>-</strong>  Requires a Fortran compiler for jrrle file support</li>
 </ul>
 </li>
 </ul>
 <div class="section" id="choice-1-anaconda">
-<h3>Choice 1: <a class="reference external" href="http://anaconda.org">Anaconda</a><a class="headerlink" href="#choice-1-anaconda" title="Permalink to this headline">¶</a></h3>
+<span id="choice1-conda"></span><h3>Choice 1: <a class="reference external" href="http://anaconda.org/viscid-hub/viscid">Anaconda</a><a class="headerlink" href="#choice-1-anaconda" title="Permalink to this headline">¶</a></h3>
 <a class="reference external image-reference" href="https://anaconda.org/viscid-hub/viscid"><img alt="Anaconda Version" src="https://anaconda.org/viscid-hub/viscid/badges/version.svg" /></a>
 <a class="reference external image-reference" href="https://anaconda.org/viscid-hub/viscid"><img alt="Anaconda Platforms" src="https://anaconda.org/viscid-hub/viscid/badges/platforms.svg" /></a>
 <p>If you have Anaconda, then installing Viscid and all the recommended dependencies happens with one command,</p>
@@ -282,15 +329,11 @@ conda update -q conda
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m viscid --check
 </pre></div>
 </div>
-<div class="admonition attention">
-<p class="first admonition-title">Attention</p>
-<p class="last">The binaries unloaded to anaconda lack support for reading jrrle files. If you need this, you will need to install from source (using pip or otherwise) and have a Fortran compiler.</p>
-</div>
 </div>
 <div class="section" id="choice-2-pypi-pip">
-<h3>Choice 2: PyPI (pip)<a class="headerlink" href="#choice-2-pypi-pip" title="Permalink to this headline">¶</a></h3>
+<span id="choice2-pypi"></span><h3>Choice 2: <a class="reference external" href="http://pypi.org/project/viscid/">PyPI</a> (pip)<a class="headerlink" href="#choice-2-pypi-pip" title="Permalink to this headline">¶</a></h3>
 <a class="reference external image-reference" href="https://pypi.org/project/Viscid/"><img alt="PyPI" src="https://img.shields.io/pypi/v/Viscid.svg" /></a>
-<p>You can install from source using pip with a single command, but the functionality depends on what compilers are available. Most of Viscid is pure python, but interpolation and streamline calculation requires a C compiler, and the jrrle reader requires a Fortran compiler. Also, Viscid only lists Numpy as a dependency in pip so that installation will succeed on even the most bare-bones systems. This means you will want to install any of the recommended / optional dependencies yourself.</p>
+<p>You can install from source using pip, but the runtime functionality depends on which compilers are available. Most of Viscid is pure python, but interpolation and streamline calculation requires a C compiler, and the jrrle reader requires a Fortran compiler.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install viscid
 </pre></div>
 </div>
@@ -300,34 +343,33 @@ conda update -q conda
 </div>
 </div>
 <div class="section" id="choice-3-source">
-<h3>Choice 3: Source<a class="headerlink" href="#choice-3-source" title="Permalink to this headline">¶</a></h3>
-<p>First, you’ll have to clone the Viscit git repository. This should be done in whatever directory you want to store the Viscid source code. I use <code class="docutils literal notranslate"><span class="pre">~/src</span></code> myself.</p>
+<span id="choice3-source"></span><h3><a class="toc-backref" href="#id7">Choice 3: Source</a><a class="headerlink" href="#choice-3-source" title="Permalink to this headline">¶</a></h3>
+<p>First, you’ll have to clone the Viscid git repository. This should be done in whatever directory you want to store the Viscid source code. I use <code class="docutils literal notranslate"><span class="pre">~/src</span></code> myself.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/viscid-hub/Viscid.git
+
+<span class="c1"># Optional: set qt5 as the default matplotlib backend</span>
 mkdir -p ~/.config/matplotlib
+<span class="nb">echo</span> <span class="s2">&quot;backend: Qt5Agg&quot;</span> &gt;&gt; ~/.config/matplotlib/matplotlibrc
+
+<span class="c1"># Optional: copy the default viscidrc file</span>
 cp Viscid/resources/viscidrc ~/.viscidrc
 </pre></div>
 </div>
 <p>If you are using Anaconda to manage your dependencies, you can use the default Viscid environment to automatically install all Viscid’s dependencies,</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda env create -f Viscid/resources/viscid27.yml
-<span class="c1"># for the more adventurous, you can try python 3.5</span>
-conda env create -f Viscid/resources/viscid35mayavi.yml
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda env create -f Viscid/resources/viscid36mayavi.yml
+
+<span class="c1"># if you need mayavi, but don&#39;t have OpenGL 3.2, you</span>
+<span class="c1"># will have to use python2.7 (Viscid/resources/viscid27.yml)</span>
+
+<span class="c1"># this activation must be done for each new command prompt</span>
+conda activate viscid36mayavi  <span class="c1"># or viscid27, etc.</span>
 </pre></div>
 </div>
-<p>Note that in order to use Viscid, you will need to activate the virtual environment that we just created (this needs to be done for each new terminal session),</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> activate viscid27  <span class="c1"># or viscid35mayavi, etc.</span>
-</pre></div>
-</div>
-<p>An alternative to activating this environment for each session is to prepend PATH in your profile with</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">profile</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/.bashrc&quot;</span>
-<span class="nb">echo</span> <span class="s2">&quot;export PATH=~/local/anaconda/envs/viscid27:&quot;</span><span class="s1">&#39;${PATH}&#39;</span> &gt;&gt; <span class="si">${</span><span class="nv">profile</span><span class="si">}</span>
-<span class="nb">echo</span> <span class="s1">&#39;export CONDA_DEFAULT_ENV=&quot;$(basename &quot;$(cd &quot;$(dirname &quot;$(which python)&quot;)/..&quot;; pwd)&quot;)&quot;&#39;</span> &gt;&gt; <span class="si">${</span><span class="nv">profile</span><span class="si">}</span>
-<span class="nb">echo</span> <span class="s1">&#39;export CONDA_PREFIX=&quot;$(cd &quot;$(dirname &quot;$(which python)&quot;)/..&quot;; pwd)&quot;&#39;</span> &gt;&gt; <span class="si">${</span><span class="nv">profile</span><span class="si">}</span>
-<span class="nb">source</span> <span class="si">${</span><span class="nv">profile</span><span class="si">}</span>
-</pre></div>
-</div>
-<p>Now you have two choices about how you want to use Viscid. If you intend to edit viscid then I recommend using it inplace. Otherwise, it probably makes more sense to simply install viscid into your python distribution.</p>
+<p><a class="reference internal" href="#conda-bashrc-blurb"><span class="std std-ref">Read this</span></a> if you need help editing your bashrc or profile to set the default Anaconda environment.</p>
+<p>Viscid should work with native compiler toolchains, but in case you don’t have access to native compilers, the Anaconda toolchains should work too. <a class="reference external" href="https://conda.io/docs/user-guide/tasks/build-packages/compiler-tools.html">Check here</a> to find the appropriate packages for your platform. On Windows, you should use the MSVC compiler and Anaconda’s <code class="docutils literal notranslate"><span class="pre">m2w64-gcc-fortran</span></code>. <a class="reference external" href="https://wiki.python.org/moin/WindowsCompilers">Read this</a> for more information about acquiring the correct Microsoft compiler. If you are using CPython 3.5 or 3.6, you probably need the MSVC 14 compiler <a class="reference external" href="https://www.visualstudio.com/downloads/#build-tools-for-visual-studio-2017">available here</a>. You do <strong>not</strong> need to install visual studio to get the build tools.</p>
+<p>Now you have a choice about how you want to use Viscid. If you intend to edit Viscid’s source code, then I recommend building it inplace. Otherwise, it probably makes more sense to simply install Viscid into your python distribution.</p>
 <div class="section" id="choice-3a-installed">
-<h4>Choice 3a: installed<a class="headerlink" href="#choice-3a-installed" title="Permalink to this headline">¶</a></h4>
+<h4><a class="toc-backref" href="#id8">Choice 3a: installed</a><a class="headerlink" href="#choice-3a-installed" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> Viscid
 python setup.py install
 <span class="c1"># the above line is synonymous with `make install`</span>
@@ -350,7 +392,7 @@ python setup.py install
 </div>
 </div>
 <div class="section" id="choice-3b-inplace">
-<h4>Choice 3b: inplace<a class="headerlink" href="#choice-3b-inplace" title="Permalink to this headline">¶</a></h4>
+<h4><a class="toc-backref" href="#id9">Choice 3b: inplace</a><a class="headerlink" href="#choice-3b-inplace" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> Viscid
 python setup.py build_ext -i
 <span class="c1"># the above line is synonymous with `make inplace`</span>
@@ -362,7 +404,7 @@ python setup.py build_ext -i
 <span class="nb">source</span> <span class="si">${</span><span class="nv">profile</span><span class="si">}</span>
 </pre></div>
 </div>
-<p>To see if the bulid succeeded, try</p>
+<p>To see if the build succeeded, try</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># kick the tires</span>
 python -m viscid --check
 <span class="c1"># run the full test suite</span>
@@ -378,22 +420,101 @@ python setup.py build_ext -i
 </div>
 </div>
 <div class="section" id="verify-installation">
-<h2>Verify Installation<a class="headerlink" href="#verify-installation" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id10">Verify Installation</a><a class="headerlink" href="#verify-installation" title="Permalink to this headline">¶</a></h2>
 <p>You can always run the following to check for any installation warnings. It is most helpful when verifying whether or not the C / Fortran modules compiled successfully.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m viscid --check
 </pre></div>
 </div>
 </div>
-<div class="section" id="known-workarounds">
-<h2>Known Workarounds<a class="headerlink" href="#known-workarounds" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="installing-mayavi-optional">
+<span id="installing-mayavi"></span><h2><a class="toc-backref" href="#id11">Installing Mayavi (optional)</a><a class="headerlink" href="#installing-mayavi-optional" title="Permalink to this headline">¶</a></h2>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Do <strong>not</strong> install Mayavi using pip into an Anaconda environment. This will break your conda environment in a way that requires you to reinstall Anaconda. The issue is that pip happily clobbers some parts of pyqt that are hard linked to a cache in conda. You have been warned.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">I do not recommend using the <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> channel for VTK or Mayavi. These binaries frequently have runtime problems caused by interactions with specific versions of vtk / pyqt.</p>
+</div>
+<p>Installing Mayavi can be a mine field of incompatible dependencies. To help, here is a table to help you choose your poison. If your environment is not in the table, then it is likely not supported by Mayavi / VTK.</p>
+<table border="1" class="table-striped docutils">
+<colgroup>
+<col width="13%" />
+<col width="14%" />
+<col width="24%" />
+<col width="49%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">OS</th>
+<th class="head">Python Version</th>
+<th class="head">OpenGL / MESA</th>
+<th class="head">Installation Command</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>MacOS</td>
+<td>3.5+</td>
+<td>OpenGL 3.2+</td>
+<td><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">viscid-hub</span> <span class="pre">mayavi</span></code></td>
+</tr>
+<tr class="row-odd"><td>MacOS</td>
+<td>2.7</td>
+<td>OpenGL 3.2+</td>
+<td><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">viscid-hub</span> <span class="pre">mayavi</span></code></td>
+</tr>
+<tr class="row-even"><td>MacOS</td>
+<td>2.7</td>
+<td>Any</td>
+<td><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">mayavi</span> <span class="pre">vtk=6</span></code></td>
+</tr>
+<tr class="row-odd"><td>Linux</td>
+<td>3.5+</td>
+<td>OpenGL 3.2+, MESA 11.2+</td>
+<td><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">viscid-hub</span> <span class="pre">mayavi</span></code></td>
+</tr>
+<tr class="row-even"><td>Linux</td>
+<td>2.7</td>
+<td>OpenGL 3.2+, MESA 11.2+</td>
+<td><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">viscid-hub</span> <span class="pre">mayavi</span></code></td>
+</tr>
+<tr class="row-odd"><td>Linux</td>
+<td>2.7</td>
+<td>Any</td>
+<td><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">mayavi</span> <span class="pre">vtk=6</span></code></td>
+</tr>
+<tr class="row-even"><td>Windows</td>
+<td>3.5+</td>
+<td>OpenGL 3.2+</td>
+<td><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">viscid-hub</span> <span class="pre">mayavi</span></code></td>
+</tr>
+<tr class="row-odd"><td>Windows</td>
+<td>2.7</td>
+<td>Any</td>
+<td><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">mayavi</span> <span class="pre">vtk=6</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>The Enthought Tool Suite requires some confusing environment variables. Effectively you can just cycle through these options until you find a combination that works.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">ETS_TOOLKIT</span><span class="o">=</span><span class="s1">&#39;qt&#39;</span>  <span class="c1"># or &quot;qt4&quot; or &quot;wx&quot; for older versions of pyface</span>
+<span class="nb">export</span> <span class="nv">QT_API</span><span class="o">=</span><span class="s2">&quot;pyqt5&quot;</span>  <span class="c1"># or &quot;pyqt&quot; or &quot;pyside&quot;</span>
+</pre></div>
+</div>
+<p>Also, if you are using MESA to emulate the new OpenGL API for VTK 7+, you may need the following environment variables,</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">MESA_GL_VERSION_OVERRIDE</span><span class="o">=</span><span class="m">3</span>.2
+<span class="nb">export</span> <span class="nv">MESA_GLSL_VERSION_OVERRIDE</span><span class="o">=</span><span class="m">150</span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="functions.html#functions-mayavi"><span class="std std-ref">Check here</span></a> for a discussion of Viscid’s wrapper functions and workarounds, <a class="reference internal" href="tutorial/mayavi.html"><span class="doc">and here</span></a> for an example of Mayavi in action.</p>
+</div>
+<div class="section" id="workarounds">
+<h2><a class="toc-backref" href="#id12">Workarounds</a><a class="headerlink" href="#workarounds" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="ubuntu">
-<h3>Ubuntu<a class="headerlink" href="#ubuntu" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id13">Ubuntu</a><a class="headerlink" href="#ubuntu" title="Permalink to this headline">¶</a></h3>
 <p>All Linux workarounds are currently incorporated in <code class="docutils literal notranslate"><span class="pre">setup.py</span></code>.</p>
 </div>
 <div class="section" id="os-x">
-<h3>OS X<a class="headerlink" href="#os-x" title="Permalink to this headline">¶</a></h3>
-<p>If you get an abort trap that says <code class="docutils literal notranslate"><span class="pre">PyThreadState_Get:</span> <span class="pre">no</span> <span class="pre">current</span> <span class="pre">thread</span></code> when trying to use mayavi, then this is probably yet another anaconda packaging issue. The solution is to roll back to a different sub-release of python. running this did the trick for me: <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">python=3.5.3</span> <span class="pre">pyqt=4</span></code>.</p>
-<p>If you see a link error that says <cite>-lgcc_s.10.5</cite> can’t be found, try running:</p>
+<h3><a class="toc-backref" href="#id14">OS X</a><a class="headerlink" href="#os-x" title="Permalink to this headline">¶</a></h3>
+<p>If you see a link error that says <code class="docutils literal notranslate"><span class="pre">-lgcc_s.10.5</span></code> can’t be found, try running:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">su</span> <span class="n">root</span> <span class="o">-</span><span class="n">c</span> <span class="s2">&quot;mkdir -p /usr/local/lib &amp;&amp; ln -s /usr/lib/libSystem.B.dylib /usr/local/lib/libgcc_s.10.5.dylib&quot;</span>
 </pre></div>
 </div>
