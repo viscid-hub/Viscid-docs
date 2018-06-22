@@ -289,10 +289,10 @@ conda activate
 </div>
 <div class="section" id="installing-viscid">
 <h2><a class="toc-backref" href="#id4">Installing Viscid</a><a class="headerlink" href="#installing-viscid" title="Permalink to this headline">¶</a></h2>
-<p>You have a few choices for installing Viscid. Here is a quick breakdown of why you might choose one method over the another.</p>
+<p>You have a few choices for installing Viscid. Here is a quick breakdown of why you might choose one method over another.</p>
 <ul class="simple">
 <li><a class="reference internal" href="#choice1-conda"><span class="std std-ref">Anaconda</span></a><ul>
-<li><strong>+</strong>  Install with a single command</li>
+<li><strong>+</strong>  Installs with a single command</li>
 <li><strong>+</strong>  No compiler needed</li>
 <li><strong>+</strong>  Available for macOS, Linux, and Windows</li>
 <li><strong>+</strong>  Automatically installs recommended dependencies</li>
@@ -301,15 +301,14 @@ conda activate
 </ul>
 </li>
 <li><a class="reference internal" href="#choice2-pypi"><span class="std std-ref">PyPI (pip)</span></a><ul>
-<li><strong>+</strong>  Install with a single command</li>
+<li><strong>+</strong>  Installs with a single command</li>
 <li><strong>+</strong>  No compiler needed for pure python functionality</li>
 <li><strong>-</strong>  Recommended dependencies must be explicitly installed</li>
-<li><strong>-</strong>  Requires a C compiler for interpolation and streamline functions</li>
+<li><strong>-</strong>  Requires a C compiler for interpolation and streamline support</li>
 <li><strong>-</strong>  Requires a Fortran compiler for jrrle file support</li>
 </ul>
 </li>
 <li><a class="reference internal" href="#choice3-source"><span class="std std-ref">Source</span></a><ul>
-<li><strong>+</strong>  Most flexible</li>
 <li><strong>+</strong>  Only method that lets you edit Viscid’s source code</li>
 <li><strong>-</strong>  Requires some knowledge about PATH and PYTHONPATH (but don’t let this scare you, it’s fairly straight forward)</li>
 <li><strong>-</strong>  Dependencies must be explicitly installed</li>
@@ -366,7 +365,8 @@ cp Viscid/resources/viscidrc ~/.viscidrc
 conda activate viscid36mayavi  <span class="c1"># or viscid27, etc.</span>
 </pre></div>
 </div>
-<p><a class="reference internal" href="#conda-bashrc-blurb"><span class="std std-ref">Read this</span></a> if you need help editing your bashrc or profile to set the default anaconda environment.</p>
+<p><a class="reference internal" href="#conda-bashrc-blurb"><span class="std std-ref">Read this</span></a> if you need help editing your bashrc or profile to set the default Anaconda environment.</p>
+<p>Viscid should work with native compiler toolchains, but in case you don’t have access to native compilers, the Anaconda toolchains should work too. <a class="reference external" href="https://conda.io/docs/user-guide/tasks/build-packages/compiler-tools.html">Check here</a> to find the appropriate packages for your platform. On Windows, you should use the MSVC compiler and Anaconda’s <code class="docutils literal notranslate"><span class="pre">m2w64-gcc-fortran</span></code>. <a class="reference external" href="https://wiki.python.org/moin/WindowsCompilers">Read this</a> for more information about acquiring the correct Microsoft compiler. If you are using CPython 3.5 or 3.6, you probably need MSVC 14 compiler, <a class="reference external" href="https://www.visualstudio.com/downloads/#build-tools-for-visual-studio-2017">available here</a>. You do <strong>not</strong> need to install visual studio to get the build tools.</p>
 <p>Now you have a choice about how you want to use Viscid. If you intend to edit viscid then I recommend building it inplace. Otherwise, it probably makes more sense to simply install viscid into your python distribution.</p>
 <div class="section" id="choice-3a-installed">
 <h4><a class="toc-backref" href="#id8">Choice 3a: installed</a><a class="headerlink" href="#choice-3a-installed" title="Permalink to this headline">¶</a></h4>
@@ -430,7 +430,7 @@ python setup.py build_ext -i
 <span id="installing-mayavi"></span><h2><a class="toc-backref" href="#id11">Installing Mayavi (optional)</a><a class="headerlink" href="#installing-mayavi-optional" title="Permalink to this headline">¶</a></h2>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
-<p class="last">Do <strong>not</strong> install Mayavi using pip into an anaconda environment. This will break your conda environment in a way that requires you to reinstall anaconda. The issue is that pip happily clobbers some parts of pyqt that are hard linked to a cache in conda. You have been warned.</p>
+<p class="last">Do <strong>not</strong> install Mayavi using pip into an Anaconda environment. This will break your conda environment in a way that requires you to reinstall Anaconda. The issue is that pip happily clobbers some parts of pyqt that are hard linked to a cache in conda. You have been warned.</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
