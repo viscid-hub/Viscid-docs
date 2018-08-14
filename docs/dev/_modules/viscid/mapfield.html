@@ -23,6 +23,7 @@
 <link rel="apple-touch-icon-precomposed" href="../../_static/Vicon_128.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 <meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="../../_static/my-css.css" type="text/css" />
 
   </head><body>
 
@@ -106,6 +107,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../philosophy.html">Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../indexing.html">Indexing Fields</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/index.html">Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tips_and_tricks.html">Tips &amp; Tricks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../functions.html">Useful Functions</a></li>
@@ -274,7 +276,7 @@
     <span class="n">crd_xform</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">theta2lat</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="n">unit</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
     <span class="n">dslc</span> <span class="o">=</span> <span class="p">[</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">)]</span> <span class="o">*</span> <span class="n">fld</span><span class="o">.</span><span class="n">nr_dims</span>
     <span class="n">dslc</span><span class="p">[</span><span class="n">ddat</span><span class="p">]</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">dat_xform</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">a</span><span class="p">:</span> <span class="n">a</span><span class="p">[</span><span class="n">dslc</span><span class="p">]</span>
+    <span class="n">dat_xform</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">a</span><span class="p">:</span> <span class="n">a</span><span class="p">[</span><span class="nb">tuple</span><span class="p">(</span><span class="n">dslc</span><span class="p">)]</span>
     <span class="k">return</span> <span class="n">_fld_xform_common</span><span class="p">(</span><span class="n">fld</span><span class="p">,</span> <span class="n">base</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">unit</span><span class="p">,</span> <span class="n">crd_xform</span><span class="p">,</span> <span class="n">dat_xform</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">fld_lon2phi</span><span class="p">(</span><span class="n">fld</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="s1">&#39;lon&#39;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;phi&#39;</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;deg&#39;</span><span class="p">):</span>
@@ -287,7 +289,7 @@
     <span class="n">crd_xform</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">lat2theta</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="n">unit</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
     <span class="n">dslc</span> <span class="o">=</span> <span class="p">[</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">)]</span> <span class="o">*</span> <span class="n">fld</span><span class="o">.</span><span class="n">nr_dims</span>
     <span class="n">dslc</span><span class="p">[</span><span class="n">ddat</span><span class="p">]</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">dat_xform</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">a</span><span class="p">:</span> <span class="n">a</span><span class="p">[</span><span class="n">dslc</span><span class="p">]</span>
+    <span class="n">dat_xform</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">a</span><span class="p">:</span> <span class="n">a</span><span class="p">[</span><span class="nb">tuple</span><span class="p">(</span><span class="n">dslc</span><span class="p">)]</span>
     <span class="n">ret</span> <span class="o">=</span> <span class="n">_fld_xform_common</span><span class="p">(</span><span class="n">fld</span><span class="p">,</span> <span class="n">base</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">unit</span><span class="p">,</span> <span class="n">crd_xform</span><span class="p">,</span> <span class="n">dat_xform</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">ret</span><span class="o">.</span><span class="n">xh</span><span class="p">[</span><span class="n">dcrd</span><span class="p">]</span> <span class="o">-</span> <span class="n">ret</span><span class="o">.</span><span class="n">xl</span><span class="p">[</span><span class="n">dcrd</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">p90</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span> <span class="k">if</span> <span class="n">unit</span> <span class="o">==</span> <span class="s1">&#39;rad&#39;</span> <span class="k">else</span> <span class="mf">90.0</span>
@@ -379,7 +381,7 @@
     <span class="n">ret</span> <span class="o">=</span> <span class="n">convert_coordinates</span><span class="p">(</span><span class="n">fld</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">mapping</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="n">units</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">ret</span></div>
 
-<div class="viewcode-block" id="as_polar_mapfield"><a class="viewcode-back" href="../../api/viscid.mapfield.html#viscid.as_polar_mapfield">[docs]</a><span class="k">def</span> <span class="nf">as_polar_mapfield</span><span class="p">(</span><span class="n">fld</span><span class="p">,</span> <span class="n">bounding_lat</span><span class="o">=</span><span class="mf">40.0</span><span class="p">,</span> <span class="n">hemisphere</span><span class="o">=</span><span class="s1">&#39;north&#39;</span><span class="p">,</span>
+<div class="viewcode-block" id="as_polar_mapfield"><a class="viewcode-back" href="../../api/viscid.mapfield.html#viscid.as_polar_mapfield">[docs]</a><span class="k">def</span> <span class="nf">as_polar_mapfield</span><span class="p">(</span><span class="n">fld</span><span class="p">,</span> <span class="n">bounding_lat</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">hemisphere</span><span class="o">=</span><span class="s1">&#39;north&#39;</span><span class="p">,</span>
                       <span class="n">make_periodic</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Prepare a theta/phi or lat/lon field for polar projection</span>
 
@@ -397,24 +399,33 @@
 <span class="sd">        ValueError: on bad hemisphere</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">hemisphere</span> <span class="o">=</span> <span class="n">hemisphere</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-    <span class="n">bounding_lat</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mf">180.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">bounding_lat</span>
-    <span class="n">abs_bounding_lat</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">bounding_lat</span><span class="p">)</span>
 
     <span class="n">mfld</span> <span class="o">=</span> <span class="n">as_mapfield</span><span class="p">(</span><span class="n">fld</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;lon&#39;</span><span class="p">,</span> <span class="s1">&#39;lat&#39;</span><span class="p">),</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;rad&#39;</span><span class="p">)</span>
+
+    <span class="c1"># set a sensible default for bounding_lat... full spheres get cut off</span>
+    <span class="c1"># at 40 deg, but hemispheres or smaller are shown in full</span>
+    <span class="k">if</span> <span class="n">bounding_lat</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">mfld</span><span class="o">.</span><span class="n">xh</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">mfld</span><span class="o">.</span><span class="n">xl</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">&gt;=</span> <span class="mf">1.01</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">:</span>
+            <span class="n">bounding_lat</span> <span class="o">=</span> <span class="mf">40.0</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">bounding_lat</span> <span class="o">=</span> <span class="mf">90.0</span>
+
+    <span class="n">bounding_lat</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mf">180.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">bounding_lat</span>
+    <span class="n">abs_bounding_lat</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">bounding_lat</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">hemisphere</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;north&quot;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">mfld</span><span class="o">.</span><span class="n">get_crd</span><span class="p">(</span><span class="s1">&#39;lat&#39;</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">abs_bounding_lat</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;fld </span><span class="si">{0}</span><span class="s2"> contains no values north of bounding lat &quot;</span>
                              <span class="s2">&quot;</span><span class="si">{1:g}</span><span class="s2"> deg&quot;</span>
                              <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fld</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">bounding_lat</span> <span class="o">*</span> <span class="mi">180</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
-        <span class="c1"># mfld = mfld[&quot;lat=:{0}f:-1&quot;.format(abs_bounding_lat)]</span>
+        <span class="c1"># mfld = mfld[&quot;lat=:{0}j:-1&quot;.format(abs_bounding_lat)]</span>
         <span class="n">mfld</span> <span class="o">=</span> <span class="n">mfld</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">abs_bounding_lat</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
     <span class="k">elif</span> <span class="n">hemisphere</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;south&quot;</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">mfld</span><span class="o">.</span><span class="n">get_crd</span><span class="p">(</span><span class="s1">&#39;lat&#39;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="o">-</span><span class="n">abs_bounding_lat</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;fld </span><span class="si">{0}</span><span class="s2"> contains no values south of bounding lat &quot;</span>
                              <span class="s2">&quot;</span><span class="si">{1:g}</span><span class="s2"> deg&quot;</span>
                              <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fld</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">bounding_lat</span> <span class="o">*</span> <span class="mi">180</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
-        <span class="c1"># mfld = mfld[&quot;lat=:{0}f&quot;.format(-abs_bounding_lat)]</span>
+        <span class="c1"># mfld = mfld[&quot;lat=:{0}j&quot;.format(-abs_bounding_lat)]</span>
         <span class="n">mfld</span> <span class="o">=</span> <span class="n">mfld</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">abs_bounding_lat</span><span class="p">]</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;hemisphere should be either north or south&quot;</span><span class="p">)</span>
@@ -656,7 +667,7 @@
         <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">pole</span><span class="p">,</span> <span class="n">p1</span><span class="p">)),</span> <span class="mf">0.0</span><span class="p">):</span>
             <span class="n">pole</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 
-    <span class="n">matBtoA</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">make_rotation_matrix</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">pole</span><span class="p">,</span> <span class="n">new_x</span><span class="o">=</span><span class="n">p1</span><span class="p">)</span>
+    <span class="n">matBtoA</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">a2b_rot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">pole</span><span class="p">,</span> <span class="n">new_x</span><span class="o">=</span><span class="n">p1</span><span class="p">)</span>
 
     <span class="c1"># this is some code to validate rotation matrix</span>
     <span class="n">_xrot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">matBtoA</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
@@ -745,7 +756,7 @@
     </p>
     <p>
         &copy; Copyright 2018, Kristofor Maynard.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.6.<br/>
     </p>
   </div>
 </footer>

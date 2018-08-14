@@ -25,6 +25,7 @@
 <link rel="apple-touch-icon-precomposed" href="../_static/Vicon_128.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 <meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="../_static/my-css.css" type="text/css" />
 
   </head><body>
 
@@ -108,6 +109,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../philosophy.html">Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../indexing.html">Indexing Fields</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tips_and_tricks.html">Tips &amp; Tricks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../functions.html">Useful Functions</a></li>
@@ -192,7 +194,7 @@
 <span class="n">T</span> <span class="o">=</span> <span class="n">fac</span> <span class="o">*</span> <span class="n">f3d</span><span class="p">[</span><span class="s2">&quot;pp&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="n">f3d</span><span class="p">[</span><span class="s2">&quot;rr&quot;</span><span class="p">]</span>
 <span class="n">T</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;T&quot;</span>
 <span class="n">T</span><span class="o">.</span><span class="n">pretty_name</span> <span class="o">=</span> <span class="s2">&quot;T (K)&quot;</span>
-<span class="n">vlt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T</span><span class="p">[</span><span class="s1">&#39;y=0f&#39;</span><span class="p">],</span> <span class="n">logscale</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">earth</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">vlt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T</span><span class="p">[</span><span class="s1">&#39;y=0j&#39;</span><span class="p">],</span> <span class="n">logscale</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">earth</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 
 <span class="n">vlt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -216,12 +218,12 @@
 <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 
 <span class="c1"># plot pressure with 64 contours on a logscale</span>
-<span class="n">vlt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">f3d</span><span class="p">[</span><span class="s2">&quot;pp&quot;</span><span class="p">][</span><span class="s2">&quot;y=0.0f&quot;</span><span class="p">],</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;contourf&quot;</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span>
+<span class="n">vlt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">f3d</span><span class="p">[</span><span class="s2">&quot;pp&quot;</span><span class="p">][</span><span class="s2">&quot;y=0.0j&quot;</span><span class="p">],</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;contourf&quot;</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span>
          <span class="n">plot_opts</span><span class="o">=</span><span class="s2">&quot;log, earth&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 
 <span class="c1"># plot velocity in x with a colorbar symmetric about 0</span>
 <span class="c1"># also, share axes so this plot pans/zooms with the first</span>
-<span class="n">vlt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">f3d</span><span class="p">[</span><span class="s2">&quot;vx&quot;</span><span class="p">][</span><span class="s2">&quot;y=0.0f&quot;</span><span class="p">],</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;contourf&quot;</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span>
+<span class="n">vlt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">f3d</span><span class="p">[</span><span class="s2">&quot;vx&quot;</span><span class="p">][</span><span class="s2">&quot;y=0.0j&quot;</span><span class="p">],</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;contourf&quot;</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span>
          <span class="n">lin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">earth</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">((</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
@@ -259,7 +261,7 @@
     </p>
     <p>
         &copy; Copyright 2018, Kristofor Maynard.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.6.<br/>
     </p>
   </div>
 </footer>

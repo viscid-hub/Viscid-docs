@@ -25,6 +25,7 @@
 <link rel="apple-touch-icon-precomposed" href="_static/Vicon_128.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 <meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="_static/my-css.css" type="text/css" />
 
   </head><body>
 
@@ -108,6 +109,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="philosophy.html">Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="indexing.html">Indexing Fields</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorial/index.html">Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tips_and_tricks.html">Tips &amp; Tricks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="functions.html">Useful Functions</a></li>
@@ -216,6 +218,15 @@
 <h1>Changes<a class="headerlink" href="#changes" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="dev0">
 <h2>0.99.9.dev0<a class="headerlink" href="#dev0" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>add <cite>viscid.mfield</cite> that mimics <cite>numpy.mgrid</cite></li>
+<li>slice-by-value should now be done with imaginary numbers instead of strings encoded like ‘0.0f’. The string-‘f’ format will continue to be supported, but imaginary numbers are cleaner for this purpose.</li>
+<li>slice-by-array and slice-by-mask (bool array) are now allowed</li>
+<li>indexing rules got their own page in the docs</li>
+<li>add <cite>viscid.rotation</cite> module for rotation matrix &lt;-&gt; euler angle &lt;-&gt; quaternion conversions</li>
+</ul>
+</div></blockquote>
 </div>
 <div class="section" id="id1">
 <h2>0.99.8<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
@@ -1015,7 +1026,7 @@ so one can copy xdmf files locally and read the hdf5 files over sshfs</li>
     </p>
     <p>
         &copy; Copyright 2018, Kristofor Maynard.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.6.<br/>
     </p>
   </div>
 </footer>

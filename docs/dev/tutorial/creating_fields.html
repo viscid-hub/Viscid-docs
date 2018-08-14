@@ -25,6 +25,7 @@
 <link rel="apple-touch-icon-precomposed" href="../_static/Vicon_128.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 <meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="../_static/my-css.css" type="text/css" />
 
   </head><body>
 
@@ -108,6 +109,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../philosophy.html">Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../indexing.html">Indexing Fields</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tips_and_tricks.html">Tips &amp; Tricks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../functions.html">Useful Functions</a></li>
@@ -330,8 +332,8 @@ div.topic {
 <span class="n">fld</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="p">(</span><span class="n">X</span> <span class="o">*</span> <span class="n">Y</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="n">vlt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fld</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">][</span><span class="s1">&#39;z=0f&#39;</span><span class="p">],</span> <span class="n">cbarlabel</span><span class="o">=</span><span class="s2">&quot;V$_z$ [m/s]&quot;</span><span class="p">)</span>
-<span class="n">vlt</span><span class="o">.</span><span class="n">streamplot</span><span class="p">(</span><span class="n">fld</span><span class="p">[</span><span class="s1">&#39;z=0f&#39;</span><span class="p">])</span>
+<span class="n">vlt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fld</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">][</span><span class="s1">&#39;z=0j&#39;</span><span class="p">],</span> <span class="n">cbarlabel</span><span class="o">=</span><span class="s2">&quot;V$_z$ [m/s]&quot;</span><span class="p">)</span>
+<span class="n">vlt</span><span class="o">.</span><span class="n">streamplot</span><span class="p">(</span><span class="n">fld</span><span class="p">[</span><span class="s1">&#39;z=0j&#39;</span><span class="p">])</span>
 <span class="n">vlt</span><span class="o">.</span><span class="n">auto_adjust_subplots</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -523,7 +525,7 @@ div.topic {
     </p>
     <p>
         &copy; Copyright 2018, Kristofor Maynard.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.6.<br/>
     </p>
   </div>
 </footer>

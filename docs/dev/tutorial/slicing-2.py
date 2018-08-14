@@ -12,13 +12,13 @@ f3d.activate_time(0)
 
 # notice y=0.0, this is different from y=0; y=0 is the 0th index in
 # y, which is this case will be y=-50.0
-vlt.plot(f3d["vz"]["x = -20.0f:20.0f, y = 0.0f, z = -10.0f:10.0f"],
+vlt.plot(f3d["vz"]["x = -20.0j:20.0j, y = 0.0j, z = -10.0j:10.0j"],
          style="contourf", levels=50, plot_opts="lin_0,earth", ax=axes[0])
 plt.title(f3d.get_grid().format_time("UT"))
 
 # share axes so this plot pans/zooms with the first
 f3d.activate_time(-1)
-vlt.plot(f3d["vz"]["x = -20.0f:20.0f, y = 0.0f, z = -10.0f:10.0f"],
+vlt.plot(f3d["vz"]["x = -20.0j:20.0j, y = 0.0j, z = -10.0j:10.0j"],
          style="contourf", levels=50, plot_opts="lin_0,earth", ax=axes[1])
 plt.title(f3d.get_grid().format_time("hms"))
 

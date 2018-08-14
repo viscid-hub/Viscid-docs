@@ -23,6 +23,7 @@
 <link rel="apple-touch-icon-precomposed" href="../../../_static/Vicon_128.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 <meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="../../../_static/my-css.css" type="text/css" />
 
   </head><body>
 
@@ -106,6 +107,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../philosophy.html">Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../indexing.html">Indexing Fields</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../tutorial/index.html">Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../tips_and_tricks.html">Tips &amp; Tricks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../functions.html">Useful Functions</a></li>
@@ -231,7 +233,7 @@
     <span class="k">return</span> <span class="n">parab</span></div>
 
 <div class="viewcode-block" id="get_mp_info"><a class="viewcode-back" href="../../../api/viscid.calculator.mpause.html#viscid.get_mp_info">[docs]</a><span class="k">def</span> <span class="nf">get_mp_info</span><span class="p">(</span><span class="n">pp</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">cache</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cache_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                <span class="n">slc</span><span class="o">=</span><span class="s2">&quot;x=5.5f:11.0f, y=-4.0f:4.0f, z=-3.6f:3.6f&quot;</span><span class="p">,</span>
+                <span class="n">slc</span><span class="o">=</span><span class="s2">&quot;x=5.5j:11.0j, y=-4.0j:4.0j, z=-3.6j:3.6j&quot;</span><span class="p">,</span>
                 <span class="n">fit</span><span class="o">=</span><span class="s2">&quot;mp_xloc&quot;</span><span class="p">,</span> <span class="n">fit_p0</span><span class="o">=</span><span class="p">(</span><span class="mf">9.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)):</span>
     <span class="sd">&quot;&quot;&quot;Get info about m-pause as flattened fields</span>
 
@@ -423,7 +425,7 @@
 
         <span class="c1"># cache new fields to disk</span>
         <span class="k">if</span> <span class="n">mp_fname</span><span class="p">:</span>
-            <span class="n">viscid</span><span class="o">.</span><span class="n">save_fields</span><span class="p">(</span><span class="n">mp_fname</span> <span class="o">+</span> <span class="s2">&quot;.h5&quot;</span><span class="p">,</span> <span class="n">mp_info</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+            <span class="n">viscid</span><span class="o">.</span><span class="n">save_fields</span><span class="p">(</span><span class="n">mp_fname</span> <span class="o">+</span> <span class="s2">&quot;.h5&quot;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">mp_info</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span>
 
     <span class="k">try</span><span class="p">:</span>
         <span class="n">_paraboloid_params</span> <span class="o">=</span> <span class="n">fit_paraboloid</span><span class="p">(</span><span class="n">mp_info</span><span class="p">[</span><span class="n">fit</span><span class="p">],</span> <span class="n">p0</span><span class="o">=</span><span class="n">fit_p0</span><span class="p">)</span>
@@ -516,7 +518,7 @@
 <span class="k">def</span> <span class="nf">_main</span><span class="p">():</span>
     <span class="n">f</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">load_file</span><span class="p">(</span><span class="s2">&quot;$WORK/xi_fte_001/*.3d.[4050f].xdmf&quot;</span><span class="p">)</span>
     <span class="n">mp</span> <span class="o">=</span> <span class="n">get_mp_info</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="s1">&#39;pp&#39;</span><span class="p">],</span> <span class="n">f</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">],</span> <span class="n">f</span><span class="p">[</span><span class="s1">&#39;j&#39;</span><span class="p">],</span> <span class="n">f</span><span class="p">[</span><span class="s1">&#39;e_cc&#39;</span><span class="p">],</span> <span class="n">fit</span><span class="o">=</span><span class="s1">&#39;mp_xloc&#39;</span><span class="p">,</span>
-                     <span class="n">slc</span><span class="o">=</span><span class="s2">&quot;x=6.5f:10.5f, y=-4f:4f, z=-4.8f:3f&quot;</span><span class="p">,</span> <span class="n">cache</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+                     <span class="n">slc</span><span class="o">=</span><span class="s2">&quot;x=6.5j:10.5j, y=-4j:4j, z=-4.8j:3j&quot;</span><span class="p">,</span> <span class="n">cache</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
     <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">mp</span><span class="p">[</span><span class="s1">&#39;pp_max_xloc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">meshgrid_flat</span><span class="p">(</span><span class="n">prune</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">mp</span><span class="p">[</span><span class="s1">&#39;pp_max_xloc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
@@ -603,7 +605,7 @@
     </p>
     <p>
         &copy; Copyright 2018, Kristofor Maynard.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.6.<br/>
     </p>
   </div>
 </footer>

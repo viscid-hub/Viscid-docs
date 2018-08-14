@@ -11,13 +11,13 @@ viscid.readers.openggcm.GGCMGrid.mhd_to_gse_on_read = 'auto'
 
 
 f3d = viscid.load_file(path.join(viscid.sample_dir, 'sample_xdmf.3d.xdmf'))
-B = f3d['b']['x=-40f:15f, y=-20f:20f, z=-20f:20f']
+B = f3d['b']['x=-40j:15j, y=-20j:20j, z=-20j:20j']
 
 # Fields can be used as seeds to get one seed per grid point
-seeds = B.slice_keep('y=0f')
+seeds = B.slice_keep('y=0j')
 lines, topo = viscid.calc_streamlines(B, seeds, ibound=2.5,
                                       output=viscid.OUTPUT_BOTH)
-xpts_night = viscid.topology_bitor_clusters(topo['x=:0f, y=0f'])
+xpts_night = viscid.topology_bitor_clusters(topo['x=:0j, y=0j'])
 
 # The dayside is done separately here because the sample data is at such
 # low resolution. Super-sampling the grid with the seeds can sometimes help

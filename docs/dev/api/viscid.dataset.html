@@ -25,6 +25,7 @@
 <link rel="apple-touch-icon-precomposed" href="../_static/Vicon_128.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 <meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="../_static/my-css.css" type="text/css" />
 
   </head><body>
 
@@ -108,6 +109,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../philosophy.html">Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../indexing.html">Indexing Fields</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tips_and_tricks.html">Tips &amp; Tricks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../functions.html">Useful Functions</a></li>
@@ -249,12 +251,12 @@ temporal datasets, and does all children, not just the active child</p>
 
 <dl class="method">
 <dt id="viscid.dataset.Dataset.get_time">
-<code class="descname">get_time</code><span class="sig-paren">(</span><em>slc=slice(None</em>, <em>None</em>, <em>None)</em>, <em>val_endpoint=True</em>, <em>interior=False</em>, <em>tdunit='s'</em>, <em>tol=100</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#Dataset.get_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.Dataset.get_time" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_time</code><span class="sig-paren">(</span><em>sel=slice(None</em>, <em>None</em>, <em>None)</em>, <em>val_endpoint=True</em>, <em>interior=False</em>, <em>tdunit='s'</em>, <em>tol=100</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#Dataset.get_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.Dataset.get_time" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="viscid.dataset.Dataset.get_times">
-<code class="descname">get_times</code><span class="sig-paren">(</span><em>slc=slice(None</em>, <em>None</em>, <em>None)</em>, <em>val_endpoint=True</em>, <em>interior=False</em>, <em>tdunit='s'</em>, <em>tol=100</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#Dataset.get_times"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.Dataset.get_times" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_times</code><span class="sig-paren">(</span><em>sel=slice(None</em>, <em>None</em>, <em>None)</em>, <em>val_endpoint=True</em>, <em>interior=False</em>, <em>tdunit='s'</em>, <em>tol=100</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#Dataset.get_times"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.Dataset.get_times" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -266,12 +268,12 @@ this will recurse down to a grid</p>
 
 <dl class="method">
 <dt id="viscid.dataset.Dataset.iter_times">
-<code class="descname">iter_times</code><span class="sig-paren">(</span><em>slc=slice(None</em>, <em>None</em>, <em>None)</em>, <em>val_endpoint=True</em>, <em>interior=False</em>, <em>tdunit='s'</em>, <em>tol=100</em>, <em>resolved=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#Dataset.iter_times"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.Dataset.iter_times" title="Permalink to this definition">¶</a></dt>
+<code class="descname">iter_times</code><span class="sig-paren">(</span><em>sel=slice(None</em>, <em>None</em>, <em>None)</em>, <em>val_endpoint=True</em>, <em>interior=False</em>, <em>tdunit='s'</em>, <em>tol=100</em>, <em>resolved=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#Dataset.iter_times"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.Dataset.iter_times" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="viscid.dataset.Dataset.nr_times">
-<code class="descname">nr_times</code><span class="sig-paren">(</span><em>slc=slice(None</em>, <em>None</em>, <em>None)</em>, <em>val_endpoint=True</em>, <em>interior=False</em>, <em>tdunit='s'</em>, <em>tol=100</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#Dataset.nr_times"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.Dataset.nr_times" title="Permalink to this definition">¶</a></dt>
+<code class="descname">nr_times</code><span class="sig-paren">(</span><em>sel=slice(None</em>, <em>None</em>, <em>None)</em>, <em>val_endpoint=True</em>, <em>interior=False</em>, <em>tdunit='s'</em>, <em>tol=100</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#Dataset.nr_times"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.Dataset.nr_times" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -291,7 +293,7 @@ this will recurse down to a grid</p>
 
 <dl class="method">
 <dt id="viscid.dataset.Dataset.tslc_range">
-<code class="descname">tslc_range</code><span class="sig-paren">(</span><em>selection=slice(None</em>, <em>None</em>, <em>None)</em>, <em>tdunit='s'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#Dataset.tslc_range"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.Dataset.tslc_range" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tslc_range</code><span class="sig-paren">(</span><em>sel=slice(None</em>, <em>None</em>, <em>None)</em>, <em>tdunit='s'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#Dataset.tslc_range"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.Dataset.tslc_range" title="Permalink to this definition">¶</a></dt>
 <dd><p>Find endpoints for a time slice selection</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -365,12 +367,12 @@ else I will find the cloest time to float(item)</p>
 
 <dl class="method">
 <dt id="viscid.dataset.DatasetTemporal.get_time">
-<code class="descname">get_time</code><span class="sig-paren">(</span><em>slc=slice(None</em>, <em>None</em>, <em>None)</em>, <em>val_endpoint=True</em>, <em>interior=False</em>, <em>tdunit='s'</em>, <em>tol=100</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#DatasetTemporal.get_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.DatasetTemporal.get_time" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_time</code><span class="sig-paren">(</span><em>sel=slice(None</em>, <em>None</em>, <em>None)</em>, <em>val_endpoint=True</em>, <em>interior=False</em>, <em>tdunit='s'</em>, <em>tol=100</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#DatasetTemporal.get_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.DatasetTemporal.get_time" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="viscid.dataset.DatasetTemporal.get_times">
-<code class="descname">get_times</code><span class="sig-paren">(</span><em>slc=slice(None</em>, <em>None</em>, <em>None)</em>, <em>val_endpoint=True</em>, <em>interior=False</em>, <em>tdunit='s'</em>, <em>tol=100</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#DatasetTemporal.get_times"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.DatasetTemporal.get_times" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_times</code><span class="sig-paren">(</span><em>sel=slice(None</em>, <em>None</em>, <em>None)</em>, <em>val_endpoint=True</em>, <em>interior=False</em>, <em>tdunit='s'</em>, <em>tol=100</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#DatasetTemporal.get_times"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.DatasetTemporal.get_times" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -387,12 +389,12 @@ this will recurse down to a grid</p>
 
 <dl class="method">
 <dt id="viscid.dataset.DatasetTemporal.iter_times">
-<code class="descname">iter_times</code><span class="sig-paren">(</span><em>slc=slice(None</em>, <em>None</em>, <em>None)</em>, <em>val_endpoint=True</em>, <em>interior=False</em>, <em>tdunit='s'</em>, <em>tol=100</em>, <em>resolved=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#DatasetTemporal.iter_times"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.DatasetTemporal.iter_times" title="Permalink to this definition">¶</a></dt>
+<code class="descname">iter_times</code><span class="sig-paren">(</span><em>sel=slice(None</em>, <em>None</em>, <em>None)</em>, <em>val_endpoint=True</em>, <em>interior=False</em>, <em>tdunit='s'</em>, <em>tol=100</em>, <em>resolved=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#DatasetTemporal.iter_times"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.DatasetTemporal.iter_times" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="viscid.dataset.DatasetTemporal.nr_times">
-<code class="descname">nr_times</code><span class="sig-paren">(</span><em>slc=slice(None</em>, <em>None</em>, <em>None)</em>, <em>val_endpoint=True</em>, <em>interior=False</em>, <em>tdunit='s'</em>, <em>tol=100</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#DatasetTemporal.nr_times"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.DatasetTemporal.nr_times" title="Permalink to this definition">¶</a></dt>
+<code class="descname">nr_times</code><span class="sig-paren">(</span><em>sel=slice(None</em>, <em>None</em>, <em>None)</em>, <em>val_endpoint=True</em>, <em>interior=False</em>, <em>tdunit='s'</em>, <em>tol=100</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#DatasetTemporal.nr_times"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.DatasetTemporal.nr_times" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -407,7 +409,7 @@ this will recurse down to a grid</p>
 
 <dl class="method">
 <dt id="viscid.dataset.DatasetTemporal.tslc_range">
-<code class="descname">tslc_range</code><span class="sig-paren">(</span><em>selection=slice(None</em>, <em>None</em>, <em>None)</em>, <em>tdunit='s'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#DatasetTemporal.tslc_range"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.DatasetTemporal.tslc_range" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tslc_range</code><span class="sig-paren">(</span><em>sel=slice(None</em>, <em>None</em>, <em>None)</em>, <em>tdunit='s'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#DatasetTemporal.tslc_range"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.DatasetTemporal.tslc_range" title="Permalink to this definition">¶</a></dt>
 <dd><p>Find endpoints for a time slice selection</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -468,7 +470,7 @@ first and last values.</p>
     </p>
     <p>
         &copy; Copyright 2018, Kristofor Maynard.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.6.<br/>
     </p>
   </div>
 </footer>

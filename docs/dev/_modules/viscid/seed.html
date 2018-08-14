@@ -23,6 +23,7 @@
 <link rel="apple-touch-icon-precomposed" href="../../_static/Vicon_128.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 <meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="../../_static/my-css.css" type="text/css" />
 
   </head><body>
 
@@ -106,6 +107,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../philosophy.html">Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../indexing.html">Indexing Fields</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/index.html">Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tips_and_tricks.html">Tips &amp; Tricks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../functions.html">Useful Functions</a></li>
@@ -169,7 +171,7 @@
 <span class="kn">import</span> <span class="nn">viscid</span>
 <span class="kn">from</span> <span class="nn">viscid.compat</span> <span class="k">import</span> <span class="n">izip</span>
 
-<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;make_rotation_matrix&#39;</span><span class="p">,</span> <span class="s1">&#39;to_seeds&#39;</span><span class="p">,</span> <span class="s1">&#39;SeedGen&#39;</span><span class="p">,</span> <span class="s1">&#39;Point&#39;</span><span class="p">,</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;to_seeds&#39;</span><span class="p">,</span> <span class="s1">&#39;SeedGen&#39;</span><span class="p">,</span> <span class="s1">&#39;Point&#39;</span><span class="p">,</span>
            <span class="s1">&#39;MeshPoints&#39;</span><span class="p">,</span> <span class="s1">&#39;RectilinearMeshPoints&#39;</span><span class="p">,</span> <span class="s1">&#39;Line&#39;</span><span class="p">,</span> <span class="s1">&#39;Spline&#39;</span><span class="p">,</span>
            <span class="s1">&#39;Plane&#39;</span><span class="p">,</span> <span class="s1">&#39;Volume&#39;</span><span class="p">,</span> <span class="s1">&#39;Sphere&#39;</span><span class="p">,</span> <span class="s1">&#39;SphericalCap&#39;</span><span class="p">,</span> <span class="s1">&#39;Circle&#39;</span><span class="p">,</span>
            <span class="s1">&#39;SphericalPatch&#39;</span><span class="p">,</span> <span class="s1">&#39;PolarIonosphere&#39;</span><span class="p">]</span>
@@ -187,76 +189,6 @@
         <span class="k">return</span> <span class="n">pts</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">Point</span><span class="p">(</span><span class="n">pts</span><span class="p">)</span></div>
-
-<div class="viewcode-block" id="make_rotation_matrix"><a class="viewcode-back" href="../../api/viscid.seed.html#viscid.make_rotation_matrix">[docs]</a><span class="k">def</span> <span class="nf">make_rotation_matrix</span><span class="p">(</span><span class="n">origin</span><span class="p">,</span> <span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">roll</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">new_x</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Make a matrix that rotates origin-p2 to origin-p1</span>
-
-<span class="sd">    Note:</span>
-<span class="sd">        If you want `p1` and `p2` to be vectors, just set `origin` to</span>
-<span class="sd">        `[0, 0, 0]`.</span>
-
-<span class="sd">    Args:</span>
-<span class="sd">        origin (ndarray): Origin of the rotation in 3D</span>
-<span class="sd">        p1 (ndarray): Some point in 3D</span>
-<span class="sd">        p2 (ndarray): A point in 3D such that p1 will be rotated</span>
-<span class="sd">            around the origin so that it lies along the origin-p2</span>
-<span class="sd">            line</span>
-<span class="sd">        roll (float): Angle (in degrees) of roll around the</span>
-<span class="sd">            origin-p2 vector</span>
-<span class="sd">        new_x (ndarray): If given, then roll is set such that</span>
-<span class="sd">            the `x` axis (phi = 0) new_x projected in the plane</span>
-<span class="sd">            perpendicular to origin-p1</span>
-
-<span class="sd">    Returns:</span>
-<span class="sd">        ndarray: 3x3 orthonormal rotation matrix</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">origin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">origin</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">p1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">p2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">p2</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-
-    <span class="c1"># normalize the origin-p1 and origin-p2 vectors as `a` and `b`</span>
-    <span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="n">p1</span> <span class="o">-</span> <span class="n">origin</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">p1</span> <span class="o">-</span> <span class="n">origin</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="n">p2</span> <span class="o">-</span> <span class="n">origin</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">p2</span> <span class="o">-</span> <span class="n">origin</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-
-    <span class="c1"># Use Rodrigues&#39; Rotation Formula to rotate theta degrees around the</span>
-    <span class="c1"># cross prodect of a and b. Here, K is the skew-symmetric cross-product</span>
-    <span class="c1"># matrix</span>
-    <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)),</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>
-    <span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]):</span>
-        <span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
-        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]):</span>
-            <span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
-    <span class="n">k</span> <span class="o">=</span> <span class="n">k</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
-    <span class="n">K</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span>    <span class="p">,</span> <span class="o">-</span><span class="n">k</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>  <span class="n">k</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span>  <span class="c1"># pylint: disable=bad-whitespace</span>
-                  <span class="p">[</span><span class="n">k</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="p">,</span>     <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="n">k</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span>  <span class="c1"># pylint: disable=bad-whitespace</span>
-                  <span class="p">[</span><span class="o">-</span><span class="n">k</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>  <span class="n">k</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>     <span class="mi">0</span><span class="p">]])</span>  <span class="c1"># pylint: disable=bad-whitespace</span>
-    <span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">*</span> <span class="n">K</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">K</span><span class="p">)</span>
-
-    <span class="c1"># if new_x is given, use it to set roll</span>
-    <span class="k">if</span> <span class="n">new_x</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">new_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">new_x</span><span class="p">)</span>
-        <span class="c1"># project new_x into the plane perpendicular to b</span>
-        <span class="n">new_x</span> <span class="o">=</span> <span class="n">new_x</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">new_x</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="n">b</span>
-        <span class="n">new_x_norm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">new_x</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">new_x_norm</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span>
-            <span class="n">roll</span> <span class="o">=</span> <span class="mf">0.0</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">current_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
-            <span class="n">new_x</span> <span class="o">/=</span> <span class="n">new_x_norm</span>
-            <span class="n">current_x</span> <span class="o">/=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">current_x</span><span class="p">)</span>
-            <span class="n">roll</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">current_x</span><span class="p">,</span> <span class="n">new_x</span><span class="p">)),</span>
-                              <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">current_x</span><span class="p">,</span> <span class="n">new_x</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span><span class="mf">180.0</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
-            <span class="n">roll</span> <span class="o">*=</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">current_x</span><span class="p">,</span> <span class="n">new_x</span><span class="p">),</span> <span class="n">b</span><span class="p">))</span>
-
-    <span class="c1"># now use the same formula to roll around the the origin-p2 axis</span>
-    <span class="n">phi</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mf">180.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">roll</span>
-    <span class="n">K</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span>    <span class="p">,</span> <span class="o">-</span><span class="n">b</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>  <span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span>  <span class="c1"># pylint: disable=bad-whitespace</span>
-                  <span class="p">[</span><span class="n">b</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="p">,</span>     <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span>  <span class="c1"># pylint: disable=bad-whitespace</span>
-                  <span class="p">[</span><span class="o">-</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>  <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>     <span class="mi">0</span><span class="p">]])</span>  <span class="c1"># pylint: disable=bad-whitespace</span>
-    <span class="n">Rroll</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span> <span class="o">*</span> <span class="n">K</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">K</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Rroll</span><span class="p">,</span> <span class="n">R</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="SeedGen"><a class="viewcode-back" href="../../api/viscid.seed.html#viscid.SeedGen">[docs]</a><span class="k">class</span> <span class="nc">SeedGen</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
@@ -1317,8 +1249,8 @@
         <span class="k">return</span> <span class="n">r</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">phi</span>
 
 <div class="viewcode-block" id="Sphere.get_rotation"><a class="viewcode-back" href="../../api/viscid.seed.html#viscid.Sphere.get_rotation">[docs]</a>    <span class="k">def</span> <span class="nf">get_rotation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">make_rotation_matrix</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">pole</span><span class="p">,</span>
-                                    <span class="n">roll</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">roll</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">crd_system_roll</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">viscid</span><span class="o">.</span><span class="n">a2b_rot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">pole</span><span class="p">,</span>
+                              <span class="n">roll</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">roll</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">crd_system_roll</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;deg&#39;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Sphere.as_uv_coordinates"><a class="viewcode-back" href="../../api/viscid.seed.html#viscid.Sphere.as_uv_coordinates">[docs]</a>    <span class="k">def</span> <span class="nf">as_uv_coordinates</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">theta</span><span class="p">,</span> <span class="n">phi</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_uv_axes</span><span class="p">()</span>
@@ -1419,7 +1351,8 @@
 <span class="sd">    meshes to remove the last theta value so that the cap isn&#39;t</span>
 <span class="sd">    closed at the bottom.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">angle0</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="mf">90.0</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">angle0</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="mf">90.0</span><span class="p">,</span> <span class="n">theta_endpoint</span><span class="o">=</span><span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">],</span>
+                 <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Make a spherical cap with an optional hole in the middle</span>
 
 <span class="sd">        Args:</span>
@@ -1437,6 +1370,13 @@
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">angle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">thetalim</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">_resolve_theta_endpoints</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">theta_endpoint</span> <span class="o">==</span> <span class="s1">&#39;auto&#39;</span><span class="p">:</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">SphericalCap</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">_resolve_theta_endpoints</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">ret</span>
 
 <div class="viewcode-block" id="SphericalCap.to_local"><a class="viewcode-back" href="../../api/viscid.seed.html#viscid.SphericalCap.to_local">[docs]</a>    <span class="k">def</span> <span class="nf">to_local</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pts_3d</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div></div>
@@ -1549,8 +1489,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_uv_axes</span><span class="p">()</span>
 
 <div class="viewcode-block" id="SphericalPatch.get_rotation"><a class="viewcode-back" href="../../api/viscid.seed.html#viscid.SphericalPatch.get_rotation">[docs]</a>    <span class="k">def</span> <span class="nf">get_rotation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">make_rotation_matrix</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">p1</span><span class="p">,</span>
-                                    <span class="n">roll</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">roll</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">viscid</span><span class="o">.</span><span class="n">a2b_rot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">p1</span><span class="p">,</span> <span class="n">roll</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">roll</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;deg&#39;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="SphericalPatch.as_uv_coordinates"><a class="viewcode-back" href="../../api/viscid.seed.html#viscid.SphericalPatch.as_uv_coordinates">[docs]</a>    <span class="k">def</span> <span class="nf">as_uv_coordinates</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">alpha</span><span class="p">,</span> <span class="n">beta</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_uv_axes</span><span class="p">()</span>
@@ -1597,7 +1536,7 @@
     </p>
     <p>
         &copy; Copyright 2018, Kristofor Maynard.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.6.<br/>
     </p>
   </div>
 </footer>

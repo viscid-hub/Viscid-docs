@@ -23,6 +23,7 @@
 <link rel="apple-touch-icon-precomposed" href="../../../_static/Vicon_128.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 <meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="../../../_static/my-css.css" type="text/css" />
 
   </head><body>
 
@@ -106,6 +107,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../philosophy.html">Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../indexing.html">Indexing Fields</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../tutorial/index.html">Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../tips_and_tricks.html">Tips &amp; Tricks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../functions.html">Useful Functions</a></li>
@@ -177,7 +179,7 @@
            <span class="s2">&quot;get_sep_pts_bisect&quot;</span><span class="p">]</span>
 
 
-<div class="viewcode-block" id="trace_separator"><a class="viewcode-back" href="../../../api/viscid.calculator.separator.html#viscid.trace_separator">[docs]</a><span class="k">def</span> <span class="nf">trace_separator</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">b_slcstr</span><span class="o">=</span><span class="s2">&quot;x=-25f:15f, y=-30f:30f, z=-15f:15f&quot;</span><span class="p">,</span>
+<div class="viewcode-block" id="trace_separator"><a class="viewcode-back" href="../../../api/viscid.calculator.separator.html#viscid.trace_separator">[docs]</a><span class="k">def</span> <span class="nf">trace_separator</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">b_slcstr</span><span class="o">=</span><span class="s2">&quot;x=-25j:15j, y=-30j:30j, z=-15j:15j&quot;</span><span class="p">,</span>
                     <span class="n">r</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">trace_opts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cache</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                     <span class="n">cache_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Trace a separator line from most dawnward null</span>
@@ -222,7 +224,7 @@
     <span class="k">except</span> <span class="ne">IOError</span><span class="p">:</span>
         <span class="n">_b</span> <span class="o">=</span> <span class="n">grid</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">][</span><span class="n">b_slcstr</span><span class="p">]</span>
 
-        <span class="n">_</span><span class="p">,</span> <span class="n">nulls</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">find_nulls</span><span class="p">(</span><span class="n">_b</span><span class="p">[</span><span class="s1">&#39;x=-30f:15f&#39;</span><span class="p">],</span> <span class="n">ibound</span><span class="o">=</span><span class="mf">5.0</span><span class="p">)</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">nulls</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">find_nulls</span><span class="p">(</span><span class="n">_b</span><span class="p">[</span><span class="s1">&#39;x=-30j:15j&#39;</span><span class="p">],</span> <span class="n">ibound</span><span class="o">=</span><span class="mf">5.0</span><span class="p">)</span>
 
         <span class="c1"># get most dawnward null, nulls2 is all nulls except p0</span>
         <span class="n">nullind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">nulls</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:])</span>
@@ -718,7 +720,7 @@
     </p>
     <p>
         &copy; Copyright 2018, Kristofor Maynard.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.6.<br/>
     </p>
   </div>
 </footer>

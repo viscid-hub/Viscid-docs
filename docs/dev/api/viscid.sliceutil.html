@@ -25,6 +25,7 @@
 <link rel="apple-touch-icon-precomposed" href="../_static/Vicon_128.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 <meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="../_static/my-css.css" type="text/css" />
 
   </head><body>
 
@@ -108,6 +109,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../philosophy.html">Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../indexing.html">Indexing Fields</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tips_and_tricks.html">Tips &amp; Tricks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../functions.html">Useful Functions</a></li>
@@ -164,36 +166,224 @@
       
   <div class="section" id="module-viscid.sliceutil">
 <span id="viscid-sliceutil-module"></span><h1>viscid.sliceutil module<a class="headerlink" href="#module-viscid.sliceutil" title="Permalink to this headline">¶</a></h1>
-<p>Convenience functions for slicing by value</p>
+<p>Handle slice by index / location (value)</p>
 <dl class="function">
-<dt id="viscid.sliceutil.str2value">
-<code class="descclassname">viscid.sliceutil.</code><code class="descname">str2value</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/sliceutil.html#str2value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.sliceutil.str2value" title="Permalink to this definition">¶</a></dt>
-<dd><p>try to parse things like none, true, false, ints, floats, etc.</p>
+<dt id="viscid.sliceutil.prune_comp_sel">
+<code class="descclassname">viscid.sliceutil.</code><code class="descname">prune_comp_sel</code><span class="sig-paren">(</span><em>sel_list</em>, <em>comp_names</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/sliceutil.html#prune_comp_sel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.sliceutil.prune_comp_sel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discover and remove vector component from selection list</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="viscid.sliceutil.parse_time_slice_str">
-<code class="descclassname">viscid.sliceutil.</code><code class="descname">parse_time_slice_str</code><span class="sig-paren">(</span><em>slc_str</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/sliceutil.html#parse_time_slice_str"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.sliceutil.parse_time_slice_str" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dt id="viscid.sliceutil.raw_sel2sel_list">
+<code class="descclassname">viscid.sliceutil.</code><code class="descname">raw_sel2sel_list</code><span class="sig-paren">(</span><em>sel</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/sliceutil.html#raw_sel2sel_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.sliceutil.raw_sel2sel_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Turn generic selection into something standard we can work with</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>slc_str</strong> (<em>str</em>) – must be a single string containing a single
-time slice</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>sel</strong> (<em>object</em>) – some slice selection</p>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">one of {int, string, or slice (can contain ints,
-floats, or strings)}</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>items in sel_list are guarenteed to be</dt>
+<dd><p class="first last">of type {slice, int, complex, string, numpy.ndarray}</p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">(sel_list, input_type)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code> – slice-by-array invalid dtype</li>
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> – slice-by-array not 1D</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Individual elements of the slice can look like an int,
-float with trailing ‘f’, or they can have the form
-[A-Z]+[d:]+.d*. This last one is a datetime-like
-representation with some preceding letters. The preceding
-letters are</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.sliceutil.fill_nd_sel_list">
+<code class="descclassname">viscid.sliceutil.</code><code class="descname">fill_nd_sel_list</code><span class="sig-paren">(</span><em>sel_list</em>, <em>ax_names</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/sliceutil.html#fill_nd_sel_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.sliceutil.fill_nd_sel_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>fully determine a sparsely selected sel_list</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.sliceutil.standardize_sel_list">
+<code class="descclassname">viscid.sliceutil.</code><code class="descname">standardize_sel_list</code><span class="sig-paren">(</span><em>sel_list</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/sliceutil.html#standardize_sel_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.sliceutil.standardize_sel_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>turn all selection list elements into fundamental python types</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.sliceutil.standardize_sel">
+<code class="descclassname">viscid.sliceutil.</code><code class="descname">standardize_sel</code><span class="sig-paren">(</span><em>sel</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/sliceutil.html#standardize_sel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.sliceutil.standardize_sel" title="Permalink to this definition">¶</a></dt>
+<dd><p>turn selection list element into fundamental python types</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.sliceutil.standardize_value">
+<code class="descclassname">viscid.sliceutil.</code><code class="descname">standardize_value</code><span class="sig-paren">(</span><em>sel</em>, <em>bool_argwhere=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/sliceutil.html#standardize_value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.sliceutil.standardize_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Turn a value element to fundamental type or array</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="docutils">
+<dt>One of the following::</dt>
+<dd><ul class="first last simple">
+<li>None</li>
+<li>np.newaxis</li>
+<li>Ellipsis</li>
+<li>bool</li>
+<li>int</li>
+<li>complex (slice by value)</li>
+<li>numpy.datetime64</li>
+<li>numpy.timedelta64</li>
+<li><dl class="first docutils">
+<dt>ndarray</dt>
+<dd><ul class="first last">
+<li>numpy.integer</li>
+<li>numpy.bool_</li>
+<li>numpy.timedelta64</li>
+<li>numpy.datetime64</li>
+<li>numpy.complex</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.sliceutil.std_sel_list2index">
+<code class="descclassname">viscid.sliceutil.</code><code class="descname">std_sel_list2index</code><span class="sig-paren">(</span><em>std_sel_list</em>, <em>crd_arrs</em>, <em>val_endpoint=True</em>, <em>interior=False</em>, <em>tdunit='s'</em>, <em>epoch=None</em>, <em>tol=100</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/sliceutil.html#std_sel_list2index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.sliceutil.std_sel_list2index" title="Permalink to this definition">¶</a></dt>
+<dd><p>turn standardized selection list into index slice</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.sliceutil.std_sel2index">
+<code class="descclassname">viscid.sliceutil.</code><code class="descname">std_sel2index</code><span class="sig-paren">(</span><em>std_sel</em>, <em>crd_arr</em>, <em>val_endpoint=True</em>, <em>interior=False</em>, <em>tdunit='s'</em>, <em>epoch=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/sliceutil.html#std_sel2index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.sliceutil.std_sel2index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Turn single standardized selection into slice (by int or None)</p>
+<p>Normally (val_endpoint=True, interior=False), the rules for float
+lookup val_endpoints are:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>- The slice will never include an element whose value in arr
+  is &lt; start (or &gt; if the slice is backward)
+- The slice will never include an element whose value in arr
+  is &gt; stop (or &lt; if the slice is backward)
+- !! The slice WILL INCLUDE stop if you don&#39;t change
+  val_endpoint. This is different from normal slicing, but
+  it&#39;s more natural when specifying a slice as a float.
+</pre></div>
 </div>
+<p>If interior=True, then the slice is expanded such that start and
+stop are interior to the sliced array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>std_sel</strong> – single standardized selection</li>
+<li><strong>arr</strong> (<em>ndarray</em>) – filled with floats to do the lookup</li>
+<li><strong>val_endpoint</strong> (<em>bool</em>) – iff True then include stop in the slice when
+slicing-by-value (DOES NOT EFFECT SLICE-BY-INDEX).
+Set to False to get python slicing symantics when it
+comes to excluding stop, but fair warning, python
+symantics feel awkward here. Consider the case
+[0.1, 0.2, 0.3][:0.25]. If you think this should include
+0.2, then leave keep val_endpoint=True.</li>
+<li><strong>interior</strong> (<em>bool</em>) – if True, then extend both ends of the slice
+such that slice-by-value endpoints are interior to the
+slice</li>
+<li><strong>epoch</strong> (<em>datetime64-like</em>) – Epoch for to go datetime64 &lt;-&gt; float</li>
+<li><strong>tdunit</strong> (<em>str</em>) – Presumed time unit for floats</li>
+<li><strong>tol</strong> (<em>int</em>) – number of machine epsilons to consider
+“close enough”</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.sliceutil.sel_list2values">
+<code class="descclassname">viscid.sliceutil.</code><code class="descname">sel_list2values</code><span class="sig-paren">(</span><em>arrs</em>, <em>sel_list</em>, <em>epoch=None</em>, <em>tdunit='s'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/sliceutil.html#sel_list2values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.sliceutil.sel_list2values" title="Permalink to this definition">¶</a></dt>
+<dd><p>find the extrema values for a given sel list</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.sliceutil.sel2values">
+<code class="descclassname">viscid.sliceutil.</code><code class="descname">sel2values</code><span class="sig-paren">(</span><em>arr</em>, <em>sel</em>, <em>epoch=None</em>, <em>tdunit='s'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/sliceutil.html#sel2values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.sliceutil.sel2values" title="Permalink to this definition">¶</a></dt>
+<dd><p>find the extrema values for a given selection</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>arr</strong> (<em>None</em><em>, </em><em>sequence</em>) – array that is being selected, if this is
+None, then the output will contain np.nan where it can not
+infer values.</li>
+<li><strong>selection</strong> (<em>slice</em><em>, </em><em>str</em>) – a single selection that could be given
+to <code class="xref py py-func docutils literal notranslate"><span class="pre">to_slice()</span></code></li>
+<li><strong>epoch</strong> (<em>datetime64-like</em>) – Epoch for to go datetime64 &lt;-&gt; float</li>
+<li><strong>tdunit</strong> (<em>str</em>) – Presumed time unit for floats</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><p>(start_val, stop_val) as floats</p>
+<ul class="simple">
+<li>If arr is None and start/stop are None, then they will become
++/- inf depending on the sign of step.</li>
+<li>If arr is None and start/stop are slice-by-index, they will
+become NaN.</li>
+</ul>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.sliceutil.selection2values">
+<code class="descclassname">viscid.sliceutil.</code><code class="descname">selection2values</code><span class="sig-paren">(</span><em>arr</em>, <em>sel</em>, <em>epoch=None</em>, <em>tdunit='s'</em><span class="sig-paren">)</span><a class="headerlink" href="#viscid.sliceutil.selection2values" title="Permalink to this definition">¶</a></dt>
+<dd><p>find the extrema values for a given selection</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>arr</strong> (<em>None</em><em>, </em><em>sequence</em>) – array that is being selected, if this is
+None, then the output will contain np.nan where it can not
+infer values.</li>
+<li><strong>selection</strong> (<em>slice</em><em>, </em><em>str</em>) – a single selection that could be given
+to <code class="xref py py-func docutils literal notranslate"><span class="pre">to_slice()</span></code></li>
+<li><strong>epoch</strong> (<em>datetime64-like</em>) – Epoch for to go datetime64 &lt;-&gt; float</li>
+<li><strong>tdunit</strong> (<em>str</em>) – Presumed time unit for floats</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><p>(start_val, stop_val) as floats</p>
+<ul class="simple">
+<li>If arr is None and start/stop are None, then they will become
++/- inf depending on the sign of step.</li>
+<li>If arr is None and start/stop are slice-by-index, they will
+become NaN.</li>
+</ul>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
@@ -264,191 +454,9 @@ True</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="viscid.sliceutil.to_slices">
-<code class="descclassname">viscid.sliceutil.</code><code class="descname">to_slices</code><span class="sig-paren">(</span><em>arrs</em>, <em>selections</em>, <em>val_endpoint=True</em>, <em>interior=False</em>, <em>epoch=None</em>, <em>tdunit='s'</em>, <em>tol=100</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/sliceutil.html#to_slices"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.sliceutil.to_slices" title="Permalink to this definition">¶</a></dt>
-<dd><p>Wraps <a class="reference internal" href="#viscid.sliceutil.to_slice" title="viscid.sliceutil.to_slice"><code class="xref py py-func docutils literal notranslate"><span class="pre">to_slice()</span></code></a> for multiple arrays / slices</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>arrs</strong> (<em>list</em><em>, </em><em>None</em>) – list of arrays for float lookups, must be
-the same length as s.split(‘,’). If all slices are by
-index, then <cite>arrs</cite> can be <cite>None</cite>.</li>
-<li><strong>selections</strong> (<em>list</em><em>, </em><em>str</em>) – list of things that <a class="reference internal" href="#viscid.sliceutil.to_slice" title="viscid.sliceutil.to_slice"><code class="xref py py-func docutils literal notranslate"><span class="pre">to_slice()</span></code></a>
-understands, or a comma separated string of slices</li>
-<li><strong>val_endpoint</strong> (<em>bool</em>) – passed to <code class="xref py py-func docutils literal notranslate"><span class="pre">extract_index()</span></code> if needed</li>
-<li><strong>interior</strong> (<em>bool</em>) – passed to <code class="xref py py-func docutils literal notranslate"><span class="pre">extract_index()</span></code> if needed</li>
-<li><strong>epoch</strong> (<em>datetime64-like</em>) – Epoch for to go datetime64 &lt;-&gt; float</li>
-<li><strong>tdunit</strong> (<em>str</em>) – Presumed time unit for floats</li>
-<li><strong>tol</strong> (<em>int</em>) – passed to <code class="xref py py-func docutils literal notranslate"><span class="pre">extract_index()</span></code> if needed</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">tuple of slice objects</p>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition seealso">
-<p class="first admonition-title">See also</p>
-<ul class="last simple">
-<li><a class="reference internal" href="#viscid.sliceutil.to_slice" title="viscid.sliceutil.to_slice"><code class="xref py py-func docutils literal notranslate"><span class="pre">to_slice()</span></code></a></li>
-<li><code class="xref py py-func docutils literal notranslate"><span class="pre">extract_index()</span></code></li>
-</ul>
-</div>
-</dd></dl>
-
-<dl class="function">
-<dt id="viscid.sliceutil.to_slice">
-<code class="descclassname">viscid.sliceutil.</code><code class="descname">to_slice</code><span class="sig-paren">(</span><em>arr</em>, <em>selection</em>, <em>val_endpoint=True</em>, <em>interior=False</em>, <em>epoch=None</em>, <em>tdunit='s'</em>, <em>tol=100</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/sliceutil.html#to_slice"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.sliceutil.to_slice" title="Permalink to this definition">¶</a></dt>
-<dd><p>Convert anything describing a slice to a slice object</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>arr</strong> (<em>array</em>) – Array that you’re going to slice if you specify any
-parts of the slice by value. If all slices are by index,
-<cite>arr</cite> can be <cite>None</cite>.</li>
-<li><strong>selection</strong> (<em>int</em><em>, </em><em>str</em><em>, </em><em>slice</em>) – Something that can be turned into
-a slice. Ints are returned as-is. Slices and strings are
-parsed to see if they contain indices, or values. Values
-are strings that contain a number followed by an ‘f’. Refer
-to <code class="xref py py-func docutils literal notranslate"><span class="pre">extract_index()</span></code> for the slice-by-value
-semantics.</li>
-<li><strong>val_endpoint</strong> (<em>bool</em>) – passed to <code class="xref py py-func docutils literal notranslate"><span class="pre">extract_index()</span></code> if needed</li>
-<li><strong>interior</strong> (<em>bool</em>) – passed to <code class="xref py py-func docutils literal notranslate"><span class="pre">extract_index()</span></code> if needed</li>
-<li><strong>epoch</strong> (<em>datetime64-like</em>) – Epoch for to go datetime64 &lt;-&gt; float</li>
-<li><strong>tdunit</strong> (<em>str</em>) – Presumed time unit for floats</li>
-<li><strong>tol</strong> (<em>int</em>) – passed to <code class="xref py py-func docutils literal notranslate"><span class="pre">extract_index()</span></code> if needed</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">slice object or int</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> – Description</p>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition seealso">
-<p class="first admonition-title">See also</p>
-<ul class="last simple">
-<li><code class="xref py py-func docutils literal notranslate"><span class="pre">extract_index()</span></code></li>
-</ul>
-</div>
-</dd></dl>
-
-<dl class="function">
-<dt id="viscid.sliceutil.make_slice_inclusive">
-<code class="descclassname">viscid.sliceutil.</code><code class="descname">make_slice_inclusive</code><span class="sig-paren">(</span><em>start</em>, <em>stop=None</em>, <em>step=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/sliceutil.html#make_slice_inclusive"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.sliceutil.make_slice_inclusive" title="Permalink to this definition">¶</a></dt>
-<dd><p>Extend the end of a slice by 1 element</p>
-<p>Chances are you don’t want to use this function.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>start</strong> (<em>int</em><em>, </em><em>None</em>) – same as a slice.start</li>
-<li><strong>stop</strong> (<em>int</em><em>, </em><em>None</em>) – same as a slice.stop</li>
-<li><strong>step</strong> (<em>int</em><em>, </em><em>None</em>) – same as a slice.step</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">(start, stop, step) To be given to slice()</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="viscid.sliceutil.selections2values">
-<code class="descclassname">viscid.sliceutil.</code><code class="descname">selections2values</code><span class="sig-paren">(</span><em>arrs</em>, <em>selections</em>, <em>nr_dims</em>, <em>epoch=None</em>, <em>tdunit='s'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/sliceutil.html#selections2values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.sliceutil.selections2values" title="Permalink to this definition">¶</a></dt>
-<dd><p>find the extrema values for a given selection</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>arrs</strong> (<em>None</em><em>, </em><em>sequence</em>) – array that is being selected, if this is
-None, then the output will contain np.nan where it can not
-infer values.</li>
-<li><strong>selections</strong> (<em>slice</em><em>, </em><em>str</em>) – selections that could be given to
-<a class="reference internal" href="#viscid.sliceutil.to_slices" title="viscid.sliceutil.to_slices"><code class="xref py py-func docutils literal notranslate"><span class="pre">to_slices()</span></code></a></li>
-<li><strong>nr_dims</strong> (<em>int</em>) – arrs and selections are expanded to this length</li>
-<li><strong>epoch</strong> (<em>datetime64-like</em>) – Epoch for to go datetime64 &lt;-&gt; float</li>
-<li><strong>tdunit</strong> (<em>str</em>) – Presumed time unit for floats</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><p>ndarray with shape (nr_dims, 2) of extents as floats</p>
-<ul class="simple">
-<li>If arr is None and start/stop are None, then they will become
-+/- inf depending on the sign of step.</li>
-<li>If arr is None and start/stop are slice-by-index, they will
-become NaN.</li>
-</ul>
-</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="viscid.sliceutil.selection2values">
-<code class="descclassname">viscid.sliceutil.</code><code class="descname">selection2values</code><span class="sig-paren">(</span><em>arr</em>, <em>selection</em>, <em>epoch=None</em>, <em>tdunit='s'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/sliceutil.html#selection2values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.sliceutil.selection2values" title="Permalink to this definition">¶</a></dt>
-<dd><p>find the extrema values for a given selection</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>arr</strong> (<em>None</em><em>, </em><em>sequence</em>) – array that is being selected, if this is
-None, then the output will contain np.nan where it can not
-infer values.</li>
-<li><strong>selection</strong> (<em>slice</em><em>, </em><em>str</em>) – a single selection that could be given
-to <a class="reference internal" href="#viscid.sliceutil.to_slice" title="viscid.sliceutil.to_slice"><code class="xref py py-func docutils literal notranslate"><span class="pre">to_slice()</span></code></a></li>
-<li><strong>epoch</strong> (<em>datetime64-like</em>) – Epoch for to go datetime64 &lt;-&gt; float</li>
-<li><strong>tdunit</strong> (<em>str</em>) – Presumed time unit for floats</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><p>(start_val, stop_val) as floats</p>
-<ul class="simple">
-<li>If arr is None and start/stop are None, then they will become
-+/- inf depending on the sign of step.</li>
-<li>If arr is None and start/stop are slice-by-index, they will
-become NaN.</li>
-</ul>
-</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="viscid.sliceutil.slice2values">
-<code class="descclassname">viscid.sliceutil.</code><code class="descname">slice2values</code><span class="sig-paren">(</span><em>arr</em>, <em>start</em>, <em>stop</em>, <em>step=None</em>, <em>epoch=None</em>, <em>tdunit='s'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/sliceutil.html#slice2values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.sliceutil.slice2values" title="Permalink to this definition">¶</a></dt>
-<dd><p>Find the values that correspond with start and stop</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">(start_val, stop_val) as floats<ul class="simple">
-<li>If arr is None and start/stop are None, then they will become
-+/- inf depending on the sign of step.</li>
-<li>If arr is None and start/stop are slice-by-index, they will
-become NaN.</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
+<dt id="viscid.sliceutil.all_slices_none">
+<code class="descclassname">viscid.sliceutil.</code><code class="descname">all_slices_none</code><span class="sig-paren">(</span><em>slices</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/sliceutil.html#all_slices_none"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.sliceutil.all_slices_none" title="Permalink to this definition">¶</a></dt>
+<dd><p>true iff all slices have no effect</p>
 </dd></dl>
 
 </div>
@@ -473,7 +481,7 @@ become NaN.</li>
     </p>
     <p>
         &copy; Copyright 2018, Kristofor Maynard.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.6.<br/>
     </p>
   </div>
 </footer>

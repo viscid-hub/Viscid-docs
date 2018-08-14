@@ -25,6 +25,7 @@
 <link rel="apple-touch-icon-precomposed" href="../_static/Vicon_128.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 <meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="../_static/my-css.css" type="text/css" />
 
   </head><body>
 
@@ -108,6 +109,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../philosophy.html">Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../indexing.html">Indexing Fields</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tips_and_tricks.html">Tips &amp; Tricks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../functions.html">Useful Functions</a></li>
@@ -215,7 +217,7 @@
 
 <span class="n">seeds</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">Volume</span><span class="p">((</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">20</span><span class="p">),</span> <span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="n">n</span><span class="o">=</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">64</span><span class="p">))</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">interp_trilin</span><span class="p">(</span><span class="n">f3d</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">],</span> <span class="n">seeds</span><span class="p">)</span>
-<span class="n">vlt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">viscid</span><span class="o">.</span><span class="n">magnitude</span><span class="p">(</span><span class="n">b</span><span class="p">)[</span><span class="s1">&#39;y=0f&#39;</span><span class="p">],</span> <span class="n">logscale</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">earth</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">vlt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">viscid</span><span class="o">.</span><span class="n">magnitude</span><span class="p">(</span><span class="n">b</span><span class="p">)[</span><span class="s1">&#39;y=0j&#39;</span><span class="p">],</span> <span class="n">logscale</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">earth</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 
 <span class="n">vlt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -266,7 +268,7 @@
 <span class="n">p0</span> <span class="o">=</span> <span class="p">(</span><span class="mf">9.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">)</span>
 <span class="n">plane</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">Plane</span><span class="p">(</span><span class="n">p0</span><span class="p">,</span> <span class="n">pN</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">pL</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">],</span> <span class="n">len_l</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
                      <span class="n">len_m</span><span class="o">=</span><span class="mf">6.0</span><span class="p">,</span> <span class="n">nl</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">nm</span><span class="o">=</span><span class="mi">64</span><span class="p">)</span>
-<span class="n">slc</span> <span class="o">=</span> <span class="s2">&quot;x=6f:11f, y=-1f:1f, z=-10f:10f&quot;</span>
+<span class="n">slc</span> <span class="o">=</span> <span class="s2">&quot;x=6j:11j, y=-1j:1j, z=-10j:10j&quot;</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">interp_trilin</span><span class="p">(</span><span class="n">f3d</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">][</span><span class="n">slc</span><span class="p">],</span> <span class="n">plane</span><span class="p">)</span>
 <span class="n">j</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">interp_trilin</span><span class="p">(</span><span class="n">f3d</span><span class="p">[</span><span class="s1">&#39;j&#39;</span><span class="p">][</span><span class="n">slc</span><span class="p">],</span> <span class="n">plane</span><span class="p">)</span>
 
@@ -309,7 +311,7 @@
     </p>
     <p>
         &copy; Copyright 2018, Kristofor Maynard.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.6.<br/>
     </p>
   </div>
 </footer>

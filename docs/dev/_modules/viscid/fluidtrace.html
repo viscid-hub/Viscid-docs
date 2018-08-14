@@ -23,6 +23,7 @@
 <link rel="apple-touch-icon-precomposed" href="../../_static/Vicon_128.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 <meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="../../_static/my-css.css" type="text/css" />
 
   </head><body>
 
@@ -106,6 +107,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../philosophy.html">Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../indexing.html">Indexing Fields</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/index.html">Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tips_and_tricks.html">Tips &amp; Tricks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../functions.html">Useful Functions</a></li>
@@ -210,10 +212,18 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">obound0</span><span class="p">[</span><span class="n">_invar_dim_mask</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">obound1</span><span class="p">[</span><span class="n">_invar_dim_mask</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
 
-            <span class="n">crds</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">arrays2crds</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">obound0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">obound1</span><span class="p">])</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
-                                      <span class="n">crd_names</span><span class="o">=</span><span class="n">v_field</span><span class="o">.</span><span class="n">crds</span><span class="o">.</span><span class="n">axes</span><span class="p">)</span><span class="o">.</span><span class="n">atleast_3d</span><span class="p">(</span><span class="n">cc</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">obound_xl</span> <span class="o">=</span> <span class="n">crds</span><span class="o">.</span><span class="n">xl_nc</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">obound_xh</span> <span class="o">=</span> <span class="n">crds</span><span class="o">.</span><span class="n">xh_nc</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isinf</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">obound0</span><span class="p">))</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isinf</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">obound1</span><span class="p">))</span>
+                <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">obound0</span><span class="p">))</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">obound1</span><span class="p">))):</span>
+                <span class="n">np_err_state</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;invalid&#39;</span><span class="p">:</span> <span class="s1">&#39;ignore&#39;</span><span class="p">}</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">np_err_state</span> <span class="o">=</span> <span class="p">{}</span>
+
+            <span class="k">with</span> <span class="n">np</span><span class="o">.</span><span class="n">errstate</span><span class="p">(</span><span class="o">**</span><span class="n">np_err_state</span><span class="p">):</span>
+                <span class="n">_axes</span> <span class="o">=</span> <span class="n">v_field</span><span class="o">.</span><span class="n">crds</span><span class="o">.</span><span class="n">axes</span>
+                <span class="n">crds</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">arrays2crds</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">obound0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">obound1</span><span class="p">])</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
+                                          <span class="n">crd_names</span><span class="o">=</span><span class="n">_axes</span><span class="p">)</span><span class="o">.</span><span class="n">atleast_3d</span><span class="p">(</span><span class="n">cc</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">obound_xl</span> <span class="o">=</span> <span class="n">crds</span><span class="o">.</span><span class="n">xl_nc</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">obound_xh</span> <span class="o">=</span> <span class="n">crds</span><span class="o">.</span><span class="n">xh_nc</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">obound_xh</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
 
@@ -499,7 +509,7 @@
     </p>
     <p>
         &copy; Copyright 2018, Kristofor Maynard.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.6.<br/>
     </p>
   </div>
 </footer>

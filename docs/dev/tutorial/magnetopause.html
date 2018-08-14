@@ -25,6 +25,7 @@
 <link rel="apple-touch-icon-precomposed" href="../_static/Vicon_128.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 <meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="../_static/my-css.css" type="text/css" />
 
   </head><body>
 
@@ -108,6 +109,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../philosophy.html">Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../indexing.html">Indexing Fields</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tips_and_tricks.html">Tips &amp; Tricks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../functions.html">Useful Functions</a></li>
@@ -180,7 +182,7 @@
 
 <span class="n">f</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">load_file</span><span class="p">(</span><span class="s2">&quot;$WORK/xi_fte_001/*.3d.[4050f].xdmf&quot;</span><span class="p">)</span>
 <span class="n">mp</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">get_mp_info</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="s1">&#39;pp&#39;</span><span class="p">],</span> <span class="n">f</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">],</span> <span class="n">f</span><span class="p">[</span><span class="s1">&#39;j&#39;</span><span class="p">],</span> <span class="n">f</span><span class="p">[</span><span class="s1">&#39;e_cc&#39;</span><span class="p">],</span> <span class="n">fit</span><span class="o">=</span><span class="s1">&#39;mp_xloc&#39;</span><span class="p">,</span>
-                        <span class="n">slc</span><span class="o">=</span><span class="s2">&quot;x=6.5f:10.5f, y=-4f:4f, z=-4.8f:3f&quot;</span><span class="p">,</span>
+                        <span class="n">slc</span><span class="o">=</span><span class="s2">&quot;x=6.5j:10.5j, y=-4j:4j, z=-4.8j:3j&quot;</span><span class="p">,</span>
                         <span class="n">cache</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 
 <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">mp</span><span class="p">[</span><span class="s1">&#39;pp_max_xloc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">meshgrid_flat</span><span class="p">(</span><span class="n">prune</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
@@ -267,7 +269,7 @@
     </p>
     <p>
         &copy; Copyright 2018, Kristofor Maynard.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.6.<br/>
     </p>
   </div>
 </footer>

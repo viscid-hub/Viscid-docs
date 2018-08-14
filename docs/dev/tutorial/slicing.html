@@ -25,6 +25,7 @@
 <link rel="apple-touch-icon-precomposed" href="../_static/Vicon_128.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 <meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="../_static/my-css.css" type="text/css" />
 
   </head><body>
 
@@ -108,6 +109,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../philosophy.html">Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../indexing.html">Indexing Fields</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tips_and_tricks.html">Tips &amp; Tricks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../functions.html">Useful Functions</a></li>
@@ -172,6 +174,7 @@
       
   <div class="section" id="slicing-fields">
 <h1>Slicing Fields<a class="headerlink" href="#slicing-fields" title="Permalink to this headline">¶</a></h1>
+<p>See <a class="reference internal" href="../indexing.html"><span class="doc">Indexing Fields</span></a> for more information on field indexing.</p>
 <div class="section" id="spatial-slices">
 <h2>Spatial Slices<a class="headerlink" href="#spatial-slices" title="Permalink to this headline">¶</a></h2>
 <p>Fields can be sliced just like Numpy ndarrays, but you can also use an extended syntax to ask for a physical location instead of an index in the array. This extended syntax is to provide a string with a number followed by an ‘f’ in place of an integer that is usually found in slices. For even further convenience, you can specify the entire slice as a string and specify the slice dimension by component name.</p>
@@ -187,8 +190,8 @@
 <span class="c1"># snip off the first 5 and last 25 cells in x, and grab every other cell</span>
 <span class="c1"># in z between z = -8.0 and z = 10.0 (in space, not index).</span>
 <span class="c1"># Notice that slices by location are done by appending an &#39;f&#39; to the</span>
-<span class="c1"># slice. This means &quot;y=0&quot; is not the same as &quot;y=0f&quot;.</span>
-<span class="n">pp</span> <span class="o">=</span> <span class="n">f3d</span><span class="p">[</span><span class="s2">&quot;pp&quot;</span><span class="p">][</span><span class="s2">&quot;x = 5:-25, y = 0.0f, z = -8.0f:10.0f:2&quot;</span><span class="p">]</span>
+<span class="c1"># slice. This means &quot;y=0&quot; is not the same as &quot;y=0j&quot;.</span>
+<span class="n">pp</span> <span class="o">=</span> <span class="n">f3d</span><span class="p">[</span><span class="s2">&quot;pp&quot;</span><span class="p">][</span><span class="s2">&quot;x = 5:-25, y = 0.0j, z = -8.0j:10.0j:2&quot;</span><span class="p">]</span>
 <span class="n">vlt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pp</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;contourf&quot;</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">plot_opts</span><span class="o">=</span><span class="s2">&quot;log,earth&quot;</span><span class="p">)</span>
 
 <span class="n">vlt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -242,13 +245,13 @@
 
 <span class="c1"># notice y=0.0, this is different from y=0; y=0 is the 0th index in</span>
 <span class="c1"># y, which is this case will be y=-50.0</span>
-<span class="n">vlt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">f3d</span><span class="p">[</span><span class="s2">&quot;vz&quot;</span><span class="p">][</span><span class="s2">&quot;x = -20.0f:20.0f, y = 0.0f, z = -10.0f:10.0f&quot;</span><span class="p">],</span>
+<span class="n">vlt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">f3d</span><span class="p">[</span><span class="s2">&quot;vz&quot;</span><span class="p">][</span><span class="s2">&quot;x = -20.0j:20.0j, y = 0.0j, z = -10.0j:10.0j&quot;</span><span class="p">],</span>
          <span class="n">style</span><span class="o">=</span><span class="s2">&quot;contourf&quot;</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">plot_opts</span><span class="o">=</span><span class="s2">&quot;lin_0,earth&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">f3d</span><span class="o">.</span><span class="n">get_grid</span><span class="p">()</span><span class="o">.</span><span class="n">format_time</span><span class="p">(</span><span class="s2">&quot;UT&quot;</span><span class="p">))</span>
 
 <span class="c1"># share axes so this plot pans/zooms with the first</span>
 <span class="n">f3d</span><span class="o">.</span><span class="n">activate_time</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">vlt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">f3d</span><span class="p">[</span><span class="s2">&quot;vz&quot;</span><span class="p">][</span><span class="s2">&quot;x = -20.0f:20.0f, y = 0.0f, z = -10.0f:10.0f&quot;</span><span class="p">],</span>
+<span class="n">vlt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">f3d</span><span class="p">[</span><span class="s2">&quot;vz&quot;</span><span class="p">][</span><span class="s2">&quot;x = -20.0j:20.0j, y = 0.0j, z = -10.0j:10.0j&quot;</span><span class="p">],</span>
          <span class="n">style</span><span class="o">=</span><span class="s2">&quot;contourf&quot;</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">plot_opts</span><span class="o">=</span><span class="s2">&quot;lin_0,earth&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">f3d</span><span class="o">.</span><span class="n">get_grid</span><span class="p">()</span><span class="o">.</span><span class="n">format_time</span><span class="p">(</span><span class="s2">&quot;hms&quot;</span><span class="p">))</span>
 
@@ -280,7 +283,7 @@
 <span class="n">_</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nr_times</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">grid</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">f2d</span><span class="o">.</span><span class="n">iter_times</span><span class="p">(</span><span class="s2">&quot;:2&quot;</span><span class="p">)):</span>
-    <span class="n">vlt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="s2">&quot;vz&quot;</span><span class="p">][</span><span class="s2">&quot;x = -20.0f:20.0f, y = 0.0f, z = -10.0f:10.0f&quot;</span><span class="p">],</span>
+    <span class="n">vlt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="s2">&quot;vz&quot;</span><span class="p">][</span><span class="s2">&quot;x = -20.0j:20.0j, y = 0.0j, z = -10.0j:10.0j&quot;</span><span class="p">],</span>
              <span class="n">plot_opts</span><span class="o">=</span><span class="s2">&quot;lin_0,earth&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">grid</span><span class="o">.</span><span class="n">format_time</span><span class="p">(</span><span class="s2">&quot;.01f&quot;</span><span class="p">))</span>
 
@@ -316,7 +319,7 @@
     </p>
     <p>
         &copy; Copyright 2018, Kristofor Maynard.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.6.<br/>
     </p>
   </div>
 </footer>

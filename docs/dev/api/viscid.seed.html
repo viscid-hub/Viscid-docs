@@ -19,12 +19,13 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="viscid.sliceutil module" href="viscid.sliceutil.html" />
-    <link rel="prev" title="viscid.pyeval module" href="viscid.pyeval.html" />
+    <link rel="prev" title="viscid.rotation module" href="viscid.rotation.html" />
 <link rel="icon" href="../_static/favicon.ico" type="image/x-icon">
 <link rel="shortcut icon" href="../_static/favicon.ico" type="image/x-icon">
 <link rel="apple-touch-icon-precomposed" href="../_static/Vicon_128.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 <meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="../_static/my-css.css" type="text/css" />
 
   </head><body>
 
@@ -108,6 +109,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../philosophy.html">Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../indexing.html">Indexing Fields</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tips_and_tricks.html">Tips &amp; Tricks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../functions.html">Useful Functions</a></li>
@@ -165,43 +167,6 @@
   <div class="section" id="module-viscid.seed">
 <span id="viscid-seed-module"></span><h1>viscid.seed module<a class="headerlink" href="#module-viscid.seed" title="Permalink to this headline">¶</a></h1>
 <p>Helpers to generate seed points for streamlines</p>
-<dl class="function">
-<dt id="viscid.seed.make_rotation_matrix">
-<code class="descclassname">viscid.seed.</code><code class="descname">make_rotation_matrix</code><span class="sig-paren">(</span><em>origin</em>, <em>p1</em>, <em>p2</em>, <em>roll=0.0</em>, <em>new_x=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#make_rotation_matrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.seed.make_rotation_matrix" title="Permalink to this definition">¶</a></dt>
-<dd><p>Make a matrix that rotates origin-p2 to origin-p1</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">If you want <cite>p1</cite> and <cite>p2</cite> to be vectors, just set <cite>origin</cite> to
-<cite>[0, 0, 0]</cite>.</p>
-</div>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>origin</strong> (<em>ndarray</em>) – Origin of the rotation in 3D</li>
-<li><strong>p1</strong> (<em>ndarray</em>) – Some point in 3D</li>
-<li><strong>p2</strong> (<em>ndarray</em>) – A point in 3D such that p1 will be rotated
-around the origin so that it lies along the origin-p2
-line</li>
-<li><strong>roll</strong> (<em>float</em>) – Angle (in degrees) of roll around the
-origin-p2 vector</li>
-<li><strong>new_x</strong> (<em>ndarray</em>) – If given, then roll is set such that
-the <cite>x</cite> axis (phi = 0) new_x projected in the plane
-perpendicular to origin-p1</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">3x3 orthonormal rotation matrix</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
 <dl class="function">
 <dt id="viscid.seed.to_seeds">
 <code class="descclassname">viscid.seed.</code><code class="descname">to_seeds</code><span class="sig-paren">(</span><em>pts</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#to_seeds"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.seed.to_seeds" title="Permalink to this definition">¶</a></dt>
@@ -1091,7 +1056,7 @@ indices of an array, but only if the array already exists.</p>
 
 <dl class="class">
 <dt id="viscid.seed.SphericalCap">
-<em class="property">class </em><code class="descclassname">viscid.seed.</code><code class="descname">SphericalCap</code><span class="sig-paren">(</span><em>angle0=0.0</em>, <em>angle=90.0</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#SphericalCap"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.seed.SphericalCap" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">viscid.seed.</code><code class="descname">SphericalCap</code><span class="sig-paren">(</span><em>angle0=0.0, angle=90.0, theta_endpoint=[True, False], **kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#SphericalCap"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.seed.SphericalCap" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#viscid.seed.Sphere" title="viscid.seed.Sphere"><code class="xref py py-class docutils literal notranslate"><span class="pre">viscid.seed.Sphere</span></code></a></p>
 <p>A spherical cone or cap of seeds</p>
 <p>Defined by a center, and a point indicating the direction of the
@@ -1284,7 +1249,7 @@ closed at the bottom.</p>
     </p>
     <p>
         &copy; Copyright 2018, Kristofor Maynard.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.6.<br/>
     </p>
   </div>
 </footer>

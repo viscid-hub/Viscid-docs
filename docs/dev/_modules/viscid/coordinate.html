@@ -23,6 +23,7 @@
 <link rel="apple-touch-icon-precomposed" href="../../_static/Vicon_128.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 <meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="../../_static/my-css.css" type="text/css" />
 
   </head><body>
 
@@ -106,6 +107,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../philosophy.html">Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../indexing.html">Indexing Fields</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/index.html">Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tips_and_tricks.html">Tips &amp; Tricks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../functions.html">Useful Functions</a></li>
@@ -193,7 +195,12 @@
 <span class="kn">from</span> <span class="nn">viscid</span> <span class="k">import</span> <span class="n">sliceutil</span>
 
 
-<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;arrays2crds&#39;</span><span class="p">,</span> <span class="s1">&#39;wrap_crds&#39;</span><span class="p">,</span> <span class="s1">&#39;extend_arr&#39;</span><span class="p">]</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;NonuniformFullArrayError&#39;</span><span class="p">,</span> <span class="s1">&#39;arrays2crds&#39;</span><span class="p">,</span> <span class="s1">&#39;wrap_crds&#39;</span><span class="p">,</span> <span class="s1">&#39;extend_arr&#39;</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="NonuniformFullArrayError"><a class="viewcode-back" href="../../api/viscid.coordinate.html#viscid.NonuniformFullArrayError">[docs]</a><span class="k">class</span> <span class="nc">NonuniformFullArrayError</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;trying to make uniform crds from nonuniform full arrays&#39;&#39;&#39;</span>
+    <span class="k">pass</span></div>
 
 
 <div class="viewcode-block" id="arrays2crds"><a class="viewcode-back" href="../../api/viscid.coordinate.html#viscid.arrays2crds">[docs]</a><span class="k">def</span> <span class="nf">arrays2crds</span><span class="p">(</span><span class="n">crd_arrs</span><span class="p">,</span> <span class="n">crd_type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">crd_names</span><span class="o">=</span><span class="s2">&quot;xyzuvw&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
@@ -220,9 +227,9 @@
 
         <span class="n">clist</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">crd_name</span><span class="p">,</span> <span class="n">arr</span><span class="p">))</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">atol</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span><span class="o">.</span><span class="n">eps</span>
+            <span class="n">rtol</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span><span class="o">.</span><span class="n">eps</span>
         <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
-            <span class="n">atol</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">rtol</span> <span class="o">=</span> <span class="mi">0</span>
 
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
             <span class="n">diff</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">arr</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
@@ -232,7 +239,7 @@
         <span class="k">if</span> <span class="n">viscid</span><span class="o">.</span><span class="n">is_timedelta_like</span><span class="p">(</span><span class="n">diff</span><span class="p">,</span> <span class="n">conservative</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
             <span class="n">diff</span> <span class="o">=</span> <span class="n">diff</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">1</span><span class="p">,),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">diff</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">diff</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">diff</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">atol</span><span class="o">=</span><span class="n">atol</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">diff</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">diff</span><span class="p">,</span> <span class="n">rtol</span><span class="o">=</span><span class="n">rtol</span><span class="p">):</span>
             <span class="n">uniform_clist</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">crd_name</span><span class="p">,</span> <span class="p">[</span><span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">arr</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)]))</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">is_uniform</span> <span class="o">=</span> <span class="kc">False</span>
@@ -421,7 +428,6 @@
 
 <span class="k">class</span> <span class="nc">StructuredCrds</span><span class="p">(</span><span class="n">Coordinates</span><span class="p">):</span>
     <span class="n">_TYPE</span> <span class="o">=</span> <span class="s2">&quot;structured&quot;</span>
-    <span class="n">_INIT_FULL_ARRAYS</span> <span class="o">=</span> <span class="kc">True</span>
     <span class="n">_CENTER</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;none&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;node&quot;</span><span class="p">:</span> <span class="s2">&quot;nc&quot;</span><span class="p">,</span> <span class="s2">&quot;cell&quot;</span><span class="p">:</span> <span class="s2">&quot;cc&quot;</span><span class="p">,</span>
                <span class="s2">&quot;face&quot;</span><span class="p">:</span> <span class="s2">&quot;fc&quot;</span><span class="p">,</span> <span class="s2">&quot;edge&quot;</span><span class="p">:</span> <span class="s2">&quot;ec&quot;</span><span class="p">}</span>
     <span class="n">SUFFIXES</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">_CENTER</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
@@ -437,7 +443,7 @@
     <span class="n">has_cc</span> <span class="o">=</span> <span class="kc">None</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">init_clist</span><span class="p">,</span> <span class="n">has_cc</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">reflect_axes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                 <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+                 <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">full_arrays</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">quiet_init</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; if caled with an init_clist, then the coordinate names</span>
 <span class="sd">        are taken from this list &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">has_cc</span> <span class="o">=</span> <span class="n">has_cc</span>
@@ -504,11 +510,11 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">shape_nc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">[</span><span class="n">ax</span><span class="p">])</span> <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">[</span><span class="n">ax</span><span class="p">])</span> <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="p">])</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">shape_cc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">[</span><span class="n">ax</span> <span class="o">+</span> <span class="s2">&quot;cc&quot;</span><span class="p">])</span> <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">[</span><span class="n">ax</span> <span class="o">+</span> <span class="s2">&quot;cc&quot;</span><span class="p">])</span> <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="p">])</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -699,7 +705,7 @@
     <span class="k">def</span> <span class="nf">_sm1</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
         <span class="n">n</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">shape</span>
         <span class="n">slices</span> <span class="o">=</span> <span class="p">[</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span> <span class="k">if</span> <span class="n">ni</span> <span class="o">&lt;=</span> <span class="mi">1</span> <span class="k">else</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">ni</span> <span class="ow">in</span> <span class="n">n</span><span class="p">]</span>
-        <span class="k">return</span> <span class="n">a</span><span class="p">[</span><span class="n">slices</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">a</span><span class="p">[</span><span class="nb">tuple</span><span class="p">(</span><span class="n">slices</span><span class="p">)]</span>
 
     <span class="k">def</span> <span class="nf">_ogrid_single</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">arr</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; returns (flat array, open array) &quot;&quot;&quot;</span>
@@ -716,256 +722,38 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">get_slice_extent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">selections</span><span class="p">,</span> <span class="n">allow_read</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_slice_extent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">selection</span><span class="p">,</span> <span class="n">allow_read</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;find value extent of a slice&quot;&quot;&quot;</span>
         <span class="c1"># IMPORTANT: This does not touch the actual crd arrays to maintain</span>
         <span class="c1">#            lazyness</span>
-        <span class="n">_</span><span class="p">,</span> <span class="n">selections</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parse_slice</span><span class="p">(</span><span class="n">selections</span><span class="p">)</span>
-        <span class="n">extent</span> <span class="o">=</span> <span class="n">sliceutil</span><span class="o">.</span><span class="n">selections2values</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">selections</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nr_dims</span><span class="p">)</span>
+        <span class="c1"># _, selections, _ = self._parse_slice(selections)</span>
+        <span class="c1"># extent = sliceutil.selections2values(None, selections, self.nr_dims)</span>
+
+        <span class="n">sel_list</span> <span class="o">=</span> <span class="n">sliceutil</span><span class="o">.</span><span class="n">raw_sel2sel_list</span><span class="p">(</span><span class="n">selection</span><span class="p">)</span>
+        <span class="n">full_sel_info</span> <span class="o">=</span> <span class="n">sliceutil</span><span class="o">.</span><span class="n">fill_nd_sel_list</span><span class="p">(</span><span class="n">sel_list</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="p">)</span>
+        <span class="n">full_sel_list</span><span class="p">,</span> <span class="n">full_ax_names</span><span class="p">,</span> <span class="n">full_newdim_flags</span> <span class="o">=</span> <span class="n">full_sel_info</span>
+        <span class="n">std_sel_list</span> <span class="o">=</span> <span class="n">sliceutil</span><span class="o">.</span><span class="n">standardize_sel_list</span><span class="p">(</span><span class="n">full_sel_list</span><span class="p">)</span>
+
+        <span class="c1"># # FIXME: std_sel_list to extent</span>
+        <span class="c1"># extent = selection2values(None, std_sel_list)</span>
+
+        <span class="n">extent</span> <span class="o">=</span> <span class="n">sliceutil</span><span class="o">.</span><span class="n">sel_list2values</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">std_sel_list</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">extent</span><span class="p">)):</span>
             <span class="k">if</span> <span class="n">allow_read</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Fallback to crd read to find slice &quot;</span>
                                           <span class="s2">&quot;extent is not yet implemented.&quot;</span><span class="p">)</span>
             <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Can&#39;t infer extent for selection [</span><span class="si">{0}</span><span class="s2">] &quot;</span>
-                               <span class="s2">&quot;without reading crds&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">selections</span><span class="p">))</span>
+                               <span class="s2">&quot;without reading crds&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">selection</span><span class="p">))</span>
 
         <span class="c1"># enforce that the values are increasing</span>
-        <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">extent</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
-            <span class="k">if</span> <span class="n">extent</span><span class="p">[</span><span class="n">d</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">extent</span><span class="p">[</span><span class="n">d</span><span class="p">,</span> <span class="mi">0</span><span class="p">]:</span>
-                <span class="n">extent</span><span class="p">[</span><span class="n">d</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">extent</span><span class="p">[</span><span class="n">d</span><span class="p">,</span> <span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">ext</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">extent</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">ext</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">ext</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+                <span class="n">extent</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">extent</span><span class="p">[</span><span class="n">i</span><span class="p">][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="n">extent</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">extent</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">extent</span><span class="o">.</span><span class="n">T</span>
-
-    <span class="k">def</span> <span class="nf">_parse_slice</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">selection</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Resolve axes names, Ellipsis, and np.newaxis from selection</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">            selection (str, list): Something to select a subset of a</span>
-<span class="sd">                field</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            tuple (axes, selection)</span>
-
-<span class="sd">            * *axes*: list of strings, one for each axis name</span>
-<span class="sd">            * *selection*: something almost usable by</span>
-<span class="sd">                :py:func:`numpy.ndarray.__getitem__`. The catch is the</span>
-<span class="sd">                selection could contain etries that look like &quot;0&quot; or</span>
-<span class="sd">                &quot;5.0f&quot;. These strings are resolved by</span>
-<span class="sd">                :py:func:`viscid.sliceutil.to_slices`.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1"># SIDE-EFFECT: selection won&#39;t have any whitespace</span>
-        <span class="c1"># parse selection if it&#39;s a string into a list of selections</span>
-        <span class="c1"># that are in the same order as the dimensions of self</span>
-        <span class="n">self_axes</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="p">)</span>
-        <span class="n">new_axes_names</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="n">new_axes_inds</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="n">ellipsis_ind</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
-
-        <span class="k">if</span> <span class="n">selection</span> <span class="ow">is</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">:</span>
-            <span class="k">pass</span>
-        <span class="k">elif</span> <span class="n">selection</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">selection</span><span class="p">:</span>
-            <span class="n">selection</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">selection</span><span class="p">,</span> <span class="n">string_types</span><span class="p">):</span>
-            <span class="c1"># # giving the whole slice as a string usually means the</span>
-            <span class="c1"># # user is specifying the axis of each slice</span>
-            <span class="n">orig_selection_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">selection</span><span class="p">)</span>
-            <span class="n">selection</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">selection</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
-            <span class="n">split_sel</span> <span class="o">=</span> <span class="n">selection</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
-
-            <span class="c1">#</span>
-            <span class="n">idx_ellipsis</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
-            <span class="n">idx_newaxes</span> <span class="o">=</span> <span class="p">[]</span>
-            <span class="n">idx_unnamed_axes</span> <span class="o">=</span> <span class="p">[]</span>
-            <span class="n">idx_named_axes</span> <span class="o">=</span> <span class="p">[]</span>
-            <span class="n">named_axes</span> <span class="o">=</span> <span class="p">[]</span>
-            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">split_sel</span><span class="p">):</span>
-                <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-                    <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;Too many &#39;=&#39; in selection &#39;</span><span class="si">{0}</span><span class="s2">&#39;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
-                <span class="n">ax</span><span class="p">,</span> <span class="n">slc_str</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
-
-                <span class="k">if</span> <span class="n">slc_str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="s1">&#39;newaxis&#39;</span><span class="p">):</span>
-                    <span class="n">idx_newaxes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-                <span class="k">if</span> <span class="n">slc_str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;...&#39;</span><span class="p">,</span> <span class="s1">&#39;ellipsis&#39;</span><span class="p">):</span>
-                    <span class="k">if</span> <span class="n">idx_ellipsis</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
-                        <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;Malformed slice &#39;</span><span class="si">{0}</span><span class="s2">&#39;, at most one &quot;</span>
-                                         <span class="s2">&quot;ellipsis per slice&quot;</span>
-                                         <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">orig_selection_str</span><span class="p">))</span>
-                    <span class="n">idx_ellipsis</span> <span class="o">=</span> <span class="n">i</span>
-
-                <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-                    <span class="c1"># includes ellipsis if any</span>
-                    <span class="n">idx_unnamed_axes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="n">idx_named_axes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-                    <span class="n">named_axes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
-
-            <span class="n">n_newaxes</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">idx_newaxes</span><span class="p">)</span>
-            <span class="n">assert_ordered_ax</span> <span class="o">=</span> <span class="n">n_newaxes</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">idx_ellipsis</span> <span class="o">&gt;=</span> <span class="mi">0</span>
-
-            <span class="c1"># validate the named axes</span>
-            <span class="n">_order</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">self_axes</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">_nax</span><span class="p">)</span>
-                               <span class="k">for</span> <span class="n">_nax</span> <span class="ow">in</span> <span class="n">named_axes</span> <span class="k">if</span> <span class="n">_nax</span> <span class="ow">in</span> <span class="n">self_axes</span><span class="p">])</span>
-            <span class="n">_diff</span> <span class="o">=</span> <span class="n">_order</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">_order</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-
-            <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">_diff</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
-                <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;Malformed slice &#39;</span><span class="si">{0}</span><span class="s2">&#39; has repeated named &quot;</span>
-                                 <span class="s2">&quot;axes.&quot;</span><span class="p">)</span>
-            <span class="c1"># if we have new axes or an ellipsis, then make sure named_axes</span>
-            <span class="c1"># is in the same order as self_axes, otherwise it&#39;s unclear where</span>
-            <span class="c1"># to place the new axes</span>
-            <span class="k">if</span> <span class="n">assert_ordered_ax</span> <span class="ow">and</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">_diff</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">):</span>
-                <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;Malformed slice &#39;</span><span class="si">{0}</span><span class="s2">&#39; has new axes or an &quot;</span>
-                                 <span class="s2">&quot;ellipsis, but the named axes are out of order.&quot;</span><span class="p">)</span>
-
-            <span class="n">selection</span> <span class="o">=</span> <span class="p">[</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">)]</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nr_dims</span> <span class="o">+</span> <span class="n">n_newaxes</span><span class="p">)</span>
-            <span class="n">avail_slots</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">selection</span><span class="p">)))</span>
-            <span class="n">n_added_newax</span> <span class="o">=</span> <span class="mi">0</span>
-
-            <span class="k">for</span> <span class="n">isel</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">split_sel</span><span class="p">):</span>
-                <span class="n">ax</span><span class="p">,</span> <span class="n">slc_str</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
-
-                <span class="k">if</span> <span class="n">slc_str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="s1">&#39;newaxis&#39;</span><span class="p">):</span>
-                    <span class="n">slc_val</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span>
-                <span class="k">elif</span> <span class="n">slc_str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;...&#39;</span><span class="p">,</span> <span class="s1">&#39;ellipsis&#39;</span><span class="p">):</span>
-                    <span class="n">slc_val</span> <span class="o">=</span> <span class="bp">Ellipsis</span>
-                <span class="k">elif</span> <span class="n">slc_str</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="s1">&#39;::&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">):</span>
-                    <span class="n">slc_val</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>  <span class="c1"># why is this necessary?</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="n">slc_val</span> <span class="o">=</span> <span class="n">slc_str</span>
-
-                <span class="c1"># now where to place it in the new selection</span>
-                <span class="n">slot</span> <span class="o">=</span> <span class="kc">None</span>
-
-                <span class="k">if</span> <span class="n">slc_val</span> <span class="o">==</span> <span class="bp">Ellipsis</span><span class="p">:</span>
-                    <span class="c1"># TODO: consume avail_slots, and keep slot == None</span>
-                    <span class="n">_jump</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">avail_slots</span><span class="p">)</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">split_sel</span><span class="p">[</span><span class="n">isel</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:])</span>
-                    <span class="n">avail_slots</span> <span class="o">=</span> <span class="n">avail_slots</span><span class="p">[</span><span class="n">_jump</span><span class="p">:]</span>
-                <span class="k">elif</span> <span class="n">ax</span> <span class="ow">and</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">self_axes</span><span class="p">:</span>
-                    <span class="c1"># existing named axis</span>
-                    <span class="n">slot</span> <span class="o">=</span> <span class="n">self_axes</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span> <span class="o">+</span> <span class="n">n_added_newax</span>
-                    <span class="k">assert</span> <span class="n">slot</span> <span class="ow">in</span> <span class="n">avail_slots</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="n">slot</span> <span class="o">=</span> <span class="n">avail_slots</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-
-                <span class="c1"># now place the slc_val into the slot</span>
-                <span class="k">if</span> <span class="n">slot</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-                    <span class="k">if</span> <span class="n">slc_val</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">:</span>
-                        <span class="n">n_added_newax</span> <span class="o">+=</span> <span class="mi">1</span>
-                        <span class="n">new_axes_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
-                    <span class="k">if</span> <span class="n">assert_ordered_ax</span><span class="p">:</span>
-                        <span class="n">avail_slots</span> <span class="o">=</span> <span class="n">avail_slots</span><span class="p">[</span><span class="n">avail_slots</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">slot</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:]</span>
-                    <span class="k">else</span><span class="p">:</span>
-                        <span class="n">avail_slots</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">slot</span><span class="p">)</span>
-                    <span class="n">selection</span><span class="p">[</span><span class="n">slot</span><span class="p">]</span> <span class="o">=</span> <span class="n">slc_val</span>
-
-        <span class="k">try</span><span class="p">:</span>
-            <span class="n">selection</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">selection</span><span class="p">)</span>
-        <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
-            <span class="n">selection</span> <span class="o">=</span> <span class="p">[</span><span class="n">selection</span><span class="p">]</span>
-
-        <span class="c1"># make stripped_selection which is selection with all newaxis and</span>
-        <span class="c1"># Ellspsis elements removed such that</span>
-        <span class="c1"># len(stripped_selection) == self.nr_dims.</span>
-        <span class="c1">#</span>
-        <span class="c1"># Note that new_axes_{names,inds} should be</span>
-        <span class="c1"># empty b/c if selection was a string that contained newaxes</span>
-        <span class="c1"># then they were dealt with above and there would be no more</span>
-        <span class="c1"># left in selection.</span>
-        <span class="n">stripped_selection</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="n">axes</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">sel</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">selection</span><span class="p">):</span>
-            <span class="k">try</span><span class="p">:</span>
-                <span class="n">sel</span> <span class="o">=</span> <span class="n">sel</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-            <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
-                <span class="k">pass</span>
-            <span class="k">if</span> <span class="n">sel</span> <span class="ow">in</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="s2">&quot;newaxis&quot;</span><span class="p">,</span> <span class="s2">&quot;none&quot;</span><span class="p">]:</span>
-                <span class="n">new_axes_inds</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">new_axes_inds</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">new_axes_names</span><span class="p">):</span>
-                    <span class="n">new_axes_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
-
-            <span class="k">elif</span> <span class="n">sel</span> <span class="ow">in</span> <span class="p">[</span><span class="bp">Ellipsis</span><span class="p">,</span> <span class="s1">&#39;...&#39;</span><span class="p">,</span> <span class="s2">&quot;ellipsis&quot;</span><span class="p">]:</span>
-                <span class="k">assert</span> <span class="n">ellipsis_ind</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span>
-                <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">selection</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
-                    <span class="c1"># ending the slice with an elipsis causes issues with</span>
-                    <span class="c1"># newaxes... FIXME: why is 1 - len(new_axes_inds) only</span>
-                    <span class="c1"># incorrect if we end in an ellipsis... this is suspicious</span>
-                    <span class="k">pass</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="n">ellipsis_ind</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">new_axes_inds</span><span class="p">)</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">stripped_selection</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sel</span><span class="p">)</span>
-
-        <span class="c1"># make names for unnamed new axes</span>
-        <span class="n">new_crd_cnt</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">new_axes_names</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="n">new_name</span> <span class="o">=</span> <span class="s2">&quot;new-x</span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">new_crd_cnt</span><span class="p">)</span>
-                <span class="k">while</span> <span class="n">new_name</span> <span class="ow">in</span> <span class="n">axes</span> <span class="ow">or</span> <span class="n">new_name</span> <span class="ow">in</span> <span class="n">new_axes_names</span><span class="p">:</span>
-                    <span class="n">new_crd_cnt</span> <span class="o">+=</span> <span class="mi">1</span>
-                    <span class="n">new_name</span> <span class="o">=</span> <span class="s2">&quot;new-x</span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">new_crd_cnt</span><span class="p">)</span>
-                <span class="n">new_axes_names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_name</span>
-                <span class="n">new_crd_cnt</span> <span class="o">+=</span> <span class="mi">1</span>
-
-        <span class="c1"># now put ellipsis &amp;&amp; newaxes back into stripped_selection</span>
-        <span class="k">if</span> <span class="n">ellipsis_ind</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">n_added</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nr_dims</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">stripped_selection</span><span class="p">)</span>
-
-            <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_added</span><span class="p">):</span>
-                <span class="n">stripped_selection</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">ellipsis_ind</span><span class="p">,</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">))</span>
-
-            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">new_axes_inds</span><span class="p">)):</span>
-                <span class="k">if</span> <span class="n">new_axes_inds</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">ellipsis_ind</span><span class="p">:</span>
-                    <span class="n">new_axes_inds</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">n_added</span>
-
-        <span class="c1"># (note, ax_idx_map will give the index of a self.axes[*] in the</span>
-        <span class="c1">#  new axes, ie, after new axes are added (np.newaxis))</span>
-        <span class="n">ax_idx_map</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
-        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">oldax</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">axes</span><span class="p">):</span>
-            <span class="n">ax_idx_map</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>
-            <span class="n">ax_idx_map</span><span class="p">[</span><span class="n">oldax</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>
-
-        <span class="k">for</span> <span class="n">ind</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">izip</span><span class="p">(</span><span class="n">new_axes_inds</span><span class="p">,</span> <span class="n">new_axes_names</span><span class="p">):</span>
-            <span class="n">stripped_selection</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">ind</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">)</span>
-            <span class="n">axes</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">ind</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
-            <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">ax_idx_map</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-                <span class="k">if</span> <span class="n">v</span> <span class="o">&gt;=</span> <span class="n">ind</span><span class="p">:</span>
-                    <span class="n">ax_idx_map</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="mi">1</span>
-        <span class="n">selection</span> <span class="o">=</span> <span class="n">stripped_selection</span>
-
-        <span class="c1"># make sure there&#39;s a slice for all dimensions</span>
-        <span class="n">nr_new_dims</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nr_dims</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">new_axes_names</span><span class="p">)</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">selection</span><span class="p">)</span>
-        <span class="n">selection</span> <span class="o">+=</span> <span class="p">[</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">)]</span> <span class="o">*</span> <span class="n">nr_new_dims</span>
-
-        <span class="k">return</span> <span class="n">axes</span><span class="p">,</span> <span class="n">selection</span><span class="p">,</span> <span class="n">ax_idx_map</span>
-
-    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">native_slice</span><span class="p">(</span><span class="n">crd_arr</span><span class="p">,</span> <span class="n">slc</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="s1">&#39;node&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">axis</span><span class="p">:</span>
-            <span class="n">crd_arr</span> <span class="o">=</span> <span class="n">crd_arr</span><span class="o">.</span><span class="n">get_crd</span><span class="p">(</span><span class="n">axis</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="n">center</span><span class="p">)</span>
-
-        <span class="n">crd_arr</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">asarray_datetime64</span><span class="p">(</span><span class="n">crd_arr</span><span class="p">,</span> <span class="n">conservative</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-        <span class="k">if</span> <span class="n">slc</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">crd_arr</span> <span class="o">=</span> <span class="n">crd_arr</span><span class="p">[</span><span class="n">slc</span><span class="p">]</span>
-        <span class="k">return</span> <span class="n">crd_arr</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-
-    <span class="c1"># def _native_slice(self, axis, slc, center=&#39;node&#39;):</span>
-    <span class="c1">#     &quot;&quot;&quot;Get a sliced crd array to construct crds of same type</span>
-
-    <span class="c1">#     Args:</span>
-    <span class="c1">#         axis: something __getitem__ will understand to pull</span>
-    <span class="c1">#             out a single coordinate axis</span>
-    <span class="c1">#         slc (slice): Should be a valid slice of ints</span>
-
-    <span class="c1">#     Returns:</span>
-    <span class="c1">#         A sliced single coordinate array that __init__ understands</span>
-    <span class="c1">#         by default</span>
-    <span class="c1">#     &quot;&quot;&quot;</span>
-    <span class="c1">#     if slc is None:</span>
-    <span class="c1">#         return self.get_crd(axis, center=center).reshape(-1)</span>
-    <span class="c1">#     else:</span>
-    <span class="c1">#         return self.get_crd(axis, center=center)[slc].reshape(-1)</span>
 
     <span class="k">def</span> <span class="nf">nc2cc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">default_width</span><span class="o">=</span><span class="mf">1e-5</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Extend coordinates half a grid cell in all directions</span>
@@ -986,150 +774,163 @@
         <span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)(</span><span class="n">new_clist</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_make_slice</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">selection</span><span class="p">,</span> <span class="n">cc</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Turns a slice string into a slice (should be private?)</span>
+        <span class="sd">&quot;&quot;&quot;Turns a selection into finalized slices and coordinates</span>
 
-<span class="sd">        Slices should be made using the normal ``field[selection]``</span>
-<span class="sd">        syntax. This function is more for internal use; however it</span>
-<span class="sd">        does document the slice string syntax.</span>
-
-<span class="sd">        In practice, selection can be a string like</span>
-<span class="sd">        &quot;y = 3:6:2, z = 0.0f&quot; where integers indicate an index as</span>
-<span class="sd">        opposed to floats followed by an &#39;f&#39; which slice by crd value.</span>
-<span class="sd">        The example slice would be the 3rd and 5th crds in y, and the</span>
-<span class="sd">        z = 0.0 plane. Selection can also be the usual tuple of slice</span>
-<span class="sd">        objects / integers like one would give to numpy.</span>
-
-<span class="sd">        &quot;y = 3:6:2, z = 0.0&quot; will give (if z[32] is closest to z=0.0)::</span>
-
-<span class="sd">            ([slice(None), slice(3, 6, 2), 32],</span>
-<span class="sd">             [[&#39;x&#39;, ndarray(all nc x crds)], [&#39;y&#39;, array(y[3], y[5])]],</span>
-<span class="sd">             [[&#39;z&#39;, 0.0]],</span>
-<span class="sd">            )</span>
+<span class="sd">        selection is passed through</span>
+<span class="sd">        :py:func:`viscid.sliceutil.raw_sel2sel_list` and</span>
+<span class="sd">        :py:func:`viscid.sliceutil.standardize_sel_list`</span>
 
 <span class="sd">        Parameters:</span>
-<span class="sd">            selection (int, str, slice): slice string</span>
+<span class="sd">            selection (str, list): selection</span>
 <span class="sd">            cc (bool): cell centered slice</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            tuple (slices, slcrds, reduced)</span>
 
-<span class="sd">            * **slices**: list of slice objects, one for each axis in</span>
-<span class="sd">              self</span>
+<span class="sd">            * **slices**: list of things that can go straight into an</span>
+<span class="sd">                ndarray&#39;s __getitem__; one for each axis in self plus</span>
+<span class="sd">                any new axes</span>
 <span class="sd">            * **slcrds**: a clist for what the coords will be after the</span>
-<span class="sd">              slice</span>
+<span class="sd">                slice</span>
 <span class="sd">            * **reduced**: a list of (axis, location) pairs of which</span>
-<span class="sd">              axes are sliced out</span>
+<span class="sd">                axes are sliced out</span>
 
 <span class="sd">        Note: cc is necessary for finding the closest plane, otherwise it</span>
 <span class="sd">            might be off by half a grid cell</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1"># print(&quot;&gt; make slice&quot;, selection)</span>
-        <span class="c1"># parse selection if it&#39;s a string into a list of selections where</span>
-        <span class="c1"># the axes are in the same order as self.axes</span>
-        <span class="c1"># (note, ax_idx_map will give the index of a self.axes[*] in the</span>
-        <span class="c1">#  new axes, ie, after new axes are added (np.newaxis))</span>
-        <span class="n">axes</span><span class="p">,</span> <span class="n">selection</span><span class="p">,</span> <span class="n">ax_idx_map</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parse_slice</span><span class="p">(</span><span class="n">selection</span><span class="p">)</span>
+        <span class="n">sel_list</span> <span class="o">=</span> <span class="n">sliceutil</span><span class="o">.</span><span class="n">raw_sel2sel_list</span><span class="p">(</span><span class="n">selection</span><span class="p">)</span>
+        <span class="n">full_sel_info</span> <span class="o">=</span> <span class="n">sliceutil</span><span class="o">.</span><span class="n">fill_nd_sel_list</span><span class="p">(</span><span class="n">sel_list</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="p">)</span>
+        <span class="n">full_sel_list</span><span class="p">,</span> <span class="n">full_ax_names</span><span class="p">,</span> <span class="n">full_newdim_flags</span> <span class="o">=</span> <span class="n">full_sel_info</span>
+        <span class="n">std_sel_list</span> <span class="o">=</span> <span class="n">sliceutil</span><span class="o">.</span><span class="n">standardize_sel_list</span><span class="p">(</span><span class="n">full_sel_list</span><span class="p">)</span>
+
         <span class="n">crd_arrs_nc</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">crd_arrs_cc</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">sel</span> <span class="ow">in</span> <span class="n">izip</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">count</span><span class="p">(),</span> <span class="n">axes</span><span class="p">,</span> <span class="n">selection</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">sel</span> <span class="ow">in</span> <span class="n">izip</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">count</span><span class="p">(),</span> <span class="n">full_ax_names</span><span class="p">,</span> <span class="n">std_sel_list</span><span class="p">):</span>
             <span class="k">if</span> <span class="n">ax</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="p">:</span>
+                <span class="k">assert</span> <span class="ow">not</span> <span class="n">full_newdim_flags</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
                 <span class="n">crd_arrs_nc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_nc</span><span class="p">(</span><span class="n">ax</span><span class="p">))</span>
                 <span class="n">crd_arrs_cc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_cc</span><span class="p">(</span><span class="n">ax</span><span class="p">))</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="k">assert</span> <span class="n">sel</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span>
+                <span class="k">assert</span> <span class="n">sel</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span> <span class="ow">and</span> <span class="n">full_newdim_flags</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
                 <span class="k">if</span> <span class="n">cc</span><span class="p">:</span>
                     <span class="n">crd_arrs_nc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">1e-1</span><span class="p">,</span> <span class="mf">1e-1</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">))</span>
                     <span class="n">crd_arrs_cc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">))</span>
                 <span class="k">else</span><span class="p">:</span>
                     <span class="n">crd_arrs_nc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">))</span>
                     <span class="n">crd_arrs_cc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">))</span>
-                <span class="c1"># selection[i] = slice(None)</span>
 
         <span class="n">crd_arrs</span> <span class="o">=</span> <span class="n">crd_arrs_cc</span> <span class="k">if</span> <span class="n">cc</span> <span class="k">else</span> <span class="n">crd_arrs_nc</span>
-        <span class="n">slices</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">sliceutil</span><span class="o">.</span><span class="n">to_slices</span><span class="p">(</span><span class="n">crd_arrs</span><span class="p">,</span> <span class="n">selection</span><span class="p">))</span>
+        <span class="n">idx_sel_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">sliceutil</span><span class="o">.</span><span class="n">std_sel_list2index</span><span class="p">(</span><span class="n">std_sel_list</span><span class="p">,</span> <span class="n">crd_arrs</span><span class="p">))</span>
 
-        <span class="c1"># Figure out what the selection is doing. If the slice reduces</span>
+        <span class="c1"># Figure out what the sel_list is doing. If the slice reduces</span>
         <span class="c1"># out a dimension, put it in reduced. Also apply the slices to</span>
         <span class="c1"># the coordinate arrays so they can be used in to create new</span>
         <span class="c1"># fields later on.</span>
         <span class="n">sliced_clist</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">reduced</span> <span class="o">=</span> <span class="p">[]</span>
 
-        <span class="c1"># some types of slices require the result to be nonuniform crds,</span>
-        <span class="c1"># so resolve that here</span>
-        <span class="n">crds_type_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_TYPE</span>
-        <span class="c1"># for slices with a step, always make the crds nonuniform,</span>
-        <span class="c1"># it&#39;s just easier that way</span>
-        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">slc</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">slices</span><span class="p">):</span>
-            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">slc</span><span class="p">,</span> <span class="nb">slice</span><span class="p">):</span>
-                <span class="k">if</span> <span class="n">cc</span> <span class="ow">and</span> <span class="n">slc</span><span class="o">.</span><span class="n">step</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
-                    <span class="n">crds_type_name</span> <span class="o">=</span> <span class="s2">&quot;nonuniform&quot;</span>
-                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_TYPE</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-                        <span class="n">more</span> <span class="o">=</span> <span class="s2">&quot;_&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_TYPE</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">:])</span>
-                        <span class="n">crds_type_name</span> <span class="o">+=</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">more</span>
-        <span class="n">crds_type</span> <span class="o">=</span> <span class="n">lookup_crds_type</span><span class="p">(</span><span class="n">crds_type_name</span><span class="p">)</span>
-
-        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">slc</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">slices</span><span class="p">):</span>
-            <span class="n">axis</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">slc</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">idx_sel_list</span><span class="p">):</span>
+            <span class="n">axis</span> <span class="o">=</span> <span class="n">full_ax_names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
 
             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">slc</span><span class="p">,</span> <span class="nb">slice</span><span class="p">):</span>
-                <span class="n">sss</span> <span class="o">=</span> <span class="p">(</span><span class="n">slc</span><span class="o">.</span><span class="n">start</span><span class="p">,</span> <span class="n">slc</span><span class="o">.</span><span class="n">stop</span><span class="p">,</span> <span class="n">slc</span><span class="o">.</span><span class="n">step</span><span class="p">)</span>
-                <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="n">s</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="s2">&quot;__index__&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">sss</span><span class="p">):</span>
-                    <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;bad sss:&quot;</span><span class="p">,</span> <span class="n">sss</span><span class="p">)</span>
-
-                <span class="n">crd_slc</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="n">slc</span><span class="o">.</span><span class="n">start</span><span class="p">,</span> <span class="n">slc</span><span class="o">.</span><span class="n">stop</span><span class="p">,</span> <span class="n">slc</span><span class="o">.</span><span class="n">step</span><span class="p">)</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="n">s</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="s2">&quot;__index__&quot;</span><span class="p">)</span>
+                           <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="p">(</span><span class="n">slc</span><span class="o">.</span><span class="n">start</span><span class="p">,</span> <span class="n">slc</span><span class="o">.</span><span class="n">stop</span><span class="p">,</span> <span class="n">slc</span><span class="o">.</span><span class="n">step</span><span class="p">)):</span>
+                    <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;bad sss:&quot;</span><span class="p">,</span> <span class="n">slc</span><span class="p">)</span>
 
                 <span class="n">sliced_clist_item</span> <span class="o">=</span> <span class="kc">None</span>
 
                 <span class="c1"># if using step on a cell centered field, we need to figure</span>
                 <span class="c1"># stuff out, since the data &amp;&amp; crd slices can&#39;t be the same,</span>
                 <span class="c1"># and it&#39;s not as simple as just adding 1 b/c of the stride</span>
-                <span class="k">if</span> <span class="n">cc</span> <span class="ow">and</span> <span class="n">crd_slc</span><span class="o">.</span><span class="n">step</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+                <span class="k">if</span> <span class="n">cc</span> <span class="ow">and</span> <span class="n">slc</span><span class="o">.</span><span class="n">step</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
                     <span class="n">crd_cc</span> <span class="o">=</span> <span class="n">crd_arrs_cc</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">slc</span><span class="p">]</span>
                     <span class="n">crd_nc</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">crd_cc</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">crd_cc</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 
-                    <span class="n">allslc</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="n">crd_slc</span><span class="o">.</span><span class="n">start</span><span class="p">,</span> <span class="n">crd_slc</span><span class="o">.</span><span class="n">stop</span><span class="p">,</span>
-                                   <span class="n">crd_slc</span><span class="o">.</span><span class="n">step</span> <span class="o">//</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">crd_slc</span><span class="o">.</span><span class="n">step</span><span class="p">))</span>
+                    <span class="n">allslc</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="n">slc</span><span class="o">.</span><span class="n">start</span><span class="p">,</span> <span class="n">slc</span><span class="o">.</span><span class="n">stop</span><span class="p">,</span>
+                                   <span class="n">slc</span><span class="o">.</span><span class="n">step</span> <span class="o">//</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">slc</span><span class="o">.</span><span class="n">step</span><span class="p">))</span>
                     <span class="n">allnc</span> <span class="o">=</span> <span class="n">crd_arrs_nc</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">allslc</span><span class="p">]</span>
                     <span class="n">crd_nc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([[</span><span class="n">allnc</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">crd_nc</span><span class="p">,</span> <span class="p">[</span><span class="n">allnc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]])</span>
 
                     <span class="n">sliced_clist_item</span> <span class="o">=</span> <span class="p">[</span><span class="n">axis</span><span class="p">,</span> <span class="n">crd_nc</span><span class="p">,</span> <span class="n">crd_cc</span><span class="p">]</span>
 
-                <span class="k">elif</span> <span class="n">cc</span> <span class="ow">and</span> <span class="n">crd_slc</span><span class="o">.</span><span class="n">stop</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-                    <span class="k">if</span> <span class="n">crd_slc</span><span class="o">.</span><span class="n">stop</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
-                        <span class="k">if</span> <span class="n">crd_slc</span><span class="o">.</span><span class="n">step</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">crd_slc</span><span class="o">.</span><span class="n">step</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-                            <span class="n">newstop</span> <span class="o">=</span> <span class="n">crd_slc</span><span class="o">.</span><span class="n">stop</span> <span class="o">+</span> <span class="mi">1</span>
+                <span class="k">elif</span> <span class="n">cc</span> <span class="ow">and</span> <span class="n">slc</span><span class="o">.</span><span class="n">stop</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">slc</span><span class="o">.</span><span class="n">stop</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="n">slc</span><span class="o">.</span><span class="n">step</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">slc</span><span class="o">.</span><span class="n">step</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                            <span class="n">newstop</span> <span class="o">=</span> <span class="n">slc</span><span class="o">.</span><span class="n">stop</span> <span class="o">+</span> <span class="mi">1</span>
                         <span class="k">else</span><span class="p">:</span>
-                            <span class="n">newstop</span> <span class="o">=</span> <span class="n">crd_slc</span><span class="o">.</span><span class="n">stop</span> <span class="o">-</span> <span class="mi">1</span>
+                            <span class="n">newstop</span> <span class="o">=</span> <span class="n">slc</span><span class="o">.</span><span class="n">stop</span> <span class="o">-</span> <span class="mi">1</span>
                     <span class="k">else</span><span class="p">:</span>  <span class="c1"># slc.stop &lt; 0</span>
                         <span class="c1"># this will slice crds nc, so if we&#39;re going backward,</span>
                         <span class="c1"># the extra crd will be included</span>
-                        <span class="c1"># print(&quot;am i used?&quot;, crd_slc.step)</span>
-                        <span class="n">newstop</span> <span class="o">=</span> <span class="n">crd_slc</span><span class="o">.</span><span class="n">stop</span>
-                    <span class="n">crd_slc</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="n">crd_slc</span><span class="o">.</span><span class="n">start</span><span class="p">,</span> <span class="n">newstop</span><span class="p">,</span> <span class="n">crd_slc</span><span class="o">.</span><span class="n">step</span><span class="p">)</span>
+                        <span class="c1"># print(&quot;am i used?&quot;, slc.step)</span>
+                        <span class="n">newstop</span> <span class="o">=</span> <span class="n">slc</span><span class="o">.</span><span class="n">stop</span>
+                    <span class="n">slc</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="n">slc</span><span class="o">.</span><span class="n">start</span><span class="p">,</span> <span class="n">newstop</span><span class="p">,</span> <span class="n">slc</span><span class="o">.</span><span class="n">step</span><span class="p">)</span>
 
                 <span class="k">if</span> <span class="n">sliced_clist_item</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-                    <span class="n">cval</span> <span class="o">=</span> <span class="n">crds_type</span><span class="o">.</span><span class="n">native_slice</span><span class="p">(</span><span class="n">crd_arrs_nc</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">crd_slc</span><span class="p">)</span>
+                    <span class="n">cval</span> <span class="o">=</span> <span class="n">crd_arrs_nc</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">slc</span><span class="p">]</span>
                     <span class="n">sliced_clist_item</span> <span class="o">=</span> <span class="p">[</span><span class="n">axis</span><span class="p">,</span> <span class="n">cval</span><span class="p">]</span>
 
                 <span class="n">sliced_clist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sliced_clist_item</span><span class="p">)</span>
 
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">slc</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">cc</span><span class="p">:</span>
+                    <span class="n">cval_cc</span> <span class="o">=</span> <span class="n">crd_arrs_cc</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">slc</span><span class="p">]</span>
+                    <span class="n">cval_nc</span> <span class="o">=</span> <span class="p">(</span><span class="n">cval_cc</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">cval_cc</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span>
+                    <span class="n">cval_nc</span> <span class="o">=</span> <span class="n">extend_arr</span><span class="p">(</span><span class="n">cval_nc</span><span class="p">)</span>
+                    <span class="n">sliced_clist</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">axis</span><span class="p">,</span> <span class="n">cval_nc</span><span class="p">,</span> <span class="n">cval_cc</span><span class="p">])</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">sliced_clist</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">axis</span><span class="p">,</span> <span class="n">crd_arrs_nc</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">slc</span><span class="p">]])</span>
+
             <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">slc</span><span class="p">,</span> <span class="s2">&quot;__index__&quot;</span><span class="p">):</span>
-                <span class="n">cval</span> <span class="o">=</span> <span class="n">crds_type</span><span class="o">.</span><span class="n">native_slice</span><span class="p">(</span><span class="n">crd_arrs_nc</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">slc</span><span class="p">)</span>
+                <span class="n">cval</span> <span class="o">=</span> <span class="n">crd_arrs_nc</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">slc</span><span class="p">]</span>
                 <span class="n">reduced</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">axis</span><span class="p">,</span> <span class="n">cval</span><span class="p">])</span>
 
             <span class="k">elif</span> <span class="n">slc</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">:</span>
-                <span class="n">crd_nc</span> <span class="o">=</span> <span class="n">crds_type</span><span class="o">.</span><span class="n">native_slice</span><span class="p">(</span><span class="n">crd_arrs_nc</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">))</span>
-                <span class="n">sliced_clist</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">axis</span><span class="p">,</span> <span class="n">crd_nc</span><span class="p">])</span>
+                <span class="n">cval</span> <span class="o">=</span> <span class="n">crd_arrs_nc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="n">sliced_clist</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">axis</span><span class="p">,</span> <span class="n">cval</span><span class="p">])</span>
 
             <span class="k">else</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">()</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{0}</span><span class="s2">;; </span><span class="si">{1}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">slc</span><span class="p">),</span> <span class="n">slc</span><span class="p">))</span>
+
+        <span class="c1"># determine uniform / nonuniform-ness of the resulting crds</span>
+        <span class="k">if</span> <span class="s1">&#39;_&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_TYPE</span><span class="p">:</span>
+            <span class="n">uniform_type</span><span class="p">,</span> <span class="n">more_type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_TYPE</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">uniform_type</span><span class="p">,</span> <span class="n">more_type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_TYPE</span><span class="p">,</span> <span class="kc">None</span>
+
+        <span class="n">any_non_uniform</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">clist_i</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sliced_clist</span><span class="p">):</span>
+            <span class="c1"># int crds (including times/dates) are never store at uniform crds</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">clist_i</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">integer</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">datetime64</span><span class="p">)):</span>
+                <span class="n">any_non_uniform</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="k">break</span>
+
+            <span class="n">diff_nc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">clist_i</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="k">if</span> <span class="n">diff_nc</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="c1"># integers / dates / times should have been caught above</span>
+                <span class="n">rtol</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="n">diff_nc</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span><span class="o">.</span><span class="n">eps</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">diff_nc</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">diff_nc</span><span class="p">,</span> <span class="n">rtol</span><span class="o">=</span><span class="n">rtol</span><span class="p">):</span>
+                    <span class="n">any_non_uniform</span> <span class="o">=</span> <span class="kc">True</span>
+                    <span class="k">break</span>
+
+        <span class="k">if</span> <span class="n">uniform_type</span> <span class="o">==</span> <span class="s1">&#39;uniform&#39;</span> <span class="ow">and</span> <span class="n">any_non_uniform</span><span class="p">:</span>
+            <span class="n">uniform_type</span> <span class="o">=</span> <span class="s1">&#39;nonuniform&#39;</span>
+
+        <span class="k">if</span> <span class="n">more_type</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">crds_type_name</span> <span class="o">=</span> <span class="n">uniform_type</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">crds_type_name</span> <span class="o">=</span> <span class="s1">&#39;_&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">uniform_type</span><span class="p">,</span> <span class="n">more_type</span><span class="p">])</span>
+        <span class="n">crds_type</span> <span class="o">=</span> <span class="n">lookup_crds_type</span><span class="p">(</span><span class="n">crds_type_name</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">uniform_type</span> <span class="o">==</span> <span class="s1">&#39;uniform&#39;</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">slcl</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sliced_clist</span><span class="p">):</span>
+                <span class="n">sliced_clist</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">slcl</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
 
         <span class="c1"># print(&quot;&lt; slice made&quot;, slices)</span>
-        <span class="k">return</span> <span class="n">slices</span><span class="p">,</span> <span class="n">sliced_clist</span><span class="p">,</span> <span class="n">reduced</span><span class="p">,</span> <span class="n">crds_type</span><span class="p">,</span> <span class="n">ax_idx_map</span>
+        <span class="k">return</span> <span class="n">idx_sel_list</span><span class="p">,</span> <span class="n">sliced_clist</span><span class="p">,</span> <span class="n">reduced</span><span class="p">,</span> <span class="n">crds_type</span><span class="p">,</span> <span class="n">full_ax_names</span>
 
     <span class="k">def</span> <span class="nf">make_slice</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">selection</span><span class="p">,</span> <span class="n">cc</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-        <span class="n">slices</span><span class="p">,</span> <span class="n">sliced_clist</span><span class="p">,</span> <span class="n">reduced</span><span class="p">,</span> <span class="n">crds_type</span><span class="p">,</span> <span class="n">ax_idx_map</span> <span class="o">=</span> \
+        <span class="n">slices</span><span class="p">,</span> <span class="n">sliced_clist</span><span class="p">,</span> <span class="n">reduced</span><span class="p">,</span> <span class="n">crds_type</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> \
             <span class="bp">self</span><span class="o">.</span><span class="n">_make_slice</span><span class="p">(</span><span class="n">selection</span><span class="p">,</span> <span class="n">cc</span><span class="o">=</span><span class="n">cc</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">slices</span><span class="p">,</span> <span class="n">sliced_clist</span><span class="p">,</span> <span class="n">reduced</span><span class="p">,</span> <span class="n">crds_type</span>
 
@@ -1137,9 +938,12 @@
         <span class="sd">&quot;&quot;&quot;make slice, and reduce dims that were not explicitly sliced&quot;&quot;&quot;</span>
         <span class="n">slices</span><span class="p">,</span> <span class="n">crdlst</span><span class="p">,</span> <span class="n">reduced</span><span class="p">,</span> <span class="n">crds_type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">make_slice</span><span class="p">(</span><span class="n">selection</span><span class="p">,</span> <span class="n">cc</span><span class="o">=</span><span class="n">cc</span><span class="p">)</span>
         <span class="c1"># augment slices / reduced</span>
+
+        <span class="n">reduced_axes</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">reduced</span><span class="p">]</span>
+
         <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">axis</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="p">):</span>
             <span class="n">reduce_axis</span> <span class="o">=</span> <span class="kc">False</span>
-            <span class="k">if</span> <span class="n">slices</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">axis</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">reduced_axes</span><span class="p">:</span>
                 <span class="k">if</span> <span class="n">cc</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape_cc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
                     <span class="n">slices</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
                     <span class="n">reduced</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="p">[</span><span class="n">axis</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_cc</span><span class="p">(</span><span class="n">axis</span><span class="p">)[</span><span class="mi">0</span><span class="p">]])</span>
@@ -1157,19 +961,22 @@
                             <span class="k">break</span>
         <span class="c1"># remove the newly reduced crds</span>
         <span class="n">crdlst</span> <span class="o">=</span> <span class="p">[</span><span class="n">crd</span> <span class="k">for</span> <span class="n">crd</span> <span class="ow">in</span> <span class="n">crdlst</span> <span class="k">if</span> <span class="n">crd</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">]</span>
-        <span class="c1"># print(&quot;MAKE SLICE REDUCE : slices&quot;, slices, &quot;crdlst&quot;, crdlst,</span>
-        <span class="c1">#       &quot;reduced&quot;, reduced)</span>
+
         <span class="k">return</span> <span class="n">slices</span><span class="p">,</span> <span class="n">crdlst</span><span class="p">,</span> <span class="n">reduced</span><span class="p">,</span> <span class="n">crds_type</span>
 
     <span class="k">def</span> <span class="nf">make_slice_keep</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">selection</span><span class="p">,</span> <span class="n">cc</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;make slice, but put back dims that were explicitly reduced&quot;&quot;&quot;</span>
-        <span class="n">slices</span><span class="p">,</span> <span class="n">crdlst</span><span class="p">,</span> <span class="n">reduced</span><span class="p">,</span> <span class="n">crds_type</span><span class="p">,</span> <span class="n">ax_idx_map</span> <span class="o">=</span> \
+        <span class="n">slices</span><span class="p">,</span> <span class="n">crdlst</span><span class="p">,</span> <span class="n">reduced</span><span class="p">,</span> <span class="n">crds_type</span><span class="p">,</span> <span class="n">full_ax_names</span> <span class="o">=</span> \
             <span class="bp">self</span><span class="o">.</span><span class="n">_make_slice</span><span class="p">(</span><span class="n">selection</span><span class="p">,</span> <span class="n">cc</span><span class="o">=</span><span class="n">cc</span><span class="p">)</span>
+
         <span class="c1"># put reduced dims back, reduced will be in the same order as self.axes</span>
         <span class="c1"># since make_slice loops over self.axes to do the slices; this enables</span>
         <span class="c1"># us to call insert in the loop</span>
+
+        <span class="n">new_ax_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">crdlst</span><span class="p">]</span>
+
         <span class="k">for</span> <span class="n">axis</span><span class="p">,</span> <span class="n">loc</span> <span class="ow">in</span> <span class="n">reduced</span><span class="p">:</span>  <span class="c1"># pylint: disable=W0612</span>
-            <span class="n">new_axis_ind</span> <span class="o">=</span> <span class="n">ax_idx_map</span><span class="p">[</span><span class="n">axis</span><span class="p">]</span>
+            <span class="n">new_axis_ind</span> <span class="o">=</span> <span class="n">full_ax_names</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">axis</span><span class="p">)</span>
 
             <span class="c1"># slices[new_axis_ind] will be an int not a slice since it was</span>
             <span class="c1"># reduced</span>
@@ -1186,11 +993,6 @@
                 <span class="k">else</span><span class="p">:</span>
                     <span class="n">crd</span> <span class="o">=</span> <span class="n">crd_nc</span><span class="p">[</span><span class="n">loc_ind</span><span class="p">:</span><span class="n">loc_ind</span> <span class="o">+</span> <span class="mi">2</span><span class="p">]</span>
                     <span class="n">slc</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="n">loc_ind</span><span class="p">,</span> <span class="n">loc_ind</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-
-                <span class="c1"># FIXME: this is a terrible way to hack a uniform</span>
-                <span class="c1"># xl, xh, nx type clist</span>
-                <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_INIT_FULL_ARRAYS</span><span class="p">:</span>
-                    <span class="n">crd</span> <span class="o">=</span> <span class="p">[</span><span class="n">crd</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">crd</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="mi">2</span><span class="p">]</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="k">if</span> <span class="n">loc_ind</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
                     <span class="n">crd</span> <span class="o">=</span> <span class="n">crd_nc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">:]</span>
@@ -1198,10 +1000,6 @@
                 <span class="k">else</span><span class="p">:</span>
                     <span class="n">crd</span> <span class="o">=</span> <span class="n">crd_nc</span><span class="p">[</span><span class="n">loc_ind</span><span class="p">:</span><span class="n">loc_ind</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
                     <span class="n">slc</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="n">loc_ind</span><span class="p">,</span> <span class="n">loc_ind</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-                <span class="c1"># FIXME: this is a terrible way to hack a uniform</span>
-                <span class="c1"># xl, xh, nx type clist</span>
-                <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_INIT_FULL_ARRAYS</span><span class="p">:</span>
-                    <span class="n">crd</span> <span class="o">=</span> <span class="p">[</span><span class="n">crd</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">crd</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">]</span>
 
             <span class="n">slices</span><span class="p">[</span><span class="n">new_axis_ind</span><span class="p">]</span> <span class="o">=</span> <span class="n">slc</span>
             <span class="n">crdlst</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">new_axis_ind</span><span class="p">,</span> <span class="p">[</span><span class="n">axis</span><span class="p">,</span> <span class="n">crd</span><span class="p">])</span>
@@ -1219,11 +1017,11 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">slices</span><span class="p">,</span> <span class="n">crdlst</span><span class="p">,</span> <span class="n">reduced</span><span class="p">,</span> <span class="n">crds_type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">make_slice</span><span class="p">(</span><span class="n">selection</span><span class="p">,</span> <span class="n">cc</span><span class="o">=</span><span class="n">cc</span><span class="p">)</span>
         <span class="c1"># pass through if nothing happened</span>
-        <span class="k">if</span> <span class="n">slices</span> <span class="o">==</span> <span class="p">[</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">)]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">slices</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">sliceutil</span><span class="o">.</span><span class="n">all_slices_none</span><span class="p">(</span><span class="n">slices</span><span class="p">):</span>
             <span class="k">return</span> <span class="bp">self</span>
-        <span class="n">cunits</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_units</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">crdlst</span><span class="p">)</span>
+        <span class="n">cunits</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_units</span><span class="p">((</span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">crdlst</span><span class="p">),</span> <span class="n">allow_invalid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">wrap_crds</span><span class="p">(</span><span class="n">crds_type</span><span class="p">,</span> <span class="n">crdlst</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="n">cunits</span><span class="p">,</span>
-                         <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="p">)</span>
+                         <span class="n">full_arrays</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">quiet_init</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">slice_and_reduce</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">selection</span><span class="p">,</span> <span class="n">cc</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Get crds that describe a slice (subset) of this grid. Go</span>
@@ -1233,43 +1031,52 @@
         <span class="n">slices</span><span class="p">,</span> <span class="n">crdlst</span><span class="p">,</span> <span class="n">reduced</span><span class="p">,</span> <span class="n">crds_type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">make_slice_reduce</span><span class="p">(</span><span class="n">selection</span><span class="p">,</span>
                                                                     <span class="n">cc</span><span class="o">=</span><span class="n">cc</span><span class="p">)</span>
         <span class="c1"># pass through if nothing happened</span>
-        <span class="k">if</span> <span class="n">slices</span> <span class="o">==</span> <span class="p">[</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">)]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">slices</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">sliceutil</span><span class="o">.</span><span class="n">all_slices_none</span><span class="p">(</span><span class="n">slices</span><span class="p">):</span>
             <span class="k">return</span> <span class="bp">self</span>
-        <span class="n">cunits</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_units</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">crdlst</span><span class="p">)</span>
+        <span class="n">cunits</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_units</span><span class="p">((</span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">crdlst</span><span class="p">),</span> <span class="n">allow_invalid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">wrap_crds</span><span class="p">(</span><span class="n">crds_type</span><span class="p">,</span> <span class="n">crdlst</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="n">cunits</span><span class="p">,</span>
-                         <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="p">)</span>
+                         <span class="n">full_arrays</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">quiet_init</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">slice_and_keep</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">selection</span><span class="p">,</span> <span class="n">cc</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="n">slices</span><span class="p">,</span> <span class="n">crdlst</span><span class="p">,</span> <span class="n">reduced</span><span class="p">,</span> <span class="n">crds_type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">make_slice_keep</span><span class="p">(</span><span class="n">selection</span><span class="p">,</span>
                                                                   <span class="n">cc</span><span class="o">=</span><span class="n">cc</span><span class="p">)</span>
         <span class="c1"># pass through if nothing happened</span>
-        <span class="k">if</span> <span class="n">slices</span> <span class="o">==</span> <span class="p">[</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">)]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">slices</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">sliceutil</span><span class="o">.</span><span class="n">all_slices_none</span><span class="p">(</span><span class="n">slices</span><span class="p">):</span>
             <span class="k">return</span> <span class="bp">self</span>
-        <span class="n">cunits</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_units</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">crdlst</span><span class="p">)</span>
+        <span class="n">cunits</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_units</span><span class="p">((</span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">crdlst</span><span class="p">),</span> <span class="n">allow_invalid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">wrap_crds</span><span class="p">(</span><span class="n">crds_type</span><span class="p">,</span> <span class="n">crdlst</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="n">cunits</span><span class="p">,</span>
-                         <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="p">)</span>
+                         <span class="n">full_arrays</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">quiet_init</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="p">)</span>
 
     <span class="n">slice_reduce</span> <span class="o">=</span> <span class="n">slice_and_reduce</span>
     <span class="n">slice_keep</span> <span class="o">=</span> <span class="n">slice_and_keep</span>
 
     <span class="k">def</span> <span class="nf">slice_interp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">selection</span><span class="p">,</span> <span class="n">cc</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="n">_</span><span class="p">,</span> <span class="n">crdlst</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">crds_type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">make_slice_keep</span><span class="p">(</span><span class="n">selection</span><span class="p">,</span> <span class="n">cc</span><span class="o">=</span><span class="n">cc</span><span class="p">)</span>
-        <span class="n">axes</span><span class="p">,</span> <span class="n">selection</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parse_slice</span><span class="p">(</span><span class="n">selection</span><span class="p">)</span>
 
-        <span class="n">limits</span> <span class="o">=</span> <span class="n">sliceutil</span><span class="o">.</span><span class="n">selections2values</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">selection</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">crdlst</span><span class="p">))</span>
+        <span class="c1"># axes, selection, _ = self._parse_slice(selection)</span>
+        <span class="n">sel_list</span> <span class="o">=</span> <span class="n">sliceutil</span><span class="o">.</span><span class="n">raw_sel2sel_list</span><span class="p">(</span><span class="n">selection</span><span class="p">)</span>
+        <span class="n">full_sel_info</span> <span class="o">=</span> <span class="n">sliceutil</span><span class="o">.</span><span class="n">fill_nd_sel_list</span><span class="p">(</span><span class="n">sel_list</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="p">)</span>
+        <span class="n">full_sel_list</span><span class="p">,</span> <span class="n">full_ax_names</span><span class="p">,</span> <span class="n">full_newdim_flags</span> <span class="o">=</span> <span class="n">full_sel_info</span>
+        <span class="n">std_sel_list</span> <span class="o">=</span> <span class="n">sliceutil</span><span class="o">.</span><span class="n">standardize_sel_list</span><span class="p">(</span><span class="n">full_sel_list</span><span class="p">)</span>
+
+        <span class="n">limits</span> <span class="o">=</span> <span class="n">sliceutil</span><span class="o">.</span><span class="n">sel_list2values</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">full_sel_list</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">crdlst</span><span class="p">))</span>
 
         <span class="c1"># for slices that were specified using a float, set that crd</span>
         <span class="c1"># to the desired float instead of the nearest crd as does slice_keep</span>
-        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">slc</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">selection</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">slc</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">std_sel_list</span><span class="p">):</span>
             <span class="c1"># slc = sliceutil.convert_deprecated_floats(slc, &quot;slc&quot;)</span>
             <span class="n">_slc_lims</span> <span class="o">=</span> <span class="n">limits</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
             <span class="k">if</span> <span class="n">_slc_lims</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">_slc_lims</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
                 <span class="n">val</span> <span class="o">=</span> <span class="n">_slc_lims</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
                 <span class="n">crdlst</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
-                <span class="n">crdlst</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
-        <span class="n">cunits</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_units</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">crdlst</span><span class="p">)</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">crdlst</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="c1"># i&#39;m not sure what this is for...</span>
+                    <span class="n">crdlst</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">crdlst</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+                    <span class="n">crdlst</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
+        <span class="n">cunits</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_units</span><span class="p">((</span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">crdlst</span><span class="p">),</span> <span class="n">allow_invalid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">wrap_crds</span><span class="p">(</span><span class="n">crds_type</span><span class="p">,</span> <span class="n">crdlst</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="n">cunits</span><span class="p">,</span>
-                         <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="p">)</span>
+                         <span class="n">full_arrays</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">quiet_init</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">get_crd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">shaped</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;if axis is not specified, return all coords,</span>
@@ -1548,7 +1355,6 @@
 
 <span class="k">class</span> <span class="nc">UniformCrds</span><span class="p">(</span><span class="n">StructuredCrds</span><span class="p">):</span>
     <span class="n">_TYPE</span> <span class="o">=</span> <span class="s2">&quot;uniform&quot;</span>
-    <span class="n">_INIT_FULL_ARRAYS</span> <span class="o">=</span> <span class="kc">False</span>
 
     <span class="n">_nc_linspace_args</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">_cc_linspace_args</span> <span class="o">=</span> <span class="kc">None</span>
@@ -1566,7 +1372,7 @@
     <span class="n">min_dx_cc</span> <span class="o">=</span> <span class="kc">None</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">init_clist</span><span class="p">,</span> <span class="n">full_arrays</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f8&#39;</span><span class="p">,</span>
-                 <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+                 <span class="n">quiet_init</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Args:</span>
 <span class="sd">            init_clist: this should look something like</span>
@@ -1576,16 +1382,19 @@
 <span class="sd">                full coordinate arrays, like for non-uniform crds</span>
 
 <span class="sd">        Raises:</span>
-<span class="sd">            ValueError if full_arrays and crds are not uniform</span>
+<span class="sd">            NonuniformFullArrayError if full_arrays and crds are not uniform</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">dtype</span> <span class="o">=</span> <span class="n">dtype</span>
 
         <span class="k">if</span> <span class="n">full_arrays</span><span class="p">:</span>
-            <span class="n">s</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;DEPRECATION...</span><span class="se">\n</span><span class="s2">&quot;</span>
-                 <span class="s2">&quot;Full arrays for uniform crds shouldn&#39;t be used due to </span><span class="se">\n</span><span class="s2">&quot;</span>
-                 <span class="s2">&quot;finite precision errors&quot;</span><span class="p">)</span>
-            <span class="n">viscid</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">quiet_init</span><span class="p">:</span>
+                <span class="n">s</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;DEPRECATION...</span><span class="se">\n</span><span class="s2">&quot;</span>
+                     <span class="s2">&quot;Full arrays for uniform crds shouldn&#39;t be used due to </span><span class="se">\n</span><span class="s2">&quot;</span>
+                     <span class="s2">&quot;finite precision errors&quot;</span><span class="p">)</span>
+                <span class="n">viscid</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+
             <span class="n">_nc_linspace_args</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># pylint: disable=unreachable</span>
+
             <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">arr</span> <span class="ow">in</span> <span class="n">init_clist</span><span class="p">:</span>
                 <span class="k">if</span> <span class="n">viscid</span><span class="o">.</span><span class="n">is_time_like</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">conservative</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
                     <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Datetime arrays can&#39;t be in &quot;</span>
@@ -1597,9 +1406,10 @@
                     <span class="n">diff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
                 <span class="c1"># This allclose is the problem... when slicing, it doesn&#39;t</span>
                 <span class="c1"># always pass</span>
-                <span class="n">atol</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span><span class="o">.</span><span class="n">eps</span>
-                <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">diff</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">diff</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">atol</span><span class="o">=</span><span class="n">atol</span><span class="p">):</span>
-                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Crds are not uniform&quot;</span><span class="p">)</span>
+                <span class="n">rtol</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span><span class="o">.</span><span class="n">eps</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">diff</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">diff</span><span class="p">,</span> <span class="n">rtol</span><span class="o">=</span><span class="n">rtol</span><span class="p">):</span>
+                    <span class="k">raise</span> <span class="n">NonuniformFullArrayError</span><span class="p">(</span><span class="s2">&quot;Arrays are not uniform, </span><span class="si">{0}</span><span class="s2">&quot;</span>
+                                                   <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">arr</span><span class="p">))</span>
                 <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
                     <span class="n">_nc_linspace_args</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">arr</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)])</span>
                 <span class="k">else</span><span class="p">:</span>
@@ -1615,7 +1425,6 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_nc_linspace_args</span> <span class="o">=</span> <span class="n">_nc_linspace_args</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_cc_linspace_args</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="c1"># print(&quot;_nc_linspace_args::&quot;, _nc_linspace_args)</span>
         <span class="k">for</span> <span class="n">args</span> <span class="ow">in</span> <span class="n">_nc_linspace_args</span><span class="p">:</span>
             <span class="n">half_dx</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="nb">max</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
             <span class="n">cc_args</span> <span class="o">=</span> <span class="p">[</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">half_dx</span><span class="p">,</span> <span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">half_dx</span><span class="p">,</span>
@@ -1699,55 +1508,6 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">size_cc</span>
 
-    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">native_slice</span><span class="p">(</span><span class="n">crd_arr</span><span class="p">,</span> <span class="n">slc</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="s1">&#39;node&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">axis</span><span class="p">:</span>
-            <span class="n">crd_arr</span> <span class="o">=</span> <span class="n">crd_arr</span><span class="o">.</span><span class="n">get_crd</span><span class="p">(</span><span class="n">axis</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="n">center</span><span class="p">)</span>
-
-        <span class="k">if</span> <span class="n">slc</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">crd_arr</span> <span class="o">=</span> <span class="n">crd_arr</span><span class="p">[</span><span class="n">slc</span><span class="p">]</span>
-
-        <span class="k">try</span><span class="p">:</span>
-            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">crd_arr</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="c1"># this can happen for some patches of an AMR grid, at which</span>
-                <span class="c1"># point this warning is just exposing an implementation detail</span>
-                <span class="c1"># which isn&#39;t all that useful...</span>
-                <span class="c1"># viscid.logger.warning(&quot;Slice did not select any values&quot;)</span>
-                <span class="k">return</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">nx</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">crd_arr</span><span class="p">)</span>
-                <span class="n">xl</span> <span class="o">=</span> <span class="n">crd_arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-                <span class="n">xh</span> <span class="o">=</span> <span class="n">crd_arr</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-                <span class="k">return</span> <span class="p">[</span><span class="n">xl</span><span class="p">,</span> <span class="n">xh</span><span class="p">,</span> <span class="n">nx</span><span class="p">]</span>
-        <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">crd_arr</span>
-
-    <span class="c1"># def _native_slice(self, axis, slc, center=&#39;node&#39;):</span>
-    <span class="c1">#     &quot;&quot;&quot;Get a sliced crd array to construct crds of same type</span>
-
-    <span class="c1">#     Args:</span>
-    <span class="c1">#         axis: something __getitem__ will understand to pull</span>
-    <span class="c1">#             out a single coordinate axis</span>
-    <span class="c1">#         slc (slice): Should be a valid slice of ints</span>
-
-    <span class="c1">#     Returns:</span>
-    <span class="c1">#         A sliced single coordinate array that __init__ understands</span>
-    <span class="c1">#         by default</span>
-    <span class="c1">#     &quot;&quot;&quot;</span>
-    <span class="c1">#     # inds = list(range(self.shape))</span>
-    <span class="c1">#     if slc is None:</span>
-    <span class="c1">#         proxy_crd = self.get_crd(axis, center=center)</span>
-    <span class="c1">#     else:</span>
-    <span class="c1">#         proxy_crd = self.get_crd(axis, center=center)[slc]</span>
-
-    <span class="c1">#     try:</span>
-    <span class="c1">#         nx = len(proxy_crd)</span>
-    <span class="c1">#         xl = proxy_crd[0]</span>
-    <span class="c1">#         xh = proxy_crd[-1]</span>
-    <span class="c1">#         return [xl, xh, nx]</span>
-    <span class="c1">#     except TypeError:</span>
-    <span class="c1">#         return proxy_crd</span>
-
     <span class="k">def</span> <span class="nf">nc2cc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">default_width</span><span class="o">=</span><span class="mf">1e-5</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Extend coordinates half a grid cell in all directions</span>
 
@@ -1811,7 +1571,7 @@
 <span class="k">class</span> <span class="nc">NonuniformCrds</span><span class="p">(</span><span class="n">StructuredCrds</span><span class="p">):</span>
     <span class="n">_TYPE</span> <span class="o">=</span> <span class="s2">&quot;nonuniform&quot;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">init_clist</span><span class="p">,</span> <span class="n">full_arrays</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">init_clist</span><span class="p">,</span> <span class="n">full_arrays</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">quiet_init</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">full_arrays</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;did you want Uniform crds?&quot;</span><span class="p">)</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">NonuniformCrds</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">init_clist</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
@@ -1917,7 +1677,7 @@
     </p>
     <p>
         &copy; Copyright 2018, Kristofor Maynard.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.6.<br/>
     </p>
   </div>
 </footer>

@@ -24,6 +24,7 @@
 <link rel="apple-touch-icon-precomposed" href="../_static/Vicon_128.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 <meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="../_static/my-css.css" type="text/css" />
 
   </head><body>
 
@@ -107,6 +108,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../philosophy.html">Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../indexing.html">Indexing Fields</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tips_and_tricks.html">Tips &amp; Tricks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../functions.html">Useful Functions</a></li>
@@ -269,11 +271,11 @@ rest of Viscid.</p>
 <span class="go">[&quot;file.010.txt&quot;, &quot;file.020.txt&quot;]</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">expand_glob_slice</span><span class="p">(</span><span class="s2">&quot;f*.[10.0f::2].txt&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">expand_glob_slice</span><span class="p">(</span><span class="s2">&quot;f*.[10.0j::2].txt&quot;</span><span class="p">)</span>
 <span class="go">[&quot;file.010.txt&quot;, &quot;file.030.txt&quot;]</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">expand_glob_slice</span><span class="p">(</span><span class="s2">&quot;f*.[20f:2].txt&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">expand_glob_slice</span><span class="p">(</span><span class="s2">&quot;f*.[20j:2].txt&quot;</span><span class="p">)</span>
 <span class="go">[&quot;file.020.txt&quot;, &quot;file.040.txt&quot;]</span>
 </pre></div>
 </div>
@@ -319,7 +321,7 @@ rest of Viscid.</p>
     </p>
     <p>
         &copy; Copyright 2018, Kristofor Maynard.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.6.<br/>
     </p>
   </div>
 </footer>

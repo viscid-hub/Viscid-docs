@@ -25,6 +25,7 @@
 <link rel="apple-touch-icon-precomposed" href="../_static/Vicon_128.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 <meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="../_static/my-css.css" type="text/css" />
 
   </head><body>
 
@@ -108,6 +109,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../philosophy.html">Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../indexing.html">Indexing Fields</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tips_and_tricks.html">Tips &amp; Tricks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../functions.html">Useful Functions</a></li>
@@ -185,6 +187,13 @@ this is the default order</p>
 is still there… it’s just unnatural to use full crd arrays
 with uniform coordinates</dd>
 </dl>
+<dl class="exception">
+<dt id="viscid.coordinate.NonuniformFullArrayError">
+<em class="property">exception </em><code class="descclassname">viscid.coordinate.</code><code class="descname">NonuniformFullArrayError</code><a class="reference internal" href="../_modules/viscid/coordinate.html#NonuniformFullArrayError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.coordinate.NonuniformFullArrayError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">exceptions.ValueError</span></code></p>
+<p>trying to make uniform crds from nonuniform full arrays</p>
+</dd></dl>
+
 <dl class="function">
 <dt id="viscid.coordinate.arrays2crds">
 <code class="descclassname">viscid.coordinate.</code><code class="descname">arrays2crds</code><span class="sig-paren">(</span><em>crd_arrs</em>, <em>crd_type=None</em>, <em>crd_names='xyzuvw'</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/coordinate.html#arrays2crds"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.coordinate.arrays2crds" title="Permalink to this definition">¶</a></dt>
@@ -240,7 +249,7 @@ as crd_arrs. Should always be in xyz order.</li>
     </p>
     <p>
         &copy; Copyright 2018, Kristofor Maynard.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.6.<br/>
     </p>
   </div>
 </footer>
