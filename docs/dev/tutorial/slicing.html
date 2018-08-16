@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Slicing Fields &#8212; Viscid 0.99.9.dev0 documentation</title>
+    <title>Slicing Fields &#8212; Viscid 0.99.9.dev3 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -40,7 +40,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           Viscid</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.99.9.dev0</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.99.9.dev3</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -136,6 +136,7 @@
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Slicing Fields</a><ul>
 <li><a class="reference internal" href="#spatial-slices">Spatial Slices</a></li>
+<li><a class="reference internal" href="#vector-component-slices">Vector Component Slices</a></li>
 <li><a class="reference internal" href="#temporal-slices">Temporal Slices</a><ul>
 <li><a class="reference internal" href="#single-time-slice">Single Time Slice</a></li>
 <li><a class="reference internal" href="#iterating-over-time-slices">Iterating Over Time Slices</a></li>
@@ -174,24 +175,37 @@
       
   <div class="section" id="slicing-fields">
 <h1>Slicing Fields<a class="headerlink" href="#slicing-fields" title="Permalink to this headline">¶</a></h1>
-<p>See <a class="reference internal" href="../indexing.html"><span class="doc">Indexing Fields</span></a> for more information on field indexing.</p>
+<p>The syntax and semantics for indexing are almost equivalent to Numpy’s
+basic indexing. The key difference is Viscid supports slice-by-location
+(complex numbers, see below). Also, Viscid supports indexing by arrays (like Numpy’s
+advanced indexing), but these arrays must be one-dimensional.
+Unfortunately, true advanced indexing is poorly defined when the result has
+to be on a grid.</p>
+<p>See <a class="reference internal" href="../indexing.html"><span class="doc">Indexing Fields</span></a> for a complete enumeration of slicing rules.</p>
 <div class="section" id="spatial-slices">
 <h2>Spatial Slices<a class="headerlink" href="#spatial-slices" title="Permalink to this headline">¶</a></h2>
-<p>Fields can be sliced just like Numpy ndarrays, but you can also use an extended syntax to ask for a physical location instead of an index in the array. This extended syntax is to provide a string with a number followed by an ‘f’ in place of an integer that is usually found in slices. For even further convenience, you can specify the entire slice as a string and specify the slice dimension by component name.</p>
-<p>The best way to show the utility of this extended syntax is by example, so here goes. This example snips off the fist 5 cells and last 25 cells in x and extracts the <code class="code docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">0.0</span></code> plane. In the z-direction, the field is sliced every other grid cell between <code class="code docutils literal notranslate"><span class="pre">z</span> <span class="pre">=</span> <span class="pre">-8</span></code> and <code class="code docutils literal notranslate"><span class="pre">z</span> <span class="pre">=</span> <span class="pre">10.0</span></code>. Here, x, y, and z are coordinate names, so in ionosphere grids, one would use ‘lat’ and ‘lon’.</p>
+<p>The following example shows how to slice the x axis by index, and the {y, z} axes by location. Note that slices can be given as strings to be explicit about which axes you want sliced.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">path</span>
 
 <span class="kn">import</span> <span class="nn">viscid</span>
 <span class="kn">from</span> <span class="nn">viscid.plot</span> <span class="kn">import</span> <span class="n">vpyplot</span> <span class="k">as</span> <span class="n">vlt</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 
 
 <span class="n">f3d</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">load_file</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">viscid</span><span class="o">.</span><span class="n">sample_dir</span><span class="p">,</span> <span class="s1">&#39;sample_xdmf.3d.xdmf&#39;</span><span class="p">))</span>
 
 <span class="c1"># snip off the first 5 and last 25 cells in x, and grab every other cell</span>
 <span class="c1"># in z between z = -8.0 and z = 10.0 (in space, not index).</span>
-<span class="c1"># Notice that slices by location are done by appending an &#39;f&#39; to the</span>
+<span class="c1"># Notice that slices by location are done by appending an &#39;j&#39; to the</span>
 <span class="c1"># slice. This means &quot;y=0&quot; is not the same as &quot;y=0j&quot;.</span>
-<span class="n">pp</span> <span class="o">=</span> <span class="n">f3d</span><span class="p">[</span><span class="s2">&quot;pp&quot;</span><span class="p">][</span><span class="s2">&quot;x = 5:-25, y = 0.0j, z = -8.0j:10.0j:2&quot;</span><span class="p">]</span>
+
+<span class="n">pp</span> <span class="o">=</span> <span class="n">f3d</span><span class="p">[</span><span class="s2">&quot;pp&quot;</span><span class="p">][</span><span class="mi">5</span><span class="p">:</span><span class="o">-</span><span class="mi">25</span><span class="p">,</span> <span class="mf">0.0j</span><span class="p">,</span> <span class="o">-</span><span class="mf">8.0j</span><span class="p">:</span><span class="mf">10.0j</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="c1"># this slice is also equivalent to...</span>
+<span class="c1"># &gt;&gt;&gt; pp = f3d[&quot;pp&quot;][&quot;x = 5:-25&quot;, &quot;y = 0.0j&quot;, &quot;z = -8.0j:10.0j:2&quot;]</span>
+<span class="c1"># &gt;&gt;&gt; pp = f3d[&quot;pp&quot;][&quot;x = 5:-25, y = 0.0j, z = -8.0j:10.0j:2&quot;]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="n">vlt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pp</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;contourf&quot;</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">plot_opts</span><span class="o">=</span><span class="s2">&quot;log,earth&quot;</span><span class="p">)</span>
 
 <span class="n">vlt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -200,6 +214,34 @@
 <p>(<a class="reference external" href="../tutorial/slicing-1.py">Source code</a>, <a class="reference external" href="../tutorial/slicing-1.png">png</a>)</p>
 <div class="figure">
 <img alt="../_images/slicing-1.png" src="../_images/slicing-1.png" />
+</div>
+</div>
+<div class="section" id="vector-component-slices">
+<h2>Vector Component Slices<a class="headerlink" href="#vector-component-slices" title="Permalink to this headline">¶</a></h2>
+<p>Slices of vector fields are spatial slices that are invariant of the data layout. Single components can be extracted by the component name (usually one of “xyz”).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">path</span>
+
+<span class="kn">import</span> <span class="nn">viscid</span>
+<span class="kn">from</span> <span class="nn">viscid.plot</span> <span class="kn">import</span> <span class="n">vpyplot</span> <span class="k">as</span> <span class="n">vlt</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+
+<span class="n">f3d</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">load_file</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">viscid</span><span class="o">.</span><span class="n">sample_dir</span><span class="p">,</span> <span class="s1">&#39;sample_xdmf.3d.xdmf&#39;</span><span class="p">))</span>
+
+<span class="n">vx</span> <span class="o">=</span> <span class="n">f3d</span><span class="p">[</span><span class="s2">&quot;v&quot;</span><span class="p">][</span><span class="s2">&quot;x, x = 5:-25, y = 0.0j, z = -8.0j:10.0j:2&quot;</span><span class="p">]</span>
+
+<span class="c1"># this slice is also equivalent to...</span>
+<span class="c1"># &gt;&gt;&gt; vx = f3d[&quot;vx&quot;][&quot;x = 5:-25&quot;, &quot;y = 0.0j&quot;, &quot;z = -8.0j:10.0j:2&quot;]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">vlt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">vx</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;contourf&quot;</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">plot_opts</span><span class="o">=</span><span class="s2">&quot;earth&quot;</span><span class="p">)</span>
+
+<span class="n">vlt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href="../tutorial/slicing-2.py">Source code</a>, <a class="reference external" href="../tutorial/slicing-2.png">png</a>)</p>
+<div class="figure">
+<img alt="../_images/slicing-2.png" src="../_images/slicing-2.png" />
 </div>
 </div>
 <div class="section" id="temporal-slices">
@@ -259,9 +301,9 @@
 <span class="n">vlt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>(<a class="reference external" href="../tutorial/slicing-2.py">Source code</a>, <a class="reference external" href="../tutorial/slicing-2.png">png</a>)</p>
+<p>(<a class="reference external" href="../tutorial/slicing-3.py">Source code</a>, <a class="reference external" href="../tutorial/slicing-3.png">png</a>)</p>
 <div class="figure">
-<img alt="../_images/slicing-2.png" src="../_images/slicing-2.png" />
+<img alt="../_images/slicing-3.png" src="../_images/slicing-3.png" />
 </div>
 </div>
 <div class="section" id="iterating-over-time-slices">
@@ -291,9 +333,9 @@
 <span class="n">vlt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>(<a class="reference external" href="../tutorial/slicing-3.py">Source code</a>, <a class="reference external" href="../tutorial/slicing-3.png">png</a>)</p>
+<p>(<a class="reference external" href="../tutorial/slicing-4.py">Source code</a>, <a class="reference external" href="../tutorial/slicing-4.png">png</a>)</p>
 <div class="figure">
-<img alt="../_images/slicing-3.png" src="../_images/slicing-3.png" />
+<img alt="../_images/slicing-4.png" src="../_images/slicing-4.png" />
 </div>
 </div>
 </div>

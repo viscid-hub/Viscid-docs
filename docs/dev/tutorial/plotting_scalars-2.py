@@ -7,7 +7,7 @@ from matplotlib import pyplot as plt
 
 f3d = viscid.load_file(path.join(viscid.sample_dir, 'sample_xdmf.3d.xdmf'))
 
-fig, axes = plt.subplots(1, 2, sharex=True, sharey=True)
+fig, axes = plt.subplots(2, 1, sharex=True, sharey=True)
 
 # plot pressure with 64 contours on a logscale
 vlt.plot(f3d["pp"]["y=0.0j"], style="contourf", levels=64,
