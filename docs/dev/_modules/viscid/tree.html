@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>viscid.tree &#8212; Viscid 0.99.9.dev3 documentation</title>
+    <title>viscid.tree &#8212; Viscid 1.0.0.dev0 documentation</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -38,7 +38,7 @@
         </button>
         <a class="navbar-brand" href="../../index.html">
           Viscid</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.99.9.dev3</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>1.0.0.dev0</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -402,10 +402,10 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">set_info</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">val</span><span class="p">))</span>
 
 <div class="viewcode-block" id="Node.time_as_timedelta64"><a class="viewcode-back" href="../../api/viscid.tree.html#viscid.tree.Node.time_as_timedelta64">[docs]</a>    <span class="k">def</span> <span class="nf">time_as_timedelta64</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">viscid</span><span class="o">.</span><span class="n">as_timedelta64</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">viscid</span><span class="o">.</span><span class="n">as_timedelta64</span><span class="p">(</span><span class="mf">1e9</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="s1">&#39;us&#39;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Node.time_as_timedelta"><a class="viewcode-back" href="../../api/viscid.tree.html#viscid.tree.Node.time_as_timedelta">[docs]</a>    <span class="k">def</span> <span class="nf">time_as_timedelta</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">viscid</span><span class="o">.</span><span class="n">as_timedelta</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">viscid</span><span class="o">.</span><span class="n">as_timedelta</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">time_as_timedelta64</span><span class="p">())</span></div>
 
 <div class="viewcode-block" id="Node.time_as_datetime64"><a class="viewcode-back" href="../../api/viscid.tree.html#viscid.tree.Node.time_as_datetime64">[docs]</a>    <span class="k">def</span> <span class="nf">time_as_datetime64</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">t2datetime64</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">time_as_timedelta64</span><span class="p">())</span></div>
@@ -414,7 +414,7 @@
         <span class="k">return</span> <span class="n">viscid</span><span class="o">.</span><span class="n">as_datetime</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">time_as_datetime64</span><span class="p">())</span></div>
 
 <div class="viewcode-block" id="Node.t2datetime64"><a class="viewcode-back" href="../../api/viscid.tree.html#viscid.tree.Node.t2datetime64">[docs]</a>    <span class="k">def</span> <span class="nf">t2datetime64</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">viscid</span><span class="o">.</span><span class="n">time_sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">basetime</span><span class="p">,</span> <span class="n">viscid</span><span class="o">.</span><span class="n">as_timedelta64</span><span class="p">(</span><span class="n">t</span><span class="p">))</span></div>
+        <span class="k">return</span> <span class="n">viscid</span><span class="o">.</span><span class="n">time_sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">basetime</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Node.format_time"><a class="viewcode-back" href="../../api/viscid.tree.html#viscid.tree.Node.format_time">[docs]</a>    <span class="k">def</span> <span class="nf">format_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;.02f&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;Timeless&quot;</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>

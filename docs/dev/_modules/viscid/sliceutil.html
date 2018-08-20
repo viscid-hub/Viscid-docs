@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>viscid.sliceutil &#8212; Viscid 0.99.9.dev3 documentation</title>
+    <title>viscid.sliceutil &#8212; Viscid 1.0.0.dev0 documentation</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -38,7 +38,7 @@
         </button>
         <a class="navbar-brand" href="../../index.html">
           Viscid</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.99.9.dev3</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>1.0.0.dev0</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -302,6 +302,15 @@
 
 <div class="viewcode-block" id="fill_nd_sel_list"><a class="viewcode-back" href="../../api/viscid.sliceutil.html#viscid.fill_nd_sel_list">[docs]</a><span class="k">def</span> <span class="nf">fill_nd_sel_list</span><span class="p">(</span><span class="n">sel_list</span><span class="p">,</span> <span class="n">ax_names</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;fully determine a sparsely selected sel_list&quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sel_list</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">sel_list</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span>
+        <span class="ow">and</span> <span class="n">sel_list</span> <span class="ow">in</span> <span class="p">([</span><span class="bp">Ellipsis</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;...&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;Ellipsis&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;ellipsis&#39;</span><span class="p">])):</span>
+        <span class="c1"># short circuit all logic if sel_list == [Ellipsis]</span>
+        <span class="n">full_sel_list</span> <span class="o">=</span> <span class="p">[</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">ax_names</span><span class="p">]</span>
+        <span class="n">full_ax_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">name</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">ax_names</span><span class="p">]</span>
+        <span class="n">full_newdim_flags</span> <span class="o">=</span> <span class="p">[</span><span class="kc">False</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">ax_names</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">full_sel_list</span><span class="p">,</span> <span class="n">full_ax_names</span><span class="p">,</span> <span class="n">full_newdim_flags</span>
+
     <span class="n">sel_list0</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">sel_list</span><span class="p">)</span>
 
     <span class="n">sel_names</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">sel_list</span><span class="p">)</span>

@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>viscid package &#8212; Viscid 0.99.9.dev3 documentation</title>
+    <title>viscid package &#8212; Viscid 1.0.0.dev0 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -40,7 +40,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           Viscid</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.99.9.dev3</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>1.0.0.dev0</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -319,7 +319,7 @@ set from the command line using
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>dset</strong> (<a class="reference internal" href="viscid.dataset.html#viscid.dataset.Dataset" title="viscid.dataset.Dataset"><code class="xref py py-class docutils literal notranslate"><span class="pre">viscid.dataset.Dataset</span></code></a>) – Should be a
+<li><strong>dset</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">viscid.dataset.Dataset</span></code>) – Should be a
 collection of grids that could represet a series of
 patches in an AMR hierarchy.</li>
 <li><strong>patch_list</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">AMRTemplate</span></code>) – a guess at how patches
@@ -928,6 +928,57 @@ is the dipole tilt angle.</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="viscid.to_dataframe">
+<code class="descclassname">viscid.</code><code class="descname">to_dataframe</code><span class="sig-paren">(</span><em>collection</em>, <em>fld_names=None</em>, <em>selection=Ellipsis</em>, <em>time_sel=slice(None</em>, <em>None</em>, <em>None)</em>, <em>time_col='time'</em>, <em>datetime_col='datetime'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#to_dataframe"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.to_dataframe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Consolidate field collection into pandas dataframe</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>collection</strong> (<em>sequence</em>) – Can be one of (Field, List[Field],
+Dataset, Grid)</li>
+<li><strong>fld_names</strong> (<em>sequence</em><em>, </em><em>None</em>) – grab specific fields by name,
+or None to grab all fields</li>
+<li><strong>selection</strong> (<em>selection</em>) – optional spatial selection</li>
+<li><strong>time</strong> (<em>selection</em>) – optional time selection</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">pandas.DataFrame</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.from_dataframe">
+<code class="descclassname">viscid.</code><code class="descname">from_dataframe</code><span class="sig-paren">(</span><em>frame</em>, <em>crd_cols=None</em>, <em>time_col='time'</em>, <em>datetime_col='datetime'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#from_dataframe"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.from_dataframe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make either a DatasetTemporal or Grid from pandas dataframe</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>frame</strong> (<em>pandas.DataFrame</em>) – frame to parse</li>
+<li><strong>crd_cols</strong> (<em>List</em><em>[</em><em>Str</em><em>]</em><em>, </em><em>None</em>) – list of column names for coordinates</li>
+<li><strong>time_col</strong> (<em>str</em>) – column name of times</li>
+<li><strong>datetime_col</strong> (<em>str</em>) – column name of datetimes</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">DatasetTemporal or Grid</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> – if only 1 row given and crd_cols is None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
 <dt id="viscid.guess_dipole_moment">
 <code class="descclassname">viscid.</code><code class="descname">guess_dipole_moment</code><span class="sig-paren">(</span><em>b</em>, <em>r=2.0</em>, <em>strength=32707.5292732387</em>, <em>cap_angle=40</em>, <em>cap_ntheta=121</em>, <em>cap_nphi=121</em>, <em>plot=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dipole.html#guess_dipole_moment"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.guess_dipole_moment" title="Permalink to this definition">¶</a></dt>
 <dd><p>guess dipole moment from a B field</p>
@@ -1428,7 +1479,7 @@ the _update_delmask_oob method which is probably useful to all</p>
 
 <dl class="function">
 <dt id="viscid.follow_fluid">
-<code class="descclassname">viscid.</code><code class="descname">follow_fluid</code><span class="sig-paren">(</span><em>dset</em>, <em>initial_seeds</em>, <em>time_slice=slice(None</em>, <em>None</em>, <em>None)</em>, <em>curator=None</em>, <em>callback=&lt;function default_fluid_callback&gt;</em>, <em>speed_scale=1.0</em>, <em>dt=None</em>, <em>tstart=None</em>, <em>tstop=None</em>, <em>duration=None</em>, <em>dt_interp=None</em>, <em>v_key='v'</em>, <em>anc_keys=()</em>, <em>fld_slc=slice(None</em>, <em>None</em>, <em>None)</em>, <em>stream_opts={}</em>, <em>callback_kwargs={}</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/fluidtrace.html#follow_fluid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.follow_fluid" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">viscid.</code><code class="descname">follow_fluid</code><span class="sig-paren">(</span><em>dset</em>, <em>initial_seeds</em>, <em>time_slice=slice(None</em>, <em>None</em>, <em>None)</em>, <em>curator=None</em>, <em>callback=&lt;function default_fluid_callback&gt;</em>, <em>speed_scale=1.0</em>, <em>dt=None</em>, <em>tstart=None</em>, <em>tstop=None</em>, <em>duration=None</em>, <em>dt_interp=None</em>, <em>v_key='v'</em>, <em>anc_keys=()</em>, <em>fld_slc=Ellipsis</em>, <em>stream_opts={}</em>, <em>callback_kwargs={}</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/fluidtrace.html#follow_fluid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.follow_fluid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Trace fluid elements</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -6009,7 +6060,7 @@ neighbors</li>
 
 <dl class="function">
 <dt id="viscid.evaluate">
-<code class="descclassname">viscid.</code><code class="descname">evaluate</code><span class="sig-paren">(</span><em>grid</em>, <em>result_name</em>, <em>eqn</em>, <em>try_numexpr=True</em>, <em>slc=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/calculator/evaluator.html#evaluate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.evaluate" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">viscid.</code><code class="descname">evaluate</code><span class="sig-paren">(</span><em>grid</em>, <em>result_name</em>, <em>eqn</em>, <em>try_numexpr=True</em>, <em>slc=Ellipsis</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/calculator/evaluator.html#evaluate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.evaluate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Evaluate an equation on a grid</p>
 <p class="rubric">Examples</p>
 <p>To use this function directly</p>
