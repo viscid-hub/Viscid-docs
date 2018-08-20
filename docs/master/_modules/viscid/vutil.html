@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>viscid.vutil &#8212; Viscid 0.99.8 documentation</title>
+    <title>viscid.vutil &#8212; Viscid 0.99.9 documentation</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -23,6 +23,7 @@
 <link rel="apple-touch-icon-precomposed" href="../../_static/Vicon_128.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 <meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="../../_static/my-css.css" type="text/css" />
 
   </head><body>
 
@@ -37,7 +38,7 @@
         </button>
         <a class="navbar-brand" href="../../index.html">
           Viscid</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.99.8</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.99.9</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -106,6 +107,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../philosophy.html">Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../indexing.html">Indexing Fields</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/index.html">Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tips_and_tricks.html">Tips &amp; Tricks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../functions.html">Useful Functions</a></li>
@@ -394,8 +396,6 @@
 <div class="viewcode-block" id="find_items"><a class="viewcode-back" href="../../api/viscid.vutil.html#viscid.find_items">[docs]</a><span class="k">def</span> <span class="nf">find_items</span><span class="p">(</span><span class="n">dset</span><span class="p">,</span> <span class="n">loc</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Shortcut for :py:func:`resolve_path`, items only&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">resolve_path</span><span class="p">(</span><span class="n">dset</span><span class="p">,</span> <span class="n">loc</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span></div>
-
-<span class="n">str_to_value</span> <span class="o">=</span> <span class="n">sliceutil</span><span class="o">.</span><span class="n">str2value</span>
 
 <span class="k">def</span> <span class="nf">_hexchar2int</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
     <span class="c1"># this np.char.decode(..., &#39;hex&#39;) doesn&#39;t work for py3k; kinda silly</span>
@@ -704,10 +704,10 @@
 <span class="sd">        &gt;&gt;&gt; expand_glob_slice(&quot;f*.[:2].txt&quot;)</span>
 <span class="sd">        [&quot;file.010.txt&quot;, &quot;file.020.txt&quot;]</span>
 
-<span class="sd">        &gt;&gt;&gt; expand_glob_slice(&quot;f*.[10.0f::2].txt&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; expand_glob_slice(&quot;f*.[10.0j::2].txt&quot;)</span>
 <span class="sd">        [&quot;file.010.txt&quot;, &quot;file.030.txt&quot;]</span>
 
-<span class="sd">        &gt;&gt;&gt; expand_glob_slice(&quot;f*.[20f:2].txt&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; expand_glob_slice(&quot;f*.[20j:2].txt&quot;)</span>
 <span class="sd">        [&quot;file.020.txt&quot;, &quot;file.040.txt&quot;]</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">glob_pattern</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expandvars</span><span class="p">(</span><span class="n">glob_pattern</span><span class="p">))</span>
@@ -715,8 +715,10 @@
 
     <span class="c1"># construct a regex to match the results</span>
     <span class="c1"># verify glob pattern has only one</span>
-    <span class="n">number_re</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;(?:[-+]?[0-9]*\.?[0-9]+f?|[-+]?[0-9+])&quot;</span>
-    <span class="n">slc_re</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;\[(</span><span class="si">{0}</span><span class="s2">)?(:(</span><span class="si">{0}</span><span class="s2">)?){{0,2}}\]&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">number_re</span><span class="p">)</span>
+    <span class="n">dtime_re</span> <span class="o">=</span> <span class="n">sliceutil</span><span class="o">.</span><span class="n">RE_DTIME_SLC_GROUP</span>
+    <span class="n">number_re</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;[-+]?[0-9]*\.?[0-9]+[fjFJ]?|[-+]?[0-9+]&quot;</span>
+    <span class="n">el_re</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;(?:</span><span class="si">{0}</span><span class="s2">|</span><span class="si">{1}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dtime_re</span><span class="p">,</span> <span class="n">number_re</span><span class="p">)</span>
+    <span class="n">slc_re</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;\[(</span><span class="si">{0}</span><span class="s2">)?(:(</span><span class="si">{0}</span><span class="s2">))?(:[-+]?[0-9]*)?\]&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">el_re</span><span class="p">)</span>
     <span class="n">n_slices</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">slc_re</span><span class="p">,</span> <span class="n">glob_pattern</span><span class="p">))</span>
 
     <span class="k">if</span> <span class="n">n_slices</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
@@ -752,12 +754,18 @@
         <span class="n">times</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">res_re</span><span class="p">,</span> <span class="n">fn</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s1">&#39;TSLICE&#39;</span><span class="p">))</span> <span class="k">for</span> <span class="n">fn</span> <span class="ow">in</span> <span class="n">fnames</span><span class="p">]</span>
         <span class="n">fnames</span> <span class="o">=</span> <span class="p">[</span><span class="n">fn</span> <span class="k">for</span> <span class="n">fn</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">fnames</span><span class="p">,</span> <span class="n">times</span><span class="p">),</span> <span class="n">key</span><span class="o">=</span><span class="n">itemgetter</span><span class="p">(</span><span class="mi">1</span><span class="p">))]</span>
         <span class="n">times</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
-        <span class="n">slc</span> <span class="o">=</span> <span class="n">sliceutil</span><span class="o">.</span><span class="n">to_slice</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">slcstr</span><span class="p">)</span>
+
+        <span class="n">std_sel</span> <span class="o">=</span> <span class="n">sliceutil</span><span class="o">.</span><span class="n">standardize_sel</span><span class="p">(</span><span class="n">slcstr</span><span class="p">)</span>
+        <span class="n">slc</span> <span class="o">=</span> <span class="n">sliceutil</span><span class="o">.</span><span class="n">std_sel2index</span><span class="p">(</span><span class="n">std_sel</span><span class="p">,</span> <span class="n">times</span><span class="p">,</span> <span class="n">tdunit</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">epoch</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">times</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">fnames</span><span class="p">)</span>
         <span class="n">slc</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
 
-    <span class="k">return</span> <span class="n">fnames</span><span class="p">[</span><span class="n">slc</span><span class="p">]</span></div>
+    <span class="n">idx_whitelist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">fnames</span><span class="p">))[</span><span class="n">slc</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">culled_fnames</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">fnames</span><span class="p">)</span>
+                     <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">idx_whitelist</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">culled_fnames</span></div>
 
 
 <div class="viewcode-block" id="glob2"><a class="viewcode-back" href="../../api/viscid.vutil.html#viscid.glob2">[docs]</a><span class="k">def</span> <span class="nf">glob2</span><span class="p">(</span><span class="n">glob_pattern</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
@@ -839,7 +847,7 @@
     </p>
     <p>
         &copy; Copyright 2018, Kristofor Maynard.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.6.<br/>
     </p>
   </div>
 </footer>

@@ -15,7 +15,7 @@ f3d = viscid.load_file(path.join(viscid.sample_dir, 'sample_xdmf.3d.xdmf'))
 p0 = (9.0, 0.0, 1.5)
 plane = viscid.Plane(p0, pN=[0, -1, 0], pL=[1, 0, 0.05], len_l=[-3, 3],
                      len_m=6.0, nl=64, nm=64)
-slc = "x=6f:11f, y=-1f:1f, z=-10f:10f"
+slc = "x=6j:11j, y=-1j:1j, z=-10j:10j"
 b = viscid.interp_trilin(f3d['b'][slc], plane)
 j = viscid.interp_trilin(f3d['j'][slc], plane)
 

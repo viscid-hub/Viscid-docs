@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Plotting Vector Quantities &#8212; Viscid 0.99.8 documentation</title>
+    <title>Plotting Vector Quantities &#8212; Viscid 0.99.9 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -25,6 +25,7 @@
 <link rel="apple-touch-icon-precomposed" href="../_static/Vicon_128.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 <meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="../_static/my-css.css" type="text/css" />
 
   </head><body>
 
@@ -39,7 +40,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           Viscid</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.99.8</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.99.9</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -108,6 +109,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../philosophy.html">Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../indexing.html">Indexing Fields</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tips_and_tricks.html">Tips &amp; Tricks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../functions.html">Useful Functions</a></li>
@@ -185,12 +187,12 @@
 
 <span class="n">f3d</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">load_file</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">viscid</span><span class="o">.</span><span class="n">sample_dir</span><span class="p">,</span> <span class="s1">&#39;sample_xdmf.3d.xdmf&#39;</span><span class="p">))</span>
 
-<span class="n">vlt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">f3d</span><span class="p">[</span><span class="s1">&#39;Pressure = pp&#39;</span><span class="p">][</span><span class="s1">&#39;z=0f&#39;</span><span class="p">],</span> <span class="n">logscale</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">earth</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">vlt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">f3d</span><span class="p">[</span><span class="s1">&#39;Pressure = pp&#39;</span><span class="p">][</span><span class="s1">&#39;z=0j&#39;</span><span class="p">],</span> <span class="n">logscale</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">earth</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 
 <span class="n">v</span> <span class="o">=</span> <span class="n">f3d</span><span class="p">[</span><span class="s1">&#39;v&#39;</span><span class="p">]</span>
 <span class="n">speed</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">magnitude</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
 <span class="n">lw</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">speed</span> <span class="o">/</span> <span class="n">speed</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
-<span class="n">slc</span> <span class="o">=</span> <span class="s1">&#39;z=0f&#39;</span>
+<span class="n">slc</span> <span class="o">=</span> <span class="s1">&#39;z=0j&#39;</span>
 <span class="n">vlt</span><span class="o">.</span><span class="n">streamplot</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">slc</span><span class="p">],</span> <span class="n">arrowsize</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="n">lw</span><span class="p">[</span><span class="n">slc</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
@@ -216,8 +218,8 @@
 
 <span class="n">f3d</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">load_file</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">viscid</span><span class="o">.</span><span class="n">sample_dir</span><span class="p">,</span> <span class="s1">&#39;sample_xdmf.3d.xdmf&#39;</span><span class="p">))</span>
 
-<span class="n">vlt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">f3d</span><span class="p">[</span><span class="s1">&#39;pp&#39;</span><span class="p">][</span><span class="s1">&#39;z=0f&#39;</span><span class="p">],</span> <span class="n">cbarlabel</span><span class="o">=</span><span class="s2">&quot;Pressure&quot;</span><span class="p">,</span> <span class="n">logscale</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">earth</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-<span class="n">Q</span> <span class="o">=</span> <span class="n">vlt</span><span class="o">.</span><span class="n">plot2d_quiver</span><span class="p">(</span><span class="n">f3d</span><span class="p">[</span><span class="s1">&#39;v&#39;</span><span class="p">][</span><span class="s1">&#39;x=::2, y=::2, z=0f&#39;</span><span class="p">])</span>
+<span class="n">vlt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">f3d</span><span class="p">[</span><span class="s1">&#39;pp&#39;</span><span class="p">][</span><span class="s1">&#39;z=0j&#39;</span><span class="p">],</span> <span class="n">cbarlabel</span><span class="o">=</span><span class="s2">&quot;Pressure&quot;</span><span class="p">,</span> <span class="n">logscale</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">earth</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">Q</span> <span class="o">=</span> <span class="n">vlt</span><span class="o">.</span><span class="n">plot2d_quiver</span><span class="p">(</span><span class="n">f3d</span><span class="p">[</span><span class="s1">&#39;v&#39;</span><span class="p">][</span><span class="s1">&#39;x=::2, y=::2, z=0j&#39;</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">quiverkey</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">X</span><span class="o">=</span><span class="mf">1.1</span><span class="p">,</span> <span class="n">Y</span><span class="o">=</span><span class="mf">1.07</span><span class="p">,</span> <span class="n">U</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;400 $\frac{km}{s}$&quot;</span><span class="p">,</span>
               <span class="n">labelpos</span><span class="o">=</span><span class="s1">&#39;N&#39;</span><span class="p">)</span>
 
@@ -247,10 +249,10 @@
 
 <span class="n">f3d</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">load_file</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">viscid</span><span class="o">.</span><span class="n">sample_dir</span><span class="p">,</span> <span class="s1">&#39;sample_xdmf.3d.xdmf&#39;</span><span class="p">))</span>
 
-<span class="n">vlt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">f3d</span><span class="p">[</span><span class="s1">&#39;Pressure = pp&#39;</span><span class="p">][</span><span class="s1">&#39;z=0f&#39;</span><span class="p">],</span> <span class="n">logscale</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">earth</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">vlt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">f3d</span><span class="p">[</span><span class="s1">&#39;Pressure = pp&#39;</span><span class="p">][</span><span class="s1">&#39;z=0j&#39;</span><span class="p">],</span> <span class="n">logscale</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">earth</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="n">new_grid</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">Volume</span><span class="p">((</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">n</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 <span class="n">v</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">interp_trilin</span><span class="p">(</span><span class="n">f3d</span><span class="p">[</span><span class="s1">&#39;v&#39;</span><span class="p">],</span> <span class="n">new_grid</span><span class="p">)</span>
-<span class="n">Q</span> <span class="o">=</span> <span class="n">vlt</span><span class="o">.</span><span class="n">plot2d_quiver</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="s1">&#39;z=0f&#39;</span><span class="p">])</span>
+<span class="n">Q</span> <span class="o">=</span> <span class="n">vlt</span><span class="o">.</span><span class="n">plot2d_quiver</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="s1">&#39;z=0j&#39;</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">quiverkey</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">X</span><span class="o">=</span><span class="mf">1.1</span><span class="p">,</span> <span class="n">Y</span><span class="o">=</span><span class="mf">1.07</span><span class="p">,</span> <span class="n">U</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;400 $\frac{km}{s}$&quot;</span><span class="p">,</span>
               <span class="n">labelpos</span><span class="o">=</span><span class="s1">&#39;N&#39;</span><span class="p">)</span>
 
@@ -288,7 +290,7 @@
     </p>
     <p>
         &copy; Copyright 2018, Kristofor Maynard.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.6.<br/>
     </p>
   </div>
 </footer>

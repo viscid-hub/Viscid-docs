@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>viscid.dataset module &#8212; Viscid 0.99.8 documentation</title>
+    <title>viscid.dataset module &#8212; Viscid 0.99.9 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -25,6 +25,7 @@
 <link rel="apple-touch-icon-precomposed" href="../_static/Vicon_128.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 <meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="../_static/my-css.css" type="text/css" />
 
   </head><body>
 
@@ -39,7 +40,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           Viscid</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.99.8</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.99.9</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -108,6 +109,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../philosophy.html">Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../indexing.html">Indexing Fields</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tips_and_tricks.html">Tips &amp; Tricks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../functions.html">Useful Functions</a></li>
@@ -165,285 +167,55 @@
   <div class="section" id="module-viscid.dataset">
 <span id="viscid-dataset-module"></span><h1>viscid.dataset module<a class="headerlink" href="#module-viscid.dataset" title="Permalink to this headline">¶</a></h1>
 <p>test docstring</p>
-<dl class="class">
-<dt id="viscid.dataset.Dataset">
-<em class="property">class </em><code class="descclassname">viscid.dataset.</code><code class="descname">Dataset</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#Dataset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.Dataset" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="viscid.tree.html#viscid.tree.Node" title="viscid.tree.Node"><code class="xref py py-class docutils literal notranslate"><span class="pre">viscid.tree.Node</span></code></a></p>
-<p>Datasets contain grids or other datasets</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Datasets should probably be created using a vfile’s
-<cite>_make_dataset</cite> to make sure the info dict is propogated
-appropriately</p>
-</div>
-<p>It is the programmer’s responsibility to ensure objects added to a AOEUIDH
-dataset have __getitem__ and get_fields methods, this is not
-enforced</p>
-<dl class="method">
-<dt id="viscid.dataset.Dataset.activate">
-<code class="descname">activate</code><span class="sig-paren">(</span><em>child_handle</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#Dataset.activate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.Dataset.activate" title="Permalink to this definition">¶</a></dt>
-<dd><p>it may not look like it, but this will recursively look
-in my active child for the handle because it uses getitem</p>
+<dl class="function">
+<dt id="viscid.dataset.to_dataframe">
+<code class="descclassname">viscid.dataset.</code><code class="descname">to_dataframe</code><span class="sig-paren">(</span><em>collection</em>, <em>fld_names=None</em>, <em>selection=Ellipsis</em>, <em>time_sel=slice(None</em>, <em>None</em>, <em>None)</em>, <em>time_col='time'</em>, <em>datetime_col='datetime'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#to_dataframe"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.to_dataframe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Consolidate field collection into pandas dataframe</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>collection</strong> (<em>sequence</em>) – Can be one of (Field, List[Field],
+Dataset, Grid)</li>
+<li><strong>fld_names</strong> (<em>sequence</em><em>, </em><em>None</em>) – grab specific fields by name,
+or None to grab all fields</li>
+<li><strong>selection</strong> (<em>selection</em>) – optional spatial selection</li>
+<li><strong>time</strong> (<em>selection</em>) – optional time selection</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">pandas.DataFrame</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="method">
-<dt id="viscid.dataset.Dataset.activate_time">
-<code class="descname">activate_time</code><span class="sig-paren">(</span><em>time</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#Dataset.activate_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.Dataset.activate_time" title="Permalink to this definition">¶</a></dt>
-<dd><p>this is basically ‘activate’ except it specifically picks out
-temporal datasets, and does all children, not just the active child</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="viscid.dataset.Dataset.active_child">
-<code class="descname">active_child</code><em class="property"> = None</em><a class="headerlink" href="#viscid.dataset.Dataset.active_child" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="viscid.dataset.Dataset.add">
-<code class="descname">add</code><span class="sig-paren">(</span><em>child</em>, <em>set_active=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#Dataset.add"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.Dataset.add" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="viscid.dataset.Dataset.add_deferred">
-<code class="descname">add_deferred</code><span class="sig-paren">(</span><em>key</em>, <em>callback</em>, <em>callback_args=None</em>, <em>callback_kwargs=None</em>, <em>set_active=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#Dataset.add_deferred"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.Dataset.add_deferred" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="viscid.dataset.Dataset.children">
-<code class="descname">children</code><em class="property"> = None</em><a class="headerlink" href="#viscid.dataset.Dataset.children" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="viscid.dataset.Dataset.clear_cache">
-<code class="descname">clear_cache</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#Dataset.clear_cache"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.Dataset.clear_cache" title="Permalink to this definition">¶</a></dt>
-<dd><p>Clear all childrens’ caches</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="viscid.dataset.Dataset.crds">
-<code class="descname">crds</code><em class="property"> = None</em><a class="headerlink" href="#viscid.dataset.Dataset.crds" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="viscid.dataset.Dataset.geometry_info">
-<code class="descname">geometry_info</code><em class="property"> = None</em><a class="headerlink" href="#viscid.dataset.Dataset.geometry_info" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="viscid.dataset.Dataset.get_child">
-<code class="descname">get_child</code><span class="sig-paren">(</span><em>item</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#Dataset.get_child"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.Dataset.get_child" title="Permalink to this definition">¶</a></dt>
-<dd><p>get a child from this Dataset,</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="viscid.dataset.Dataset.get_field">
-<code class="descname">get_field</code><span class="sig-paren">(</span><em>fldname</em>, <em>time=None</em>, <em>slc=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#Dataset.get_field"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.Dataset.get_field" title="Permalink to this definition">¶</a></dt>
-<dd><p>recurse down active children to get a field</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="viscid.dataset.Dataset.get_grid">
-<code class="descname">get_grid</code><span class="sig-paren">(</span><em>time=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#Dataset.get_grid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.Dataset.get_grid" title="Permalink to this definition">¶</a></dt>
-<dd><p>recurse down active children to get a field</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="viscid.dataset.Dataset.get_time">
-<code class="descname">get_time</code><span class="sig-paren">(</span><em>slc=slice(None</em>, <em>None</em>, <em>None)</em>, <em>val_endpoint=True</em>, <em>interior=False</em>, <em>tdunit='s'</em>, <em>tol=100</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#Dataset.get_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.Dataset.get_time" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="viscid.dataset.Dataset.get_times">
-<code class="descname">get_times</code><span class="sig-paren">(</span><em>slc=slice(None</em>, <em>None</em>, <em>None)</em>, <em>val_endpoint=True</em>, <em>interior=False</em>, <em>tdunit='s'</em>, <em>tol=100</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#Dataset.get_times"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.Dataset.get_times" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="viscid.dataset.Dataset.iter_fields">
-<code class="descname">iter_fields</code><span class="sig-paren">(</span><em>time=None</em>, <em>named=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#Dataset.iter_fields"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.Dataset.iter_fields" title="Permalink to this definition">¶</a></dt>
-<dd><p>generator for fields in the active dataset,
-this will recurse down to a grid</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="viscid.dataset.Dataset.iter_times">
-<code class="descname">iter_times</code><span class="sig-paren">(</span><em>slc=slice(None</em>, <em>None</em>, <em>None)</em>, <em>val_endpoint=True</em>, <em>interior=False</em>, <em>tdunit='s'</em>, <em>tol=100</em>, <em>resolved=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#Dataset.iter_times"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.Dataset.iter_times" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="viscid.dataset.Dataset.nr_times">
-<code class="descname">nr_times</code><span class="sig-paren">(</span><em>slc=slice(None</em>, <em>None</em>, <em>None)</em>, <em>val_endpoint=True</em>, <em>interior=False</em>, <em>tdunit='s'</em>, <em>tol=100</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#Dataset.nr_times"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.Dataset.nr_times" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="viscid.dataset.Dataset.print_tree">
-<code class="descname">print_tree</code><span class="sig-paren">(</span><em>depth=-1</em>, <em>prefix=''</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#Dataset.print_tree"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.Dataset.print_tree" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="viscid.dataset.Dataset.remove_all_items">
-<code class="descname">remove_all_items</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#Dataset.remove_all_items"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.Dataset.remove_all_items" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="viscid.dataset.Dataset.topology_info">
-<code class="descname">topology_info</code><em class="property"> = None</em><a class="headerlink" href="#viscid.dataset.Dataset.topology_info" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="viscid.dataset.Dataset.tslc_range">
-<code class="descname">tslc_range</code><span class="sig-paren">(</span><em>selection=slice(None</em>, <em>None</em>, <em>None)</em>, <em>tdunit='s'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#Dataset.tslc_range"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.Dataset.tslc_range" title="Permalink to this definition">¶</a></dt>
-<dd><p>Find endpoints for a time slice selection</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">If the selection is slice-by-value, the values are not
-adjusted to the nearest frame. For this functionality,
-you will want to use <a class="reference internal" href="#viscid.dataset.Dataset.get_times" title="viscid.dataset.Dataset.get_times"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_times()</span></code></a> and pull out the
-first and last values.</p>
-</div>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="viscid.dataset.DatasetTemporal">
-<em class="property">class </em><code class="descclassname">viscid.dataset.</code><code class="descname">DatasetTemporal</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#DatasetTemporal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.DatasetTemporal" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#viscid.dataset.Dataset" title="viscid.dataset.Dataset"><code class="xref py py-class docutils literal notranslate"><span class="pre">viscid.dataset.Dataset</span></code></a></p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Datasets should probably be created using a vfile’s
-<cite>_make_dataset</cite> to make sure the info dict is propogated
-appropriately</p>
-</div>
-<dl class="method">
-<dt id="viscid.dataset.DatasetTemporal.activate">
-<code class="descname">activate</code><span class="sig-paren">(</span><em>time</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#DatasetTemporal.activate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.DatasetTemporal.activate" title="Permalink to this definition">¶</a></dt>
-<dd><p>it may not look like it, but this will recursively look
-in my active child for the handle because it uses getitem</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="viscid.dataset.DatasetTemporal.activate_time">
-<code class="descname">activate_time</code><span class="sig-paren">(</span><em>time</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#DatasetTemporal.activate_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.DatasetTemporal.activate_time" title="Permalink to this definition">¶</a></dt>
-<dd><p>this is basically ‘activate’ except it specifically picks out
-temporal datasets</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="viscid.dataset.DatasetTemporal.add">
-<code class="descname">add</code><span class="sig-paren">(</span><em>child</em>, <em>set_active=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#DatasetTemporal.add"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.DatasetTemporal.add" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="viscid.dataset.DatasetTemporal.add_deferred">
-<code class="descname">add_deferred</code><span class="sig-paren">(</span><em>time</em>, <em>callback</em>, <em>callback_args=None</em>, <em>callback_kwargs=None</em>, <em>set_active=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#DatasetTemporal.add_deferred"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.DatasetTemporal.add_deferred" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="viscid.dataset.DatasetTemporal.clear_cache">
-<code class="descname">clear_cache</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#DatasetTemporal.clear_cache"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.DatasetTemporal.clear_cache" title="Permalink to this definition">¶</a></dt>
-<dd><p>Clear all childrens’ caches</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="viscid.dataset.DatasetTemporal.get_child">
-<code class="descname">get_child</code><span class="sig-paren">(</span><em>item</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#DatasetTemporal.get_child"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.DatasetTemporal.get_child" title="Permalink to this definition">¶</a></dt>
-<dd><p>if item is an int and &lt; len(children), it is an index in a list,
-else I will find the cloest time to float(item)</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="viscid.dataset.DatasetTemporal.get_field">
-<code class="descname">get_field</code><span class="sig-paren">(</span><em>fldname</em>, <em>time=None</em>, <em>slc=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#DatasetTemporal.get_field"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.DatasetTemporal.get_field" title="Permalink to this definition">¶</a></dt>
-<dd><p>recurse down active children to get a field</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="viscid.dataset.DatasetTemporal.get_grid">
-<code class="descname">get_grid</code><span class="sig-paren">(</span><em>time=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#DatasetTemporal.get_grid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.DatasetTemporal.get_grid" title="Permalink to this definition">¶</a></dt>
-<dd><p>recurse down active children to get a field</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="viscid.dataset.DatasetTemporal.get_time">
-<code class="descname">get_time</code><span class="sig-paren">(</span><em>slc=slice(None</em>, <em>None</em>, <em>None)</em>, <em>val_endpoint=True</em>, <em>interior=False</em>, <em>tdunit='s'</em>, <em>tol=100</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#DatasetTemporal.get_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.DatasetTemporal.get_time" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="viscid.dataset.DatasetTemporal.get_times">
-<code class="descname">get_times</code><span class="sig-paren">(</span><em>slc=slice(None</em>, <em>None</em>, <em>None)</em>, <em>val_endpoint=True</em>, <em>interior=False</em>, <em>tdunit='s'</em>, <em>tol=100</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#DatasetTemporal.get_times"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.DatasetTemporal.get_times" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="viscid.dataset.DatasetTemporal.iter_fields">
-<code class="descname">iter_fields</code><span class="sig-paren">(</span><em>time=None</em>, <em>named=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#DatasetTemporal.iter_fields"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.DatasetTemporal.iter_fields" title="Permalink to this definition">¶</a></dt>
-<dd><p>generator for fields in the active dataset,
-this will recurse down to a grid</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="viscid.dataset.DatasetTemporal.iter_resolved_children">
-<code class="descname">iter_resolved_children</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#DatasetTemporal.iter_resolved_children"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.DatasetTemporal.iter_resolved_children" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="viscid.dataset.DatasetTemporal.iter_times">
-<code class="descname">iter_times</code><span class="sig-paren">(</span><em>slc=slice(None</em>, <em>None</em>, <em>None)</em>, <em>val_endpoint=True</em>, <em>interior=False</em>, <em>tdunit='s'</em>, <em>tol=100</em>, <em>resolved=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#DatasetTemporal.iter_times"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.DatasetTemporal.iter_times" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="viscid.dataset.DatasetTemporal.nr_times">
-<code class="descname">nr_times</code><span class="sig-paren">(</span><em>slc=slice(None</em>, <em>None</em>, <em>None)</em>, <em>val_endpoint=True</em>, <em>interior=False</em>, <em>tdunit='s'</em>, <em>tol=100</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#DatasetTemporal.nr_times"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.DatasetTemporal.nr_times" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="viscid.dataset.DatasetTemporal.print_tree">
-<code class="descname">print_tree</code><span class="sig-paren">(</span><em>depth=-1</em>, <em>prefix=''</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#DatasetTemporal.print_tree"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.DatasetTemporal.print_tree" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="viscid.dataset.DatasetTemporal.remove_all_items">
-<code class="descname">remove_all_items</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#DatasetTemporal.remove_all_items"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.DatasetTemporal.remove_all_items" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="viscid.dataset.DatasetTemporal.tslc_range">
-<code class="descname">tslc_range</code><span class="sig-paren">(</span><em>selection=slice(None</em>, <em>None</em>, <em>None)</em>, <em>tdunit='s'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#DatasetTemporal.tslc_range"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.DatasetTemporal.tslc_range" title="Permalink to this definition">¶</a></dt>
-<dd><p>Find endpoints for a time slice selection</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">If the selection is slice-by-value, the values are not
-adjusted to the nearest frame. For this functionality,
-you will want to use <a class="reference internal" href="#viscid.dataset.DatasetTemporal.get_times" title="viscid.dataset.DatasetTemporal.get_times"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_times()</span></code></a> and pull out the
-first and last values.</p>
-</div>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="viscid.dataset.DeferredChild">
-<em class="property">class </em><code class="descclassname">viscid.dataset.</code><code class="descname">DeferredChild</code><span class="sig-paren">(</span><em>callback</em>, <em>callback_args</em>, <em>callback_kwargs</em>, <em>parent=None</em>, <em>name='NoName'</em>, <em>time=0.0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#DeferredChild"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.DeferredChild" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<dl class="method">
-<dt id="viscid.dataset.DeferredChild.clear_cache">
-<code class="descname">clear_cache</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#DeferredChild.clear_cache"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.DeferredChild.clear_cache" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="viscid.dataset.DeferredChild.print_tree">
-<code class="descname">print_tree</code><span class="sig-paren">(</span><em>depth=-1</em>, <em>prefix=''</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#DeferredChild.print_tree"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.DeferredChild.print_tree" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="viscid.dataset.DeferredChild.remove_all_items">
-<code class="descname">remove_all_items</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#DeferredChild.remove_all_items"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.DeferredChild.remove_all_items" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="viscid.dataset.DeferredChild.resolve">
-<code class="descname">resolve</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#DeferredChild.resolve"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.DeferredChild.resolve" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
+<dl class="function">
+<dt id="viscid.dataset.from_dataframe">
+<code class="descclassname">viscid.dataset.</code><code class="descname">from_dataframe</code><span class="sig-paren">(</span><em>frame</em>, <em>crd_cols=None</em>, <em>time_col='time'</em>, <em>datetime_col='datetime'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#from_dataframe"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dataset.from_dataframe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make either a DatasetTemporal or Grid from pandas dataframe</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>frame</strong> (<em>pandas.DataFrame</em>) – frame to parse</li>
+<li><strong>crd_cols</strong> (<em>List</em><em>[</em><em>Str</em><em>]</em><em>, </em><em>None</em>) – list of column names for coordinates</li>
+<li><strong>time_col</strong> (<em>str</em>) – column name of times</li>
+<li><strong>datetime_col</strong> (<em>str</em>) – column name of datetimes</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">DatasetTemporal or Grid</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> – if only 1 row given and crd_cols is None</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>
@@ -468,7 +240,7 @@ first and last values.</p>
     </p>
     <p>
         &copy; Copyright 2018, Kristofor Maynard.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.6.<br/>
     </p>
   </div>
 </footer>

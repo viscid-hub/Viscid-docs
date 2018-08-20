@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>viscid package &#8212; Viscid 0.99.8 documentation</title>
+    <title>viscid package &#8212; Viscid 0.99.9 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -25,6 +25,7 @@
 <link rel="apple-touch-icon-precomposed" href="../_static/Vicon_128.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 <meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="../_static/my-css.css" type="text/css" />
 
   </head><body>
 
@@ -39,7 +40,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           Viscid</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.99.8</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.99.9</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -108,6 +109,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../philosophy.html">Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../indexing.html">Indexing Fields</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tips_and_tricks.html">Tips &amp; Tricks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../functions.html">Useful Functions</a></li>
@@ -274,6 +276,7 @@
 <li class="toctree-l1"><a class="reference internal" href="viscid.npdatetime.html">viscid.npdatetime module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="viscid.parallel.html">viscid.parallel module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="viscid.pyeval.html">viscid.pyeval module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="viscid.rotation.html">viscid.rotation module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="viscid.seed.html">viscid.seed module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="viscid.sliceutil.html">viscid.sliceutil module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="viscid.tree.html">viscid.tree module</a></li>
@@ -316,7 +319,7 @@ set from the command line using
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>dset</strong> (<a class="reference internal" href="viscid.dataset.html#viscid.dataset.Dataset" title="viscid.dataset.Dataset"><code class="xref py py-class docutils literal notranslate"><span class="pre">viscid.dataset.Dataset</span></code></a>) – Should be a
+<li><strong>dset</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">viscid.dataset.Dataset</span></code>) – Should be a
 collection of grids that could represet a series of
 patches in an AMR hierarchy.</li>
 <li><strong>patch_list</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">AMRTemplate</span></code>) – a guess at how patches
@@ -332,6 +335,13 @@ otherwise</p>
 </tr>
 </tbody>
 </table>
+</dd></dl>
+
+<dl class="exception">
+<dt id="viscid.NonuniformFullArrayError">
+<em class="property">exception </em><code class="descclassname">viscid.</code><code class="descname">NonuniformFullArrayError</code><a class="reference internal" href="../_modules/viscid/coordinate.html#NonuniformFullArrayError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.NonuniformFullArrayError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">exceptions.ValueError</span></code></p>
+<p>trying to make uniform crds from nonuniform full arrays</p>
 </dd></dl>
 
 <dl class="function">
@@ -918,6 +928,57 @@ is the dipole tilt angle.</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="viscid.to_dataframe">
+<code class="descclassname">viscid.</code><code class="descname">to_dataframe</code><span class="sig-paren">(</span><em>collection</em>, <em>fld_names=None</em>, <em>selection=Ellipsis</em>, <em>time_sel=slice(None</em>, <em>None</em>, <em>None)</em>, <em>time_col='time'</em>, <em>datetime_col='datetime'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#to_dataframe"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.to_dataframe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Consolidate field collection into pandas dataframe</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>collection</strong> (<em>sequence</em>) – Can be one of (Field, List[Field],
+Dataset, Grid)</li>
+<li><strong>fld_names</strong> (<em>sequence</em><em>, </em><em>None</em>) – grab specific fields by name,
+or None to grab all fields</li>
+<li><strong>selection</strong> (<em>selection</em>) – optional spatial selection</li>
+<li><strong>time</strong> (<em>selection</em>) – optional time selection</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">pandas.DataFrame</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.from_dataframe">
+<code class="descclassname">viscid.</code><code class="descname">from_dataframe</code><span class="sig-paren">(</span><em>frame</em>, <em>crd_cols=None</em>, <em>time_col='time'</em>, <em>datetime_col='datetime'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dataset.html#from_dataframe"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.from_dataframe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make either a DatasetTemporal or Grid from pandas dataframe</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>frame</strong> (<em>pandas.DataFrame</em>) – frame to parse</li>
+<li><strong>crd_cols</strong> (<em>List</em><em>[</em><em>Str</em><em>]</em><em>, </em><em>None</em>) – list of column names for coordinates</li>
+<li><strong>time_col</strong> (<em>str</em>) – column name of times</li>
+<li><strong>datetime_col</strong> (<em>str</em>) – column name of datetimes</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">DatasetTemporal or Grid</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> – if only 1 row given and crd_cols is None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
 <dt id="viscid.guess_dipole_moment">
 <code class="descclassname">viscid.</code><code class="descname">guess_dipole_moment</code><span class="sig-paren">(</span><em>b</em>, <em>r=2.0</em>, <em>strength=32707.5292732387</em>, <em>cap_angle=40</em>, <em>cap_ntheta=121</em>, <em>cap_nphi=121</em>, <em>plot=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/dipole.html#guess_dipole_moment"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.guess_dipole_moment" title="Permalink to this definition">¶</a></dt>
 <dd><p>guess dipole moment from a B field</p>
@@ -1418,7 +1479,7 @@ the _update_delmask_oob method which is probably useful to all</p>
 
 <dl class="function">
 <dt id="viscid.follow_fluid">
-<code class="descclassname">viscid.</code><code class="descname">follow_fluid</code><span class="sig-paren">(</span><em>dset</em>, <em>initial_seeds</em>, <em>time_slice=slice(None</em>, <em>None</em>, <em>None)</em>, <em>curator=None</em>, <em>callback=&lt;function default_fluid_callback&gt;</em>, <em>speed_scale=1.0</em>, <em>dt=None</em>, <em>tstart=None</em>, <em>tstop=None</em>, <em>duration=None</em>, <em>dt_interp=None</em>, <em>v_key='v'</em>, <em>anc_keys=()</em>, <em>fld_slc=slice(None</em>, <em>None</em>, <em>None)</em>, <em>stream_opts={}</em>, <em>callback_kwargs={}</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/fluidtrace.html#follow_fluid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.follow_fluid" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">viscid.</code><code class="descname">follow_fluid</code><span class="sig-paren">(</span><em>dset</em>, <em>initial_seeds</em>, <em>time_slice=slice(None</em>, <em>None</em>, <em>None)</em>, <em>curator=None</em>, <em>callback=&lt;function default_fluid_callback&gt;</em>, <em>speed_scale=1.0</em>, <em>dt=None</em>, <em>tstart=None</em>, <em>tstop=None</em>, <em>duration=None</em>, <em>dt_interp=None</em>, <em>v_key='v'</em>, <em>anc_keys=()</em>, <em>fld_slc=Ellipsis</em>, <em>stream_opts={}</em>, <em>callback_kwargs={}</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/fluidtrace.html#follow_fluid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.follow_fluid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Trace fluid elements</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -1497,7 +1558,7 @@ will be loaded into memory if not already.</td>
 
 <dl class="function">
 <dt id="viscid.as_polar_mapfield">
-<code class="descclassname">viscid.</code><code class="descname">as_polar_mapfield</code><span class="sig-paren">(</span><em>fld</em>, <em>bounding_lat=40.0</em>, <em>hemisphere='north'</em>, <em>make_periodic=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/mapfield.html#as_polar_mapfield"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.as_polar_mapfield" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">viscid.</code><code class="descname">as_polar_mapfield</code><span class="sig-paren">(</span><em>fld</em>, <em>bounding_lat=None</em>, <em>hemisphere='north'</em>, <em>make_periodic=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/mapfield.html#as_polar_mapfield"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.as_polar_mapfield" title="Permalink to this definition">¶</a></dt>
 <dd><p>Prepare a theta/phi or lat/lon field for polar projection</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2476,36 +2537,1663 @@ really really need it, and know what you’re doing</dd>
 </dd></dl>
 
 <dl class="function">
-<dt id="viscid.make_rotation_matrix">
-<code class="descclassname">viscid.</code><code class="descname">make_rotation_matrix</code><span class="sig-paren">(</span><em>origin</em>, <em>p1</em>, <em>p2</em>, <em>roll=0.0</em>, <em>new_x=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#make_rotation_matrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.make_rotation_matrix" title="Permalink to this definition">¶</a></dt>
-<dd><p>Make a matrix that rotates origin-p2 to origin-p1</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">If you want <cite>p1</cite> and <cite>p2</cite> to be vectors, just set <cite>origin</cite> to
-<cite>[0, 0, 0]</cite>.</p>
+<dt id="viscid.angle2rot">
+<code class="descclassname">viscid.</code><code class="descname">angle2rot</code><span class="sig-paren">(</span><em>angles</em>, <em>axes='zyx'</em>, <em>unit='rad'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/rotation.html#angle2rot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.angle2rot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Euler angles (transform-order) -&gt; rotation matrix (extrinsic)</p>
+<p>Rotations are applied in transform-order, which means the first
+axis given is the first transform applied. In other words, the
+matrix multiply is in reverse order, i.e.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">R</span> <span class="o">=</span> <span class="p">(</span><span class="n">R</span><span class="p">(</span><span class="n">angles</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">axis</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span> <span class="o">@</span>
+<span class="gp">&gt;&gt;&gt; </span>     <span class="n">R</span><span class="p">(</span><span class="n">angles</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">axis</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> <span class="o">@</span>
+<span class="gp">&gt;&gt;&gt; </span>     <span class="n">R</span><span class="p">(</span><span class="n">angles</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">axis</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]))</span>
+</pre></div>
+</div>
+<p class="rubric">Example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">angle2rot</span><span class="p">([</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;zyx&#39;</span><span class="p">)</span> <span class="o">@</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
 </div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>origin</strong> (<em>ndarray</em>) – Origin of the rotation in 3D</li>
-<li><strong>p1</strong> (<em>ndarray</em>) – Some point in 3D</li>
-<li><strong>p2</strong> (<em>ndarray</em>) – A point in 3D such that p1 will be rotated
-around the origin so that it lies along the origin-p2
-line</li>
-<li><strong>roll</strong> (<em>float</em>) – Angle (in degrees) of roll around the
-origin-p2 vector</li>
+<li><strong>angles</strong> (<em>sequence</em>) – Euler angles in transform-order; can
+have shape [Ndim] or [Nmatrices, Ndim] to make stacked
+transform matrices</li>
+<li><strong>axes</strong> (<em>sequence</em><em>, </em><em>str</em>) – rotation axes in transform-order</li>
+<li><strong>unit</strong> (<em>str</em>) – unit of angles, one of (‘deg’, ‘rad’)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>rotation matrix with shape [Ndim, Ndim] or</dt>
+<dd><p class="first last">[Nmatrices, Ndim, Ndim] depending on the shape of <code class="docutils literal notranslate"><span class="pre">angles</span></code></p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.eul2rot">
+<code class="descclassname">viscid.</code><code class="descname">eul2rot</code><span class="sig-paren">(</span><em>angles</em>, <em>axes='zyx'</em>, <em>unit='rad'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/rotation.html#eul2rot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.eul2rot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Euler angles (multiplication-order) -&gt; rotation matrix (extrinsic)</p>
+<p>Rotations are applied in multiplication-order, which means the last
+axis given is the first transform applied. In other words:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">R</span> <span class="o">=</span> <span class="p">(</span><span class="n">R</span><span class="p">(</span><span class="n">angles</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">axis</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="o">@</span>
+<span class="gp">&gt;&gt;&gt; </span>     <span class="n">R</span><span class="p">(</span><span class="n">angles</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">axis</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> <span class="o">@</span>
+<span class="gp">&gt;&gt;&gt; </span>     <span class="n">R</span><span class="p">(</span><span class="n">angles</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">axis</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">]))</span>
+</pre></div>
+</div>
+<p>This function is equivalent (up to a few machine epsilon) to
+Matlab’s <code class="docutils literal notranslate"><span class="pre">eul2rotm</span></code>.</p>
+<p class="rubric">Example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">eul2rot</span><span class="p">([</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;zyx&#39;</span><span class="p">)</span> <span class="o">@</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>angles</strong> (<em>sequence</em>) – Euler angles in multiplication-order; can
+have shape [Ndim] or [Nmatrices, Ndim] to make stacked
+transform matrices</li>
+<li><strong>axes</strong> (<em>sequence</em><em>, </em><em>str</em>) – rotation axes in multiplication-order</li>
+<li><strong>unit</strong> (<em>str</em>) – unit of angles, one of (‘deg’, ‘rad’)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>rotation matrix with shape [Ndim, Ndim] or</dt>
+<dd><p class="first last">[Nmatrices, Ndim, Ndim] depending on the shape of <code class="docutils literal notranslate"><span class="pre">angles</span></code></p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.angle2dcm">
+<code class="descclassname">viscid.</code><code class="descname">angle2dcm</code><span class="sig-paren">(</span><em>angles</em>, <em>axes='zyx'</em>, <em>unit='rad'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/rotation.html#angle2dcm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.angle2dcm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Euler angles (transform-order) -&gt; rotation matrix (intrinsic)</p>
+<p>Rotations are applied in transform-order, which means the first
+axis given is the first transform applied. In other words, the
+matrix multiply is in reverse order, i.e.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">R</span> <span class="o">=</span> <span class="p">(</span><span class="n">R</span><span class="p">(</span><span class="n">angles</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">axis</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span> <span class="o">@</span>
+<span class="gp">&gt;&gt;&gt; </span>     <span class="n">R</span><span class="p">(</span><span class="n">angles</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">axis</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> <span class="o">@</span>
+<span class="gp">&gt;&gt;&gt; </span>     <span class="n">R</span><span class="p">(</span><span class="n">angles</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">axis</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]))</span>
+</pre></div>
+</div>
+<p>This function is equivalent (up to a few machine epsilon) to
+Matlab’s <code class="docutils literal notranslate"><span class="pre">angle2dcm</span></code>.</p>
+<p class="rubric">Example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">angle2dcm</span><span class="p">([</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;zyx&#39;</span><span class="p">)</span> <span class="o">@</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>angles</strong> (<em>sequence</em>) – Euler angles in transform-order; can
+have shape [Ndim] or [Nmatrices, Ndim] to make stacked
+transform matrices</li>
+<li><strong>axes</strong> (<em>sequence</em><em>, </em><em>str</em>) – rotation axes in transform-order</li>
+<li><strong>unit</strong> (<em>str</em>) – unit of angles, one of (‘deg’, ‘rad’)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>rotation matrix with shape [Ndim, Ndim] or</dt>
+<dd><p class="first last">[Nmatrices, Ndim, Ndim] depending on the shape of <code class="docutils literal notranslate"><span class="pre">angles</span></code></p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.eul2dcm">
+<code class="descclassname">viscid.</code><code class="descname">eul2dcm</code><span class="sig-paren">(</span><em>angles</em>, <em>axes='zyx'</em>, <em>unit='rad'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/rotation.html#eul2dcm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.eul2dcm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Euler angles (multiplication-order) -&gt; rotation matrix (intrinsic)</p>
+<p>Rotations are applied in multiplication-order, which means the last
+axis given is the first transform applied. In other words:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">R</span> <span class="o">=</span> <span class="p">(</span><span class="n">R</span><span class="p">(</span><span class="n">angles</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">axis</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="o">@</span>
+<span class="gp">&gt;&gt;&gt; </span>     <span class="n">R</span><span class="p">(</span><span class="n">angles</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">axis</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> <span class="o">@</span>
+<span class="gp">&gt;&gt;&gt; </span>     <span class="n">R</span><span class="p">(</span><span class="n">angles</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">axis</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">]))</span>
+</pre></div>
+</div>
+<p class="rubric">Example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">eul2dcm</span><span class="p">([</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;zyx&#39;</span><span class="p">)</span> <span class="o">@</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>angles</strong> (<em>sequence</em>) – Euler angles in multiplication-order; can
+have shape [Ndim] or [Nmatrices, Ndim] to make stacked
+transform matrices</li>
+<li><strong>axes</strong> (<em>sequence</em><em>, </em><em>str</em>) – rotation axes in multiplication-order</li>
+<li><strong>unit</strong> (<em>str</em>) – unit of angles, one of (‘deg’, ‘rad’)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>rotation matrix with shape [Ndim, Ndim] or</dt>
+<dd><p class="first last">[Nmatrices, Ndim, Ndim] depending on the shape of <code class="docutils literal notranslate"><span class="pre">angles</span></code></p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.rot2angles">
+<code class="descclassname">viscid.</code><code class="descname">rot2angles</code><span class="sig-paren">(</span><em>R</em>, <em>axes='zyx'</em>, <em>unit='rad'</em>, <em>bad_matrix='warn'</em><span class="sig-paren">)</span><a class="headerlink" href="#viscid.rot2angles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotation matrix (extrinsic) -&gt; Euler angles (transform-order)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>R</strong> (<em>ndarray</em>) – A rotation matrix with shape [Ndim, Ndim] or a
+stack of matrices with shape [Nmatrices, Ndim, Ndim]</li>
+<li><strong>axes</strong> (<em>sequence</em><em>, </em><em>str</em>) – rotation axes in transform-order</li>
+<li><strong>unit</strong> (<em>str</em>) – Unit of angles, one of (‘deg’, ‘rad’)</li>
+<li><strong>bad_matrix</strong> (<em>str</em>) – What to do if <code class="docutils literal notranslate"><span class="pre">numpy.det(R)</span> <span class="pre">!=</span> <span class="pre">1.0</span></code> - can
+be one of (‘ignore’, ‘warn’, ‘raise’)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>Euler angles with shape [Ndim] or [Nmatrices, Ndim]</dt>
+<dd><p class="first last">depending on the input. <code class="docutils literal notranslate"><span class="pre">angles[:,</span> <span class="pre">i]</span></code> always corresponds
+to <code class="docutils literal notranslate"><span class="pre">axes[i]</span></code>.</p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<ul class="last simple">
+<li><a class="reference internal" href="#viscid.angle2rot" title="viscid.angle2rot"><code class="xref py py-func docutils literal notranslate"><span class="pre">angle2rot()</span></code></a> for more details about axes order.</li>
+</ul>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.rot2eul">
+<code class="descclassname">viscid.</code><code class="descname">rot2eul</code><span class="sig-paren">(</span><em>R</em>, <em>axes='zyx'</em>, <em>unit='rad'</em>, <em>bad_matrix='warn'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/rotation.html#rot2eul"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.rot2eul" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotation matrix (extrinsic) -&gt; Euler angles (multiplication-order)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>R</strong> (<em>ndarray</em>) – A rotation matrix with shape [Ndim, Ndim] or a
+stack of matrices with shape [Nmatrices, Ndim, Ndim]</li>
+<li><strong>axes</strong> (<em>sequence</em><em>, </em><em>str</em>) – rotation axes in multiplication-order</li>
+<li><strong>unit</strong> (<em>str</em>) – Unit of angles, one of (‘deg’, ‘rad’)</li>
+<li><strong>bad_matrix</strong> (<em>str</em>) – What to do if <code class="docutils literal notranslate"><span class="pre">numpy.det(R)</span> <span class="pre">!=</span> <span class="pre">1.0</span></code> - can
+be one of (‘ignore’, ‘warn’, ‘raise’)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>Euler angles with shape [Ndim] or [Nmatrices, Ndim]</dt>
+<dd><p class="first last">depending on the input. <code class="docutils literal notranslate"><span class="pre">angles[:,</span> <span class="pre">i]</span></code> always corresponds
+to <code class="docutils literal notranslate"><span class="pre">axes[i]</span></code>.</p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<ul class="last simple">
+<li><a class="reference internal" href="#viscid.rot2eul" title="viscid.rot2eul"><code class="xref py py-func docutils literal notranslate"><span class="pre">rot2eul()</span></code></a> for more details about axes order.</li>
+</ul>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.dcm2angles">
+<code class="descclassname">viscid.</code><code class="descname">dcm2angles</code><span class="sig-paren">(</span><em>R</em>, <em>axes='zyx'</em>, <em>unit='rad'</em>, <em>bad_matrix='warn'</em><span class="sig-paren">)</span><a class="headerlink" href="#viscid.dcm2angles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotation matrix (intrinsic) -&gt; Euler angles (transform-order)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>R</strong> (<em>ndarray</em>) – A rotation matrix with shape [Ndim, Ndim] or a
+stack of matrices with shape [Nmatrices, Ndim, Ndim]</li>
+<li><strong>axes</strong> (<em>sequence</em><em>, </em><em>str</em>) – rotation axes in transform-order</li>
+<li><strong>unit</strong> (<em>str</em>) – Unit of angles, one of (‘deg’, ‘rad’)</li>
+<li><strong>bad_matrix</strong> (<em>str</em>) – What to do if <code class="docutils literal notranslate"><span class="pre">numpy.det(R)</span> <span class="pre">!=</span> <span class="pre">1.0</span></code> - can
+be one of (‘ignore’, ‘warn’, ‘raise’)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>Euler angles with shape [Ndim] or [Nmatrices, Ndim]</dt>
+<dd><p class="first last">depending on the input. <code class="docutils literal notranslate"><span class="pre">angles[:,</span> <span class="pre">i]</span></code> always corresponds
+to <code class="docutils literal notranslate"><span class="pre">axes[i]</span></code>.</p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<ul class="last simple">
+<li><a class="reference internal" href="#viscid.angle2dcm" title="viscid.angle2dcm"><code class="xref py py-func docutils literal notranslate"><span class="pre">angle2dcm()</span></code></a> for more details about axes order.</li>
+</ul>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.dcm2eul">
+<code class="descclassname">viscid.</code><code class="descname">dcm2eul</code><span class="sig-paren">(</span><em>R</em>, <em>axes='zyx'</em>, <em>unit='rad'</em>, <em>bad_matrix='warn'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/rotation.html#dcm2eul"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dcm2eul" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotation matrix (intrinsic) -&gt; Euler angles (multiplication-order)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>R</strong> (<em>ndarray</em>) – A rotation matrix with shape [Ndim, Ndim] or a
+stack of matrices with shape [Nmatrices, Ndim, Ndim]</li>
+<li><strong>axes</strong> (<em>sequence</em><em>, </em><em>str</em>) – rotation axes in multiplication-order</li>
+<li><strong>unit</strong> (<em>str</em>) – Unit of angles, one of (‘deg’, ‘rad’)</li>
+<li><strong>bad_matrix</strong> (<em>str</em>) – What to do if <code class="docutils literal notranslate"><span class="pre">numpy.det(R)</span> <span class="pre">!=</span> <span class="pre">1.0</span></code> - can
+be one of (‘ignore’, ‘warn’, ‘raise’)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>Euler angles with shape [Ndim] or [Nmatrices, Ndim]</dt>
+<dd><p class="first last">depending on the input. <code class="docutils literal notranslate"><span class="pre">angles[:,</span> <span class="pre">i]</span></code> always corresponds
+to <code class="docutils literal notranslate"><span class="pre">axes[i]</span></code>.</p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<ul class="last simple">
+<li><a class="reference internal" href="#viscid.eul2dcm" title="viscid.eul2dcm"><code class="xref py py-func docutils literal notranslate"><span class="pre">eul2dcm()</span></code></a> for more details about axes order.</li>
+</ul>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.rot2quat">
+<code class="descclassname">viscid.</code><code class="descname">rot2quat</code><span class="sig-paren">(</span><em>R</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/rotation.html#rot2quat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.rot2quat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotation matrix (extrinsic) -&gt; quaternion</p>
+<p>If <a class="reference external" href="https://github.com/moble/quaternion">this quaternion library</a>
+is imported, then the results are presented with dtype quaternion,
+otherwise, as dtype numpy.double (array-of-struct,
+[scalar, vec0, vec1, vec2]).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>R</strong> (<em>ndarray</em>) – A rotation matrix with shape [Ndim, Ndim] or a
+stack of matrices with shape [Nmatrices, Ndim, Ndim]</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="docutils">
+<dt>quaternions with dtype quaternion with shape</dt>
+<dd>(Nmatrices,) or (); or with dtype numpy.double and shape
+(Nmatrices, 4) or (4)</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">ndarray</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.dcm2quat">
+<code class="descclassname">viscid.</code><code class="descname">dcm2quat</code><span class="sig-paren">(</span><em>R</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/rotation.html#dcm2quat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.dcm2quat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotation matrix (intrinsic) -&gt; quaternion</p>
+<p>If <a class="reference external" href="https://github.com/moble/quaternion">this quaternion library</a>
+is imported, then the results are presented with dtype quaternion,
+otherwise, as dtype numpy.double (array-of-struct,
+[scalar, vec0, vec1, vec2]).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>R</strong> (<em>ndarray</em>) – A rotation matrix with shape [Ndim, Ndim] or a
+stack of matrices with shape [Nmatrices, Ndim, Ndim]</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="docutils">
+<dt>quaternions with dtype quaternion and shape</dt>
+<dd>(Nmatrices,) or (); or with dtype numpy.double and shape
+(Nmatrices, 4) or (4)</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">ndarray</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.quat2rot">
+<code class="descclassname">viscid.</code><code class="descname">quat2rot</code><span class="sig-paren">(</span><em>q</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/rotation.html#quat2rot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.quat2rot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Quaternion -&gt; rotation matrix (extrinsic)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>q</strong> (<em>ndarray</em>) – quaternions with dtype quaternion and shape
+(Nmatrices,) or (); or with dtype numpy.double and shape
+(Nmatrices, 4) or (4)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="docutils">
+<dt>orthonormal rotation matrix with shape (3, 3)</dt>
+<dd>or (Nmatrices, 3, 3)</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">ndarray</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.quat2dcm">
+<code class="descclassname">viscid.</code><code class="descname">quat2dcm</code><span class="sig-paren">(</span><em>q</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/rotation.html#quat2dcm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.quat2dcm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Quaternion -&gt; rotation matrix (intrinsic)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>q</strong> (<em>ndarray</em>) – quaternions with dtype quaternion and shape
+(Nmatrices,) or (); or with dtype numpy.double and shape
+(Nmatrices, 4) or (4)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="docutils">
+<dt>rotation matrix with shape [Ndim, Ndim] or</dt>
+<dd>[Nmatrices, Ndim, Ndim] depending on the shape of <code class="docutils literal notranslate"><span class="pre">q</span></code></dd>
+</dl>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">ndarray</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.rotmul">
+<code class="descclassname">viscid.</code><code class="descname">rotmul</code><span class="sig-paren">(</span><em>*rmats</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/rotation.html#rotmul"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.rotmul" title="Permalink to this definition">¶</a></dt>
+<dd><p>Multiply rotation matrices together</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>*rmats</strong> (<em>ndarrays</em>) – rotation matrices with shape (3, 3) or
+(nmats, 3, 3)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">rotation matrix with shape (3, 3) or (nmats, 3, 3)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">ndarray</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.rotate">
+<code class="descclassname">viscid.</code><code class="descname">rotate</code><span class="sig-paren">(</span><em>vec</em>, <em>*rmats</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/rotation.html#rotate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.rotate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotate R3 vector(s) by one or more matrices</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>vec</strong> (<em>ndarray</em>) – R3 vectors with shape (3,) or (nvecs, 3)</li>
+<li><strong>*rmats</strong> (<em>ndarrays</em>) – rotation matrices with shape (3, 3) or
+(nmats, 3, 3)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">rotated vectors with shape (3,) or (nvecs, 3)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.quatmul">
+<code class="descclassname">viscid.</code><code class="descname">quatmul</code><span class="sig-paren">(</span><em>*quats</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/rotation.html#quatmul"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.quatmul" title="Permalink to this definition">¶</a></dt>
+<dd><p>Multiply quaternions together</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>*quats</strong> (<em>ndarrays</em>) – quaternions with dtype quaternion and shape
+() or (nquat,); or with dtype np.double and shape (4,) or
+(nquat, 4)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="docutils">
+<dt>with dtype quaternion and shape () or (nquat,); or</dt>
+<dd>with dtype np.double and shape (4,) or (nquat, 4)</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">ndarray</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.quat_rotate">
+<code class="descclassname">viscid.</code><code class="descname">quat_rotate</code><span class="sig-paren">(</span><em>vec</em>, <em>*quats</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/rotation.html#quat_rotate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.quat_rotate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotate R3 vector(s) by one or more quaternions</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>vec</strong> (<em>ndarray</em>) – R3 vectors with shape (3,) or (nvecs, 3)</li>
+<li><strong>*quats</strong> (<em>ndarrays</em>) – quaternions with dtype quaternion and shape
+() or (nquat,); or with dtype np.double and shape (4,) or
+(nquat, 4)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">rotated vectors with shape (3,) or (nvecs, 3)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.wxyz2rot">
+<code class="descclassname">viscid.</code><code class="descname">wxyz2rot</code><span class="sig-paren">(</span><em>angle</em>, <em>vector</em>, <em>unit='rad'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/rotation.html#wxyz2rot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.wxyz2rot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a matrix (matrices) that rotates around vector by angle</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>angle</strong> (<em>sequence</em>) – angle(s) of rotation(s) with
+shape (), (1,), or (Nmatrices)</li>
+<li><strong>vector</strong> (<em>sequence</em>) – 3d vector(s) that is (are) axis of rotation(s)
+with shape (3,) or (Nmatrices, 3)</li>
+<li><strong>unit</strong> (<em>str</em>) – unit of angle, one of (‘deg’, ‘rad’)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>orthonormal rotation matrix with shape (3, 3)</dt>
+<dd><p class="first last">or (Nmatrices, 3, 3)</p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.axang2rot">
+<code class="descclassname">viscid.</code><code class="descname">axang2rot</code><span class="sig-paren">(</span><em>axang</em>, <em>unit='rad'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/rotation.html#axang2rot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.axang2rot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a matrix (matrices) that rotates around vector by angle</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>axang</strong> (<em>ndarray</em>) – axis(es) / angle(s) of rotation(s) put
+together like {x, y, z, angle}; shape should be (4,), or
+(Nmatrices, 4)</li>
+<li><strong>unit</strong> (<em>str</em>) – unit of angle, one of (‘deg’, ‘rad’)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>orthonormal rotation matrix with shape (3, 3)</dt>
+<dd><p class="first last">or (Nmatrices, 3, 3)</p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.rot2wxyz">
+<code class="descclassname">viscid.</code><code class="descname">rot2wxyz</code><span class="sig-paren">(</span><em>R</em>, <em>unit='rad'</em>, <em>quick=True</em>, <em>bad_matrix='warn'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/rotation.html#rot2wxyz"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.rot2wxyz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find axis / angle representation of rotation matrix (matrices)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>R</strong> (<em>ndarray</em>) – Rotation matrix with shape (3, 3) determinant +1,
+or matrices with shape (Nmatrices, 3, 3)</li>
+<li><strong>unit</strong> (<em>str</em>) – unit of angle in results, one of (‘deg’, ‘rad’)</li>
+<li><strong>quick</strong> (<em>bool</em>) – Try a quicker, less well tested method</li>
+<li><strong>bad_matrix</strong> (<em>str</em>) – What to do if <code class="docutils literal notranslate"><span class="pre">numpy.det(R)</span> <span class="pre">!=</span> <span class="pre">1.0</span></code> - can
+be one of (‘ignore’, ‘warn’, ‘raise’)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">w</span></code> is rotation angle with shape () or (Nmatrices),</dt>
+<dd><p class="first last">and <code class="docutils literal notranslate"><span class="pre">xyz</span></code> are normalized rotation axes with shape (3,)
+or (Nmatrices, 3)</p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(w, xyz)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.rot2axang">
+<code class="descclassname">viscid.</code><code class="descname">rot2axang</code><span class="sig-paren">(</span><em>R</em>, <em>unit='rad'</em>, <em>quick=True</em>, <em>bad_matrix='warn'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/rotation.html#rot2axang"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.rot2axang" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find axis / angle representation of rotation matrix (matrices)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>R</strong> (<em>ndarray</em>) – Rotation matrix with shape (3, 3) determinant +1,
+or matrices with shape (Nmatrices, 3, 3)</li>
+<li><strong>unit</strong> (<em>str</em>) – unit of angle in results, one of (‘deg’, ‘rad’)</li>
+<li><strong>quick</strong> (<em>bool</em>) – Try a quicker, less well tested method</li>
+<li><strong>bad_matrix</strong> (<em>str</em>) – What to do if <code class="docutils literal notranslate"><span class="pre">numpy.det(R)</span> <span class="pre">!=</span> <span class="pre">1.0</span></code> - can
+be one of (‘ignore’, ‘warn’, ‘raise’)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>{x, y, z, angle} axis / angle values with shape (4,)</dt>
+<dd><p class="first last">or (Nmatrices, 4)</p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(ndarray)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.wxyz2quat">
+<code class="descclassname">viscid.</code><code class="descname">wxyz2quat</code><span class="sig-paren">(</span><em>angle</em>, <em>vector</em>, <em>unit='rad'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/rotation.html#wxyz2quat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.wxyz2quat" title="Permalink to this definition">¶</a></dt>
+<dd><p>(angle, axis) representation -&gt; quaternion</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>angle</strong> (<em>sequence</em>) – angle(s) of rotation(s) with
+shape (), (1,), or (Nmatrices)</li>
+<li><strong>vector</strong> (<em>sequence</em>) – 3d vector(s) that is (are) axis of rotation(s)
+with shape (3,) or (Nmatrices, 3)</li>
+<li><strong>unit</strong> (<em>str</em>) – unit of angle, one of (‘deg’, ‘rad’)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>quaternions with dtype quaternion and shape</dt>
+<dd><p class="first last">(Nmatrices,) or (); or with dtype numpy.double and shape
+(Nmatrices, 4) or (4)</p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.axang2quat">
+<code class="descclassname">viscid.</code><code class="descname">axang2quat</code><span class="sig-paren">(</span><em>axang</em>, <em>unit='rad'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/rotation.html#axang2quat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.axang2quat" title="Permalink to this definition">¶</a></dt>
+<dd><p>axis-angle representation -&gt; quaternion</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>axang</strong> (<em>ndarray</em>) – axis(es) / angle(s) of rotation(s) put
+together like {x, y, z, angle}; shape should be (4,), or
+(Nmatrices, 4)</li>
+<li><strong>unit</strong> (<em>str</em>) – unit of angle, one of (‘deg’, ‘rad’)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>quaternions with dtype quaternion and shape</dt>
+<dd><p class="first last">(Nmatrices,) or (); or with dtype numpy.double and shape
+(Nmatrices, 4) or (4)</p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.quat2wxyz">
+<code class="descclassname">viscid.</code><code class="descname">quat2wxyz</code><span class="sig-paren">(</span><em>q</em>, <em>unit='rad'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/rotation.html#quat2wxyz"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.quat2wxyz" title="Permalink to this definition">¶</a></dt>
+<dd><p>quaternion -&gt; (angle, axis) representation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>q</strong> (<em>ndarray</em>) – quaternions with dtype quaternion and shape
+(Nmatrices,) or (); or with dtype numpy.double and shape
+(Nmatrices, 4) or (4)</li>
+<li><strong>unit</strong> (<em>str</em>) – unit of angle in results, one of (‘deg’, ‘rad’)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">w</span></code> is rotation angle with shape () or (Nmatrices),</dt>
+<dd><p class="first last">and <code class="docutils literal notranslate"><span class="pre">xyz</span></code> are normalized rotation axes with shape (3,)
+or (Nmatrices, 3)</p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(w, xyz)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.quat2axang">
+<code class="descclassname">viscid.</code><code class="descname">quat2axang</code><span class="sig-paren">(</span><em>q</em>, <em>unit='rad'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/rotation.html#quat2axang"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.quat2axang" title="Permalink to this definition">¶</a></dt>
+<dd><p>quaternion -&gt; axis-angle representation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>q</strong> (<em>ndarray</em>) – quaternions with dtype quaternion and shape
+(Nmatrices,) or (); or with dtype numpy.double and shape
+(Nmatrices, 4) or (4)</li>
+<li><strong>unit</strong> (<em>str</em>) – unit of angle in results, one of (‘deg’, ‘rad’)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>{x, y, z, angle} axis / angle values with shape (4,)</dt>
+<dd><p class="first last">or (Nmatrices, 4)</p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(ndarray)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.convert_angle">
+<code class="descclassname">viscid.</code><code class="descname">convert_angle</code><span class="sig-paren">(</span><em>angle</em>, <em>from_unit</em>, <em>to_unit</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/rotation.html#convert_angle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.convert_angle" title="Permalink to this definition">¶</a></dt>
+<dd><p>convert angle(s) from rad/deg to rad/deg</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>angle</strong> (<em>float</em><em>, </em><em>sequence</em>) – angle in from_unit</li>
+<li><strong>from_unit</strong> (<em>str</em>) – unit of angle, one of (‘rad’, ‘deg’)</li>
+<li><strong>to_unit</strong> (<em>str</em>) – unit of result, one of (‘rad’, ‘deg’)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">angle converted to to_unit</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">float or ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.check_orthonormality">
+<code class="descclassname">viscid.</code><code class="descname">check_orthonormality</code><span class="sig-paren">(</span><em>mat</em>, <em>bad_matrix='warn'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/rotation.html#check_orthonormality"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.check_orthonormality" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check that a matrix or stack of matrices is orthonormal</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>mat</strong> (<em>ndarray</em>) – A matrix with shape [Ndim, Ndim] or a stack of
+matrices with shape [Nmatrices, Ndim, Ndim]</li>
+<li><strong>bad_matrix</strong> (<em>str</em>) – What to do if <code class="docutils literal notranslate"><span class="pre">numpy.det(R)</span> <span class="pre">!=</span> <span class="pre">1.0</span></code> - can
+be one of (‘ignore’, ‘warn’, ‘raise’)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.e_rot">
+<code class="descclassname">viscid.</code><code class="descname">e_rot</code><span class="sig-paren">(</span><em>theta</em>, <em>axis='z'</em>, <em>unit='rad'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/rotation.html#e_rot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.e_rot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make elementary rotation matrices (extrinsic) of theta around axis</p>
+<p class="rubric">Example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">e_rot</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">)</span> <span class="o">@</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>theta</strong> (<em>float</em><em>, </em><em>sequence</em>) – angle or angles</li>
+<li><strong>axis</strong> (<em>int</em><em>, </em><em>str</em>) – one of (0, ‘x’, 1, ‘y’, 2, ‘z’)</li>
+<li><strong>unit</strong> (<em>str</em>) – unit of theta, one of (‘deg’, ‘rad’)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>rotation matrix with shape [ndim, ndim] or</dt>
+<dd><p class="first last">matrices with shape [Nmatrices, Ndim, Ndim]</p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">ndarray</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> – invalid axis</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.e_dcm">
+<code class="descclassname">viscid.</code><code class="descname">e_dcm</code><span class="sig-paren">(</span><em>theta</em>, <em>axis='z'</em>, <em>unit='rad'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/rotation.html#e_dcm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.e_dcm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make elementary rotation matrices (intrinsic) of theta around axis</p>
+<p class="rubric">Example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">e_dcm</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">)</span> <span class="o">@</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>theta</strong> (<em>float</em><em>, </em><em>sequence</em>) – angle or angles</li>
+<li><strong>axis</strong> (<em>int</em><em>, </em><em>str</em>) – one of (0, ‘x’, 1, ‘y’, 2, ‘z’)</li>
+<li><strong>unit</strong> (<em>str</em>) – unit of theta, one of (‘deg’, ‘rad’)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>rotation matrix with shape [ndim, ndim] or</dt>
+<dd><p class="first last">matrices with shape [Nmatrices, Ndim, Ndim]</p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">ndarray</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> – invalid axis</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.angle_between">
+<code class="descclassname">viscid.</code><code class="descname">angle_between</code><span class="sig-paren">(</span><em>a</em>, <em>b</em>, <em>unit='rad'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/rotation.html#angle_between"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.angle_between" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get angle(s) between two (sets of) vectors</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>a</strong> (<em>sequence</em>) – first vector, shape [Ndim] or [Nvectors, Ndim]</li>
+<li><strong>b</strong> (<em>sequence</em>) – second vector, shape [Ndim] or [Nvectors, Ndim]</li>
+<li><strong>unit</strong> (<em>str</em>) – unit of result, one of (‘deg’, ‘rad’)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">angle(s)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">float or ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.a2b_rot">
+<code class="descclassname">viscid.</code><code class="descname">a2b_rot</code><span class="sig-paren">(</span><em>a</em>, <em>b</em>, <em>roll=0.0</em>, <em>unit='rad'</em>, <em>new_x=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/rotation.html#a2b_rot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.a2b_rot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a matrix that rotates vector a to vector b</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>a</strong> (<em>ndarray</em>) – starting vector with shape [Ndim]
+or [Nvectors, Ndim]</li>
+<li><strong>b</strong> (<em>ndarray</em>) – destination vector with shape [Ndim]
+or [Nvectors, Ndim]</li>
+<li><strong>roll</strong> (<em>float</em>) – angle of roll around the b vector</li>
+<li><strong>unit</strong> (<em>str</em>) – unit of roll, one of (‘deg’, ‘rad’)</li>
 <li><strong>new_x</strong> (<em>ndarray</em>) – If given, then roll is set such that
-the <cite>x</cite> axis (phi = 0) new_x projected in the plane
+the <cite>x</cite> axis (phi = 0) new_x is projected in the plane
 perpendicular to origin-p1</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">3x3 orthonormal rotation matrix</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>orthonormal rotation matrix with shape [Ndim, Ndim]</dt>
+<dd><p class="first last">or [Nvectors, Ndim, Ndim]</p>
+</dd>
+</dl>
+</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.symbolic_e_dcm">
+<code class="descclassname">viscid.</code><code class="descname">symbolic_e_dcm</code><span class="sig-paren">(</span><em>axis='z'</em>, <em>angle=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/rotation.html#symbolic_e_dcm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.symbolic_e_dcm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make elementary matrix that rotate axes, not vectors (sympy)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.symbolic_e_rot">
+<code class="descclassname">viscid.</code><code class="descname">symbolic_e_rot</code><span class="sig-paren">(</span><em>axis='z'</em>, <em>angle=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/rotation.html#symbolic_e_rot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.symbolic_e_rot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make elementary matrix that rotate vectors, not the axes (sympy)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.symbolic_rot">
+<code class="descclassname">viscid.</code><code class="descname">symbolic_rot</code><span class="sig-paren">(</span><em>axes='zyx'</em>, <em>angles=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/rotation.html#symbolic_rot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.symbolic_rot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a symbolic rotation matrix (sympy)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.symbolic_dcm">
+<code class="descclassname">viscid.</code><code class="descname">symbolic_dcm</code><span class="sig-paren">(</span><em>axes='zyx'</em>, <em>angles=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/rotation.html#symbolic_dcm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.symbolic_dcm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a symbolic direction cosine matrix (sympy)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.convert_angles">
+<code class="descclassname">viscid.</code><code class="descname">convert_angles</code><span class="sig-paren">(</span><em>angle</em>, <em>from_unit</em>, <em>to_unit</em><span class="sig-paren">)</span><a class="headerlink" href="#viscid.convert_angles" title="Permalink to this definition">¶</a></dt>
+<dd><p>convert angle(s) from rad/deg to rad/deg</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>angle</strong> (<em>float</em><em>, </em><em>sequence</em>) – angle in from_unit</li>
+<li><strong>from_unit</strong> (<em>str</em>) – unit of angle, one of (‘rad’, ‘deg’)</li>
+<li><strong>to_unit</strong> (<em>str</em>) – unit of result, one of (‘rad’, ‘deg’)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">angle converted to to_unit</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">float or ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.angles2rot">
+<code class="descclassname">viscid.</code><code class="descname">angles2rot</code><span class="sig-paren">(</span><em>angles</em>, <em>axes='zyx'</em>, <em>unit='rad'</em><span class="sig-paren">)</span><a class="headerlink" href="#viscid.angles2rot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Euler angles (transform-order) -&gt; rotation matrix (extrinsic)</p>
+<p>Rotations are applied in transform-order, which means the first
+axis given is the first transform applied. In other words, the
+matrix multiply is in reverse order, i.e.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">R</span> <span class="o">=</span> <span class="p">(</span><span class="n">R</span><span class="p">(</span><span class="n">angles</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">axis</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span> <span class="o">@</span>
+<span class="gp">&gt;&gt;&gt; </span>     <span class="n">R</span><span class="p">(</span><span class="n">angles</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">axis</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> <span class="o">@</span>
+<span class="gp">&gt;&gt;&gt; </span>     <span class="n">R</span><span class="p">(</span><span class="n">angles</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">axis</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]))</span>
+</pre></div>
+</div>
+<p class="rubric">Example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">angle2rot</span><span class="p">([</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;zyx&#39;</span><span class="p">)</span> <span class="o">@</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>angles</strong> (<em>sequence</em>) – Euler angles in transform-order; can
+have shape [Ndim] or [Nmatrices, Ndim] to make stacked
+transform matrices</li>
+<li><strong>axes</strong> (<em>sequence</em><em>, </em><em>str</em>) – rotation axes in transform-order</li>
+<li><strong>unit</strong> (<em>str</em>) – unit of angles, one of (‘deg’, ‘rad’)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>rotation matrix with shape [Ndim, Ndim] or</dt>
+<dd><p class="first last">[Nmatrices, Ndim, Ndim] depending on the shape of <code class="docutils literal notranslate"><span class="pre">angles</span></code></p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.angles2dcm">
+<code class="descclassname">viscid.</code><code class="descname">angles2dcm</code><span class="sig-paren">(</span><em>angles</em>, <em>axes='zyx'</em>, <em>unit='rad'</em><span class="sig-paren">)</span><a class="headerlink" href="#viscid.angles2dcm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Euler angles (transform-order) -&gt; rotation matrix (intrinsic)</p>
+<p>Rotations are applied in transform-order, which means the first
+axis given is the first transform applied. In other words, the
+matrix multiply is in reverse order, i.e.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">R</span> <span class="o">=</span> <span class="p">(</span><span class="n">R</span><span class="p">(</span><span class="n">angles</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">axis</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span> <span class="o">@</span>
+<span class="gp">&gt;&gt;&gt; </span>     <span class="n">R</span><span class="p">(</span><span class="n">angles</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">axis</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> <span class="o">@</span>
+<span class="gp">&gt;&gt;&gt; </span>     <span class="n">R</span><span class="p">(</span><span class="n">angles</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">axis</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]))</span>
+</pre></div>
+</div>
+<p>This function is equivalent (up to a few machine epsilon) to
+Matlab’s <code class="docutils literal notranslate"><span class="pre">angle2dcm</span></code>.</p>
+<p class="rubric">Example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">angle2dcm</span><span class="p">([</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;zyx&#39;</span><span class="p">)</span> <span class="o">@</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>angles</strong> (<em>sequence</em>) – Euler angles in transform-order; can
+have shape [Ndim] or [Nmatrices, Ndim] to make stacked
+transform matrices</li>
+<li><strong>axes</strong> (<em>sequence</em><em>, </em><em>str</em>) – rotation axes in transform-order</li>
+<li><strong>unit</strong> (<em>str</em>) – unit of angles, one of (‘deg’, ‘rad’)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>rotation matrix with shape [Ndim, Ndim] or</dt>
+<dd><p class="first last">[Nmatrices, Ndim, Ndim] depending on the shape of <code class="docutils literal notranslate"><span class="pre">angles</span></code></p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descclassname">viscid.</code><code class="descname">rot2angles</code><span class="sig-paren">(</span><em>R</em>, <em>axes='zyx'</em>, <em>unit='rad'</em>, <em>bad_matrix='warn'</em><span class="sig-paren">)</span></dt>
+<dd><p>Rotation matrix (extrinsic) -&gt; Euler angles (transform-order)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>R</strong> (<em>ndarray</em>) – A rotation matrix with shape [Ndim, Ndim] or a
+stack of matrices with shape [Nmatrices, Ndim, Ndim]</li>
+<li><strong>axes</strong> (<em>sequence</em><em>, </em><em>str</em>) – rotation axes in transform-order</li>
+<li><strong>unit</strong> (<em>str</em>) – Unit of angles, one of (‘deg’, ‘rad’)</li>
+<li><strong>bad_matrix</strong> (<em>str</em>) – What to do if <code class="docutils literal notranslate"><span class="pre">numpy.det(R)</span> <span class="pre">!=</span> <span class="pre">1.0</span></code> - can
+be one of (‘ignore’, ‘warn’, ‘raise’)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>Euler angles with shape [Ndim] or [Nmatrices, Ndim]</dt>
+<dd><p class="first last">depending on the input. <code class="docutils literal notranslate"><span class="pre">angles[:,</span> <span class="pre">i]</span></code> always corresponds
+to <code class="docutils literal notranslate"><span class="pre">axes[i]</span></code>.</p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<ul class="last simple">
+<li><a class="reference internal" href="#viscid.angle2rot" title="viscid.angle2rot"><code class="xref py py-func docutils literal notranslate"><span class="pre">angle2rot()</span></code></a> for more details about axes order.</li>
+</ul>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descclassname">viscid.</code><code class="descname">dcm2angles</code><span class="sig-paren">(</span><em>R</em>, <em>axes='zyx'</em>, <em>unit='rad'</em>, <em>bad_matrix='warn'</em><span class="sig-paren">)</span></dt>
+<dd><p>Rotation matrix (intrinsic) -&gt; Euler angles (transform-order)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>R</strong> (<em>ndarray</em>) – A rotation matrix with shape [Ndim, Ndim] or a
+stack of matrices with shape [Nmatrices, Ndim, Ndim]</li>
+<li><strong>axes</strong> (<em>sequence</em><em>, </em><em>str</em>) – rotation axes in transform-order</li>
+<li><strong>unit</strong> (<em>str</em>) – Unit of angles, one of (‘deg’, ‘rad’)</li>
+<li><strong>bad_matrix</strong> (<em>str</em>) – What to do if <code class="docutils literal notranslate"><span class="pre">numpy.det(R)</span> <span class="pre">!=</span> <span class="pre">1.0</span></code> - can
+be one of (‘ignore’, ‘warn’, ‘raise’)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>Euler angles with shape [Ndim] or [Nmatrices, Ndim]</dt>
+<dd><p class="first last">depending on the input. <code class="docutils literal notranslate"><span class="pre">angles[:,</span> <span class="pre">i]</span></code> always corresponds
+to <code class="docutils literal notranslate"><span class="pre">axes[i]</span></code>.</p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<ul class="last simple">
+<li><a class="reference internal" href="#viscid.angle2dcm" title="viscid.angle2dcm"><code class="xref py py-func docutils literal notranslate"><span class="pre">angle2dcm()</span></code></a> for more details about axes order.</li>
+</ul>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.eul2rotm">
+<code class="descclassname">viscid.</code><code class="descname">eul2rotm</code><span class="sig-paren">(</span><em>angles</em>, <em>axes='zyx'</em>, <em>unit='rad'</em><span class="sig-paren">)</span><a class="headerlink" href="#viscid.eul2rotm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Euler angles (multiplication-order) -&gt; rotation matrix (extrinsic)</p>
+<p>Rotations are applied in multiplication-order, which means the last
+axis given is the first transform applied. In other words:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">R</span> <span class="o">=</span> <span class="p">(</span><span class="n">R</span><span class="p">(</span><span class="n">angles</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">axis</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="o">@</span>
+<span class="gp">&gt;&gt;&gt; </span>     <span class="n">R</span><span class="p">(</span><span class="n">angles</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">axis</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> <span class="o">@</span>
+<span class="gp">&gt;&gt;&gt; </span>     <span class="n">R</span><span class="p">(</span><span class="n">angles</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">axis</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">]))</span>
+</pre></div>
+</div>
+<p>This function is equivalent (up to a few machine epsilon) to
+Matlab’s <code class="docutils literal notranslate"><span class="pre">eul2rotm</span></code>.</p>
+<p class="rubric">Example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">eul2rot</span><span class="p">([</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;zyx&#39;</span><span class="p">)</span> <span class="o">@</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>angles</strong> (<em>sequence</em>) – Euler angles in multiplication-order; can
+have shape [Ndim] or [Nmatrices, Ndim] to make stacked
+transform matrices</li>
+<li><strong>axes</strong> (<em>sequence</em><em>, </em><em>str</em>) – rotation axes in multiplication-order</li>
+<li><strong>unit</strong> (<em>str</em>) – unit of angles, one of (‘deg’, ‘rad’)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>rotation matrix with shape [Ndim, Ndim] or</dt>
+<dd><p class="first last">[Nmatrices, Ndim, Ndim] depending on the shape of <code class="docutils literal notranslate"><span class="pre">angles</span></code></p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.angle2rotm">
+<code class="descclassname">viscid.</code><code class="descname">angle2rotm</code><span class="sig-paren">(</span><em>angles</em>, <em>axes='zyx'</em>, <em>unit='rad'</em><span class="sig-paren">)</span><a class="headerlink" href="#viscid.angle2rotm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Euler angles (transform-order) -&gt; rotation matrix (extrinsic)</p>
+<p>Rotations are applied in transform-order, which means the first
+axis given is the first transform applied. In other words, the
+matrix multiply is in reverse order, i.e.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">R</span> <span class="o">=</span> <span class="p">(</span><span class="n">R</span><span class="p">(</span><span class="n">angles</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">axis</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span> <span class="o">@</span>
+<span class="gp">&gt;&gt;&gt; </span>     <span class="n">R</span><span class="p">(</span><span class="n">angles</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">axis</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> <span class="o">@</span>
+<span class="gp">&gt;&gt;&gt; </span>     <span class="n">R</span><span class="p">(</span><span class="n">angles</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">axis</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]))</span>
+</pre></div>
+</div>
+<p class="rubric">Example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">angle2rot</span><span class="p">([</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;zyx&#39;</span><span class="p">)</span> <span class="o">@</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>angles</strong> (<em>sequence</em>) – Euler angles in transform-order; can
+have shape [Ndim] or [Nmatrices, Ndim] to make stacked
+transform matrices</li>
+<li><strong>axes</strong> (<em>sequence</em><em>, </em><em>str</em>) – rotation axes in transform-order</li>
+<li><strong>unit</strong> (<em>str</em>) – unit of angles, one of (‘deg’, ‘rad’)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>rotation matrix with shape [Ndim, Ndim] or</dt>
+<dd><p class="first last">[Nmatrices, Ndim, Ndim] depending on the shape of <code class="docutils literal notranslate"><span class="pre">angles</span></code></p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.angles2rotm">
+<code class="descclassname">viscid.</code><code class="descname">angles2rotm</code><span class="sig-paren">(</span><em>angles</em>, <em>axes='zyx'</em>, <em>unit='rad'</em><span class="sig-paren">)</span><a class="headerlink" href="#viscid.angles2rotm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Euler angles (transform-order) -&gt; rotation matrix (extrinsic)</p>
+<p>Rotations are applied in transform-order, which means the first
+axis given is the first transform applied. In other words, the
+matrix multiply is in reverse order, i.e.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">R</span> <span class="o">=</span> <span class="p">(</span><span class="n">R</span><span class="p">(</span><span class="n">angles</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">axis</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span> <span class="o">@</span>
+<span class="gp">&gt;&gt;&gt; </span>     <span class="n">R</span><span class="p">(</span><span class="n">angles</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">axis</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> <span class="o">@</span>
+<span class="gp">&gt;&gt;&gt; </span>     <span class="n">R</span><span class="p">(</span><span class="n">angles</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">axis</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]))</span>
+</pre></div>
+</div>
+<p class="rubric">Example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">angle2rot</span><span class="p">([</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;zyx&#39;</span><span class="p">)</span> <span class="o">@</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>angles</strong> (<em>sequence</em>) – Euler angles in transform-order; can
+have shape [Ndim] or [Nmatrices, Ndim] to make stacked
+transform matrices</li>
+<li><strong>axes</strong> (<em>sequence</em><em>, </em><em>str</em>) – rotation axes in transform-order</li>
+<li><strong>unit</strong> (<em>str</em>) – unit of angles, one of (‘deg’, ‘rad’)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>rotation matrix with shape [Ndim, Ndim] or</dt>
+<dd><p class="first last">[Nmatrices, Ndim, Ndim] depending on the shape of <code class="docutils literal notranslate"><span class="pre">angles</span></code></p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.rotm2eul">
+<code class="descclassname">viscid.</code><code class="descname">rotm2eul</code><span class="sig-paren">(</span><em>R</em>, <em>axes='zyx'</em>, <em>unit='rad'</em>, <em>bad_matrix='warn'</em><span class="sig-paren">)</span><a class="headerlink" href="#viscid.rotm2eul" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotation matrix (extrinsic) -&gt; Euler angles (multiplication-order)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>R</strong> (<em>ndarray</em>) – A rotation matrix with shape [Ndim, Ndim] or a
+stack of matrices with shape [Nmatrices, Ndim, Ndim]</li>
+<li><strong>axes</strong> (<em>sequence</em><em>, </em><em>str</em>) – rotation axes in multiplication-order</li>
+<li><strong>unit</strong> (<em>str</em>) – Unit of angles, one of (‘deg’, ‘rad’)</li>
+<li><strong>bad_matrix</strong> (<em>str</em>) – What to do if <code class="docutils literal notranslate"><span class="pre">numpy.det(R)</span> <span class="pre">!=</span> <span class="pre">1.0</span></code> - can
+be one of (‘ignore’, ‘warn’, ‘raise’)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>Euler angles with shape [Ndim] or [Nmatrices, Ndim]</dt>
+<dd><p class="first last">depending on the input. <code class="docutils literal notranslate"><span class="pre">angles[:,</span> <span class="pre">i]</span></code> always corresponds
+to <code class="docutils literal notranslate"><span class="pre">axes[i]</span></code>.</p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<ul class="last simple">
+<li><a class="reference internal" href="#viscid.rot2eul" title="viscid.rot2eul"><code class="xref py py-func docutils literal notranslate"><span class="pre">rot2eul()</span></code></a> for more details about axes order.</li>
+</ul>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.rotm2angle">
+<code class="descclassname">viscid.</code><code class="descname">rotm2angle</code><span class="sig-paren">(</span><em>R</em>, <em>axes='zyx'</em>, <em>unit='rad'</em>, <em>bad_matrix='warn'</em><span class="sig-paren">)</span><a class="headerlink" href="#viscid.rotm2angle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotation matrix (extrinsic) -&gt; Euler angles (transform-order)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>R</strong> (<em>ndarray</em>) – A rotation matrix with shape [Ndim, Ndim] or a
+stack of matrices with shape [Nmatrices, Ndim, Ndim]</li>
+<li><strong>axes</strong> (<em>sequence</em><em>, </em><em>str</em>) – rotation axes in transform-order</li>
+<li><strong>unit</strong> (<em>str</em>) – Unit of angles, one of (‘deg’, ‘rad’)</li>
+<li><strong>bad_matrix</strong> (<em>str</em>) – What to do if <code class="docutils literal notranslate"><span class="pre">numpy.det(R)</span> <span class="pre">!=</span> <span class="pre">1.0</span></code> - can
+be one of (‘ignore’, ‘warn’, ‘raise’)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>Euler angles with shape [Ndim] or [Nmatrices, Ndim]</dt>
+<dd><p class="first last">depending on the input. <code class="docutils literal notranslate"><span class="pre">angles[:,</span> <span class="pre">i]</span></code> always corresponds
+to <code class="docutils literal notranslate"><span class="pre">axes[i]</span></code>.</p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<ul class="last simple">
+<li><a class="reference internal" href="#viscid.angle2rot" title="viscid.angle2rot"><code class="xref py py-func docutils literal notranslate"><span class="pre">angle2rot()</span></code></a> for more details about axes order.</li>
+</ul>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.rotm2angles">
+<code class="descclassname">viscid.</code><code class="descname">rotm2angles</code><span class="sig-paren">(</span><em>R</em>, <em>axes='zyx'</em>, <em>unit='rad'</em>, <em>bad_matrix='warn'</em><span class="sig-paren">)</span><a class="headerlink" href="#viscid.rotm2angles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotation matrix (extrinsic) -&gt; Euler angles (transform-order)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>R</strong> (<em>ndarray</em>) – A rotation matrix with shape [Ndim, Ndim] or a
+stack of matrices with shape [Nmatrices, Ndim, Ndim]</li>
+<li><strong>axes</strong> (<em>sequence</em><em>, </em><em>str</em>) – rotation axes in transform-order</li>
+<li><strong>unit</strong> (<em>str</em>) – Unit of angles, one of (‘deg’, ‘rad’)</li>
+<li><strong>bad_matrix</strong> (<em>str</em>) – What to do if <code class="docutils literal notranslate"><span class="pre">numpy.det(R)</span> <span class="pre">!=</span> <span class="pre">1.0</span></code> - can
+be one of (‘ignore’, ‘warn’, ‘raise’)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>Euler angles with shape [Ndim] or [Nmatrices, Ndim]</dt>
+<dd><p class="first last">depending on the input. <code class="docutils literal notranslate"><span class="pre">angles[:,</span> <span class="pre">i]</span></code> always corresponds
+to <code class="docutils literal notranslate"><span class="pre">axes[i]</span></code>.</p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<ul class="last simple">
+<li><a class="reference internal" href="#viscid.angle2rot" title="viscid.angle2rot"><code class="xref py py-func docutils literal notranslate"><span class="pre">angle2rot()</span></code></a> for more details about axes order.</li>
+</ul>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.rotm2quat">
+<code class="descclassname">viscid.</code><code class="descname">rotm2quat</code><span class="sig-paren">(</span><em>R</em><span class="sig-paren">)</span><a class="headerlink" href="#viscid.rotm2quat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotation matrix (extrinsic) -&gt; quaternion</p>
+<p>If <a class="reference external" href="https://github.com/moble/quaternion">this quaternion library</a>
+is imported, then the results are presented with dtype quaternion,
+otherwise, as dtype numpy.double (array-of-struct,
+[scalar, vec0, vec1, vec2]).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>R</strong> (<em>ndarray</em>) – A rotation matrix with shape [Ndim, Ndim] or a
+stack of matrices with shape [Nmatrices, Ndim, Ndim]</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="docutils">
+<dt>quaternions with dtype quaternion with shape</dt>
+<dd>(Nmatrices,) or (); or with dtype numpy.double and shape
+(Nmatrices, 4) or (4)</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">ndarray</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.quat2rotm">
+<code class="descclassname">viscid.</code><code class="descname">quat2rotm</code><span class="sig-paren">(</span><em>q</em><span class="sig-paren">)</span><a class="headerlink" href="#viscid.quat2rotm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Quaternion -&gt; rotation matrix (extrinsic)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>q</strong> (<em>ndarray</em>) – quaternions with dtype quaternion and shape
+(Nmatrices,) or (); or with dtype numpy.double and shape
+(Nmatrices, 4) or (4)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="docutils">
+<dt>orthonormal rotation matrix with shape (3, 3)</dt>
+<dd>or (Nmatrices, 3, 3)</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">ndarray</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.a2b_rotm">
+<code class="descclassname">viscid.</code><code class="descname">a2b_rotm</code><span class="sig-paren">(</span><em>a</em>, <em>b</em>, <em>roll=0.0</em>, <em>unit='rad'</em>, <em>new_x=None</em><span class="sig-paren">)</span><a class="headerlink" href="#viscid.a2b_rotm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a matrix that rotates vector a to vector b</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>a</strong> (<em>ndarray</em>) – starting vector with shape [Ndim]
+or [Nvectors, Ndim]</li>
+<li><strong>b</strong> (<em>ndarray</em>) – destination vector with shape [Ndim]
+or [Nvectors, Ndim]</li>
+<li><strong>roll</strong> (<em>float</em>) – angle of roll around the b vector</li>
+<li><strong>unit</strong> (<em>str</em>) – unit of roll, one of (‘deg’, ‘rad’)</li>
+<li><strong>new_x</strong> (<em>ndarray</em>) – If given, then roll is set such that
+the <cite>x</cite> axis (phi = 0) new_x is projected in the plane
+perpendicular to origin-p1</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>orthonormal rotation matrix with shape [Ndim, Ndim]</dt>
+<dd><p class="first last">or [Nvectors, Ndim, Ndim]</p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.axang2rotm">
+<code class="descclassname">viscid.</code><code class="descname">axang2rotm</code><span class="sig-paren">(</span><em>axang</em>, <em>unit='rad'</em><span class="sig-paren">)</span><a class="headerlink" href="#viscid.axang2rotm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a matrix (matrices) that rotates around vector by angle</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>axang</strong> (<em>ndarray</em>) – axis(es) / angle(s) of rotation(s) put
+together like {x, y, z, angle}; shape should be (4,), or
+(Nmatrices, 4)</li>
+<li><strong>unit</strong> (<em>str</em>) – unit of angle, one of (‘deg’, ‘rad’)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>orthonormal rotation matrix with shape (3, 3)</dt>
+<dd><p class="first last">or (Nmatrices, 3, 3)</p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.rotm2axang">
+<code class="descclassname">viscid.</code><code class="descname">rotm2axang</code><span class="sig-paren">(</span><em>R</em>, <em>unit='rad'</em>, <em>quick=True</em>, <em>bad_matrix='warn'</em><span class="sig-paren">)</span><a class="headerlink" href="#viscid.rotm2axang" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find axis / angle representation of rotation matrix (matrices)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>R</strong> (<em>ndarray</em>) – Rotation matrix with shape (3, 3) determinant +1,
+or matrices with shape (Nmatrices, 3, 3)</li>
+<li><strong>unit</strong> (<em>str</em>) – unit of angle in results, one of (‘deg’, ‘rad’)</li>
+<li><strong>quick</strong> (<em>bool</em>) – Try a quicker, less well tested method</li>
+<li><strong>bad_matrix</strong> (<em>str</em>) – What to do if <code class="docutils literal notranslate"><span class="pre">numpy.det(R)</span> <span class="pre">!=</span> <span class="pre">1.0</span></code> - can
+be one of (‘ignore’, ‘warn’, ‘raise’)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>{x, y, z, angle} axis / angle values with shape (4,)</dt>
+<dd><p class="first last">or (Nmatrices, 4)</p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(ndarray)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.wxyz2rotm">
+<code class="descclassname">viscid.</code><code class="descname">wxyz2rotm</code><span class="sig-paren">(</span><em>angle</em>, <em>vector</em>, <em>unit='rad'</em><span class="sig-paren">)</span><a class="headerlink" href="#viscid.wxyz2rotm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a matrix (matrices) that rotates around vector by angle</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>angle</strong> (<em>sequence</em>) – angle(s) of rotation(s) with
+shape (), (1,), or (Nmatrices)</li>
+<li><strong>vector</strong> (<em>sequence</em>) – 3d vector(s) that is (are) axis of rotation(s)
+with shape (3,) or (Nmatrices, 3)</li>
+<li><strong>unit</strong> (<em>str</em>) – unit of angle, one of (‘deg’, ‘rad’)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>orthonormal rotation matrix with shape (3, 3)</dt>
+<dd><p class="first last">or (Nmatrices, 3, 3)</p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.rotm2wxyz">
+<code class="descclassname">viscid.</code><code class="descname">rotm2wxyz</code><span class="sig-paren">(</span><em>R</em>, <em>unit='rad'</em>, <em>quick=True</em>, <em>bad_matrix='warn'</em><span class="sig-paren">)</span><a class="headerlink" href="#viscid.rotm2wxyz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find axis / angle representation of rotation matrix (matrices)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>R</strong> (<em>ndarray</em>) – Rotation matrix with shape (3, 3) determinant +1,
+or matrices with shape (Nmatrices, 3, 3)</li>
+<li><strong>unit</strong> (<em>str</em>) – unit of angle in results, one of (‘deg’, ‘rad’)</li>
+<li><strong>quick</strong> (<em>bool</em>) – Try a quicker, less well tested method</li>
+<li><strong>bad_matrix</strong> (<em>str</em>) – What to do if <code class="docutils literal notranslate"><span class="pre">numpy.det(R)</span> <span class="pre">!=</span> <span class="pre">1.0</span></code> - can
+be one of (‘ignore’, ‘warn’, ‘raise’)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">w</span></code> is rotation angle with shape () or (Nmatrices),</dt>
+<dd><p class="first last">and <code class="docutils literal notranslate"><span class="pre">xyz</span></code> are normalized rotation axes with shape (3,)
+or (Nmatrices, 3)</p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(w, xyz)</p>
 </td>
 </tr>
 </tbody>
@@ -3401,7 +5089,7 @@ indices of an array, but only if the array already exists.</p>
 
 <dl class="class">
 <dt id="viscid.SphericalCap">
-<em class="property">class </em><code class="descclassname">viscid.</code><code class="descname">SphericalCap</code><span class="sig-paren">(</span><em>angle0=0.0</em>, <em>angle=90.0</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#SphericalCap"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.SphericalCap" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">viscid.</code><code class="descname">SphericalCap</code><span class="sig-paren">(</span><em>angle0=0.0, angle=90.0, theta_endpoint=[True, False], **kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#SphericalCap"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.SphericalCap" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="viscid.seed.html#viscid.seed.Sphere" title="viscid.seed.Sphere"><code class="xref py py-class docutils literal notranslate"><span class="pre">viscid.seed.Sphere</span></code></a></p>
 <p>A spherical cone or cap of seeds</p>
 <p>Defined by a center, and a point indicating the direction of the
@@ -3573,34 +5261,222 @@ closed at the bottom.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="viscid.str2value">
-<code class="descclassname">viscid.</code><code class="descname">str2value</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/sliceutil.html#str2value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.str2value" title="Permalink to this definition">¶</a></dt>
-<dd><p>try to parse things like none, true, false, ints, floats, etc.</p>
+<dt id="viscid.prune_comp_sel">
+<code class="descclassname">viscid.</code><code class="descname">prune_comp_sel</code><span class="sig-paren">(</span><em>sel_list</em>, <em>comp_names</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/sliceutil.html#prune_comp_sel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.prune_comp_sel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discover and remove vector component from selection list</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="viscid.parse_time_slice_str">
-<code class="descclassname">viscid.</code><code class="descname">parse_time_slice_str</code><span class="sig-paren">(</span><em>slc_str</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/sliceutil.html#parse_time_slice_str"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.parse_time_slice_str" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dt id="viscid.raw_sel2sel_list">
+<code class="descclassname">viscid.</code><code class="descname">raw_sel2sel_list</code><span class="sig-paren">(</span><em>sel</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/sliceutil.html#raw_sel2sel_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.raw_sel2sel_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Turn generic selection into something standard we can work with</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>slc_str</strong> (<em>str</em>) – must be a single string containing a single
-time slice</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>sel</strong> (<em>object</em>) – some slice selection</p>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">one of {int, string, or slice (can contain ints,
-floats, or strings)}</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>items in sel_list are guarenteed to be</dt>
+<dd><p class="first last">of type {slice, int, complex, string, numpy.ndarray}</p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">(sel_list, input_type)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code> – slice-by-array invalid dtype</li>
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> – slice-by-array not 1D</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Individual elements of the slice can look like an int,
-float with trailing ‘f’, or they can have the form
-[A-Z]+[d:]+.d*. This last one is a datetime-like
-representation with some preceding letters. The preceding
-letters are</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.fill_nd_sel_list">
+<code class="descclassname">viscid.</code><code class="descname">fill_nd_sel_list</code><span class="sig-paren">(</span><em>sel_list</em>, <em>ax_names</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/sliceutil.html#fill_nd_sel_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.fill_nd_sel_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>fully determine a sparsely selected sel_list</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.standardize_sel_list">
+<code class="descclassname">viscid.</code><code class="descname">standardize_sel_list</code><span class="sig-paren">(</span><em>sel_list</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/sliceutil.html#standardize_sel_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.standardize_sel_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>turn all selection list elements into fundamental python types</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.standardize_sel">
+<code class="descclassname">viscid.</code><code class="descname">standardize_sel</code><span class="sig-paren">(</span><em>sel</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/sliceutil.html#standardize_sel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.standardize_sel" title="Permalink to this definition">¶</a></dt>
+<dd><p>turn selection list element into fundamental python types</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.standardize_value">
+<code class="descclassname">viscid.</code><code class="descname">standardize_value</code><span class="sig-paren">(</span><em>sel</em>, <em>bool_argwhere=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/sliceutil.html#standardize_value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.standardize_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Turn a value element to fundamental type or array</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="docutils">
+<dt>One of the following::</dt>
+<dd><ul class="first last simple">
+<li>None</li>
+<li>np.newaxis</li>
+<li>Ellipsis</li>
+<li>bool</li>
+<li>int</li>
+<li>complex (slice by value)</li>
+<li>numpy.datetime64</li>
+<li>numpy.timedelta64</li>
+<li><dl class="first docutils">
+<dt>ndarray</dt>
+<dd><ul class="first last">
+<li>numpy.integer</li>
+<li>numpy.bool_</li>
+<li>numpy.timedelta64</li>
+<li>numpy.datetime64</li>
+<li>numpy.complex</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.std_sel_list2index">
+<code class="descclassname">viscid.</code><code class="descname">std_sel_list2index</code><span class="sig-paren">(</span><em>std_sel_list</em>, <em>crd_arrs</em>, <em>val_endpoint=True</em>, <em>interior=False</em>, <em>tdunit='s'</em>, <em>epoch=None</em>, <em>tol=100</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/sliceutil.html#std_sel_list2index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.std_sel_list2index" title="Permalink to this definition">¶</a></dt>
+<dd><p>turn standardized selection list into index slice</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.std_sel2index">
+<code class="descclassname">viscid.</code><code class="descname">std_sel2index</code><span class="sig-paren">(</span><em>std_sel</em>, <em>crd_arr</em>, <em>val_endpoint=True</em>, <em>interior=False</em>, <em>tdunit='s'</em>, <em>epoch=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/sliceutil.html#std_sel2index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.std_sel2index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Turn single standardized selection into slice (by int or None)</p>
+<p>Normally (val_endpoint=True, interior=False), the rules for float
+lookup val_endpoints are:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>- The slice will never include an element whose value in arr
+  is &lt; start (or &gt; if the slice is backward)
+- The slice will never include an element whose value in arr
+  is &gt; stop (or &lt; if the slice is backward)
+- !! The slice WILL INCLUDE stop if you don&#39;t change
+  val_endpoint. This is different from normal slicing, but
+  it&#39;s more natural when specifying a slice as a float.
+</pre></div>
 </div>
+<p>If interior=True, then the slice is expanded such that start and
+stop are interior to the sliced array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>std_sel</strong> – single standardized selection</li>
+<li><strong>arr</strong> (<em>ndarray</em>) – filled with floats to do the lookup</li>
+<li><strong>val_endpoint</strong> (<em>bool</em>) – iff True then include stop in the slice when
+slicing-by-value (DOES NOT EFFECT SLICE-BY-INDEX).
+Set to False to get python slicing symantics when it
+comes to excluding stop, but fair warning, python
+symantics feel awkward here. Consider the case
+[0.1, 0.2, 0.3][:0.25]. If you think this should include
+0.2, then leave keep val_endpoint=True.</li>
+<li><strong>interior</strong> (<em>bool</em>) – if True, then extend both ends of the slice
+such that slice-by-location endpoints are interior to the
+slice</li>
+<li><strong>epoch</strong> (<em>datetime64-like</em>) – Epoch for to go datetime64 &lt;-&gt; float</li>
+<li><strong>tdunit</strong> (<em>str</em>) – Presumed time unit for floats</li>
+<li><strong>tol</strong> (<em>int</em>) – number of machine epsilons to consider
+“close enough”</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.sel_list2values">
+<code class="descclassname">viscid.</code><code class="descname">sel_list2values</code><span class="sig-paren">(</span><em>arrs</em>, <em>sel_list</em>, <em>epoch=None</em>, <em>tdunit='s'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/sliceutil.html#sel_list2values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.sel_list2values" title="Permalink to this definition">¶</a></dt>
+<dd><p>find the extrema values for a given sel list</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.sel2values">
+<code class="descclassname">viscid.</code><code class="descname">sel2values</code><span class="sig-paren">(</span><em>arr</em>, <em>sel</em>, <em>epoch=None</em>, <em>tdunit='s'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/sliceutil.html#sel2values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.sel2values" title="Permalink to this definition">¶</a></dt>
+<dd><p>find the extrema values for a given selection</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>arr</strong> (<em>None</em><em>, </em><em>sequence</em>) – array that is being selected, if this is
+None, then the output will contain np.nan where it can not
+infer values.</li>
+<li><strong>selection</strong> (<em>slice</em><em>, </em><em>str</em>) – a single selection that could be given
+to <code class="xref py py-func docutils literal notranslate"><span class="pre">to_slice()</span></code></li>
+<li><strong>epoch</strong> (<em>datetime64-like</em>) – Epoch for to go datetime64 &lt;-&gt; float</li>
+<li><strong>tdunit</strong> (<em>str</em>) – Presumed time unit for floats</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><p>(start_val, stop_val) as floats</p>
+<ul class="simple">
+<li>If arr is None and start/stop are None, then they will become
++/- inf depending on the sign of step.</li>
+<li>If arr is None and start/stop are slice-by-index, they will
+become NaN.</li>
+</ul>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="viscid.selection2values">
+<code class="descclassname">viscid.</code><code class="descname">selection2values</code><span class="sig-paren">(</span><em>arr</em>, <em>sel</em>, <em>epoch=None</em>, <em>tdunit='s'</em><span class="sig-paren">)</span><a class="headerlink" href="#viscid.selection2values" title="Permalink to this definition">¶</a></dt>
+<dd><p>find the extrema values for a given selection</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>arr</strong> (<em>None</em><em>, </em><em>sequence</em>) – array that is being selected, if this is
+None, then the output will contain np.nan where it can not
+infer values.</li>
+<li><strong>selection</strong> (<em>slice</em><em>, </em><em>str</em>) – a single selection that could be given
+to <code class="xref py py-func docutils literal notranslate"><span class="pre">to_slice()</span></code></li>
+<li><strong>epoch</strong> (<em>datetime64-like</em>) – Epoch for to go datetime64 &lt;-&gt; float</li>
+<li><strong>tdunit</strong> (<em>str</em>) – Presumed time unit for floats</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><p>(start_val, stop_val) as floats</p>
+<ul class="simple">
+<li>If arr is None and start/stop are None, then they will become
++/- inf depending on the sign of step.</li>
+<li>If arr is None and start/stop are slice-by-index, they will
+become NaN.</li>
+</ul>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
@@ -3671,191 +5547,9 @@ True</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="viscid.to_slices">
-<code class="descclassname">viscid.</code><code class="descname">to_slices</code><span class="sig-paren">(</span><em>arrs</em>, <em>selections</em>, <em>val_endpoint=True</em>, <em>interior=False</em>, <em>epoch=None</em>, <em>tdunit='s'</em>, <em>tol=100</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/sliceutil.html#to_slices"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.to_slices" title="Permalink to this definition">¶</a></dt>
-<dd><p>Wraps <a class="reference internal" href="#viscid.to_slice" title="viscid.to_slice"><code class="xref py py-func docutils literal notranslate"><span class="pre">to_slice()</span></code></a> for multiple arrays / slices</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>arrs</strong> (<em>list</em><em>, </em><em>None</em>) – list of arrays for float lookups, must be
-the same length as s.split(‘,’). If all slices are by
-index, then <cite>arrs</cite> can be <cite>None</cite>.</li>
-<li><strong>selections</strong> (<em>list</em><em>, </em><em>str</em>) – list of things that <a class="reference internal" href="#viscid.to_slice" title="viscid.to_slice"><code class="xref py py-func docutils literal notranslate"><span class="pre">to_slice()</span></code></a>
-understands, or a comma separated string of slices</li>
-<li><strong>val_endpoint</strong> (<em>bool</em>) – passed to <code class="xref py py-func docutils literal notranslate"><span class="pre">extract_index()</span></code> if needed</li>
-<li><strong>interior</strong> (<em>bool</em>) – passed to <code class="xref py py-func docutils literal notranslate"><span class="pre">extract_index()</span></code> if needed</li>
-<li><strong>epoch</strong> (<em>datetime64-like</em>) – Epoch for to go datetime64 &lt;-&gt; float</li>
-<li><strong>tdunit</strong> (<em>str</em>) – Presumed time unit for floats</li>
-<li><strong>tol</strong> (<em>int</em>) – passed to <code class="xref py py-func docutils literal notranslate"><span class="pre">extract_index()</span></code> if needed</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">tuple of slice objects</p>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition seealso">
-<p class="first admonition-title">See also</p>
-<ul class="last simple">
-<li><a class="reference internal" href="#viscid.to_slice" title="viscid.to_slice"><code class="xref py py-func docutils literal notranslate"><span class="pre">to_slice()</span></code></a></li>
-<li><code class="xref py py-func docutils literal notranslate"><span class="pre">extract_index()</span></code></li>
-</ul>
-</div>
-</dd></dl>
-
-<dl class="function">
-<dt id="viscid.to_slice">
-<code class="descclassname">viscid.</code><code class="descname">to_slice</code><span class="sig-paren">(</span><em>arr</em>, <em>selection</em>, <em>val_endpoint=True</em>, <em>interior=False</em>, <em>epoch=None</em>, <em>tdunit='s'</em>, <em>tol=100</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/sliceutil.html#to_slice"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.to_slice" title="Permalink to this definition">¶</a></dt>
-<dd><p>Convert anything describing a slice to a slice object</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>arr</strong> (<em>array</em>) – Array that you’re going to slice if you specify any
-parts of the slice by value. If all slices are by index,
-<cite>arr</cite> can be <cite>None</cite>.</li>
-<li><strong>selection</strong> (<em>int</em><em>, </em><em>str</em><em>, </em><em>slice</em>) – Something that can be turned into
-a slice. Ints are returned as-is. Slices and strings are
-parsed to see if they contain indices, or values. Values
-are strings that contain a number followed by an ‘f’. Refer
-to <code class="xref py py-func docutils literal notranslate"><span class="pre">extract_index()</span></code> for the slice-by-value
-semantics.</li>
-<li><strong>val_endpoint</strong> (<em>bool</em>) – passed to <code class="xref py py-func docutils literal notranslate"><span class="pre">extract_index()</span></code> if needed</li>
-<li><strong>interior</strong> (<em>bool</em>) – passed to <code class="xref py py-func docutils literal notranslate"><span class="pre">extract_index()</span></code> if needed</li>
-<li><strong>epoch</strong> (<em>datetime64-like</em>) – Epoch for to go datetime64 &lt;-&gt; float</li>
-<li><strong>tdunit</strong> (<em>str</em>) – Presumed time unit for floats</li>
-<li><strong>tol</strong> (<em>int</em>) – passed to <code class="xref py py-func docutils literal notranslate"><span class="pre">extract_index()</span></code> if needed</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">slice object or int</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> – Description</p>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition seealso">
-<p class="first admonition-title">See also</p>
-<ul class="last simple">
-<li><code class="xref py py-func docutils literal notranslate"><span class="pre">extract_index()</span></code></li>
-</ul>
-</div>
-</dd></dl>
-
-<dl class="function">
-<dt id="viscid.make_slice_inclusive">
-<code class="descclassname">viscid.</code><code class="descname">make_slice_inclusive</code><span class="sig-paren">(</span><em>start</em>, <em>stop=None</em>, <em>step=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/sliceutil.html#make_slice_inclusive"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.make_slice_inclusive" title="Permalink to this definition">¶</a></dt>
-<dd><p>Extend the end of a slice by 1 element</p>
-<p>Chances are you don’t want to use this function.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>start</strong> (<em>int</em><em>, </em><em>None</em>) – same as a slice.start</li>
-<li><strong>stop</strong> (<em>int</em><em>, </em><em>None</em>) – same as a slice.stop</li>
-<li><strong>step</strong> (<em>int</em><em>, </em><em>None</em>) – same as a slice.step</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">(start, stop, step) To be given to slice()</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="viscid.selections2values">
-<code class="descclassname">viscid.</code><code class="descname">selections2values</code><span class="sig-paren">(</span><em>arrs</em>, <em>selections</em>, <em>nr_dims</em>, <em>epoch=None</em>, <em>tdunit='s'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/sliceutil.html#selections2values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.selections2values" title="Permalink to this definition">¶</a></dt>
-<dd><p>find the extrema values for a given selection</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>arrs</strong> (<em>None</em><em>, </em><em>sequence</em>) – array that is being selected, if this is
-None, then the output will contain np.nan where it can not
-infer values.</li>
-<li><strong>selections</strong> (<em>slice</em><em>, </em><em>str</em>) – selections that could be given to
-<a class="reference internal" href="#viscid.to_slices" title="viscid.to_slices"><code class="xref py py-func docutils literal notranslate"><span class="pre">to_slices()</span></code></a></li>
-<li><strong>nr_dims</strong> (<em>int</em>) – arrs and selections are expanded to this length</li>
-<li><strong>epoch</strong> (<em>datetime64-like</em>) – Epoch for to go datetime64 &lt;-&gt; float</li>
-<li><strong>tdunit</strong> (<em>str</em>) – Presumed time unit for floats</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><p>ndarray with shape (nr_dims, 2) of extents as floats</p>
-<ul class="simple">
-<li>If arr is None and start/stop are None, then they will become
-+/- inf depending on the sign of step.</li>
-<li>If arr is None and start/stop are slice-by-index, they will
-become NaN.</li>
-</ul>
-</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="viscid.selection2values">
-<code class="descclassname">viscid.</code><code class="descname">selection2values</code><span class="sig-paren">(</span><em>arr</em>, <em>selection</em>, <em>epoch=None</em>, <em>tdunit='s'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/sliceutil.html#selection2values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.selection2values" title="Permalink to this definition">¶</a></dt>
-<dd><p>find the extrema values for a given selection</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>arr</strong> (<em>None</em><em>, </em><em>sequence</em>) – array that is being selected, if this is
-None, then the output will contain np.nan where it can not
-infer values.</li>
-<li><strong>selection</strong> (<em>slice</em><em>, </em><em>str</em>) – a single selection that could be given
-to <a class="reference internal" href="#viscid.to_slice" title="viscid.to_slice"><code class="xref py py-func docutils literal notranslate"><span class="pre">to_slice()</span></code></a></li>
-<li><strong>epoch</strong> (<em>datetime64-like</em>) – Epoch for to go datetime64 &lt;-&gt; float</li>
-<li><strong>tdunit</strong> (<em>str</em>) – Presumed time unit for floats</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><p>(start_val, stop_val) as floats</p>
-<ul class="simple">
-<li>If arr is None and start/stop are None, then they will become
-+/- inf depending on the sign of step.</li>
-<li>If arr is None and start/stop are slice-by-index, they will
-become NaN.</li>
-</ul>
-</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="viscid.slice2values">
-<code class="descclassname">viscid.</code><code class="descname">slice2values</code><span class="sig-paren">(</span><em>arr</em>, <em>start</em>, <em>stop</em>, <em>step=None</em>, <em>epoch=None</em>, <em>tdunit='s'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/sliceutil.html#slice2values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.slice2values" title="Permalink to this definition">¶</a></dt>
-<dd><p>Find the values that correspond with start and stop</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">(start_val, stop_val) as floats<ul class="simple">
-<li>If arr is None and start/stop are None, then they will become
-+/- inf depending on the sign of step.</li>
-<li>If arr is None and start/stop are slice-by-index, they will
-become NaN.</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
+<dt id="viscid.all_slices_none">
+<code class="descclassname">viscid.</code><code class="descname">all_slices_none</code><span class="sig-paren">(</span><em>slices</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/sliceutil.html#all_slices_none"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.all_slices_none" title="Permalink to this definition">¶</a></dt>
+<dd><p>true iff all slices have no effect</p>
 </dd></dl>
 
 <dl class="class">
@@ -3999,11 +5693,11 @@ rest of Viscid.</p>
 <span class="go">[&quot;file.010.txt&quot;, &quot;file.020.txt&quot;]</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">expand_glob_slice</span><span class="p">(</span><span class="s2">&quot;f*.[10.0f::2].txt&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">expand_glob_slice</span><span class="p">(</span><span class="s2">&quot;f*.[10.0j::2].txt&quot;</span><span class="p">)</span>
 <span class="go">[&quot;file.010.txt&quot;, &quot;file.030.txt&quot;]</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">expand_glob_slice</span><span class="p">(</span><span class="s2">&quot;f*.[20f:2].txt&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">expand_glob_slice</span><span class="p">(</span><span class="s2">&quot;f*.[20j:2].txt&quot;</span><span class="p">)</span>
 <span class="go">[&quot;file.020.txt&quot;, &quot;file.040.txt&quot;]</span>
 </pre></div>
 </div>
@@ -4366,7 +6060,7 @@ neighbors</li>
 
 <dl class="function">
 <dt id="viscid.evaluate">
-<code class="descclassname">viscid.</code><code class="descname">evaluate</code><span class="sig-paren">(</span><em>grid</em>, <em>result_name</em>, <em>eqn</em>, <em>try_numexpr=True</em>, <em>slc=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/calculator/evaluator.html#evaluate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.evaluate" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">viscid.</code><code class="descname">evaluate</code><span class="sig-paren">(</span><em>grid</em>, <em>result_name</em>, <em>eqn</em>, <em>try_numexpr=True</em>, <em>slc=Ellipsis</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/calculator/evaluator.html#evaluate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.evaluate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Evaluate an equation on a grid</p>
 <p class="rubric">Examples</p>
 <p>To use this function directly</p>
@@ -4605,7 +6299,7 @@ the fit</p>
 
 <dl class="function">
 <dt id="viscid.get_mp_info">
-<code class="descclassname">viscid.</code><code class="descname">get_mp_info</code><span class="sig-paren">(</span><em>pp</em>, <em>b</em>, <em>j</em>, <em>e</em>, <em>cache=True</em>, <em>cache_dir=None</em>, <em>slc='x=5.5f:11.0f</em>, <em>y=-4.0f:4.0f</em>, <em>z=-3.6f:3.6f'</em>, <em>fit='mp_xloc'</em>, <em>fit_p0=(9.0</em>, <em>0.0</em>, <em>0.0</em>, <em>1.0</em>, <em>-1.0</em>, <em>-1.0)</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/calculator/mpause.html#get_mp_info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.get_mp_info" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">viscid.</code><code class="descname">get_mp_info</code><span class="sig-paren">(</span><em>pp</em>, <em>b</em>, <em>j</em>, <em>e</em>, <em>cache=True</em>, <em>cache_dir=None</em>, <em>slc='x=5.5j:11.0j</em>, <em>y=-4.0j:4.0j</em>, <em>z=-3.6j:3.6j'</em>, <em>fit='mp_xloc'</em>, <em>fit_p0=(9.0</em>, <em>0.0</em>, <em>0.0</em>, <em>1.0</em>, <em>-1.0</em>, <em>-1.0)</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/calculator/mpause.html#get_mp_info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.get_mp_info" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get info about m-pause as flattened fields</p>
 <p class="rubric">Notes</p>
 <p>The first thing this function does is mask locations where
@@ -4780,7 +6474,7 @@ be 40.0.</p>
 
 <dl class="function">
 <dt id="viscid.trace_separator">
-<code class="descclassname">viscid.</code><code class="descname">trace_separator</code><span class="sig-paren">(</span><em>grid</em>, <em>b_slcstr='x=-25f:15f</em>, <em>y=-30f:30f</em>, <em>z=-15f:15f'</em>, <em>r=1.0</em>, <em>plot=False</em>, <em>trace_opts=None</em>, <em>cache=True</em>, <em>cache_dir=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/calculator/separator.html#trace_separator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.trace_separator" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">viscid.</code><code class="descname">trace_separator</code><span class="sig-paren">(</span><em>grid</em>, <em>b_slcstr='x=-25j:15j</em>, <em>y=-30j:30j</em>, <em>z=-15j:15j'</em>, <em>r=1.0</em>, <em>plot=False</em>, <em>trace_opts=None</em>, <em>cache=True</em>, <em>cache_dir=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/calculator/separator.html#trace_separator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.trace_separator" title="Permalink to this definition">¶</a></dt>
 <dd><p>Trace a separator line from most dawnward null</p>
 <p><strong>Still in testing</strong> Uses the bisection algorithm.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -5920,7 +7614,7 @@ number (as in nth file loaded), of file name</p>
     </p>
     <p>
         &copy; Copyright 2018, Kristofor Maynard.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.6.<br/>
     </p>
   </div>
 </footer>

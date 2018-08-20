@@ -19,7 +19,7 @@ pressure = np.zeros((ntimes,), dtype='f4')
 
 for i, grid in enumerate(f2d.iter_times()):
     t[i] = grid.time_as_datetime()
-    pressure[i] = grid['pp']['x=10.0f, y=0.0f, z=0.0f']
+    pressure[i] = grid['pp']['x=10.0j, y=0.0j, z=0.0j']
 plt.plot(t, pressure)
 plt.ylabel('Pressure')
 

@@ -11,7 +11,7 @@ viscid.readers.openggcm.GGCMGrid.mhd_to_gse_on_read = 'auto'
 
 
 f3d = viscid.load_file(path.join(viscid.sample_dir, 'sample_xdmf.3d.xdmf'))
-B = f3d['b']['x=-40f:15f, y=-20f:20f, z=-20f:20f']
+B = f3d['b']['x=-40j:15j, y=-20j:20j, z=-20j:20j']
 
 # for this method, seeds must be a SeedGen subclass, not a field subset
 seeds = viscid.Volume(xl=(-40, 0, -20), xh=(15, 0, 20), n=(64, 1, 128))
@@ -44,6 +44,6 @@ plt.xlim(topo.xl[0], topo.xh[0])
 plt.ylim(topo.xl[2], topo.xh[2])
 
 # since seeds is a Field, we can use it to determine mhd|gse
-vlt.plot_earth(B['y=0f'])
+vlt.plot_earth(B['y=0j'])
 
 vlt.show()
