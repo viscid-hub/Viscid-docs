@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Indexing Fields &#8212; Viscid 1.0.0.dev0 documentation</title>
+    <title>Indexing Fields &#8212; Viscid 1.0.0.dev2 documentation</title>
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -40,7 +40,7 @@
         </button>
         <a class="navbar-brand" href="index.html">
           Viscid</a>
-        <span class="navbar-text navbar-version pull-left"><b>1.0.0.dev0</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>1.0.0.dev2</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -141,8 +141,8 @@
 <li><a class="reference internal" href="#named-slices">Named slices</a></li>
 <li><a class="reference internal" href="#vector-component-slices">Vector component slices</a></li>
 <li><a class="reference internal" href="#datetime64-timedelta64-slices">Datetime64 / timedelta64 slices</a></li>
-<li><a class="reference internal" href="#ellipsis">Ellipsis</a></li>
 <li><a class="reference internal" href="#newaxis">Newaxis</a></li>
+<li><a class="reference internal" href="#ellipsis">Ellipsis</a></li>
 </ul>
 </li>
 </ul>
@@ -214,8 +214,8 @@ it makes slice-by-location feel more natural.</p>
 <div><ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">fld[1.0j]</span></code> access element closest to x = 1.0</li>
 <li><code class="docutils literal notranslate"><span class="pre">fld[:0.0j]</span></code> all elements where x &lt;= 0.0</li>
-<li><code class="docutils literal notranslate"><span class="pre">fld[0.0j::2]</span></code> every other element where x &gt; 0.0</li>
-<li><code class="docutils literal notranslate"><span class="pre">fld[0.0j:,</span> <span class="pre">0.0j:]</span></code> region x &gt; 0 and y &gt; 0</li>
+<li><code class="docutils literal notranslate"><span class="pre">fld[0.0j::2]</span></code> every other element where x &gt;= 0.0</li>
+<li><code class="docutils literal notranslate"><span class="pre">fld[0.0j:,</span> <span class="pre">0.0j:]</span></code> region x &gt;= 0 and y &gt;= 0</li>
 <li><code class="docutils literal notranslate"><span class="pre">fld[[-1j,</span> <span class="pre">0j,</span> <span class="pre">1j]]</span></code> elements closest to x = [-1, 0, 1]</li>
 </ul>
 </div></blockquote>
@@ -260,8 +260,8 @@ data layout (array-of-struct, struct-of-array).</p>
 <li><code class="docutils literal notranslate"><span class="pre">fld['x']</span></code> extracts the x-component from a vector field</li>
 <li><code class="docutils literal notranslate"><span class="pre">fld['x,</span> <span class="pre">y</span> <span class="pre">=</span> <span class="pre">0j']</span></code> x-component, y = 0.0 plane</li>
 <li><code class="docutils literal notranslate"><span class="pre">fld['y</span> <span class="pre">=</span> <span class="pre">0j',</span> <span class="pre">'x']</span></code> x-component, y = 0.0 plane</li>
-<li><code class="docutils literal notranslate"><span class="pre">fld['x',</span> <span class="pre">0j:,</span> <span class="pre">0j]</span></code> x-component, y = 0.0 plane, x &gt; 0.0</li>
-<li><code class="docutils literal notranslate"><span class="pre">fld[0j:,</span> <span class="pre">0j,</span> <span class="pre">'x']</span></code> x-component, y = 0.0 plane, x &gt; 0.0</li>
+<li><code class="docutils literal notranslate"><span class="pre">fld['x',</span> <span class="pre">0j:,</span> <span class="pre">0j]</span></code> x-component, y = 0.0 plane, x &gt;= 0.0</li>
+<li><code class="docutils literal notranslate"><span class="pre">fld[0j:,</span> <span class="pre">0j,</span> <span class="pre">'x']</span></code> x-component, y = 0.0 plane, x &gt;= 0.0</li>
 </ul>
 </div></blockquote>
 </div>
@@ -293,18 +293,6 @@ be ambiguous.</p>
 </pre></div>
 </div>
 </div>
-<div class="section" id="ellipsis">
-<h2>Ellipsis<a class="headerlink" href="#ellipsis" title="Permalink to this headline">¶</a></h2>
-<p>The ellipsis can be used in the standard way, but it can not be used
-with named axes. The exception to this is that the ellipsis can be used
-with named newaxes.</p>
-<blockquote>
-<div><ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">fld[0j:,</span> <span class="pre">...,</span> <span class="pre">0j:]</span></code> select x &gt; 0.0 and z &gt; 0.0</li>
-<li><code class="docutils literal notranslate"><span class="pre">fld[...,</span> <span class="pre">'u</span> <span class="pre">=</span> <span class="pre">newaxis']</span></code> new axis in the last dimension named u</li>
-</ul>
-</div></blockquote>
-</div>
 <div class="section" id="newaxis">
 <h2>Newaxis<a class="headerlink" href="#newaxis" title="Permalink to this headline">¶</a></h2>
 <blockquote>
@@ -314,6 +302,18 @@ with named newaxes.</p>
 <li><code class="docutils literal notranslate"><span class="pre">fld[:,</span> <span class="pre">numpy.newaxis]</span></code> new axis in dimension 1</li>
 <li><code class="docutils literal notranslate"><span class="pre">fld['y=:',</span> <span class="pre">numpy.newaxis]</span></code> new axis after the y-axis</li>
 <li><code class="docutils literal notranslate"><span class="pre">fld[...,</span> <span class="pre">numpy.newaxis]</span></code> new axis in the last dimension</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="ellipsis">
+<h2>Ellipsis<a class="headerlink" href="#ellipsis" title="Permalink to this headline">¶</a></h2>
+<p>The ellipsis can be used in the standard way, but it can not be used
+with named axes. The exception to this is that the ellipsis can be used
+with named newaxes.</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">fld[0j:,</span> <span class="pre">...,</span> <span class="pre">0j:]</span></code> select x &gt;= 0.0 and z &gt;= 0.0</li>
+<li><code class="docutils literal notranslate"><span class="pre">fld[...,</span> <span class="pre">'u</span> <span class="pre">=</span> <span class="pre">newaxis']</span></code> new axis in the last dimension named u</li>
 </ul>
 </div></blockquote>
 </div>
@@ -339,7 +339,7 @@ with named newaxes.</p>
     </p>
     <p>
         &copy; Copyright 2018, Kristofor Maynard.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.6.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.8.<br/>
     </p>
   </div>
 </footer>

@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>viscid.tree &#8212; Viscid 1.0.0.dev0 documentation</title>
+    <title>viscid.tree &#8212; Viscid 1.0.0.dev2 documentation</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -38,7 +38,7 @@
         </button>
         <a class="navbar-brand" href="../../index.html">
           Viscid</a>
-        <span class="navbar-text navbar-version pull-left"><b>1.0.0.dev0</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>1.0.0.dev2</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -402,7 +402,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">set_info</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">val</span><span class="p">))</span>
 
 <div class="viewcode-block" id="Node.time_as_timedelta64"><a class="viewcode-back" href="../../api/viscid.tree.html#viscid.tree.Node.time_as_timedelta64">[docs]</a>    <span class="k">def</span> <span class="nf">time_as_timedelta64</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">viscid</span><span class="o">.</span><span class="n">as_timedelta64</span><span class="p">(</span><span class="mf">1e9</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="s1">&#39;us&#39;</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">viscid</span><span class="o">.</span><span class="n">as_timedelta64</span><span class="p">(</span><span class="mf">1e6</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="s1">&#39;us&#39;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Node.time_as_timedelta"><a class="viewcode-back" href="../../api/viscid.tree.html#viscid.tree.Node.time_as_timedelta">[docs]</a>    <span class="k">def</span> <span class="nf">time_as_timedelta</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">viscid</span><span class="o">.</span><span class="n">as_timedelta</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">time_as_timedelta64</span><span class="p">())</span></div>
@@ -457,7 +457,7 @@
     </p>
     <p>
         &copy; Copyright 2018, Kristofor Maynard.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.6.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.8.<br/>
     </p>
   </div>
 </footer>
