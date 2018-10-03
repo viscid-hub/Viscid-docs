@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>viscid.field &#8212; Viscid 1.0.0.dev3 documentation</title>
+    <title>viscid.field &#8212; Viscid 1.0.0-dev.4 documentation</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -39,7 +39,7 @@
         </button>
         <a class="navbar-brand" href="../../index.html">
           Viscid</a>
-        <span class="navbar-text navbar-version pull-left"><b>1.0.0.dev3</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>1.0.0-dev.4</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -106,23 +106,23 @@
   <ul class="dropdown-menu globaltoc"
       role="menu"
       aria-labelledby="dLabelGlobalToc"><ul>
-<li class="toctree-l1"><a class="reference internal" href="../../changes.html">ChangeLog</a></li>
-</ul>
-<ul>
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../philosophy.html">Philosophy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../indexing.html">Indexing Fields</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/index.html">Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../tips_and_tricks.html">Tips &amp; Tricks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../functions.html">Useful Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../plot_options.html">Plot Options</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../mpl_style_gallery.html">Matplotlib Style Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tips_and_tricks.html">Tips &amp; Tricks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../custom_behavior.html">Custom Behavior (rc file)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mpl_style_gallery.html">Matplotlib Style Gallery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../dev_guide.html">Developer’s Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../extending_readers.html">Extending Readers</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../api/viscid.html">API</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../changes.html">ChangeLog</a></li>
 </ul>
 </ul>
 </li>
@@ -1693,7 +1693,7 @@
         <span class="k">return</span> <span class="p">[</span><span class="n">a</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">arrs</span><span class="p">]</span>
 
     <span class="c1">######################</span>
-    <span class="k">def</span> <span class="nf">shell_copy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">shell_copy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">crds</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Get a field just like this one with a new cache</span>
 
 <span class="sd">        So, fields that belong to files are kept around for the</span>
@@ -1718,15 +1718,18 @@
 <span class="sd">        Returns:</span>
 <span class="sd">            a field as described above (could be self)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">force</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">crds</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">force</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span>
+
+        <span class="k">if</span> <span class="n">crds</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">crds</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_src_crds</span>
 
         <span class="c1"># Note: this is fragile if a subclass takes additional parameters</span>
         <span class="c1"># in an overridden __init__; in that case, the developer MUST</span>
         <span class="c1"># override shell_copy and pass the extra kwargs in to here.</span>
         <span class="c1"># note, zyx_native of the child should be the same as self since we&#39;re</span>
         <span class="c1"># passing src_data here</span>
-        <span class="n">f</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_src_crds</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_src_data</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">center</span><span class="p">,</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">crds</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_src_data</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">center</span><span class="p">,</span>
                        <span class="n">time</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="n">meta</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="p">,</span> <span class="n">deep_meta</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">deep_meta</span><span class="p">,</span>
                        <span class="n">forget_source</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                        <span class="n">pretty_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pretty_name</span><span class="p">,</span>
@@ -1899,6 +1902,56 @@
             <span class="k">return</span> <span class="bp">self</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">slc</span><span class="p">)]</span>
+
+    <span class="k">def</span> <span class="nf">adjust_crds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">adjustments</span><span class="p">,</span> <span class="n">name_map</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return shell copy with adjusted coordinates</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            adjustments (dict, number): Value to scale all coordinates</span>
+<span class="sd">                by, or dict of numbers or functions to adjust specific</span>
+<span class="sd">                axes separately. Functions should take a single argument,</span>
+<span class="sd">                the coordinates as a :py:class:`numpy.ndarray`.</span>
+<span class="sd">            name_map (dict, None): map to change crd names</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Field: Shell copy of self with adjusted coordinates</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            &gt;&gt;&gt; fld = viscid.zeros([16, 24])</span>
+<span class="sd">            &gt;&gt;&gt; fld.adjust_crds({&#39;x&#39;: 2.0, &#39;y&#39;: lambda x: 0.5 * x})</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">adjustments</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="n">adj</span> <span class="o">=</span> <span class="n">adjustments</span>
+            <span class="n">adjustments</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">crds</span><span class="o">.</span><span class="n">axes</span><span class="p">:</span>
+                <span class="n">adjustments</span><span class="p">[</span><span class="n">ax</span><span class="p">]</span> <span class="o">=</span> <span class="n">adj</span>
+
+        <span class="n">axes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">crds</span><span class="o">.</span><span class="n">axes</span>
+        <span class="n">crd_arrs_nc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_crds_nc</span><span class="p">()</span>
+        <span class="c1"># crd_arrs_cc = self.get_crds_cc()</span>
+
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">arr_nc</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">count</span><span class="p">(),</span> <span class="n">axes</span><span class="p">,</span> <span class="n">crd_arrs_nc</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">adjustments</span><span class="p">:</span>
+                <span class="n">adj</span> <span class="o">=</span> <span class="n">adjustments</span><span class="p">[</span><span class="n">ax</span><span class="p">]</span>
+                <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">adj</span><span class="p">,</span> <span class="s1">&#39;__call__&#39;</span><span class="p">):</span>
+                    <span class="n">crd_arrs_nc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">adj</span><span class="p">(</span><span class="n">arr_nc</span><span class="p">)</span>
+                    <span class="c1"># crd_arrs_cc[i] = adj(arr_cc)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">crd_arrs_nc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">adj</span> <span class="o">*</span> <span class="n">arr_nc</span>
+                    <span class="c1"># crd_arrs_cc[i] = adj * arr_cc</span>
+
+        <span class="k">if</span> <span class="n">name_map</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">_a</span><span class="p">,</span> <span class="n">_b</span> <span class="ow">in</span> <span class="n">name_map</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">_a</span> <span class="ow">in</span> <span class="n">axes</span><span class="p">:</span>
+                    <span class="n">axes</span><span class="p">[</span><span class="n">axes</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">_a</span><span class="p">)]</span> <span class="o">=</span> <span class="n">_b</span>
+
+        <span class="n">crd_type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">crds</span><span class="o">.</span><span class="n">_TYPE</span>
+        <span class="n">crd_type</span> <span class="o">=</span> <span class="n">crd_type</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;nonuniform&#39;</span><span class="p">,</span> <span class="s1">&#39;AUTO&#39;</span><span class="p">)</span>
+        <span class="n">crd_type</span> <span class="o">=</span> <span class="n">crd_type</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="s1">&#39;AUTO&#39;</span><span class="p">)</span>
+        <span class="n">new_crds</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">arrays2crds</span><span class="p">(</span><span class="n">crd_arrs_nc</span><span class="p">,</span> <span class="n">crd_type</span><span class="o">=</span><span class="n">crd_type</span><span class="p">,</span> <span class="n">crd_names</span><span class="o">=</span><span class="n">axes</span><span class="p">)</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">shell_copy</span><span class="p">(</span><span class="n">crds</span><span class="o">=</span><span class="n">new_crds</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">ret</span>
 
     <span class="c1">#######################</span>
     <span class="c1">## emulate a container</span>
