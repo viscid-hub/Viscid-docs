@@ -119,6 +119,7 @@ using a viscidrc file as explained in :doc:`custom_behavior`.
    styles/seaborn-ticks
    styles/seaborn-white
    styles/seaborn-whitegrid
+   styles/tableau-colorblind10
    styles/viscid-colorblind
    styles/viscid-default
 
@@ -332,6 +333,16 @@ using a viscidrc file as explained in :doc:`custom_behavior`.
     <img class='autogen' src=_static/seaborn-whitegrid_thumb.png>
     <span class='autogen figure-label'></span>
     <p class='autogen'>seaborn-whitegrid</p>
+    </a>
+    </div>
+
+.. raw:: html
+
+    <div class='autogen figure align-center'>
+    <a class='autogen' href=./styles/tableau-colorblind10.html>
+    <img class='autogen' src=_static/tableau-colorblind10_thumb.png>
+    <span class='autogen figure-label'></span>
+    <p class='autogen'>tableau-colorblind10</p>
     </a>
     </div>
 
