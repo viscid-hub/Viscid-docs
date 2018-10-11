@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>viscid.readers.hdf5 &#8212; Viscid 1.0.0.dev.5 documentation</title>
+    <title>viscid.readers.hdf5 &#8212; Viscid 1.0.0.dev6 documentation</title>
     <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
@@ -39,7 +39,7 @@
         </button>
         <a class="navbar-brand" href="../../../index.html">
           Viscid</a>
-        <span class="navbar-text navbar-version pull-left"><b>1.0.0.dev.5</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>1.0.0.dev6</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -390,12 +390,18 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">save_fields</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">field_dict</span><span class="p">())</span></div>
 
 <div class="viewcode-block" id="FileHDF5.save_fields"><a class="viewcode-back" href="../../../api/viscid.readers.hdf5.html#viscid.readers.hdf5.FileHDF5.save_fields">[docs]</a>    <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">save_fields</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">fname</span><span class="p">,</span> <span class="n">flds</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">save_fields</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">fname</span><span class="p">,</span> <span class="n">flds</span><span class="p">,</span> <span class="n">complevel</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">compression</span><span class="o">=</span><span class="s1">&#39;gzip&#39;</span><span class="p">,</span>
+                    <span class="n">compression_opts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; save some fields using the format given by the class &quot;&quot;&quot;</span>
         <span class="c1"># FIXME: this is only good for writing cartesian rectilnear flds</span>
         <span class="c1"># FIXME: axes are renamed if flds[0] is 1D or 2D</span>
         <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">flds</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
         <span class="n">fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expandvars</span><span class="p">(</span><span class="n">fname</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="n">complevel</span> <span class="ow">and</span> <span class="n">compression</span> <span class="o">==</span> <span class="s1">&#39;gzip&#39;</span> <span class="ow">and</span> <span class="n">compression_opts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">compression_opts</span> <span class="o">=</span> <span class="n">complevel</span>
+        <span class="c1"># TODO: what if compression != &#39;gzip&#39;</span>
+        <span class="n">do_compression</span> <span class="o">=</span> <span class="n">compression_opts</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
 
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">flds</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">flds</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
@@ -419,12 +425,20 @@
         <span class="k">with</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">axis_name</span><span class="p">,</span> <span class="n">arr</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">crd_names</span><span class="p">,</span> <span class="n">crd_arrs</span><span class="p">):</span>
                 <span class="n">loc</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_CRDS_GROUP</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">axis_name</span>
-                <span class="n">f</span><span class="p">[</span><span class="n">loc</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span>
+                <span class="k">if</span> <span class="n">do_compression</span><span class="p">:</span>
+                    <span class="n">f</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span><span class="n">loc</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">arr</span><span class="p">,</span> <span class="n">compression</span><span class="o">=</span><span class="n">compression</span><span class="p">,</span>
+                                     <span class="n">compression_opts</span><span class="o">=</span><span class="n">compression_opts</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">f</span><span class="p">[</span><span class="n">loc</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span>
 
             <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">fld</span> <span class="ow">in</span> <span class="n">flds</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
                 <span class="n">loc</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_FLD_GROUPS</span><span class="p">[</span><span class="n">fld</span><span class="o">.</span><span class="n">center</span><span class="o">.</span><span class="n">lower</span><span class="p">()]</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">name</span>
                 <span class="c1"># xdmf files use kji ordering</span>
-                <span class="n">f</span><span class="p">[</span><span class="n">loc</span><span class="p">]</span> <span class="o">=</span> <span class="n">fld</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">T</span>
+                <span class="k">if</span> <span class="n">do_compression</span><span class="p">:</span>
+                    <span class="n">f</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span><span class="n">loc</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">fld</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">compression</span><span class="o">=</span><span class="n">compression</span><span class="p">,</span>
+                                     <span class="n">compression_opts</span><span class="o">=</span><span class="n">compression_opts</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">f</span><span class="p">[</span><span class="n">loc</span><span class="p">]</span> <span class="o">=</span> <span class="n">fld</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">T</span>
 
             <span class="c1"># big bad openggcm time_str hack to put basetime into hdf5 file</span>
             <span class="k">for</span> <span class="n">fld</span> <span class="ow">in</span> <span class="n">flds</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
