@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>viscid.seed &#8212; Viscid 1.0.0.dev6 documentation</title>
+    <title>viscid.seed &#8212; Viscid 1.0.0.dev8 documentation</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -39,7 +39,7 @@
         </button>
         <a class="navbar-brand" href="../../index.html">
           Viscid</a>
-        <span class="navbar-text navbar-version pull-left"><b>1.0.0.dev6</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>1.0.0.dev8</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -58,10 +58,10 @@
             <a class="reference internal", href="../../installation.html">Installation</a>
           </li>
           <li class="toctree-l1">
-            <a class="reference internal", href="../../tutorial/creating_fields.html">Creating Fields</a>
+            <a class="reference internal", href="../../tutorial/load_save.html">Loading & Saving</a>
           </li>
           <li class="toctree-l1">
-            <a class="reference internal", href="../../tutorial/saving.html">Saving Datasets</a>
+            <a class="reference internal", href="../../tutorial/creating_fields.html">Creating Fields</a>
           </li>
           <li class="toctree-l1">
             <a class="reference internal", href="../../tutorial/slicing.html">Slicing Fields</a>
@@ -173,12 +173,14 @@
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="kn">import</span> <span class="nn">viscid</span>
+<span class="kn">from</span> <span class="nn">viscid</span> <span class="k">import</span> <span class="n">NOT_SPECIFIED</span>
 <span class="kn">from</span> <span class="nn">viscid.compat</span> <span class="k">import</span> <span class="n">izip</span>
 
 <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;to_seeds&#39;</span><span class="p">,</span> <span class="s1">&#39;SeedGen&#39;</span><span class="p">,</span> <span class="s1">&#39;Point&#39;</span><span class="p">,</span>
            <span class="s1">&#39;MeshPoints&#39;</span><span class="p">,</span> <span class="s1">&#39;RectilinearMeshPoints&#39;</span><span class="p">,</span> <span class="s1">&#39;Line&#39;</span><span class="p">,</span> <span class="s1">&#39;Spline&#39;</span><span class="p">,</span>
            <span class="s1">&#39;Plane&#39;</span><span class="p">,</span> <span class="s1">&#39;Volume&#39;</span><span class="p">,</span> <span class="s1">&#39;Sphere&#39;</span><span class="p">,</span> <span class="s1">&#39;SphericalCap&#39;</span><span class="p">,</span> <span class="s1">&#39;Circle&#39;</span><span class="p">,</span>
            <span class="s1">&#39;SphericalPatch&#39;</span><span class="p">,</span> <span class="s1">&#39;PolarIonosphere&#39;</span><span class="p">]</span>
+
 
 <div class="viewcode-block" id="to_seeds"><a class="viewcode-back" href="../../api/viscid.seed.html#viscid.to_seeds">[docs]</a><span class="k">def</span> <span class="nf">to_seeds</span><span class="p">(</span><span class="n">pts</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Try to turn anything into a set of seeds</span>
@@ -279,10 +281,12 @@
     <span class="n">_cache</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">_points</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">dtype</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">fill_holes</span> <span class="o">=</span> <span class="kc">None</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cache</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cache</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fill_holes</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span> <span class="o">=</span> <span class="n">cache</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">dtype</span> <span class="o">=</span> <span class="n">dtype</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fill_holes</span> <span class="o">=</span> <span class="n">fill_holes</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">nr_points</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -430,25 +434,28 @@
         <span class="k">return</span> <span class="n">viscid</span><span class="o">.</span><span class="n">wrap_field</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">crds</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">fldtype</span><span class="o">=</span><span class="n">fldtype</span><span class="p">,</span>
                                  <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="SeedGen.as_mesh"><a class="viewcode-back" href="../../api/viscid.seed.html#viscid.SeedGen.as_mesh">[docs]</a>    <span class="k">def</span> <span class="nf">as_mesh</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="SeedGen.as_mesh"><a class="viewcode-back" href="../../api/viscid.seed.html#viscid.SeedGen.as_mesh">[docs]</a>    <span class="k">def</span> <span class="nf">as_mesh</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fill_holes</span><span class="o">=</span><span class="n">NOT_SPECIFIED</span><span class="p">):</span>  <span class="c1"># pylint: disable=unused-argument</span>
         <span class="sd">&quot;&quot;&quot;Make a 3xUxV array that describes a 3D mesh surface&quot;&quot;&quot;</span>
         <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{0}</span><span class="s2"> does not define as_mesh&quot;</span>
                            <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="SeedGen.arr2mesh"><a class="viewcode-back" href="../../api/viscid.seed.html#viscid.SeedGen.arr2mesh">[docs]</a>    <span class="k">def</span> <span class="nf">arr2mesh</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arr</span><span class="p">):</span>  <span class="c1"># pylint: disable=unused-argument</span>
+<div class="viewcode-block" id="SeedGen.arr2mesh"><a class="viewcode-back" href="../../api/viscid.seed.html#viscid.SeedGen.arr2mesh">[docs]</a>    <span class="k">def</span> <span class="nf">arr2mesh</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arr</span><span class="p">,</span> <span class="n">fill_holes</span><span class="o">=</span><span class="n">NOT_SPECIFIED</span><span class="p">):</span>  <span class="c1"># pylint: disable=unused-argument</span>
         <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{0}</span><span class="s2"> does not define arr2mesh&quot;</span>
                            <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="SeedGen.wrap_mesh"><a class="viewcode-back" href="../../api/viscid.seed.html#viscid.SeedGen.wrap_mesh">[docs]</a>    <span class="k">def</span> <span class="nf">wrap_mesh</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">arrs</span><span class="p">):</span>
+<div class="viewcode-block" id="SeedGen.wrap_mesh"><a class="viewcode-back" href="../../api/viscid.seed.html#viscid.SeedGen.wrap_mesh">[docs]</a>    <span class="k">def</span> <span class="nf">wrap_mesh</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">arrs</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">fill_holes</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;fill_holes&#39;</span><span class="p">,</span> <span class="n">NOT_SPECIFIED</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="ow">not</span> <span class="n">kwargs</span>
         <span class="n">arrs</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="o">.</span><span class="n">data</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">viscid</span><span class="o">.</span><span class="n">field</span><span class="o">.</span><span class="n">Field</span><span class="p">)</span> <span class="k">else</span> <span class="n">a</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">arrs</span><span class="p">]</span>
-        <span class="n">vertices</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">as_mesh</span><span class="p">()</span>
-        <span class="n">arrs</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">arr2mesh</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span> <span class="k">for</span> <span class="n">arr</span> <span class="ow">in</span> <span class="n">arrs</span><span class="p">]</span>
+        <span class="n">vertices</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">as_mesh</span><span class="p">(</span><span class="n">fill_holes</span><span class="o">=</span><span class="n">fill_holes</span><span class="p">)</span>
+        <span class="n">arrs</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">arr2mesh</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">fill_holes</span><span class="o">=</span><span class="n">fill_holes</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">arr</span> <span class="ow">in</span> <span class="n">arrs</span><span class="p">]</span>
         <span class="k">return</span> <span class="p">[</span><span class="n">vertices</span><span class="p">]</span> <span class="o">+</span> <span class="n">arrs</span></div></div>
 
 
 <div class="viewcode-block" id="Point"><a class="viewcode-back" href="../../api/viscid.seed.html#viscid.Point">[docs]</a><span class="k">class</span> <span class="nc">Point</span><span class="p">(</span><span class="n">SeedGen</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Collection of points&quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pts</span><span class="p">,</span> <span class="n">cache</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">local_crds</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pts</span><span class="p">,</span> <span class="n">local_crds</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cache</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Seed with an explicit set of points</span>
 
 <span class="sd">        Args:</span>
@@ -460,7 +467,7 @@
 <span class="sd">                of pts. For example, user can provide an array of type</span>
 <span class="sd">                datetime.datetime to represent the time of each point.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">Point</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">cache</span><span class="o">=</span><span class="n">cache</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Point</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">cache</span><span class="o">=</span><span class="n">cache</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pts</span> <span class="o">=</span> <span class="n">pts</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">local_crds</span> <span class="o">=</span> <span class="n">local_crds</span>
 
@@ -512,14 +519,14 @@
 
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pts</span><span class="p">,</span> <span class="n">cache</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pts</span><span class="p">,</span> <span class="n">cache</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Generic set of 2d points</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            pts (ndarray): must have shape 3xNUxNV for the uv mesh</span>
 <span class="sd">                directions</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">MeshPoints</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">cache</span><span class="o">=</span><span class="n">cache</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">MeshPoints</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">cache</span><span class="o">=</span><span class="n">cache</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">pts</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;First index of pts must be xyz&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pts</span> <span class="o">=</span> <span class="n">pts</span>
@@ -561,16 +568,16 @@
 <div class="viewcode-block" id="MeshPoints.as_local_coordinates"><a class="viewcode-back" href="../../api/viscid.seed.html#viscid.MeshPoints.as_local_coordinates">[docs]</a>    <span class="k">def</span> <span class="nf">as_local_coordinates</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">as_uv_coordinates</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="MeshPoints.as_mesh"><a class="viewcode-back" href="../../api/viscid.seed.html#viscid.MeshPoints.as_mesh">[docs]</a>    <span class="k">def</span> <span class="nf">as_mesh</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="MeshPoints.as_mesh"><a class="viewcode-back" href="../../api/viscid.seed.html#viscid.MeshPoints.as_mesh">[docs]</a>    <span class="k">def</span> <span class="nf">as_mesh</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fill_holes</span><span class="o">=</span><span class="n">NOT_SPECIFIED</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_points</span><span class="p">()</span><span class="o">.</span><span class="n">reshape</span><span class="p">([</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">uv_shape</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="MeshPoints.arr2mesh"><a class="viewcode-back" href="../../api/viscid.seed.html#viscid.MeshPoints.arr2mesh">[docs]</a>    <span class="k">def</span> <span class="nf">arr2mesh</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arr</span><span class="p">):</span>
+<div class="viewcode-block" id="MeshPoints.arr2mesh"><a class="viewcode-back" href="../../api/viscid.seed.html#viscid.MeshPoints.arr2mesh">[docs]</a>    <span class="k">def</span> <span class="nf">arr2mesh</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arr</span><span class="p">,</span> <span class="n">fill_holes</span><span class="o">=</span><span class="n">NOT_SPECIFIED</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">arr</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">uv_shape</span><span class="p">)</span></div></div>
 
 
 <div class="viewcode-block" id="RectilinearMeshPoints"><a class="viewcode-back" href="../../api/viscid.seed.html#viscid.RectilinearMeshPoints">[docs]</a><span class="k">class</span> <span class="nc">RectilinearMeshPoints</span><span class="p">(</span><span class="n">MeshPoints</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Generic seeds with 2d rect mesh topology&quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pts</span><span class="p">,</span> <span class="n">mesh_axes</span><span class="o">=</span><span class="s2">&quot;xy&quot;</span><span class="p">,</span> <span class="n">cache</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pts</span><span class="p">,</span> <span class="n">mesh_axes</span><span class="o">=</span><span class="s2">&quot;xy&quot;</span><span class="p">,</span> <span class="n">cache</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Generic seeds with 2d rect mesh topology</span>
 
 <span class="sd">        Args:</span>
@@ -581,7 +588,7 @@
         <span class="n">_lookup</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mesh_axes</span> <span class="o">=</span> <span class="p">[</span><span class="n">_lookup</span><span class="p">[</span><span class="n">ax</span><span class="p">]</span> <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">mesh_axes</span><span class="p">]</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">RectilinearMeshPoints</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">pts</span><span class="p">,</span> <span class="n">cache</span><span class="o">=</span><span class="n">cache</span><span class="p">,</span>
-                                                    <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+                                                    <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_make_uv_axes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">u</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pts</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">mesh_axes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span>
@@ -592,7 +599,7 @@
 <div class="viewcode-block" id="Line"><a class="viewcode-back" href="../../api/viscid.seed.html#viscid.Line">[docs]</a><span class="k">class</span> <span class="nc">Line</span><span class="p">(</span><span class="n">SeedGen</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;A line of seed points&quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p0</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">p1</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">n</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
-                 <span class="n">cache</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+                 <span class="n">cache</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;p0 &amp; p1 are `(x, y, z)` points as</span>
 
 <span class="sd">        Args:</span>
@@ -600,7 +607,7 @@
 <span class="sd">            p1 (list, tuple, or ndarray): ending point `(x, y, z)`</span>
 <span class="sd">            n (int): number of points on the line</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">Line</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">cache</span><span class="o">=</span><span class="n">cache</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Line</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">cache</span><span class="o">=</span><span class="n">cache</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">p0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">p0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">p1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">=</span> <span class="n">n</span>
@@ -646,12 +653,13 @@
         <span class="n">crd</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">wrap_crds</span><span class="p">(</span><span class="s2">&quot;nonuniform_cartesian&quot;</span><span class="p">,</span> <span class="p">((</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">),))</span>
         <span class="k">return</span> <span class="n">crd</span></div>
 
-<div class="viewcode-block" id="Line.as_mesh"><a class="viewcode-back" href="../../api/viscid.seed.html#viscid.Line.as_mesh">[docs]</a>    <span class="k">def</span> <span class="nf">as_mesh</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Line.as_mesh"><a class="viewcode-back" href="../../api/viscid.seed.html#viscid.Line.as_mesh">[docs]</a>    <span class="k">def</span> <span class="nf">as_mesh</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fill_holes</span><span class="o">=</span><span class="n">NOT_SPECIFIED</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_points</span><span class="p">()</span><span class="o">.</span><span class="n">reshape</span><span class="p">([</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">uv_shape</span><span class="p">))</span></div></div>
 
 <div class="viewcode-block" id="Spline"><a class="viewcode-back" href="../../api/viscid.seed.html#viscid.Spline">[docs]</a><span class="k">class</span> <span class="nc">Spline</span><span class="p">(</span><span class="n">SeedGen</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;A spline of seed points&quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">knots</span><span class="p">,</span> <span class="n">n</span><span class="o">=-</span><span class="mi">5</span><span class="p">,</span> <span class="n">cache</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">knots</span><span class="p">,</span> <span class="n">n</span><span class="o">=-</span><span class="mi">5</span><span class="p">,</span> <span class="n">splprep_kw</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cache</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Args:</span>
 <span class="sd">            knots (sequence, ndarray): `[x, y, z]`, 3xN for N knots</span>
@@ -659,7 +667,7 @@
 <span class="sd">                `n = abs(n) * n_knots`</span>
 <span class="sd">            **kwargs: Arguments to be used by scipy.interpolate.splprep</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">Spline</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">cache</span><span class="o">=</span><span class="n">cache</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Spline</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">cache</span><span class="o">=</span><span class="n">cache</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">knots</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">knots</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">knots</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Knots should have shape 3xN for N knots&quot;</span><span class="p">)</span>
@@ -669,7 +677,7 @@
         <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="n">n</span> <span class="o">=</span> <span class="o">-</span><span class="n">n</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">knots</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">=</span> <span class="n">n</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">splprep_opts</span> <span class="o">=</span> <span class="n">kwargs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">splprep_opts</span> <span class="o">=</span> <span class="n">splprep_kw</span> <span class="k">if</span> <span class="n">splprep_kw</span> <span class="k">else</span> <span class="p">{}</span>
 
 <div class="viewcode-block" id="Spline.get_nr_points"><a class="viewcode-back" href="../../api/viscid.seed.html#viscid.Spline.get_nr_points">[docs]</a>    <span class="k">def</span> <span class="nf">get_nr_points</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span></div>
@@ -717,7 +725,7 @@
         <span class="n">crd</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">wrap_crds</span><span class="p">(</span><span class="s2">&quot;nonuniform_cartesian&quot;</span><span class="p">,</span> <span class="p">((</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">s</span><span class="p">),))</span>
         <span class="k">return</span> <span class="n">crd</span></div>
 
-<div class="viewcode-block" id="Spline.as_mesh"><a class="viewcode-back" href="../../api/viscid.seed.html#viscid.Spline.as_mesh">[docs]</a>    <span class="k">def</span> <span class="nf">as_mesh</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Spline.as_mesh"><a class="viewcode-back" href="../../api/viscid.seed.html#viscid.Spline.as_mesh">[docs]</a>    <span class="k">def</span> <span class="nf">as_mesh</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fill_holes</span><span class="o">=</span><span class="n">NOT_SPECIFIED</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_points</span><span class="p">()</span><span class="o">.</span><span class="n">reshape</span><span class="p">([</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">uv_shape</span><span class="p">))</span></div></div>
 
 <div class="viewcode-block" id="Plane"><a class="viewcode-back" href="../../api/viscid.seed.html#viscid.Plane">[docs]</a><span class="k">class</span> <span class="nc">Plane</span><span class="p">(</span><span class="n">SeedGen</span><span class="p">):</span>
@@ -725,7 +733,7 @@
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p0</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">pN</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">pL</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
                  <span class="n">len_l</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">len_m</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">nl</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">nm</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">NL_are_vectors</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                 <span class="n">cache</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+                 <span class="n">cache</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Make a plane in L,M,N coordinates.</span>
 
 <span class="sd">        Args:</span>
@@ -753,7 +761,7 @@
 <span class="sd">            RuntimeError: if Ndir == Ldir, can&#39;t determine a plane</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="nb">super</span><span class="p">(</span><span class="n">Plane</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">cache</span><span class="o">=</span><span class="n">cache</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Plane</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">cache</span><span class="o">=</span><span class="n">cache</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
         <span class="n">p0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">p0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
         <span class="n">pN</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pN</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
@@ -920,10 +928,10 @@
                                                          <span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="n">n</span><span class="p">)))</span>
         <span class="k">return</span> <span class="n">crds</span></div>
 
-<div class="viewcode-block" id="Plane.as_mesh"><a class="viewcode-back" href="../../api/viscid.seed.html#viscid.Plane.as_mesh">[docs]</a>    <span class="k">def</span> <span class="nf">as_mesh</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Plane.as_mesh"><a class="viewcode-back" href="../../api/viscid.seed.html#viscid.Plane.as_mesh">[docs]</a>    <span class="k">def</span> <span class="nf">as_mesh</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fill_holes</span><span class="o">=</span><span class="n">NOT_SPECIFIED</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_points</span><span class="p">()</span><span class="o">.</span><span class="n">reshape</span><span class="p">([</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">uv_shape</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="Plane.arr2mesh"><a class="viewcode-back" href="../../api/viscid.seed.html#viscid.Plane.arr2mesh">[docs]</a>    <span class="k">def</span> <span class="nf">arr2mesh</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arr</span><span class="p">):</span>
+<div class="viewcode-block" id="Plane.arr2mesh"><a class="viewcode-back" href="../../api/viscid.seed.html#viscid.Plane.arr2mesh">[docs]</a>    <span class="k">def</span> <span class="nf">arr2mesh</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arr</span><span class="p">,</span> <span class="n">fill_holes</span><span class="o">=</span><span class="n">NOT_SPECIFIED</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">arr</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">uv_shape</span><span class="p">)</span></div></div>
 
 
@@ -933,7 +941,7 @@
 <span class="sd">    Defined by two opposite corners of a box in 3D</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xl</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">xh</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">n</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span>
-                 <span class="n">cache</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+                 <span class="n">cache</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Make a volume</span>
 
 <span class="sd">        Args:</span>
@@ -942,7 +950,7 @@
 <span class="sd">            n (list, tuple, or ndarray): number of points (nx, ny, nz)</span>
 <span class="sd">                defaults to (20, 20, 20)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">Volume</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">cache</span><span class="o">=</span><span class="n">cache</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Volume</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">cache</span><span class="o">=</span><span class="n">cache</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">xl</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">xl</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">xh</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">xh</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
@@ -1014,10 +1022,10 @@
                                <span class="p">((</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="n">z</span><span class="p">)))</span>
         <span class="k">return</span> <span class="n">crd</span></div>
 
-<div class="viewcode-block" id="Volume.as_mesh"><a class="viewcode-back" href="../../api/viscid.seed.html#viscid.Volume.as_mesh">[docs]</a>    <span class="k">def</span> <span class="nf">as_mesh</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Volume.as_mesh"><a class="viewcode-back" href="../../api/viscid.seed.html#viscid.Volume.as_mesh">[docs]</a>    <span class="k">def</span> <span class="nf">as_mesh</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fill_holes</span><span class="o">=</span><span class="n">NOT_SPECIFIED</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_points</span><span class="p">()</span><span class="o">.</span><span class="n">reshape</span><span class="p">([</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">uv_shape</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="Volume.arr2mesh"><a class="viewcode-back" href="../../api/viscid.seed.html#viscid.Volume.arr2mesh">[docs]</a>    <span class="k">def</span> <span class="nf">arr2mesh</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arr</span><span class="p">):</span>
+<div class="viewcode-block" id="Volume.arr2mesh"><a class="viewcode-back" href="../../api/viscid.seed.html#viscid.Volume.arr2mesh">[docs]</a>    <span class="k">def</span> <span class="nf">arr2mesh</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arr</span><span class="p">,</span> <span class="n">fill_holes</span><span class="o">=</span><span class="n">NOT_SPECIFIED</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">arr</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">uv_shape</span><span class="p">)</span></div></div>
 
 
@@ -1027,7 +1035,7 @@
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p0</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">r</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">pole</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">ntheta</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">nphi</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
                  <span class="n">thetalim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">180.0</span><span class="p">),</span> <span class="n">philim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">360.0</span><span class="p">),</span> <span class="n">roll</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">crd_system</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">theta_endpoint</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">phi_endpoint</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">pole_is_vector</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                 <span class="n">theta_phi</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cache</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+                 <span class="n">theta_phi</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cache</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Make seeds on the surface of a sphere</span>
 
 <span class="sd">        Note:</span>
@@ -1067,7 +1075,7 @@
 <span class="sd">        Raises:</span>
 <span class="sd">            ValueError: if thetalim or philim don&#39;t have 2 values each</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">Sphere</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">cache</span><span class="o">=</span><span class="n">cache</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Sphere</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">cache</span><span class="o">=</span><span class="n">cache</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">p0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">p0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
 
@@ -1271,9 +1279,14 @@
 <div class="viewcode-block" id="Sphere.as_local_coordinates"><a class="viewcode-back" href="../../api/viscid.seed.html#viscid.Sphere.as_local_coordinates">[docs]</a>    <span class="k">def</span> <span class="nf">as_local_coordinates</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">as_uv_coordinates</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="Sphere.as_mesh"><a class="viewcode-back" href="../../api/viscid.seed.html#viscid.Sphere.as_mesh">[docs]</a>    <span class="k">def</span> <span class="nf">as_mesh</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Sphere.as_mesh"><a class="viewcode-back" href="../../api/viscid.seed.html#viscid.Sphere.as_mesh">[docs]</a>    <span class="k">def</span> <span class="nf">as_mesh</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fill_holes</span><span class="o">=</span><span class="n">NOT_SPECIFIED</span><span class="p">):</span>
         <span class="n">new_shape</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">uv_shape</span><span class="p">)</span>
         <span class="n">pts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_points</span><span class="p">()</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">new_shape</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">fill_holes</span> <span class="ow">is</span> <span class="n">NOT_SPECIFIED</span><span class="p">:</span>
+            <span class="n">fill_holes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fill_holes</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">fill_holes</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">pts</span>
 
         <span class="c1"># If the &#39;top&#39; pole is in thetalim but not included in pts, then</span>
         <span class="c1"># extend the pts to include the pole so there aren&#39;t holes in the pole</span>
@@ -1309,8 +1322,13 @@
 
         <span class="k">return</span> <span class="n">pts</span></div>
 
-<div class="viewcode-block" id="Sphere.arr2mesh"><a class="viewcode-back" href="../../api/viscid.seed.html#viscid.Sphere.arr2mesh">[docs]</a>    <span class="k">def</span> <span class="nf">arr2mesh</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arr</span><span class="p">):</span>
+<div class="viewcode-block" id="Sphere.arr2mesh"><a class="viewcode-back" href="../../api/viscid.seed.html#viscid.Sphere.arr2mesh">[docs]</a>    <span class="k">def</span> <span class="nf">arr2mesh</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arr</span><span class="p">,</span> <span class="n">fill_holes</span><span class="o">=</span><span class="n">NOT_SPECIFIED</span><span class="p">):</span>
         <span class="n">arr</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">uv_shape</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">fill_holes</span> <span class="ow">is</span> <span class="n">NOT_SPECIFIED</span><span class="p">:</span>
+            <span class="n">fill_holes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fill_holes</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">fill_holes</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">arr</span>
 
         <span class="c1"># average values around a pole for the new mesh vertex @ the pole so</span>
         <span class="c1"># that there&#39;s no gap in the mesh</span>
@@ -1421,8 +1439,8 @@
     <span class="sd">&quot;&quot;&quot;Make a rectangular (in theta and phi) patch on a sphere&quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p0</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">p1</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">max_alpha</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">max_beta</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span>
                  <span class="n">nalpha</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">nbeta</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">roll</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">p1_is_vector</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                 <span class="n">cache</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">SphericalPatch</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">cache</span><span class="o">=</span><span class="n">cache</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+                 <span class="n">cache</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">SphericalPatch</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">cache</span><span class="o">=</span><span class="n">cache</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
         <span class="n">max_alpha</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mf">180.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">max_alpha</span>
         <span class="n">max_beta</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mf">180.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">max_beta</span>
@@ -1504,10 +1522,10 @@
 <div class="viewcode-block" id="SphericalPatch.as_local_coordinates"><a class="viewcode-back" href="../../api/viscid.seed.html#viscid.SphericalPatch.as_local_coordinates">[docs]</a>    <span class="k">def</span> <span class="nf">as_local_coordinates</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">as_uv_coordinates</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="SphericalPatch.as_mesh"><a class="viewcode-back" href="../../api/viscid.seed.html#viscid.SphericalPatch.as_mesh">[docs]</a>    <span class="k">def</span> <span class="nf">as_mesh</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="SphericalPatch.as_mesh"><a class="viewcode-back" href="../../api/viscid.seed.html#viscid.SphericalPatch.as_mesh">[docs]</a>    <span class="k">def</span> <span class="nf">as_mesh</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fill_holes</span><span class="o">=</span><span class="n">NOT_SPECIFIED</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_points</span><span class="p">()</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nalpha</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nbeta</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="SphericalPatch.arr2mesh"><a class="viewcode-back" href="../../api/viscid.seed.html#viscid.SphericalPatch.arr2mesh">[docs]</a>    <span class="k">def</span> <span class="nf">arr2mesh</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arr</span><span class="p">):</span>
+<div class="viewcode-block" id="SphericalPatch.arr2mesh"><a class="viewcode-back" href="../../api/viscid.seed.html#viscid.SphericalPatch.arr2mesh">[docs]</a>    <span class="k">def</span> <span class="nf">arr2mesh</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arr</span><span class="p">,</span> <span class="n">fill_holes</span><span class="o">=</span><span class="n">NOT_SPECIFIED</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">arr</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">uv_shape</span><span class="p">)</span></div></div>
 
 

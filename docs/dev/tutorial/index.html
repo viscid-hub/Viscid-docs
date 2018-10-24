@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Tutorial &#8212; Viscid 1.0.0.dev6 documentation</title>
+    <title>Tutorial &#8212; Viscid 1.0.0.dev8 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -19,7 +19,7 @@
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Creating Fields" href="creating_fields.html" />
+    <link rel="next" title="Loading Datasets" href="load_save.html" />
     <link rel="prev" title="Indexing Fields" href="../indexing.html" />
 <link rel="icon" href="../_static/favicon.ico" type="image/x-icon">
 <link rel="shortcut icon" href="../_static/favicon.ico" type="image/x-icon">
@@ -41,7 +41,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           Viscid</a>
-        <span class="navbar-text navbar-version pull-left"><b>1.0.0.dev6</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>1.0.0.dev8</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -60,10 +60,10 @@
             <a class="reference internal", href="../installation.html">Installation</a>
           </li>
           <li class="toctree-l1">
-            <a class="reference internal", href="creating_fields.html">Creating Fields</a>
+            <a class="reference internal", href="load_save.html">Loading & Saving</a>
           </li>
           <li class="toctree-l1">
-            <a class="reference internal", href="saving.html">Saving Datasets</a>
+            <a class="reference internal", href="creating_fields.html">Creating Fields</a>
           </li>
           <li class="toctree-l1">
             <a class="reference internal", href="slicing.html">Slicing Fields</a>
@@ -172,16 +172,21 @@
 <h1>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="load_save.html">Loading Datasets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="load_save.html#automatic-type-discovery">Automatic Type Discovery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="load_save.html#specifying-file-type">Specifying File Type</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="load_save.html#saving-datasets">Saving Datasets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="load_save.html#hdf5-xdmf">HDF5 + XDMF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="load_save.html#numpy-file">Numpy File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="load_save.html#pandas">Pandas</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="creating_fields.html">Creating Fields</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="creating_fields.html#constructing-a-field-from-scratch">Constructing a Field From Scratch</a></li>
 <li class="toctree-l2"><a class="reference internal" href="creating_fields.html#wrapping-existing-ndarrays">Wrapping Existing Ndarrays</a></li>
 <li class="toctree-l2"><a class="reference internal" href="creating_fields.html#wrapping-fields-in-grids">Wrapping Fields in Grids</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="saving.html">Saving Datasets</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="saving.html#hdf5-xdmf">HDF5 + XDMF</a></li>
-<li class="toctree-l2"><a class="reference internal" href="saving.html#numpy-file">Numpy File</a></li>
-<li class="toctree-l2"><a class="reference internal" href="saving.html#pandas">Pandas</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="slicing.html">Slicing Fields</a><ul>
