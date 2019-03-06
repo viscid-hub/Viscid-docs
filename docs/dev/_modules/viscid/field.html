@@ -196,6 +196,8 @@
 <span class="n">LAYOUT_SCALAR</span> <span class="o">=</span> <span class="s2">&quot;scalar&quot;</span>
 <span class="n">LAYOUT_OTHER</span> <span class="o">=</span> <span class="s2">&quot;other&quot;</span>
 
+<span class="n">_DEFAULT_COMPONENT_NAMES</span> <span class="o">=</span> <span class="s2">&quot;xyzuvw&quot;</span>
+
 
 <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;arrays2field&#39;</span><span class="p">,</span> <span class="s1">&#39;dat2field&#39;</span><span class="p">,</span> <span class="s1">&#39;full&#39;</span><span class="p">,</span> <span class="s1">&#39;empty&#39;</span><span class="p">,</span> <span class="s1">&#39;zeros&#39;</span><span class="p">,</span> <span class="s1">&#39;ones&#39;</span><span class="p">,</span>
            <span class="s1">&#39;full_like&#39;</span><span class="p">,</span> <span class="s1">&#39;empty_like&#39;</span><span class="p">,</span> <span class="s1">&#39;zeros_like&#39;</span><span class="p">,</span> <span class="s1">&#39;ones_like&#39;</span><span class="p">,</span>
@@ -635,7 +637,6 @@
 <span class="k">class</span> <span class="nc">Field</span><span class="p">(</span><span class="n">tree</span><span class="o">.</span><span class="n">Leaf</span><span class="p">):</span>
     <span class="n">_TYPE</span> <span class="o">=</span> <span class="s2">&quot;none&quot;</span>
     <span class="n">_CENTERING</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;node&#39;</span><span class="p">,</span> <span class="s1">&#39;cell&#39;</span><span class="p">,</span> <span class="s1">&#39;grid&#39;</span><span class="p">,</span> <span class="s1">&#39;face&#39;</span><span class="p">,</span> <span class="s1">&#39;edge&#39;</span><span class="p">]</span>
-    <span class="n">_COMPONENT_NAMES</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
 
     <span class="c1"># set on __init__</span>
     <span class="c1"># NOTE: _src_data is allowed by be a list to support creating vectors from</span>
@@ -700,6 +701,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">center</span> <span class="o">=</span> <span class="n">center</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_src_crds</span> <span class="o">=</span> <span class="n">crds</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">comp_names</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
 
         <span class="k">if</span> <span class="n">pretty_name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">pretty_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
@@ -842,10 +845,6 @@
                 <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Could not detect data layout; &quot;</span>
                                    <span class="s2">&quot;can&#39;t give nr_comp&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nr_comp</span>
-
-    <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">comp_names</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_COMPONENT_NAMES</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">shape</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -1431,7 +1430,7 @@
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">nr_comps</span><span class="p">:</span>
                 <span class="k">if</span> <span class="n">single_comp_slc</span><span class="p">:</span>
                     <span class="c1">############</span>
-                    <span class="n">comp_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_COMPONENT_NAMES</span><span class="p">[</span><span class="n">comp_slc</span><span class="p">]</span>
+                    <span class="n">comp_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">comp_names</span><span class="p">[</span><span class="n">comp_slc</span><span class="p">]</span>
                     <span class="n">ctx</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="n">comp_name</span>
                     <span class="n">ctx</span><span class="p">[</span><span class="s1">&#39;pretty_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pretty_name</span> <span class="o">+</span>
                                           <span class="s2">&quot;$_</span><span class="si">{0}</span><span class="s2">$&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">comp_name</span><span class="p">))</span>
@@ -2324,6 +2323,10 @@
     <span class="k">def</span> <span class="nf">imag</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">imag</span><span class="p">)</span>
 
+    <span class="k">def</span> <span class="nf">angle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">deg</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="c1"># hack: np.angle casts to ndarray... that&#39;s annoying</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">deg</span><span class="o">=</span><span class="n">deg</span><span class="p">))</span>
+
     <span class="k">def</span> <span class="nf">transpose</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">axes</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; same behavior as numpy transpose, alse accessable</span>
 <span class="sd">        using np.transpose(fld) &quot;&quot;&quot;</span>
@@ -2462,7 +2465,23 @@
 
 <span class="k">class</span> <span class="nc">VectorField</span><span class="p">(</span><span class="n">Field</span><span class="p">):</span>
     <span class="n">_TYPE</span> <span class="o">=</span> <span class="s2">&quot;vector&quot;</span>
-    <span class="n">_COMPONENT_NAMES</span> <span class="o">=</span> <span class="s2">&quot;xyzuvw&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Keyword Arguments:</span>
+<span class="sd">            comp_names (sequence): sequence of component names</span>
+
+<span class="sd">        See Also:</span>
+<span class="sd">            :py:class:`viscid.Field`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="s1">&#39;comp_names&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">comp_names</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;comp_names&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">comp_names</span> <span class="o">=</span> <span class="n">_DEFAULT_COMPONENT_NAMES</span>
+
+        <span class="nb">super</span><span class="p">(</span><span class="n">VectorField</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">comp_names</span> <span class="o">=</span> <span class="n">comp_names</span>
 
     <span class="k">def</span> <span class="nf">component_views</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; return numpy views to components individually, memory layout</span>
