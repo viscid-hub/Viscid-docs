@@ -189,32 +189,32 @@
 <span class="p p-Indicator">{</span>
   <span class="c1">### For Everything</span>
   <span class="c1">## use shell copies so we don&#39;t have to call unload()</span>
-<span class="nt">  &quot;grid.Grid.longterm_field_caches&quot;</span><span class="p">:</span> <span class="nv">false</span><span class="p p-Indicator">,</span>
+  <span class="s">&quot;grid.Grid.longterm_field_caches&quot;</span><span class="p p-Indicator">:</span> <span class="nv">false</span><span class="p p-Indicator">,</span>
 
   <span class="c1">### for OpenGGCM</span>
   <span class="c1">## try to get extra run information</span>
-<span class="nt">  &quot;readers.openggcm.GGCMFile.read_log_file&quot;</span><span class="p">:</span> <span class="nv">true</span><span class="p p-Indicator">,</span>
+  <span class="s">&quot;readers.openggcm.GGCMFile.read_log_file&quot;</span><span class="p p-Indicator">:</span> <span class="nv">true</span><span class="p p-Indicator">,</span>
   <span class="c1">## everyone likes GSE coords :)</span>
-<span class="nt">  &quot;readers.openggcm.GGCMGrid.mhd_to_gse_on_read&quot;</span><span class="p">:</span> <span class="s">&quot;auto&quot;</span><span class="p p-Indicator">,</span>
+  <span class="s">&quot;readers.openggcm.GGCMGrid.mhd_to_gse_on_read&quot;</span><span class="p p-Indicator">:</span> <span class="s">&quot;auto&quot;</span><span class="p p-Indicator">,</span>
 
   <span class="c1">### For Athena</span>
   <span class="c1">## this doesn&#39;t work for some reason</span>
-<span class="nt">  # &quot;readers.athena_bin.AthenaBinFileWrapper.var_type&quot;</span><span class="p">:</span> <span class="s">&quot;prim&quot;</span><span class="p p-Indicator">,</span>
+  <span class="c1"># &quot;readers.athena_bin.AthenaBinFileWrapper.var_type&quot;: &quot;prim&quot;,</span>
 
   <span class="c1"># evaluator control for security</span>
-<span class="nt">  &quot;calculator.evaluator.enabled&quot;</span><span class="p">:</span> <span class="nv">true</span><span class="p p-Indicator">,</span>
+  <span class="s">&quot;calculator.evaluator.enabled&quot;</span><span class="p p-Indicator">:</span> <span class="nv">true</span><span class="p p-Indicator">,</span>
 
   <span class="c1"># matplotlib (&gt;= 1.5.0) styling</span>
-<span class="nt">  &quot;mpl_style.use_styles&quot;</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&quot;seaborn-talk&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;seaborn-white&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;viscid-default&quot;</span><span class="p p-Indicator">,</span>
+  <span class="s">&quot;mpl_style.use_styles&quot;</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="s">&quot;seaborn-talk&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;seaborn-white&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;viscid-default&quot;</span><span class="p p-Indicator">,</span>
                            <span class="s">&quot;viscid-colorblind&quot;</span><span class="p p-Indicator">],</span>
   <span class="c1"># rc params can also be overridden individually</span>
-<span class="nt">  # &quot;plot.mpl_style.rc_params&quot;</span><span class="p">:</span> <span class="p p-Indicator">{</span><span class="nt">&quot;image.cmap&quot;</span><span class="p">:</span> <span class="s">&quot;inferno&quot;</span><span class="p p-Indicator">},</span>
+  <span class="c1"># &quot;plot.mpl_style.rc_params&quot;: {&quot;image.cmap&quot;: &quot;inferno&quot;},</span>
 
   <span class="c1"># # For matplotlib &lt; 1.5.0, you can use vseaborn as a shim to seaborn</span>
   <span class="c1"># # for nice styles</span>
-<span class="nt">  # &quot;plot.vseaborn.enabled&quot;</span><span class="p">:</span> <span class="nv">true</span><span class="p p-Indicator">,</span>
-<span class="nt">  # &quot;plot.vseaborn.context&quot;</span><span class="p">:</span> <span class="s">&quot;poster&quot;</span><span class="p p-Indicator">,</span>
-<span class="nt">  # &quot;plot.vseaborn.style&quot;</span><span class="p">:</span> <span class="s">&quot;ticks&quot;</span><span class="p p-Indicator">,</span>
+  <span class="c1"># &quot;plot.vseaborn.enabled&quot;: true,</span>
+  <span class="c1"># &quot;plot.vseaborn.context&quot;: &quot;poster&quot;,</span>
+  <span class="c1"># &quot;plot.vseaborn.style&quot;: &quot;ticks&quot;,</span>
 <span class="p p-Indicator">}</span>
 </pre></div>
 </div>
@@ -305,7 +305,7 @@ from all libmrc classes, but can be customized with
     </p>
     <p>
         &copy; Copyright 2018, Kristofor Maynard.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.4.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.<br/>
     </p>
   </div>
 </footer>

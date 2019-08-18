@@ -170,7 +170,7 @@
       
   <div class="section" id="philosophy">
 <h1>Philosophy<a class="headerlink" href="#philosophy" title="Permalink to this headline">¶</a></h1>
-<p>The basic idea is to get the python framework out of your way to help you work. To this end, data files are read into a Numpy ndarray styled object (<code class="xref py py-class docutils literal notranslate"><span class="pre">viscid.field.Field</span></code>), and there are plenty of convenience functions to turn Fields into 2-D plots (<a class="reference internal" href="api/viscid.plot.vpyplot.html#module-viscid.plot.vpyplot" title="viscid.plot.vpyplot"><code class="xref py py-mod docutils literal notranslate"><span class="pre">viscid.plot.vpyplot</span></code></a>) or 3-D plots (<a class="reference internal" href="api/viscid.plot.vlab.html#module-viscid.plot.vlab" title="viscid.plot.vlab"><code class="xref py py-mod docutils literal notranslate"><span class="pre">viscid.plot.vlab</span></code></a>).</p>
+<p>The basic idea is to get the python framework out of your way to help you work. To this end, data files are read into a Numpy ndarray styled object (<code class="xref py py-class docutils literal notranslate"><span class="pre">viscid.field.Field</span></code>), and there are plenty of convenience functions to turn Fields into 2-D plots (<a class="reference internal" href="api/viscid.plot.vpyplot.html#module-viscid.plot.vpyplot" title="viscid.plot.vpyplot"><code class="xref py py-mod docutils literal notranslate"><span class="pre">viscid.plot.vpyplot</span></code></a>) or 3-D plots (<code class="xref py py-mod docutils literal notranslate"><span class="pre">viscid.plot.vlab</span></code>).</p>
 <p>Here are some basic features that all readers try to implement to the best of their ability:</p>
 <ul class="simple">
 <li>Laziness: When using formats like xdmf and hdf5, we get a lot of meta data, so we can do a lot without reading the whole datafiles. Readers try their best to wait until the last possible moment to load any data. This translates into an order of magnitude better performance when loading &gt; 100 time slices of high resolution data.</li>
@@ -213,7 +213,7 @@
     </p>
     <p>
         &copy; Copyright 2018, Kristofor Maynard.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.4.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.<br/>
     </p>
   </div>
 </footer>

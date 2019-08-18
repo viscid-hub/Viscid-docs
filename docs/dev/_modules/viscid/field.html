@@ -1422,7 +1422,7 @@
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">reduced</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">slices</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">slced_dat</span><span class="p">,</span> <span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="c1"># if we sliced the hell out of the array, just</span>
             <span class="c1"># return the value that&#39;s left, ndarrays have the same behavior</span>
-            <span class="n">ret</span> <span class="o">=</span> <span class="n">slced_dat</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="n">slced_dat</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">ctx</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">crds</span><span class="o">=</span><span class="n">crds</span><span class="p">,</span> <span class="n">zyx_native</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
             <span class="n">fldtype</span> <span class="o">=</span> <span class="kc">None</span>
@@ -2583,7 +2583,7 @@
     </p>
     <p>
         &copy; Copyright 2018, Kristofor Maynard.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.4.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.<br/>
     </p>
   </div>
 </footer>
