@@ -221,7 +221,8 @@
     <span class="n">pp</span> <span class="o">=</span> <span class="n">f3d</span><span class="p">[</span><span class="s2">&quot;pp&quot;</span><span class="p">]</span>
     <span class="n">e</span> <span class="o">=</span> <span class="n">f3d</span><span class="p">[</span><span class="s2">&quot;e_cc&quot;</span><span class="p">]</span>
 
-    <span class="n">vlab</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1280</span><span class="p">,</span> <span class="mi">800</span><span class="p">),</span> <span class="n">offscreen</span><span class="o">=</span><span class="ow">not</span> <span class="n">args</span><span class="o">.</span><span class="n">show</span><span class="p">)</span>
+    <span class="n">vlab</span><span class="o">.</span><span class="n">mlab</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">offscreen</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">args</span><span class="o">.</span><span class="n">show</span>
+    <span class="n">vlab</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1280</span><span class="p">,</span> <span class="mi">800</span><span class="p">))</span>
 
     <span class="c1">##########################################################</span>
     <span class="c1"># make b a dipole inside 3.1Re and set e = 0 inside 4.0Re</span>
