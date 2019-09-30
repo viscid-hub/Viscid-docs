@@ -279,14 +279,28 @@
     <span class="n">r</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">vutil</span><span class="o">.</span><span class="n">prepare_lines</span><span class="p">(</span><span class="n">lines</span><span class="p">,</span> <span class="n">scalars</span><span class="p">,</span> <span class="n">do_connections</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">lines</span><span class="p">,</span> <span class="n">scalars</span><span class="p">,</span> <span class="n">connections</span><span class="p">,</span> <span class="n">other</span> <span class="o">=</span> <span class="n">r</span>
 
-    <span class="n">src</span> <span class="o">=</span> <span class="n">mlab</span><span class="o">.</span><span class="n">pipeline</span><span class="o">.</span><span class="n">line_source</span><span class="p">(</span><span class="n">lines</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">lines</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">lines</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-    <span class="k">if</span> <span class="n">scalars</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">scalars</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="s1">&#39;u1&#39;</span><span class="p">):</span>
-            <span class="n">sc</span> <span class="o">=</span> <span class="n">tvtk</span><span class="o">.</span><span class="n">UnsignedCharArray</span><span class="p">()</span>
-            <span class="n">sc</span><span class="o">.</span><span class="n">from_array</span><span class="p">(</span><span class="n">scalars</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
-            <span class="n">scalars</span> <span class="o">=</span> <span class="n">sc</span>
+    <span class="c1"># FIXME: the following branch is a workaround for Mayavi &gt;= 4.7.0</span>
+    <span class="c1"># For some reason, setting scalar point data after source creation</span>
+    <span class="c1"># now has an issue where mayavi doesn&#39;t autoscale the lut correctly.</span>
+    <span class="c1"># This has something to do with changes in supporting composite data in</span>
+    <span class="c1"># Mayavi commit:</span>
+    <span class="c1"># https://github.com/enthought/mayavi/commit/fd9a515a9563d81a42b84514c1fb4ce5f81ac9a0</span>
+    <span class="c1">#</span>
+    <span class="c1"># So... if scalars are color values (set by hex or rgb), then we have to</span>
+    <span class="c1"># set the point data by hand. This is ok since the lut range won&#39;t be</span>
+    <span class="c1"># needed. Otherwise, just pass the scalars on source creation.</span>
+    <span class="k">if</span> <span class="n">scalars</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">scalars</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="s1">&#39;u1&#39;</span><span class="p">):</span>
+        <span class="n">src</span> <span class="o">=</span> <span class="n">mlab</span><span class="o">.</span><span class="n">pipeline</span><span class="o">.</span><span class="n">line_source</span><span class="p">(</span><span class="n">lines</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">lines</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">lines</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+        <span class="n">sc</span> <span class="o">=</span> <span class="n">tvtk</span><span class="o">.</span><span class="n">UnsignedCharArray</span><span class="p">()</span>
+        <span class="n">sc</span><span class="o">.</span><span class="n">from_array</span><span class="p">(</span><span class="n">scalars</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+        <span class="n">scalars</span> <span class="o">=</span> <span class="n">sc</span>
         <span class="n">src</span><span class="o">.</span><span class="n">mlab_source</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">point_data</span><span class="o">.</span><span class="n">scalars</span> <span class="o">=</span> <span class="n">scalars</span>
         <span class="n">src</span><span class="o">.</span><span class="n">mlab_source</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">modified</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="n">scalars</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">src</span> <span class="o">=</span> <span class="n">mlab</span><span class="o">.</span><span class="n">pipeline</span><span class="o">.</span><span class="n">line_source</span><span class="p">(</span><span class="n">lines</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">lines</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">lines</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">scalars</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">src</span> <span class="o">=</span> <span class="n">mlab</span><span class="o">.</span><span class="n">pipeline</span><span class="o">.</span><span class="n">line_source</span><span class="p">(</span><span class="n">lines</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">lines</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">lines</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+
     <span class="n">src</span><span class="o">.</span><span class="n">mlab_source</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">lines</span> <span class="o">=</span> <span class="n">connections</span>
     <span class="n">src</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
     <span class="k">return</span> <span class="n">src</span></div>
