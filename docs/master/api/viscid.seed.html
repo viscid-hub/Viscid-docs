@@ -5,17 +5,14 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>viscid.seed module &#8212; Viscid 0.99.9 documentation</title>
+    <title>viscid.seed module &#8212; Viscid 1.0.0 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="viscid.sliceutil module" href="viscid.sliceutil.html" />
@@ -26,6 +23,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="stylesheet" href="../_static/my-css.css" type="text/css" />
+
+<script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head><body>
 
@@ -40,7 +42,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           Viscid</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.99.9</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>1.0.0</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -57,6 +59,9 @@
           role="menu">
           <li class="toctree-l1">
             <a class="reference internal", href="../installation.html">Installation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/load_save.html">Loading & Saving</a>
           </li>
           <li class="toctree-l1">
             <a class="reference internal", href="../tutorial/creating_fields.html">Creating Fields</a>
@@ -104,23 +109,22 @@
   <ul class="dropdown-menu globaltoc"
       role="menu"
       aria-labelledby="dLabelGlobalToc"><ul>
-<li class="toctree-l1"><a class="reference internal" href="../changes.html">ChangeLog</a></li>
-</ul>
-<ul>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../philosophy.html">Philosophy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../indexing.html">Indexing Fields</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tips_and_tricks.html">Tips &amp; Tricks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../functions.html">Useful Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../plot_options.html">Plot Options</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mpl_style_gallery.html">Matplotlib Style Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tips_and_tricks.html">Tips &amp; Tricks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../custom_behavior.html">Custom Behavior (rc file)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mpl_style_gallery.html">Matplotlib Style Gallery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev_guide.html">Developer’s Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../extending_readers.html">Extending Readers</a></li>
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="viscid.html">API</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../changes.html">ChangeLog</a></li>
 </ul>
 </ul>
 </li>
@@ -162,7 +166,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12 content">
+    <div class="col-md-12 content" role="main">
       
   <div class="section" id="module-viscid.seed">
 <span id="viscid-seed-module"></span><h1>viscid.seed module<a class="headerlink" href="#module-viscid.seed" title="Permalink to this headline">¶</a></h1>
@@ -185,7 +189,7 @@ This can be 3xN so long as N != 3.</td>
 
 <dl class="class">
 <dt id="viscid.seed.SeedGen">
-<em class="property">class </em><code class="descclassname">viscid.seed.</code><code class="descname">SeedGen</code><span class="sig-paren">(</span><em>cache=False</em>, <em>dtype=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#SeedGen"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.seed.SeedGen" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">viscid.seed.</code><code class="descname">SeedGen</code><span class="sig-paren">(</span><em>cache=False</em>, <em>dtype=None</em>, <em>fill_holes=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#SeedGen"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.seed.SeedGen" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>All about seeds</p>
 <p>These objects are good for defining the root points of streamlines
@@ -296,7 +300,7 @@ the result of <code class="xref py py-func docutils literal notranslate"><span c
 </ul>
 <dl class="method">
 <dt id="viscid.seed.SeedGen.arr2mesh">
-<code class="descname">arr2mesh</code><span class="sig-paren">(</span><em>arr</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#SeedGen.arr2mesh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.seed.SeedGen.arr2mesh" title="Permalink to this definition">¶</a></dt>
+<code class="descname">arr2mesh</code><span class="sig-paren">(</span><em>arr</em>, <em>fill_holes=&lt;class 'viscid.NOT_SPECIFIED'&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#SeedGen.arr2mesh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.seed.SeedGen.arr2mesh" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -307,7 +311,7 @@ the result of <code class="xref py py-func docutils literal notranslate"><span c
 
 <dl class="method">
 <dt id="viscid.seed.SeedGen.as_mesh">
-<code class="descname">as_mesh</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#SeedGen.as_mesh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.seed.SeedGen.as_mesh" title="Permalink to this definition">¶</a></dt>
+<code class="descname">as_mesh</code><span class="sig-paren">(</span><em>fill_holes=&lt;class 'viscid.NOT_SPECIFIED'&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#SeedGen.as_mesh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.seed.SeedGen.as_mesh" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make a 3xUxV array that describes a 3D mesh surface</p>
 </dd></dl>
 
@@ -320,6 +324,11 @@ the result of <code class="xref py py-func docutils literal notranslate"><span c
 <dl class="attribute">
 <dt id="viscid.seed.SeedGen.dtype">
 <code class="descname">dtype</code><em class="property"> = None</em><a class="headerlink" href="#viscid.seed.SeedGen.dtype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="viscid.seed.SeedGen.fill_holes">
+<code class="descname">fill_holes</code><em class="property"> = None</em><a class="headerlink" href="#viscid.seed.SeedGen.fill_holes" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -466,14 +475,14 @@ indices of an array, but only if the array already exists.</p>
 
 <dl class="method">
 <dt id="viscid.seed.SeedGen.wrap_mesh">
-<code class="descname">wrap_mesh</code><span class="sig-paren">(</span><em>*arrs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#SeedGen.wrap_mesh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.seed.SeedGen.wrap_mesh" title="Permalink to this definition">¶</a></dt>
+<code class="descname">wrap_mesh</code><span class="sig-paren">(</span><em>*arrs</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#SeedGen.wrap_mesh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.seed.SeedGen.wrap_mesh" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="class">
 <dt id="viscid.seed.Point">
-<em class="property">class </em><code class="descclassname">viscid.seed.</code><code class="descname">Point</code><span class="sig-paren">(</span><em>pts</em>, <em>cache=False</em>, <em>dtype=None</em>, <em>local_crds=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#Point"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.seed.Point" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">viscid.seed.</code><code class="descname">Point</code><span class="sig-paren">(</span><em>pts</em>, <em>local_crds=None</em>, <em>cache=False</em>, <em>dtype=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#Point"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.seed.Point" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#viscid.seed.SeedGen" title="viscid.seed.SeedGen"><code class="xref py py-class docutils literal notranslate"><span class="pre">viscid.seed.SeedGen</span></code></a></p>
 <p>Collection of points</p>
 <dl class="method">
@@ -517,12 +526,12 @@ indices of an array, but only if the array already exists.</p>
 
 <dl class="class">
 <dt id="viscid.seed.MeshPoints">
-<em class="property">class </em><code class="descclassname">viscid.seed.</code><code class="descname">MeshPoints</code><span class="sig-paren">(</span><em>pts</em>, <em>cache=False</em>, <em>dtype=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#MeshPoints"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.seed.MeshPoints" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">viscid.seed.</code><code class="descname">MeshPoints</code><span class="sig-paren">(</span><em>pts</em>, <em>cache=False</em>, <em>dtype=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#MeshPoints"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.seed.MeshPoints" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#viscid.seed.SeedGen" title="viscid.seed.SeedGen"><code class="xref py py-class docutils literal notranslate"><span class="pre">viscid.seed.SeedGen</span></code></a></p>
 <p>Generic points with 2d mesh information</p>
 <dl class="method">
 <dt id="viscid.seed.MeshPoints.arr2mesh">
-<code class="descname">arr2mesh</code><span class="sig-paren">(</span><em>arr</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#MeshPoints.arr2mesh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.seed.MeshPoints.arr2mesh" title="Permalink to this definition">¶</a></dt>
+<code class="descname">arr2mesh</code><span class="sig-paren">(</span><em>arr</em>, <em>fill_holes=&lt;class 'viscid.NOT_SPECIFIED'&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#MeshPoints.arr2mesh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.seed.MeshPoints.arr2mesh" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -533,7 +542,7 @@ indices of an array, but only if the array already exists.</p>
 
 <dl class="method">
 <dt id="viscid.seed.MeshPoints.as_mesh">
-<code class="descname">as_mesh</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#MeshPoints.as_mesh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.seed.MeshPoints.as_mesh" title="Permalink to this definition">¶</a></dt>
+<code class="descname">as_mesh</code><span class="sig-paren">(</span><em>fill_holes=&lt;class 'viscid.NOT_SPECIFIED'&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#MeshPoints.as_mesh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.seed.MeshPoints.as_mesh" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make a 3xUxV array that describes a 3D mesh surface</p>
 </dd></dl>
 
@@ -588,14 +597,14 @@ indices of an array, but only if the array already exists.</p>
 
 <dl class="class">
 <dt id="viscid.seed.RectilinearMeshPoints">
-<em class="property">class </em><code class="descclassname">viscid.seed.</code><code class="descname">RectilinearMeshPoints</code><span class="sig-paren">(</span><em>pts</em>, <em>mesh_axes='xy'</em>, <em>cache=False</em>, <em>dtype=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#RectilinearMeshPoints"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.seed.RectilinearMeshPoints" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">viscid.seed.</code><code class="descname">RectilinearMeshPoints</code><span class="sig-paren">(</span><em>pts</em>, <em>mesh_axes='xy'</em>, <em>cache=False</em>, <em>dtype=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#RectilinearMeshPoints"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.seed.RectilinearMeshPoints" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#viscid.seed.MeshPoints" title="viscid.seed.MeshPoints"><code class="xref py py-class docutils literal notranslate"><span class="pre">viscid.seed.MeshPoints</span></code></a></p>
 <p>Generic seeds with 2d rect mesh topology</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="viscid.seed.Line">
-<em class="property">class </em><code class="descclassname">viscid.seed.</code><code class="descname">Line</code><span class="sig-paren">(</span><em>p0=(0</em>, <em>0</em>, <em>0)</em>, <em>p1=(1</em>, <em>0</em>, <em>0)</em>, <em>n=20</em>, <em>cache=False</em>, <em>dtype=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#Line"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.seed.Line" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">viscid.seed.</code><code class="descname">Line</code><span class="sig-paren">(</span><em>p0=(0</em>, <em>0</em>, <em>0)</em>, <em>p1=(1</em>, <em>0</em>, <em>0)</em>, <em>n=20</em>, <em>cache=False</em>, <em>dtype=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#Line"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.seed.Line" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#viscid.seed.SeedGen" title="viscid.seed.SeedGen"><code class="xref py py-class docutils literal notranslate"><span class="pre">viscid.seed.SeedGen</span></code></a></p>
 <p>A line of seed points</p>
 <dl class="method">
@@ -606,7 +615,7 @@ indices of an array, but only if the array already exists.</p>
 
 <dl class="method">
 <dt id="viscid.seed.Line.as_mesh">
-<code class="descname">as_mesh</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#Line.as_mesh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.seed.Line.as_mesh" title="Permalink to this definition">¶</a></dt>
+<code class="descname">as_mesh</code><span class="sig-paren">(</span><em>fill_holes=&lt;class 'viscid.NOT_SPECIFIED'&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#Line.as_mesh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.seed.Line.as_mesh" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make a 3xUxV array that describes a 3D mesh surface</p>
 </dd></dl>
 
@@ -661,7 +670,7 @@ indices of an array, but only if the array already exists.</p>
 
 <dl class="class">
 <dt id="viscid.seed.Spline">
-<em class="property">class </em><code class="descclassname">viscid.seed.</code><code class="descname">Spline</code><span class="sig-paren">(</span><em>knots</em>, <em>n=-5</em>, <em>cache=False</em>, <em>dtype=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#Spline"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.seed.Spline" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">viscid.seed.</code><code class="descname">Spline</code><span class="sig-paren">(</span><em>knots</em>, <em>n=-5</em>, <em>splprep_kw=None</em>, <em>cache=False</em>, <em>dtype=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#Spline"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.seed.Spline" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#viscid.seed.SeedGen" title="viscid.seed.SeedGen"><code class="xref py py-class docutils literal notranslate"><span class="pre">viscid.seed.SeedGen</span></code></a></p>
 <p>A spline of seed points</p>
 <dl class="method">
@@ -672,7 +681,7 @@ indices of an array, but only if the array already exists.</p>
 
 <dl class="method">
 <dt id="viscid.seed.Spline.as_mesh">
-<code class="descname">as_mesh</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#Spline.as_mesh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.seed.Spline.as_mesh" title="Permalink to this definition">¶</a></dt>
+<code class="descname">as_mesh</code><span class="sig-paren">(</span><em>fill_holes=&lt;class 'viscid.NOT_SPECIFIED'&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#Spline.as_mesh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.seed.Spline.as_mesh" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make a 3xUxV array that describes a 3D mesh surface</p>
 </dd></dl>
 
@@ -727,12 +736,12 @@ indices of an array, but only if the array already exists.</p>
 
 <dl class="class">
 <dt id="viscid.seed.Plane">
-<em class="property">class </em><code class="descclassname">viscid.seed.</code><code class="descname">Plane</code><span class="sig-paren">(</span><em>p0=(0</em>, <em>0</em>, <em>0)</em>, <em>pN=(0</em>, <em>0</em>, <em>1)</em>, <em>pL=(1</em>, <em>0</em>, <em>0)</em>, <em>len_l=2</em>, <em>len_m=2</em>, <em>nl=20</em>, <em>nm=20</em>, <em>NL_are_vectors=True</em>, <em>cache=False</em>, <em>dtype=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#Plane"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.seed.Plane" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">viscid.seed.</code><code class="descname">Plane</code><span class="sig-paren">(</span><em>p0=(0</em>, <em>0</em>, <em>0)</em>, <em>pN=(0</em>, <em>0</em>, <em>1)</em>, <em>pL=(1</em>, <em>0</em>, <em>0)</em>, <em>len_l=2</em>, <em>len_m=2</em>, <em>nl=20</em>, <em>nm=20</em>, <em>NL_are_vectors=True</em>, <em>cache=False</em>, <em>dtype=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#Plane"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.seed.Plane" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#viscid.seed.SeedGen" title="viscid.seed.SeedGen"><code class="xref py py-class docutils literal notranslate"><span class="pre">viscid.seed.SeedGen</span></code></a></p>
 <p>A plane of seed points</p>
 <dl class="method">
 <dt id="viscid.seed.Plane.arr2mesh">
-<code class="descname">arr2mesh</code><span class="sig-paren">(</span><em>arr</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#Plane.arr2mesh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.seed.Plane.arr2mesh" title="Permalink to this definition">¶</a></dt>
+<code class="descname">arr2mesh</code><span class="sig-paren">(</span><em>arr</em>, <em>fill_holes=&lt;class 'viscid.NOT_SPECIFIED'&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#Plane.arr2mesh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.seed.Plane.arr2mesh" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -743,7 +752,7 @@ indices of an array, but only if the array already exists.</p>
 
 <dl class="method">
 <dt id="viscid.seed.Plane.as_mesh">
-<code class="descname">as_mesh</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#Plane.as_mesh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.seed.Plane.as_mesh" title="Permalink to this definition">¶</a></dt>
+<code class="descname">as_mesh</code><span class="sig-paren">(</span><em>fill_holes=&lt;class 'viscid.NOT_SPECIFIED'&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#Plane.as_mesh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.seed.Plane.as_mesh" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make a 3xUxV array that describes a 3D mesh surface</p>
 </dd></dl>
 
@@ -881,13 +890,13 @@ not done with the rotation.</p>
 
 <dl class="class">
 <dt id="viscid.seed.Volume">
-<em class="property">class </em><code class="descclassname">viscid.seed.</code><code class="descname">Volume</code><span class="sig-paren">(</span><em>xl=(-1</em>, <em>-1</em>, <em>-1)</em>, <em>xh=(1</em>, <em>1</em>, <em>1)</em>, <em>n=(20</em>, <em>20</em>, <em>20)</em>, <em>cache=False</em>, <em>dtype=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#Volume"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.seed.Volume" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">viscid.seed.</code><code class="descname">Volume</code><span class="sig-paren">(</span><em>xl=(-1</em>, <em>-1</em>, <em>-1)</em>, <em>xh=(1</em>, <em>1</em>, <em>1)</em>, <em>n=(20</em>, <em>20</em>, <em>20)</em>, <em>cache=False</em>, <em>dtype=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#Volume"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.seed.Volume" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#viscid.seed.SeedGen" title="viscid.seed.SeedGen"><code class="xref py py-class docutils literal notranslate"><span class="pre">viscid.seed.SeedGen</span></code></a></p>
 <p>A volume of seed points</p>
 <p>Defined by two opposite corners of a box in 3D</p>
 <dl class="method">
 <dt id="viscid.seed.Volume.arr2mesh">
-<code class="descname">arr2mesh</code><span class="sig-paren">(</span><em>arr</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#Volume.arr2mesh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.seed.Volume.arr2mesh" title="Permalink to this definition">¶</a></dt>
+<code class="descname">arr2mesh</code><span class="sig-paren">(</span><em>arr</em>, <em>fill_holes=&lt;class 'viscid.NOT_SPECIFIED'&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#Volume.arr2mesh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.seed.Volume.arr2mesh" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -898,7 +907,7 @@ not done with the rotation.</p>
 
 <dl class="method">
 <dt id="viscid.seed.Volume.as_mesh">
-<code class="descname">as_mesh</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#Volume.as_mesh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.seed.Volume.as_mesh" title="Permalink to this definition">¶</a></dt>
+<code class="descname">as_mesh</code><span class="sig-paren">(</span><em>fill_holes=&lt;class 'viscid.NOT_SPECIFIED'&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#Volume.as_mesh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.seed.Volume.as_mesh" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make a 3xUxV array that describes a 3D mesh surface</p>
 </dd></dl>
 
@@ -969,12 +978,12 @@ indices of an array, but only if the array already exists.</p>
 
 <dl class="class">
 <dt id="viscid.seed.Sphere">
-<em class="property">class </em><code class="descclassname">viscid.seed.</code><code class="descname">Sphere</code><span class="sig-paren">(</span><em>p0=(0</em>, <em>0</em>, <em>0)</em>, <em>r=0.0</em>, <em>pole=(0</em>, <em>0</em>, <em>1)</em>, <em>ntheta=20</em>, <em>nphi=20</em>, <em>thetalim=(0</em>, <em>180.0)</em>, <em>philim=(0</em>, <em>360.0)</em>, <em>roll=0.0</em>, <em>crd_system=None</em>, <em>theta_endpoint='auto'</em>, <em>phi_endpoint='auto'</em>, <em>pole_is_vector=True</em>, <em>theta_phi=False</em>, <em>cache=False</em>, <em>dtype=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#Sphere"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.seed.Sphere" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">viscid.seed.</code><code class="descname">Sphere</code><span class="sig-paren">(</span><em>p0=(0</em>, <em>0</em>, <em>0)</em>, <em>r=0.0</em>, <em>pole=(0</em>, <em>0</em>, <em>1)</em>, <em>ntheta=20</em>, <em>nphi=20</em>, <em>thetalim=(0</em>, <em>180.0)</em>, <em>philim=(0</em>, <em>360.0)</em>, <em>roll=0.0</em>, <em>crd_system=None</em>, <em>theta_endpoint='auto'</em>, <em>phi_endpoint='auto'</em>, <em>pole_is_vector=True</em>, <em>theta_phi=False</em>, <em>cache=False</em>, <em>dtype=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#Sphere"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.seed.Sphere" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#viscid.seed.SeedGen" title="viscid.seed.SeedGen"><code class="xref py py-class docutils literal notranslate"><span class="pre">viscid.seed.SeedGen</span></code></a></p>
 <p>Make seeds on the surface of a sphere</p>
 <dl class="method">
 <dt id="viscid.seed.Sphere.arr2mesh">
-<code class="descname">arr2mesh</code><span class="sig-paren">(</span><em>arr</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#Sphere.arr2mesh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.seed.Sphere.arr2mesh" title="Permalink to this definition">¶</a></dt>
+<code class="descname">arr2mesh</code><span class="sig-paren">(</span><em>arr</em>, <em>fill_holes=&lt;class 'viscid.NOT_SPECIFIED'&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#Sphere.arr2mesh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.seed.Sphere.arr2mesh" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -985,7 +994,7 @@ indices of an array, but only if the array already exists.</p>
 
 <dl class="method">
 <dt id="viscid.seed.Sphere.as_mesh">
-<code class="descname">as_mesh</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#Sphere.as_mesh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.seed.Sphere.as_mesh" title="Permalink to this definition">¶</a></dt>
+<code class="descname">as_mesh</code><span class="sig-paren">(</span><em>fill_holes=&lt;class 'viscid.NOT_SPECIFIED'&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#Sphere.as_mesh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.seed.Sphere.as_mesh" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make a 3xUxV array that describes a 3D mesh surface</p>
 </dd></dl>
 
@@ -1129,12 +1138,12 @@ closed at the bottom.</p>
 
 <dl class="class">
 <dt id="viscid.seed.SphericalPatch">
-<em class="property">class </em><code class="descclassname">viscid.seed.</code><code class="descname">SphericalPatch</code><span class="sig-paren">(</span><em>p0=(0</em>, <em>0</em>, <em>0)</em>, <em>p1=(0</em>, <em>0</em>, <em>1)</em>, <em>max_alpha=45</em>, <em>max_beta=45</em>, <em>nalpha=20</em>, <em>nbeta=20</em>, <em>roll=0.0</em>, <em>r=0.0</em>, <em>p1_is_vector=True</em>, <em>cache=False</em>, <em>dtype=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#SphericalPatch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.seed.SphericalPatch" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">viscid.seed.</code><code class="descname">SphericalPatch</code><span class="sig-paren">(</span><em>p0=(0</em>, <em>0</em>, <em>0)</em>, <em>p1=(0</em>, <em>0</em>, <em>1)</em>, <em>max_alpha=45</em>, <em>max_beta=45</em>, <em>nalpha=20</em>, <em>nbeta=20</em>, <em>roll=0.0</em>, <em>r=0.0</em>, <em>p1_is_vector=True</em>, <em>cache=False</em>, <em>dtype=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#SphericalPatch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.seed.SphericalPatch" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#viscid.seed.SeedGen" title="viscid.seed.SeedGen"><code class="xref py py-class docutils literal notranslate"><span class="pre">viscid.seed.SeedGen</span></code></a></p>
 <p>Make a rectangular (in theta and phi) patch on a sphere</p>
 <dl class="method">
 <dt id="viscid.seed.SphericalPatch.arr2mesh">
-<code class="descname">arr2mesh</code><span class="sig-paren">(</span><em>arr</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#SphericalPatch.arr2mesh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.seed.SphericalPatch.arr2mesh" title="Permalink to this definition">¶</a></dt>
+<code class="descname">arr2mesh</code><span class="sig-paren">(</span><em>arr</em>, <em>fill_holes=&lt;class 'viscid.NOT_SPECIFIED'&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#SphericalPatch.arr2mesh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.seed.SphericalPatch.arr2mesh" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -1145,7 +1154,7 @@ closed at the bottom.</p>
 
 <dl class="method">
 <dt id="viscid.seed.SphericalPatch.as_mesh">
-<code class="descname">as_mesh</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#SphericalPatch.as_mesh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.seed.SphericalPatch.as_mesh" title="Permalink to this definition">¶</a></dt>
+<code class="descname">as_mesh</code><span class="sig-paren">(</span><em>fill_holes=&lt;class 'viscid.NOT_SPECIFIED'&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/seed.html#SphericalPatch.as_mesh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.seed.SphericalPatch.as_mesh" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make a 3xUxV array that describes a 3D mesh surface</p>
 </dd></dl>
 
@@ -1249,7 +1258,7 @@ closed at the bottom.</p>
     </p>
     <p>
         &copy; Copyright 2018, Kristofor Maynard.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.6.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.<br/>
     </p>
   </div>
 </footer>

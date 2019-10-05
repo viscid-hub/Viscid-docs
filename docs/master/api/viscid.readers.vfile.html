@@ -5,17 +5,14 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>viscid.readers.vfile module &#8212; Viscid 0.99.9 documentation</title>
+    <title>viscid.readers.vfile module &#8212; Viscid 1.0.0 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="viscid.readers.vfile_bucket module" href="viscid.readers.vfile_bucket.html" />
@@ -26,6 +23,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="stylesheet" href="../_static/my-css.css" type="text/css" />
+
+<script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head><body>
 
@@ -40,7 +42,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           Viscid</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.99.9</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>1.0.0</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -57,6 +59,9 @@
           role="menu">
           <li class="toctree-l1">
             <a class="reference internal", href="../installation.html">Installation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../tutorial/load_save.html">Loading & Saving</a>
           </li>
           <li class="toctree-l1">
             <a class="reference internal", href="../tutorial/creating_fields.html">Creating Fields</a>
@@ -104,23 +109,22 @@
   <ul class="dropdown-menu globaltoc"
       role="menu"
       aria-labelledby="dLabelGlobalToc"><ul>
-<li class="toctree-l1"><a class="reference internal" href="../changes.html">ChangeLog</a></li>
-</ul>
-<ul>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../philosophy.html">Philosophy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../indexing.html">Indexing Fields</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tips_and_tricks.html">Tips &amp; Tricks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../functions.html">Useful Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../plot_options.html">Plot Options</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mpl_style_gallery.html">Matplotlib Style Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tips_and_tricks.html">Tips &amp; Tricks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../custom_behavior.html">Custom Behavior (rc file)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mpl_style_gallery.html">Matplotlib Style Gallery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev_guide.html">Developer’s Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../extending_readers.html">Extending Readers</a></li>
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="viscid.html">API</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../changes.html">ChangeLog</a></li>
 </ul>
 </ul>
 </li>
@@ -162,7 +166,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12 content">
+    <div class="col-md-12 content" role="main">
       
   <div class="section" id="module-viscid.readers.vfile">
 <span id="viscid-readers-vfile-module"></span><h1>viscid.readers.vfile module<a class="headerlink" href="#module-viscid.readers.vfile" title="Permalink to this headline">¶</a></h1>
@@ -239,15 +243,43 @@ be grouped by group_fnames</td>
 
 <dl class="classmethod">
 <dt id="viscid.readers.vfile.VFile.detect_type">
-<em class="property">classmethod </em><code class="descname">detect_type</code><span class="sig-paren">(</span><em>fname</em>, <em>mode='r'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/readers/vfile.html#VFile.detect_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.readers.vfile.VFile.detect_type" title="Permalink to this definition">¶</a></dt>
-<dd><p>recursively detect a filetype using _detector regex string.
-this is called recursively for all subclasses and results
-further down the tree are given precedence.
-NOTE: THIS WILL ONLY WORK FOR CLASSES THAT HAVE ALREADY BEEN IMPORTED.
-THIS IS A FRAGILE MECHANISM IN THAT SENSE.
-TODO: move this functionality into a more robust/extendable factory
-class… that can also take care of the bucket / circular reference
-problem maybe</p>
+<em class="property">classmethod </em><code class="descname">detect_type</code><span class="sig-paren">(</span><em>fname</em>, <em>mode='r'</em>, <em>prefer=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/readers/vfile.html#VFile.detect_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.readers.vfile.VFile.detect_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>recursively detect a filetype using _detector regex string.</p>
+<p>This is called recursively for all subclasses and results
+further down the tree are given precedence.</p>
+<dl class="docutils">
+<dt>TODO: move this functionality into a more robust/extendable factory</dt>
+<dd>class… that can also take care of the bucket / circular
+reference problem maybe</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fname</strong> (<em>str</em>) – Filename</li>
+<li><strong>mode</strong> (<em>str</em>) – ‘r’ or ‘w’</li>
+<li><strong>prefer</strong> (<em>str</em>) – If multiple file types match, give some
+part of the class name for the reader that you prefer</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>Note: THIS WILL ONLY WORK FOR CLASSES THAT HAVE ALREADY BEEN</dt>
+<dd>IMPORTED. THIS IS A FRAGILE MECHANISM IN THAT SENSE.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Some reader that matches fname</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">VFile subclass</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
@@ -311,6 +343,11 @@ this class</td>
 <code class="descname">reload</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/readers/vfile.html#VFile.reload"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.readers.vfile.VFile.reload" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<dl class="classmethod">
+<dt id="viscid.readers.vfile.VFile.resolve_type">
+<em class="property">classmethod </em><code class="descname">resolve_type</code><span class="sig-paren">(</span><em>ftype</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/readers/vfile.html#VFile.resolve_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.readers.vfile.VFile.resolve_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="method">
 <dt id="viscid.readers.vfile.VFile.save">
 <code class="descname">save</code><span class="sig-paren">(</span><em>fname=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/readers/vfile.html#VFile.save"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.readers.vfile.VFile.save" title="Permalink to this definition">¶</a></dt>
@@ -342,6 +379,11 @@ of the file object as read</p>
 
 </dd></dl>
 
+<dl class="function">
+<dt id="viscid.readers.vfile.serialize_subclasses">
+<code class="descclassname">viscid.readers.vfile.</code><code class="descname">serialize_subclasses</code><span class="sig-paren">(</span><em>root</em>, <em>_lst=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/viscid/readers/vfile.html#serialize_subclasses"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#viscid.readers.vfile.serialize_subclasses" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </div>
 
 
@@ -364,7 +406,7 @@ of the file object as read</p>
     </p>
     <p>
         &copy; Copyright 2018, Kristofor Maynard.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.6.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.<br/>
     </p>
   </div>
 </footer>

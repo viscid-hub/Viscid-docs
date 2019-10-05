@@ -5,27 +5,28 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Changes &#8212; Viscid 0.99.9 documentation</title>
+    <title>Changes &#8212; Viscid 1.0.0 documentation</title>
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Installation" href="installation.html" />
-    <link rel="prev" title="Viscid: Visualizing Plasma Simulations in Python" href="index.html" />
+    <link rel="prev" title="viscid.vutil module" href="api/viscid.vutil.html" />
 <link rel="icon" href="_static/favicon.ico" type="image/x-icon">
 <link rel="shortcut icon" href="_static/favicon.ico" type="image/x-icon">
 <link rel="apple-touch-icon-precomposed" href="_static/Vicon_128.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="stylesheet" href="_static/my-css.css" type="text/css" />
+
+<script type="text/javascript" src="_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="_static/bootstrap-sphinx.js "></script>
 
   </head><body>
 
@@ -40,7 +41,7 @@
         </button>
         <a class="navbar-brand" href="index.html">
           Viscid</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.99.9</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>1.0.0</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -57,6 +58,9 @@
           role="menu">
           <li class="toctree-l1">
             <a class="reference internal", href="installation.html">Installation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="tutorial/load_save.html">Loading & Saving</a>
           </li>
           <li class="toctree-l1">
             <a class="reference internal", href="tutorial/creating_fields.html">Creating Fields</a>
@@ -103,24 +107,23 @@
      href="index.html">Site <b class="caret"></b></a>
   <ul class="dropdown-menu globaltoc"
       role="menu"
-      aria-labelledby="dLabelGlobalToc"><ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">ChangeLog</a></li>
-</ul>
-<ul>
+      aria-labelledby="dLabelGlobalToc"><ul>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="philosophy.html">Philosophy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="indexing.html">Indexing Fields</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorial/index.html">Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tips_and_tricks.html">Tips &amp; Tricks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="functions.html">Useful Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_options.html">Plot Options</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mpl_style_gallery.html">Matplotlib Style Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tips_and_tricks.html">Tips &amp; Tricks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="custom_behavior.html">Custom Behavior (rc file)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mpl_style_gallery.html">Matplotlib Style Gallery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dev_guide.html">Developer’s Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="extending_readers.html">Extending Readers</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="api/viscid.html">API</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ChangeLog</a></li>
 </ul>
 </ul>
 </li>
@@ -135,53 +138,54 @@
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Changes</a><ul>
-<li><a class="reference internal" href="#id1">0.99.9</a></li>
-<li><a class="reference internal" href="#id2">0.99.8</a></li>
-<li><a class="reference internal" href="#id3">0.99.7</a></li>
-<li><a class="reference internal" href="#id4">0.99.6</a></li>
-<li><a class="reference internal" href="#id5">0.99.5</a></li>
-<li><a class="reference internal" href="#id6">0.99.4</a></li>
-<li><a class="reference internal" href="#id7">0.99.3</a></li>
-<li><a class="reference internal" href="#id8">0.99.2</a></li>
-<li><a class="reference internal" href="#id9">0.99.1</a></li>
-<li><a class="reference internal" href="#id10">0.99.0</a></li>
-<li><a class="reference internal" href="#id11">0.98.9</a></li>
-<li><a class="reference internal" href="#id12">0.98.8</a></li>
-<li><a class="reference internal" href="#id13">0.98.7</a></li>
-<li><a class="reference internal" href="#id14">0.98.6</a></li>
-<li><a class="reference internal" href="#id15">0.98.5</a></li>
-<li><a class="reference internal" href="#id16">0.98.4</a></li>
-<li><a class="reference internal" href="#id17">0.98.3</a></li>
-<li><a class="reference internal" href="#id18">0.98.2</a></li>
-<li><a class="reference internal" href="#id19">0.98.1</a></li>
-<li><a class="reference internal" href="#id20">0.98.0</a></li>
-<li><a class="reference internal" href="#id21">0.97.0</a></li>
-<li><a class="reference internal" href="#id22">0.96.1</a></li>
-<li><a class="reference internal" href="#id23">0.96.0</a></li>
-<li><a class="reference internal" href="#id24">0.95.1</a></li>
-<li><a class="reference internal" href="#id25">0.95.0</a></li>
-<li><a class="reference internal" href="#id26">0.94.0</a></li>
-<li><a class="reference internal" href="#id27">0.91.3</a></li>
-<li><a class="reference internal" href="#id28">0.91.2</a></li>
-<li><a class="reference internal" href="#id29">0.91.0</a></li>
-<li><a class="reference internal" href="#id30">0.90.1</a></li>
-<li><a class="reference internal" href="#id31">0.90.0</a></li>
-<li><a class="reference internal" href="#id32">0.80.9</a></li>
-<li><a class="reference internal" href="#id33">0.80.8</a></li>
-<li><a class="reference internal" href="#id34">0.80.7</a></li>
-<li><a class="reference internal" href="#id35">0.80.6</a></li>
-<li><a class="reference internal" href="#id36">0.80.5</a></li>
-<li><a class="reference internal" href="#id37">0.80.4</a></li>
-<li><a class="reference internal" href="#id38">0.80.3</a></li>
-<li><a class="reference internal" href="#id39">0.80.2</a></li>
-<li><a class="reference internal" href="#id40">0.80.1</a></li>
-<li><a class="reference internal" href="#id41">0.80.0</a></li>
-<li><a class="reference internal" href="#id42">0.60.3</a></li>
-<li><a class="reference internal" href="#id43">0.60.2</a></li>
-<li><a class="reference internal" href="#id44">0.60.1</a></li>
-<li><a class="reference internal" href="#id45">0.60.0</a></li>
-<li><a class="reference internal" href="#id46">0.50.2</a></li>
-<li><a class="reference internal" href="#id47">0.50.1</a></li>
+<li><a class="reference internal" href="#id1">1.0.0</a></li>
+<li><a class="reference internal" href="#id2">0.99.9</a></li>
+<li><a class="reference internal" href="#id3">0.99.8</a></li>
+<li><a class="reference internal" href="#id4">0.99.7</a></li>
+<li><a class="reference internal" href="#id5">0.99.6</a></li>
+<li><a class="reference internal" href="#id6">0.99.5</a></li>
+<li><a class="reference internal" href="#id7">0.99.4</a></li>
+<li><a class="reference internal" href="#id8">0.99.3</a></li>
+<li><a class="reference internal" href="#id9">0.99.2</a></li>
+<li><a class="reference internal" href="#id10">0.99.1</a></li>
+<li><a class="reference internal" href="#id11">0.99.0</a></li>
+<li><a class="reference internal" href="#id12">0.98.9</a></li>
+<li><a class="reference internal" href="#id13">0.98.8</a></li>
+<li><a class="reference internal" href="#id14">0.98.7</a></li>
+<li><a class="reference internal" href="#id15">0.98.6</a></li>
+<li><a class="reference internal" href="#id16">0.98.5</a></li>
+<li><a class="reference internal" href="#id17">0.98.4</a></li>
+<li><a class="reference internal" href="#id18">0.98.3</a></li>
+<li><a class="reference internal" href="#id19">0.98.2</a></li>
+<li><a class="reference internal" href="#id20">0.98.1</a></li>
+<li><a class="reference internal" href="#id21">0.98.0</a></li>
+<li><a class="reference internal" href="#id22">0.97.0</a></li>
+<li><a class="reference internal" href="#id23">0.96.1</a></li>
+<li><a class="reference internal" href="#id24">0.96.0</a></li>
+<li><a class="reference internal" href="#id25">0.95.1</a></li>
+<li><a class="reference internal" href="#id26">0.95.0</a></li>
+<li><a class="reference internal" href="#id27">0.94.0</a></li>
+<li><a class="reference internal" href="#id28">0.91.3</a></li>
+<li><a class="reference internal" href="#id29">0.91.2</a></li>
+<li><a class="reference internal" href="#id30">0.91.0</a></li>
+<li><a class="reference internal" href="#id31">0.90.1</a></li>
+<li><a class="reference internal" href="#id32">0.90.0</a></li>
+<li><a class="reference internal" href="#id33">0.80.9</a></li>
+<li><a class="reference internal" href="#id34">0.80.8</a></li>
+<li><a class="reference internal" href="#id35">0.80.7</a></li>
+<li><a class="reference internal" href="#id36">0.80.6</a></li>
+<li><a class="reference internal" href="#id37">0.80.5</a></li>
+<li><a class="reference internal" href="#id38">0.80.4</a></li>
+<li><a class="reference internal" href="#id39">0.80.3</a></li>
+<li><a class="reference internal" href="#id40">0.80.2</a></li>
+<li><a class="reference internal" href="#id41">0.80.1</a></li>
+<li><a class="reference internal" href="#id42">0.80.0</a></li>
+<li><a class="reference internal" href="#id43">0.60.3</a></li>
+<li><a class="reference internal" href="#id44">0.60.2</a></li>
+<li><a class="reference internal" href="#id45">0.60.1</a></li>
+<li><a class="reference internal" href="#id46">0.60.0</a></li>
+<li><a class="reference internal" href="#id47">0.50.2</a></li>
+<li><a class="reference internal" href="#id48">0.50.1</a></li>
 <li><a class="reference internal" href="#release">0.50.0 Release</a></li>
 </ul>
 </li>
@@ -212,14 +216,36 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12 content">
+    <div class="col-md-12 content" role="main">
       
   <div class="section" id="changes">
 <h1>Changes<a class="headerlink" href="#changes" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="id1">
-<h2>0.99.9<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><ul class="simple">
+<h2>1.0.0<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Changes:</dt>
+<dd><ul class="first last simple">
+<li>Binary wheels now uploaded to PyPI via CI services</li>
+<li>add Field.trapz and Field.cumtrapz</li>
+<li>more expressive file type detection</li>
+<li>customizable vector component names</li>
+<li>stop eagerly calling set_ylim in plot1d_field (fixes hidden lines on multiple calls on the same axis)</li>
+<li>mayavi tests now work on travis-ci with py3k</li>
+</ul>
+</dd>
+<dt>Bugfixes:</dt>
+<dd><ul class="first last simple">
+<li>matplotlib 3.0 fixes</li>
+<li>mayavi 4.7.0 / 4.7.1 fixes</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="id2">
+<h2>0.99.9<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Changes:</dt>
+<dd><ul class="first last simple">
 <li>add <cite>viscid.mfield</cite> that mimics <cite>numpy.mgrid</cite></li>
 <li>slice-by-value should now be done with imaginary numbers instead of strings encoded like ‘0.0f’. The string-‘f’ format will continue to be supported, but imaginary numbers are cleaner for this purpose.</li>
 <li>slice-by-array and slice-by-mask (bool array) are now allowed</li>
@@ -227,74 +253,101 @@
 <li>add <cite>viscid.rotation</cite> module for rotation matrix &lt;-&gt; euler angle &lt;-&gt; quaternion conversions</li>
 <li>add <cite>viscid.to_dataframe</cite> and <cite>viscid.from_dataframe</cite> to go between datasets and Pandas DataFrame objects</li>
 </ul>
-</div></blockquote>
+</dd>
+</dl>
 </div>
-<div class="section" id="id2">
-<h2>0.99.8<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><ul class="simple">
+<div class="section" id="id3">
+<h2>0.99.8<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Bugfixes:</dt>
+<dd><ul class="first last simple">
 <li>apply_labels works if parts of paths are not visible</li>
 <li>apply_labels candidate locations are governed by path segment length in pixels</li>
 <li>mayavi 4.6.0 fixes</li>
 <li>conda install now includes jrrle reader on all platforms</li>
 </ul>
-</div></blockquote>
-</div>
-<div class="section" id="id3">
-<h2>0.99.7<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><ul class="simple">
-<li>migrate main repository to <a class="reference external" href="https://github.com/viscid-hub">https://github.com/viscid-hub</a></li>
-</ul>
-</div></blockquote>
+</dd>
+</dl>
 </div>
 <div class="section" id="id4">
-<h2>0.99.6<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><ul class="simple">
-<li>enable installation using conda / pip</li>
+<h2>0.99.7<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Changes:</dt>
+<dd><ul class="first last simple">
+<li>migrate main repository to <a class="reference external" href="https://github.com/viscid-hub">https://github.com/viscid-hub</a></li>
 </ul>
-</div></blockquote>
+</dd>
+</dl>
 </div>
 <div class="section" id="id5">
-<h2>0.99.5<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><ul class="simple">
-<li>more pypi metadata fixes</li>
+<h2>0.99.6<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Changes:</dt>
+<dd><ul class="first last simple">
+<li>enable installation using conda / pip</li>
 </ul>
-</div></blockquote>
+</dd>
+</dl>
 </div>
 <div class="section" id="id6">
-<h2>0.99.4<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><ul class="simple">
-<li>implement <cite>visicd –version</cite> and <cite>python -m viscid –version</cite></li>
-<li>pypi metadata fixes</li>
+<h2>0.99.5<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Bugfixes:</dt>
+<dd><ul class="first last simple">
+<li>more pypi metadata fixes</li>
 </ul>
-</div></blockquote>
+</dd>
+</dl>
 </div>
 <div class="section" id="id7">
-<h2>0.99.3<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><ul class="simple">
-<li>python-only install always works, even on windows</li>
-<li>only use equal axis by default if aspect ratio &lt;= 4; this may change plot appearance unexpectedly</li>
-<li>new tightlim option for 2d plots enabled by default; this may change plot appearance unexpectedly</li>
-<li>fix amr xl / xh</li>
-<li>merge new fluid tracer</li>
+<h2>0.99.4<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Changes:</dt>
+<dd><ul class="first last simple">
+<li>implement <cite>visicd –version</cite> and <cite>python -m viscid –version</cite></li>
 </ul>
-</div></blockquote>
+</dd>
+<dt>Bugfixes:</dt>
+<dd><ul class="first last simple">
+<li>pypi metadata fixes</li>
+</ul>
+</dd>
+</dl>
 </div>
 <div class="section" id="id8">
-<h2>0.99.2<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><ul class="simple">
-<li>Bugfixes and matplotlib workarounds</li>
+<h2>0.99.3<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Changes:</dt>
+<dd><ul class="first last simple">
+<li>merge new fluid tracer</li>
 </ul>
-</div></blockquote>
+</dd>
+<dt>Backward Incompatible Changes:</dt>
+<dd><ul class="first last simple">
+<li>new tightlim option for 2d plots enabled by default; this may change plot appearance unexpectedly</li>
+</ul>
+</dd>
+<dt>Bugfixes:</dt>
+<dd><ul class="first last simple">
+<li>python-only install always works, even on windows</li>
+<li>only use equal axis by default if aspect ratio &lt;= 4; this may change plot appearance unexpectedly</li>
+<li>fix amr xl / xh</li>
+</ul>
+</dd>
+</dl>
 </div>
 <div class="section" id="id9">
-<h2>0.99.1<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<h2>0.99.2<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Bugfixes:</dt>
+<dd><ul class="first last simple">
+<li>Bugfixes and matplotlib workarounds</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="id10">
+<h2>0.99.1<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>Bugfixes:</dt>
 <dd><ul class="first last simple">
@@ -305,8 +358,8 @@
 </dd>
 </dl>
 </div>
-<div class="section" id="id10">
-<h2>0.99.0<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id11">
+<h2>0.99.0<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>Changes:</dt>
 <dd><ul class="first last simple">
@@ -337,8 +390,8 @@
 </dd>
 </dl>
 </div>
-<div class="section" id="id11">
-<h2>0.98.9<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id12">
+<h2>0.98.9<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>Changes:</dt>
 <dd><ul class="first last simple">
@@ -349,8 +402,8 @@
 </dd>
 </dl>
 </div>
-<div class="section" id="id12">
-<h2>0.98.8<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id13">
+<h2>0.98.8<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>Changes:</dt>
 <dd><ul class="first last simple">
@@ -364,8 +417,8 @@
 </dd>
 </dl>
 </div>
-<div class="section" id="id13">
-<h2>0.98.7<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id14">
+<h2>0.98.7<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>Changes:</dt>
 <dd><ul class="first last simple">
@@ -375,8 +428,8 @@
 </dd>
 </dl>
 </div>
-<div class="section" id="id14">
-<h2>0.98.6<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id15">
+<h2>0.98.6<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>Bugfix:</dt>
 <dd><ul class="first last simple">
@@ -385,8 +438,8 @@
 </dd>
 </dl>
 </div>
-<div class="section" id="id15">
-<h2>0.98.5<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id16">
+<h2>0.98.5<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>Bugfix:</dt>
 <dd><ul class="first last simple">
@@ -395,8 +448,8 @@
 </dd>
 </dl>
 </div>
-<div class="section" id="id16">
-<h2>0.98.4<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id17">
+<h2>0.98.4<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>Changes:</dt>
 <dd><ul class="first last simple">
@@ -424,8 +477,8 @@
 </dd>
 </dl>
 </div>
-<div class="section" id="id17">
-<h2>0.98.3<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id18">
+<h2>0.98.3<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>Changes:</dt>
 <dd><ul class="first last simple">
@@ -443,8 +496,8 @@
 </dd>
 </dl>
 </div>
-<div class="section" id="id18">
-<h2>0.98.2<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id19">
+<h2>0.98.2<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>Changes:</dt>
 <dd><ul class="first last simple">
@@ -473,8 +526,8 @@
 </dd>
 </dl>
 </div>
-<div class="section" id="id19">
-<h2>0.98.1<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id20">
+<h2>0.98.1<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>Bugfixes:</dt>
 <dd><ul class="first last simple">
@@ -483,8 +536,8 @@
 </dd>
 </dl>
 </div>
-<div class="section" id="id20">
-<h2>0.98.0<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id21">
+<h2>0.98.0<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>Changes:</dt>
 <dd><ul class="first last simple">
@@ -506,8 +559,8 @@
 </dd>
 </dl>
 </div>
-<div class="section" id="id21">
-<h2>0.97.0<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id22">
+<h2>0.97.0<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>Changes:</dt>
 <dd><ul class="first last simple">
@@ -538,8 +591,8 @@
 </dd>
 </dl>
 </div>
-<div class="section" id="id22">
-<h2>0.96.1<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id23">
+<h2>0.96.1<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>Changes:</dt>
 <dd><ul class="first last simple">
@@ -549,8 +602,8 @@
 </dd>
 </dl>
 </div>
-<div class="section" id="id23">
-<h2>0.96.0<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id24">
+<h2>0.96.0<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>Changes:</dt>
 <dd><ul class="first last simple">
@@ -570,8 +623,8 @@
 </dd>
 </dl>
 </div>
-<div class="section" id="id24">
-<h2>0.95.1<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id25">
+<h2>0.95.1<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>Changes:</dt>
 <dd><ul class="first last simple">
@@ -590,8 +643,8 @@
 </dd>
 </dl>
 </div>
-<div class="section" id="id25">
-<h2>0.95.0<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id26">
+<h2>0.95.0<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>Changes</dt>
 <dd><ul class="first last simple">
@@ -602,8 +655,8 @@
 </dd>
 </dl>
 </div>
-<div class="section" id="id26">
-<h2>0.94.0<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id27">
+<h2>0.94.0<a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>Changes:</dt>
 <dd><ul class="first last simple">
@@ -614,8 +667,8 @@
 </dd>
 </dl>
 </div>
-<div class="section" id="id27">
-<h2>0.91.3<a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id28">
+<h2>0.91.3<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>Changes:</dt>
 <dd><ul class="first last simple">
@@ -624,8 +677,8 @@
 </dd>
 </dl>
 </div>
-<div class="section" id="id28">
-<h2>0.91.2<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id29">
+<h2>0.91.2<a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>Changes:</dt>
 <dd><ul class="first last simple">
@@ -634,8 +687,8 @@
 </dd>
 </dl>
 </div>
-<div class="section" id="id29">
-<h2>0.91.0<a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id30">
+<h2>0.91.0<a class="headerlink" href="#id30" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>Changes:</dt>
 <dd><ul class="first last simple">
@@ -666,8 +719,8 @@
 </dd>
 </dl>
 </div>
-<div class="section" id="id30">
-<h2>0.90.1<a class="headerlink" href="#id30" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id31">
+<h2>0.90.1<a class="headerlink" href="#id31" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>Changes:</dt>
 <dd><ul class="first last simple">
@@ -685,8 +738,8 @@
 </dd>
 </dl>
 </div>
-<div class="section" id="id31">
-<h2>0.90.0<a class="headerlink" href="#id31" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id32">
+<h2>0.90.0<a class="headerlink" href="#id32" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>Backward Incompatible Changes:</dt>
 <dd><ul class="first last simple">
@@ -695,8 +748,8 @@
 </dd>
 </dl>
 </div>
-<div class="section" id="id32">
-<h2>0.80.9<a class="headerlink" href="#id32" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id33">
+<h2>0.80.9<a class="headerlink" href="#id33" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>Bugfixes:</dt>
 <dd><ul class="first last simple">
@@ -705,8 +758,8 @@
 </dd>
 </dl>
 </div>
-<div class="section" id="id33">
-<h2>0.80.8<a class="headerlink" href="#id33" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id34">
+<h2>0.80.8<a class="headerlink" href="#id34" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>Changes:</dt>
 <dd><ul class="first last simple">
@@ -733,8 +786,8 @@
 </dd>
 </dl>
 </div>
-<div class="section" id="id34">
-<h2>0.80.7<a class="headerlink" href="#id34" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id35">
+<h2>0.80.7<a class="headerlink" href="#id35" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>Backward Incompatible Changes:</dt>
 <dd><ul class="first last simple">
@@ -752,8 +805,8 @@
 </dd>
 </dl>
 </div>
-<div class="section" id="id35">
-<h2>0.80.6<a class="headerlink" href="#id35" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id36">
+<h2>0.80.6<a class="headerlink" href="#id36" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>Changes:</dt>
 <dd><ul class="first last simple">
@@ -764,8 +817,8 @@
 </dd>
 </dl>
 </div>
-<div class="section" id="id36">
-<h2>0.80.5<a class="headerlink" href="#id36" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id37">
+<h2>0.80.5<a class="headerlink" href="#id37" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>Features:</dt>
 <dd><ul class="first last simple">
@@ -779,8 +832,8 @@
 </dd>
 </dl>
 </div>
-<div class="section" id="id37">
-<h2>0.80.4<a class="headerlink" href="#id37" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id38">
+<h2>0.80.4<a class="headerlink" href="#id38" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>Bugfixes:</dt>
 <dd><ul class="first last simple">
@@ -790,8 +843,8 @@
 </dd>
 </dl>
 </div>
-<div class="section" id="id38">
-<h2>0.80.3<a class="headerlink" href="#id38" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id39">
+<h2>0.80.3<a class="headerlink" href="#id39" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>Bugfixes:</dt>
 <dd><ul class="first last simple">
@@ -801,8 +854,8 @@
 </dd>
 </dl>
 </div>
-<div class="section" id="id39">
-<h2>0.80.2<a class="headerlink" href="#id39" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id40">
+<h2>0.80.2<a class="headerlink" href="#id40" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>Features:</dt>
 <dd><ul class="first last simple">
@@ -816,8 +869,8 @@
 </dd>
 </dl>
 </div>
-<div class="section" id="id40">
-<h2>0.80.1<a class="headerlink" href="#id40" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id41">
+<h2>0.80.1<a class="headerlink" href="#id41" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>Bugfix:</dt>
 <dd><ul class="first last simple">
@@ -826,8 +879,8 @@
 </dd>
 </dl>
 </div>
-<div class="section" id="id41">
-<h2>0.80.0<a class="headerlink" href="#id41" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id42">
+<h2>0.80.0<a class="headerlink" href="#id42" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>Features:</dt>
 <dd><ul class="first last simple">
@@ -851,8 +904,8 @@
 </dd>
 </dl>
 </div>
-<div class="section" id="id42">
-<h2>0.60.3<a class="headerlink" href="#id42" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id43">
+<h2>0.60.3<a class="headerlink" href="#id43" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>Features:</dt>
 <dd><ul class="first last simple">
@@ -868,8 +921,8 @@ so one can copy xdmf files locally and read the hdf5 files over sshfs</li>
 </dd>
 </dl>
 </div>
-<div class="section" id="id43">
-<h2>0.60.2<a class="headerlink" href="#id43" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id44">
+<h2>0.60.2<a class="headerlink" href="#id44" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>Features:</dt>
 <dd><ul class="first last simple">
@@ -900,8 +953,8 @@ so one can copy xdmf files locally and read the hdf5 files over sshfs</li>
 </dd>
 </dl>
 </div>
-<div class="section" id="id44">
-<h2>0.60.1<a class="headerlink" href="#id44" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id45">
+<h2>0.60.1<a class="headerlink" href="#id45" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>Bugfix:</dt>
 <dd><ul class="first last simple">
@@ -910,8 +963,8 @@ so one can copy xdmf files locally and read the hdf5 files over sshfs</li>
 </dd>
 </dl>
 </div>
-<div class="section" id="id45">
-<h2>0.60.0<a class="headerlink" href="#id45" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id46">
+<h2>0.60.0<a class="headerlink" href="#id46" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>Features:</dt>
 <dd><ul class="first last simple">
@@ -926,8 +979,8 @@ so one can copy xdmf files locally and read the hdf5 files over sshfs</li>
 </dd>
 </dl>
 </div>
-<div class="section" id="id46">
-<h2>0.50.2<a class="headerlink" href="#id46" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id47">
+<h2>0.50.2<a class="headerlink" href="#id47" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>Features:</dt>
 <dd><ul class="first last simple">
@@ -956,8 +1009,8 @@ so one can copy xdmf files locally and read the hdf5 files over sshfs</li>
 </dd>
 </dl>
 </div>
-<div class="section" id="id47">
-<h2>0.50.1<a class="headerlink" href="#id47" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id48">
+<h2>0.50.1<a class="headerlink" href="#id48" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>Features:</dt>
 <dd><ul class="first last simple">
@@ -1027,7 +1080,7 @@ so one can copy xdmf files locally and read the hdf5 files over sshfs</li>
     </p>
     <p>
         &copy; Copyright 2018, Kristofor Maynard.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.6.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.<br/>
     </p>
   </div>
 </footer>

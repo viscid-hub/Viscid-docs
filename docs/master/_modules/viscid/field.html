@@ -5,17 +5,14 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>viscid.field &#8212; Viscid 0.99.9 documentation</title>
+    <title>viscid.field &#8212; Viscid 1.0.0 documentation</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
 <link rel="icon" href="../../_static/favicon.ico" type="image/x-icon">
@@ -24,6 +21,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="stylesheet" href="../../_static/my-css.css" type="text/css" />
+
+<script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../../_static/bootstrap-sphinx.js "></script>
 
   </head><body>
 
@@ -38,7 +40,7 @@
         </button>
         <a class="navbar-brand" href="../../index.html">
           Viscid</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.99.9</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>1.0.0</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -55,6 +57,9 @@
           role="menu">
           <li class="toctree-l1">
             <a class="reference internal", href="../../installation.html">Installation</a>
+          </li>
+          <li class="toctree-l1">
+            <a class="reference internal", href="../../tutorial/load_save.html">Loading & Saving</a>
           </li>
           <li class="toctree-l1">
             <a class="reference internal", href="../../tutorial/creating_fields.html">Creating Fields</a>
@@ -102,23 +107,22 @@
   <ul class="dropdown-menu globaltoc"
       role="menu"
       aria-labelledby="dLabelGlobalToc"><ul>
-<li class="toctree-l1"><a class="reference internal" href="../../changes.html">ChangeLog</a></li>
-</ul>
-<ul>
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../philosophy.html">Philosophy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../indexing.html">Indexing Fields</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/index.html">Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../tips_and_tricks.html">Tips &amp; Tricks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../functions.html">Useful Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../plot_options.html">Plot Options</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../mpl_style_gallery.html">Matplotlib Style Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tips_and_tricks.html">Tips &amp; Tricks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../custom_behavior.html">Custom Behavior (rc file)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mpl_style_gallery.html">Matplotlib Style Gallery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../dev_guide.html">Developer’s Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../extending_readers.html">Extending Readers</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../api/viscid.html">API</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../changes.html">ChangeLog</a></li>
 </ul>
 </ul>
 </li>
@@ -157,7 +161,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12 content">
+    <div class="col-md-12 content" role="main">
       
   <h1>Source code for viscid.field</h1><div class="highlight"><pre>
 <span></span><span class="c1"># pylint: disable=too-many-lines</span>
@@ -172,6 +176,7 @@
 <span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">print_function</span>
 <span class="kn">from</span> <span class="nn">itertools</span> <span class="k">import</span> <span class="n">count</span><span class="p">,</span> <span class="n">islice</span>
 <span class="kn">from</span> <span class="nn">inspect</span> <span class="k">import</span> <span class="n">isclass</span>
+<span class="kn">import</span> <span class="nn">re</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
@@ -190,6 +195,8 @@
 <span class="n">LAYOUT_FLAT</span> <span class="o">=</span> <span class="s2">&quot;flat&quot;</span>
 <span class="n">LAYOUT_SCALAR</span> <span class="o">=</span> <span class="s2">&quot;scalar&quot;</span>
 <span class="n">LAYOUT_OTHER</span> <span class="o">=</span> <span class="s2">&quot;other&quot;</span>
+
+<span class="n">_DEFAULT_COMPONENT_NAMES</span> <span class="o">=</span> <span class="s2">&quot;xyzuvw&quot;</span>
 
 
 <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;arrays2field&#39;</span><span class="p">,</span> <span class="s1">&#39;dat2field&#39;</span><span class="p">,</span> <span class="s1">&#39;full&#39;</span><span class="p">,</span> <span class="s1">&#39;empty&#39;</span><span class="p">,</span> <span class="s1">&#39;zeros&#39;</span><span class="p">,</span> <span class="s1">&#39;ones&#39;</span><span class="p">,</span>
@@ -569,17 +576,37 @@
     <span class="k">def</span> <span class="nf">_floatify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">string_types</span><span class="p">):</span>
             <span class="n">item</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+            <span class="n">dt_re</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;(\s*</span><span class="si">{0}</span><span class="s2">\s*)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">viscid</span><span class="o">.</span><span class="n">sliceutil</span><span class="o">.</span><span class="n">RE_DTIME_SLC_GROUP</span><span class="p">)</span>
+            <span class="n">datetimes</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">dt_re</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+            <span class="n">item</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">dt_re</span><span class="p">,</span> <span class="s1">&#39;__DATETIME__&#39;</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+            <span class="n">item</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;([\d\.e]+(?![\d\.FfJj]))&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;\1j&#39;</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+            <span class="n">item_split</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;__DATETIME__&#39;</span><span class="p">)</span>
+            <span class="n">item</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">item_split</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">datetimes</span><span class="p">))</span>
+            <span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">item_split</span>
+            <span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">datetimes</span>
+            <span class="n">item</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+
         <span class="k">if</span> <span class="n">item</span> <span class="ow">in</span> <span class="p">(</span><span class="bp">Ellipsis</span><span class="p">,</span> <span class="s1">&#39;...&#39;</span><span class="p">):</span>
             <span class="n">item</span> <span class="o">=</span> <span class="bp">Ellipsis</span>
         <span class="k">elif</span> <span class="n">item</span> <span class="ow">in</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="p">):</span>
             <span class="n">item</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span>
         <span class="k">elif</span> <span class="n">item</span> <span class="ow">in</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;none&#39;</span><span class="p">):</span>
             <span class="n">item</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,)):</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">do_floatify</span><span class="p">:</span>
+                <span class="n">item</span> <span class="o">=</span> <span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">item</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">string_types</span><span class="p">):</span>
+            <span class="k">pass</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,)):</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
+                <span class="c1"># try:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">do_floatify</span><span class="p">:</span>
+                    <span class="n">item</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="nb">float</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="c1"># except (ValueError, TypeError):</span>
+                <span class="c1">#     pass</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">do_floatify</span><span class="p">:</span>
                 <span class="n">item</span> <span class="o">=</span> <span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="nb">float</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">item</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">item</span>
 
     <span class="k">def</span> <span class="nf">_xform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
@@ -610,7 +637,6 @@
 <span class="k">class</span> <span class="nc">Field</span><span class="p">(</span><span class="n">tree</span><span class="o">.</span><span class="n">Leaf</span><span class="p">):</span>
     <span class="n">_TYPE</span> <span class="o">=</span> <span class="s2">&quot;none&quot;</span>
     <span class="n">_CENTERING</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;node&#39;</span><span class="p">,</span> <span class="s1">&#39;cell&#39;</span><span class="p">,</span> <span class="s1">&#39;grid&#39;</span><span class="p">,</span> <span class="s1">&#39;face&#39;</span><span class="p">,</span> <span class="s1">&#39;edge&#39;</span><span class="p">]</span>
-    <span class="n">_COMPONENT_NAMES</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
 
     <span class="c1"># set on __init__</span>
     <span class="c1"># NOTE: _src_data is allowed by be a list to support creating vectors from</span>
@@ -675,6 +701,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">center</span> <span class="o">=</span> <span class="n">center</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_src_crds</span> <span class="o">=</span> <span class="n">crds</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">comp_names</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
 
         <span class="k">if</span> <span class="n">pretty_name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">pretty_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
@@ -817,10 +845,6 @@
                 <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Could not detect data layout; &quot;</span>
                                    <span class="s2">&quot;can&#39;t give nr_comp&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nr_comp</span>
-
-    <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">comp_names</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_COMPONENT_NAMES</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">shape</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -1398,7 +1422,7 @@
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">reduced</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">slices</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">slced_dat</span><span class="p">,</span> <span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="c1"># if we sliced the hell out of the array, just</span>
             <span class="c1"># return the value that&#39;s left, ndarrays have the same behavior</span>
-            <span class="n">ret</span> <span class="o">=</span> <span class="n">slced_dat</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="n">slced_dat</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">ctx</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">crds</span><span class="o">=</span><span class="n">crds</span><span class="p">,</span> <span class="n">zyx_native</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
             <span class="n">fldtype</span> <span class="o">=</span> <span class="kc">None</span>
@@ -1406,7 +1430,7 @@
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">nr_comps</span><span class="p">:</span>
                 <span class="k">if</span> <span class="n">single_comp_slc</span><span class="p">:</span>
                     <span class="c1">############</span>
-                    <span class="n">comp_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_COMPONENT_NAMES</span><span class="p">[</span><span class="n">comp_slc</span><span class="p">]</span>
+                    <span class="n">comp_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">comp_names</span><span class="p">[</span><span class="n">comp_slc</span><span class="p">]</span>
                     <span class="n">ctx</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="n">comp_name</span>
                     <span class="n">ctx</span><span class="p">[</span><span class="s1">&#39;pretty_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pretty_name</span> <span class="o">+</span>
                                           <span class="s2">&quot;$_</span><span class="si">{0}</span><span class="s2">$&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">comp_name</span><span class="p">))</span>
@@ -1668,7 +1692,7 @@
         <span class="k">return</span> <span class="p">[</span><span class="n">a</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">arrs</span><span class="p">]</span>
 
     <span class="c1">######################</span>
-    <span class="k">def</span> <span class="nf">shell_copy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">shell_copy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">crds</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Get a field just like this one with a new cache</span>
 
 <span class="sd">        So, fields that belong to files are kept around for the</span>
@@ -1693,15 +1717,18 @@
 <span class="sd">        Returns:</span>
 <span class="sd">            a field as described above (could be self)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">force</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">crds</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">force</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span>
+
+        <span class="k">if</span> <span class="n">crds</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">crds</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_src_crds</span>
 
         <span class="c1"># Note: this is fragile if a subclass takes additional parameters</span>
         <span class="c1"># in an overridden __init__; in that case, the developer MUST</span>
         <span class="c1"># override shell_copy and pass the extra kwargs in to here.</span>
         <span class="c1"># note, zyx_native of the child should be the same as self since we&#39;re</span>
         <span class="c1"># passing src_data here</span>
-        <span class="n">f</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_src_crds</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_src_data</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">center</span><span class="p">,</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">crds</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_src_data</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">center</span><span class="p">,</span>
                        <span class="n">time</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="n">meta</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="p">,</span> <span class="n">deep_meta</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">deep_meta</span><span class="p">,</span>
                        <span class="n">forget_source</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                        <span class="n">pretty_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pretty_name</span><span class="p">,</span>
@@ -1874,6 +1901,56 @@
             <span class="k">return</span> <span class="bp">self</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">slc</span><span class="p">)]</span>
+
+    <span class="k">def</span> <span class="nf">adjust_crds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">adjustments</span><span class="p">,</span> <span class="n">name_map</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return shell copy with adjusted coordinates</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            adjustments (dict, number): Value to scale all coordinates</span>
+<span class="sd">                by, or dict of numbers or functions to adjust specific</span>
+<span class="sd">                axes separately. Functions should take a single argument,</span>
+<span class="sd">                the coordinates as a :py:class:`numpy.ndarray`.</span>
+<span class="sd">            name_map (dict, None): map to change crd names</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Field: Shell copy of self with adjusted coordinates</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            &gt;&gt;&gt; fld = viscid.zeros([16, 24])</span>
+<span class="sd">            &gt;&gt;&gt; fld.adjust_crds({&#39;x&#39;: 2.0, &#39;y&#39;: lambda x: 0.5 * x})</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">adjustments</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="n">adj</span> <span class="o">=</span> <span class="n">adjustments</span>
+            <span class="n">adjustments</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">crds</span><span class="o">.</span><span class="n">axes</span><span class="p">:</span>
+                <span class="n">adjustments</span><span class="p">[</span><span class="n">ax</span><span class="p">]</span> <span class="o">=</span> <span class="n">adj</span>
+
+        <span class="n">axes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">crds</span><span class="o">.</span><span class="n">axes</span>
+        <span class="n">crd_arrs_nc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_crds_nc</span><span class="p">()</span>
+        <span class="c1"># crd_arrs_cc = self.get_crds_cc()</span>
+
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">arr_nc</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">count</span><span class="p">(),</span> <span class="n">axes</span><span class="p">,</span> <span class="n">crd_arrs_nc</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">adjustments</span><span class="p">:</span>
+                <span class="n">adj</span> <span class="o">=</span> <span class="n">adjustments</span><span class="p">[</span><span class="n">ax</span><span class="p">]</span>
+                <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">adj</span><span class="p">,</span> <span class="s1">&#39;__call__&#39;</span><span class="p">):</span>
+                    <span class="n">crd_arrs_nc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">adj</span><span class="p">(</span><span class="n">arr_nc</span><span class="p">)</span>
+                    <span class="c1"># crd_arrs_cc[i] = adj(arr_cc)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">crd_arrs_nc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">adj</span> <span class="o">*</span> <span class="n">arr_nc</span>
+                    <span class="c1"># crd_arrs_cc[i] = adj * arr_cc</span>
+
+        <span class="k">if</span> <span class="n">name_map</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">_a</span><span class="p">,</span> <span class="n">_b</span> <span class="ow">in</span> <span class="n">name_map</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">_a</span> <span class="ow">in</span> <span class="n">axes</span><span class="p">:</span>
+                    <span class="n">axes</span><span class="p">[</span><span class="n">axes</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">_a</span><span class="p">)]</span> <span class="o">=</span> <span class="n">_b</span>
+
+        <span class="n">crd_type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">crds</span><span class="o">.</span><span class="n">_TYPE</span>
+        <span class="n">crd_type</span> <span class="o">=</span> <span class="n">crd_type</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;nonuniform&#39;</span><span class="p">,</span> <span class="s1">&#39;AUTO&#39;</span><span class="p">)</span>
+        <span class="n">crd_type</span> <span class="o">=</span> <span class="n">crd_type</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="s1">&#39;AUTO&#39;</span><span class="p">)</span>
+        <span class="n">new_crds</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">arrays2crds</span><span class="p">(</span><span class="n">crd_arrs_nc</span><span class="p">,</span> <span class="n">crd_type</span><span class="o">=</span><span class="n">crd_type</span><span class="p">,</span> <span class="n">crd_names</span><span class="o">=</span><span class="n">axes</span><span class="p">)</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">shell_copy</span><span class="p">(</span><span class="n">crds</span><span class="o">=</span><span class="n">new_crds</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">ret</span>
 
     <span class="c1">#######################</span>
     <span class="c1">## emulate a container</span>
@@ -2147,6 +2224,94 @@
     <span class="k">def</span> <span class="nf">sum</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">),</span> <span class="n">npkwargs</span><span class="o">=</span><span class="n">kwargs</span><span class="p">)</span>
 
+    <span class="k">def</span> <span class="nf">trapz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">fudge_factor</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Integrate field over a single axis</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            axis (str, int): axis name or index</span>
+<span class="sd">            fudge_factor (callable): function that is called with</span>
+<span class="sd">                func(data, crd_arr), where crd_arr is shaped. This is</span>
+<span class="sd">                useful for including parts of the jacobian, like</span>
+<span class="sd">                sin(theta) dtheta.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Field or float</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">axis</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">crds</span><span class="o">.</span><span class="n">axes</span><span class="p">:</span>
+            <span class="n">axis</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">crds</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">axis</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">axis</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">integer</span><span class="p">))</span>
+        <span class="n">crd_arr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_crd</span><span class="p">(</span><span class="n">axis</span><span class="p">,</span> <span class="n">shaped</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">crd_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">crd_arr</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">nr_comp</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">nr_comp</span> <span class="o">&gt;</span> <span class="n">axis</span><span class="p">:</span>
+                <span class="n">fld_axis</span> <span class="o">=</span> <span class="n">axis</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">fld_axis</span> <span class="o">=</span> <span class="n">axis</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+            <span class="n">fld_axis</span> <span class="o">=</span> <span class="n">axis</span>
+
+        <span class="k">if</span> <span class="n">fudge_factor</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">arr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">arr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">*</span> <span class="n">fudge_factor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">crd_arr</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">nr_sdims</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">slc</span> <span class="o">=</span> <span class="p">[</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sshape</span><span class="p">]</span>
+            <span class="n">slc</span><span class="p">[</span><span class="n">axis</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">empty_like</span><span class="p">(</span><span class="bp">self</span><span class="p">[</span><span class="nb">tuple</span><span class="p">(</span><span class="n">slc</span><span class="p">)])</span>
+            <span class="n">ret</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">trapz</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">crd_arr</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="n">fld_axis</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">trapz</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">crd_arr</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="n">fld_axis</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ret</span>
+
+    <span class="k">def</span> <span class="nf">cumtrapz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">fudge_factor</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">initial</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Cumulatively integrate field over a single axis</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            axis (str, int): axis name or index</span>
+<span class="sd">            fudge_factor (callable): function that is called with</span>
+<span class="sd">                func(data, crd_arr), where crd_arr is shaped. This is</span>
+<span class="sd">                useful for including parts of the jacobian, like</span>
+<span class="sd">                sin(theta) dtheta.</span>
+<span class="sd">            initial (float): Initial value</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Field</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="k">import</span> <span class="n">cumtrapz</span> <span class="k">as</span> <span class="n">_sp_cumtrapz</span>
+
+            <span class="k">if</span> <span class="n">axis</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">crds</span><span class="o">.</span><span class="n">axes</span><span class="p">:</span>
+                <span class="n">axis</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">crds</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">axis</span><span class="p">)</span>
+            <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">axis</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">integer</span><span class="p">))</span>
+            <span class="n">crd_arr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_crd</span><span class="p">(</span><span class="n">axis</span><span class="p">,</span> <span class="n">shaped</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">crd_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">crd_arr</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">nr_comp</span><span class="p">)</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">nr_comp</span> <span class="o">&gt;</span> <span class="n">axis</span><span class="p">:</span>
+                    <span class="n">fld_axis</span> <span class="o">=</span> <span class="n">axis</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">fld_axis</span> <span class="o">=</span> <span class="n">axis</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+                <span class="n">fld_axis</span> <span class="o">=</span> <span class="n">axis</span>
+
+            <span class="k">if</span> <span class="n">fudge_factor</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">arr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">arr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">*</span> <span class="n">fudge_factor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">crd_arr</span><span class="p">)</span>
+
+            <span class="n">ret</span> <span class="o">=</span> <span class="n">viscid</span><span class="o">.</span><span class="n">empty_like</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+            <span class="n">ret</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">_sp_cumtrapz</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">crd_arr</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="n">fld_axis</span><span class="p">,</span>
+                                    <span class="n">initial</span><span class="o">=</span><span class="n">initial</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+            <span class="n">viscid</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Scipy is required to perform cumtrapz&quot;</span><span class="p">)</span>
+            <span class="k">raise</span>
+
+        <span class="k">return</span> <span class="n">ret</span>
+
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">real</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span>
@@ -2157,6 +2322,10 @@
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">imag</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">imag</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">angle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">deg</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="c1"># hack: np.angle casts to ndarray... that&#39;s annoying</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">deg</span><span class="o">=</span><span class="n">deg</span><span class="p">))</span>
 
     <span class="k">def</span> <span class="nf">transpose</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">axes</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; same behavior as numpy transpose, alse accessable</span>
@@ -2296,7 +2465,23 @@
 
 <span class="k">class</span> <span class="nc">VectorField</span><span class="p">(</span><span class="n">Field</span><span class="p">):</span>
     <span class="n">_TYPE</span> <span class="o">=</span> <span class="s2">&quot;vector&quot;</span>
-    <span class="n">_COMPONENT_NAMES</span> <span class="o">=</span> <span class="s2">&quot;xyzuvw&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Keyword Arguments:</span>
+<span class="sd">            comp_names (sequence): sequence of component names</span>
+
+<span class="sd">        See Also:</span>
+<span class="sd">            :py:class:`viscid.Field`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="s1">&#39;comp_names&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">comp_names</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;comp_names&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">comp_names</span> <span class="o">=</span> <span class="n">_DEFAULT_COMPONENT_NAMES</span>
+
+        <span class="nb">super</span><span class="p">(</span><span class="n">VectorField</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">comp_names</span> <span class="o">=</span> <span class="n">comp_names</span>
 
     <span class="k">def</span> <span class="nf">component_views</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; return numpy views to components individually, memory layout</span>
@@ -2398,7 +2583,7 @@
     </p>
     <p>
         &copy; Copyright 2018, Kristofor Maynard.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.6.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.<br/>
     </p>
   </div>
 </footer>
