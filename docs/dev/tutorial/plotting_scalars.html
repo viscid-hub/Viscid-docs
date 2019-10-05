@@ -174,11 +174,10 @@
       
   <div class="section" id="plotting-scalar-quantities">
 <h1>Plotting Scalar Quantities<a class="headerlink" href="#plotting-scalar-quantities" title="Permalink to this headline">¶</a></h1>
-<p>The basic idea of Viscid is to convert data files to <code class="xref py py-class docutils literal notranslate"><span class="pre">viscid.field.Field</span></code> objects and pass them to a convenience function for plotting. It is useful to note that Field objects have most of the same functionality as Numpy’s <cite>ndarrays</cite>. That is, you can say:</p>
+<p>The basic idea of Viscid is to convert data files to <code class="xref py py-class docutils literal notranslate"><span class="pre">viscid.field.Field</span></code> objects and pass them to a convenience function for plotting. It is useful to note that Field objects have most of the same functionality as Numpy’s <cite>ndarrays</cite>. That is, you can do simple math with Numpy using:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">field_momentum</span> <span class="o">=</span> <span class="n">field_density</span> <span class="o">*</span> <span class="n">field_velocity</span>
 </pre></div>
 </div>
-<p>to do simple math using Numpy.</p>
 <p>Various shims for plotting fields using matplotlib are provided by <a class="reference internal" href="../api/viscid.plot.vpyplot.html#module-viscid.plot.vpyplot" title="viscid.plot.vpyplot"><code class="xref py py-mod docutils literal notranslate"><span class="pre">viscid.plot.vpyplot</span></code></a>. The functions are listed in <a class="reference internal" href="../functions.html"><span class="doc">Useful Functions</span></a>. For an enumeration of extra plotting keyword arguments, see <a class="reference internal" href="../plot_options.html"><span class="doc">Plot Options</span></a>. Also, you can specify keyword arguments that are conusmed by the matplotlib function used to make the plot, i.e., <cite>pyplot.pcolormesh</cite>, <cite>pyplot.contourf</cite>, etc.</p>
 <div class="section" id="plotting-temperature">
 <h2>Plotting Temperature<a class="headerlink" href="#plotting-temperature" title="Permalink to this headline">¶</a></h2>

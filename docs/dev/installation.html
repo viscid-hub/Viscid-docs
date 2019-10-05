@@ -261,7 +261,7 @@ div.topic {
 </div>
 <div class="section" id="installing-anaconda-optional">
 <h2><a class="toc-backref" href="#id3">Installing Anaconda (optional)</a><a class="headerlink" href="#installing-anaconda-optional" title="Permalink to this headline">¶</a></h2>
-<p>The <a class="reference external" href="https://www.anaconda.com/distribution/">Anaconda Python Distribution</a> makes managing dependencies and virtual environments wicked straight forward (and almost pleasant). You can download the full distribution, but it’s laden with packages you probably don’t need. Also, since <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code> is so easy to use, I recommend the lightweight miniconda:</p>
+<p>The <a class="reference external" href="https://www.anaconda.com/distribution/">Anaconda Python Distribution</a> makes managing dependencies and virtual environments straight forward (and almost pleasant). You can download the full distribution, but it’s laden with packages you probably don’t need. Also, since <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code> is so easy to use, I recommend the lightweight miniconda:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="k">$(</span>uname -s<span class="k">)</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;Linux&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
   wget -O miniconda.sh https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 <span class="k">elif</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="k">$(</span>uname -s<span class="k">)</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;Darwin&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
@@ -302,7 +302,7 @@ conda activate
 <li><strong>+</strong>  No compiler needed</li>
 <li><strong>+</strong>  Available for macOS, Linux, and Windows</li>
 <li><strong>+</strong>  Automatically installs recommended dependencies</li>
-<li><strong>+</strong>  Optional dependencies are equally easy to install</li>
+<li><strong>+</strong>  Optional dependencies are easy to manage using <code class="docutils literal notranslate"><span class="pre">conda</span></code></li>
 <li><strong>-</strong>  You won’t be able to edit Viscid’s source code. You might naively edit the modules in site-packages, but this will confuse the conda package manager beyond repair.</li>
 </ul>
 </li>
@@ -310,14 +310,12 @@ conda activate
 <li><strong>+</strong>  Installs with a single command</li>
 <li><strong>+</strong>  No compiler needed</li>
 <li><strong>+</strong>  Available for macOS, Linux, and Windows</li>
-<li><strong>-</strong>  Dependencies must be explicitly installed</li>
-<li><strong>-</strong>  Requires Numpy 1.14+ on Windows</li>
+<li><strong>~</strong>  Dependencies can be managed using <code class="docutils literal notranslate"><span class="pre">pipenv</span></code> (or plain <code class="docutils literal notranslate"><span class="pre">pip</span></code>)</li>
 </ul>
 </li>
 <li><a class="reference internal" href="#choice3-source"><span class="std std-ref">Source</span></a><ul>
 <li><strong>+</strong>  Most flexible</li>
-<li><strong>-</strong>  Requires some knowledge about PATH and PYTHONPATH (but don’t let this scare you, it’s fairly straight forward)</li>
-<li><strong>-</strong>  Dependencies must be explicitly installed</li>
+<li><strong>~</strong>  Dependencies can be managed using <code class="docutils literal notranslate"><span class="pre">pipenv</span></code> (or plain <code class="docutils literal notranslate"><span class="pre">pip</span></code>)</li>
 <li><strong>-</strong>  Requires a C compiler for interpolation and streamline functions</li>
 <li><strong>-</strong>  Requires a Fortran compiler for jrrle file support</li>
 </ul>
@@ -366,13 +364,13 @@ cp Viscid/resources/viscidrc ~/.viscidrc
 </pre></div>
 </div>
 <p>If you are using Anaconda to manage your dependencies, you can use the default Viscid environment to automatically install all Viscid’s dependencies,</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda env create -f Viscid/resources/viscid36mayavi.yml
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda env create -f Viscid/resources/viscid37mayavi.yml
 
 <span class="c1"># if you need mayavi, but don&#39;t have OpenGL 3.2, you</span>
 <span class="c1"># will have to use python2.7 (Viscid/resources/viscid27.yml)</span>
 
 <span class="c1"># this activation must be done for each new command prompt</span>
-conda activate viscid36mayavi  <span class="c1"># or viscid27, etc.</span>
+conda activate viscid37mayavi  <span class="c1"># or viscid27, etc.</span>
 </pre></div>
 </div>
 <p><a class="reference internal" href="#conda-bashrc-blurb"><span class="std std-ref">Read this</span></a> if you need help editing your bashrc or profile to set the default Anaconda environment.</p>
@@ -381,11 +379,8 @@ conda activate viscid36mayavi  <span class="c1"># or viscid27, etc.</span>
 <div class="section" id="choice-3a-installed">
 <h4><a class="toc-backref" href="#id8">Choice 3a: installed</a><a class="headerlink" href="#choice-3a-installed" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> Viscid
-python setup.py install
-<span class="c1"># the above line is synonymous with `make install`</span>
-
-<span class="c1"># or, if you don&#39;t have write permission, try</span>
-<span class="c1"># python setup.py install --user</span>
+make install
+<span class="c1"># the above is synonymous with `python setup.py install --user`</span>
 </pre></div>
 </div>
 <p>To see if the install succeeded, try</p>
@@ -397,15 +392,15 @@ make instcheck
 </div>
 <p>To pull updates from github in the future, use</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git pull
-python setup.py install
+python setup.py install --user
 </pre></div>
 </div>
 </div>
 <div class="section" id="choice-3b-inplace">
 <h4><a class="toc-backref" href="#id9">Choice 3b: inplace</a><a class="headerlink" href="#choice-3b-inplace" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> Viscid
-python setup.py build_ext -i
-<span class="c1"># the above line is synonymous with `make inplace`</span>
+make inplace
+<span class="c1"># the above line is synonymous with `python setup.py build_ext -i`</span>
 
 <span class="c1"># To set environment variables in Bash</span>
 <span class="nv">profile</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/.bashrc&quot;</span>
